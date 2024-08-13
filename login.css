@@ -8,18 +8,33 @@ body{
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    
+    background-image: url('images/bglogin.png');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-position: center; /* Centers the image */
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/bglogin.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(8px); /* Adjust the blur amount as needed */
+    z-index: -1; /* Ensures it is behind the content */
 }
 .container{
-    background: #c8a68d;
-    width: 300px;
+    background: rgba(145, 145, 145, 0.0);
+    width: 400px;
     padding: 30px;
-    box-shadow: 0 0 10px rgba (0,0,0,0.1);
-    border: solid rgb(72, 48, 43) 1px;
+    border: solid black 1px;
     border-radius: 50px;
     /*             horizontal     vertical         blur%         blur-color   */
-    box-shadow:     10px           10px            25px          #8d8d8d;
+    /* box-shadow:     10px           10px            25px          #8d8d8d; */
 }
 h2{
     text-align: center;
@@ -36,7 +51,7 @@ label{
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 95%;
+    width: 97%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -44,26 +59,30 @@ input[type="password"] {
 }
 
 .log-in-btn{
-    width: 100%;
+    width: 40%;
+    height: 50px;
     padding: 10px;
-    background-color: #8f6456;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: 0.2s;
+    margin-left: 30%;
 }
 
 .reg-btn{
-    width: 100%;
+    width: 40%;
+    height: 50px;
     padding: 10px;
-    background-color: #8f6456;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
     transition: 0.2s;
+    margin-left: 30%;
 }
 .reg-btn a{
     color:white;
@@ -75,7 +94,8 @@ input[type="password"] {
 }
 
 button:hover{
-    background-color: #6f564d;
+    background-color: #ffffff;
+    color: black;
 }
 p{
     text-align: center;
@@ -85,7 +105,7 @@ p{
 }
 
 .login-here a{
-    color: rgb(87, 71, 63);
+    color: rgb(255, 255, 255);
 }
 
 .log-out-btn{
