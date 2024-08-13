@@ -10,6 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     if($conn->query($sql)===TRUE){
         echo "<script>alert('Registration Succesful');</script>";
+        header("Location: login.php");
     } else{
         echo "Error: " .$sql ."<br>". $conn->error;
     }
