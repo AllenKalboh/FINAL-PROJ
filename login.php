@@ -11,12 +11,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($result->num_rows > 0){
         $row=$result->fetch_assoc();
         if(password_verify($password, $row['password'])){
-            header("Location: welcome.php");
+            header("Location: index.html");
         }else{
-            echo "Invalid password!";
+            echo "<script>alert('Password does not match');</script>";
         }
     }else{ 
-        echo "No user found with that username!";
+        echo "<script>alert('No username found in server');</script>";
     }
     $conn->close();
 }
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <div class="container">
         <h2>Login</h2>
-        <form action="index.html" method="post">
+        <form action="" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
