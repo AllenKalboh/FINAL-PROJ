@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <div class="container">
         <h2>Login</h2>
-        <form action="" method="post">
+        <form action="index.html" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </form>
         <p>Don't have an account? </p>
         
-        <button type="submit" class="reg-btn"> <a href="register.php"> Register </a> </button>
+        <a href="register.php"> <button type="submit" class="reg-btn">  Register </button> </a> 
     </div>
 
 
