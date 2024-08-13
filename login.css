@@ -1,0 +1,104 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+.container{
+    background: #c8a68d;
+    width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba (0,0,0,0.1);
+    margin-top: 200px;
+    border: solid rgb(72, 48, 43) 1px;
+    border-radius: 50px;
+    /*             horizontal     vertical         blur%         blur-color   */
+    box-shadow:     10px           10px            25px          #8d8d8d;
+}
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+label{
+    display: block;
+    margin: 10px 0 5px;
+    color: white;
+    font-weight: 700;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.log-in-btn{
+    width: 100%;
+    padding: 10px;
+    background-color: #8f6456;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reg-btn{
+    width: 100%;
+    padding: 10px;
+    background-color: #8f6456;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.reg-btn a{
+    color:white;
+}
+
+
+ a{
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: #6f564d;
+}
+p{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.login-here a{
+    color: rgb(87, 71, 63);
+}
+
+.log-out-btn{
+    width: 100px;
+    height: 40px;
+    margin-left: 100px;
+    background: #6f564d;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+}
+.log-out-btn{
+    background: #8f6456;
+    transition: 0.2s;
+}
+.log-out-btn a{
+   color: white;
+}
+
+#container-welcome{
+margin-top: 320px;
+}
