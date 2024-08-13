@@ -8,7 +8,7 @@ body{
     width: 300px;
     padding: 30px;
     box-shadow: 0 0 10px rgba (0,0,0,0.1);
-    margin-top: 13%;
+    margin-top: 25vh;
     border: solid rgb(72, 48, 43) 1px;
     border-radius: 50px;
     /*             horizontal     vertical         blur%         blur-color   */
