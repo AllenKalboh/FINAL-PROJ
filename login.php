@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="logins.css">
 </head>
 <body>
 
@@ -52,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <div class="container">
         <h2>Login</h2>
         <form action="" method="post">
+            
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
