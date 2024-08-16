@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($result->num_rows > 0){
         $row=$result->fetch_assoc();
         if(password_verify($password, $row['password'])){
-            header("Location: index.html");
+            header("Location: index.php");
         }else{
             echo "<script>alert('Password does not match');</script>";
         }
