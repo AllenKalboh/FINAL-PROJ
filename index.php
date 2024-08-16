@@ -2,6 +2,8 @@
 include ('db.php');
 include ('session.php');
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,10 +59,7 @@ include ('session.php');
 						</a>
 
 						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
-							My Account_
-							<?php
-							echo $_SESSION['username'];
-							?>
+							My Account
 						</a>
 
 						
