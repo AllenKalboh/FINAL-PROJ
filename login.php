@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     if($result->num_rows > 0){
         $row=$result->fetch_assoc();
-        if(password_verify($password, $row['password'])){
+        if(password_verify($password, $row['password_hash'])){
             header("Location: index.php");
         }else{
             echo "<script>alert('Password does not match');</script>";

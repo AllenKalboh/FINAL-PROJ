@@ -7,21 +7,14 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="profiles.css">
-   
 </head>
 <body>
-
-<div class="sidebar">
-    <a href="#"><i class="fas fa-home" style="font-size: 20px;"></i><span>Home</span></a>
-    <a href="#"><i class="fas fa-box" style="font-size: 20px;"></i><span>Orders</span></a>
-    
-    <a href="update-user.php" class="transition-link">
-    <i class="fas fa-sliders-h" style="font-size: 20px;"></i><span>Update account</span>
-    </a>
-
-    <a href="#"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i><span>Logout</span></a>
-</div>
-
+    <div class="sidebar">
+        <a href="#"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
+        <a href="#"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
+        <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
+        <a href="#"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
+    </div>
 
     <div class="content">
         <div class="container">
@@ -33,6 +26,18 @@
                 </div>
             </div>
             <div class="profile-info">
+                <h2>About Me</h2>
+                <p> SINIGANG MIX PAMINTA LUYA </p>
+
+                <h2>About Me</h2>
+                <p> SINIGANG MIX PAMINTA LUYA </p>
+
+                <h2>About Me</h2>
+                <p> SINIGANG MIX PAMINTA LUYA </p>
+
+                <h2>About Me</h2>
+                <p> SINIGANG MIX PAMINTA LUYA </p>
+
                 <h2>About Me</h2>
                 <p> SINIGANG MIX PAMINTA LUYA </p>
             </div>
