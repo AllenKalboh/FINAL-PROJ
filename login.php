@@ -65,7 +65,5 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <a href="register.php"> <button type="submit" class="reg-btn">  Register </button> </a> 
     </div>
 
-echo
-
 </body>
 </html>
