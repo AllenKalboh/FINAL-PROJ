@@ -12,7 +12,7 @@
     <div class="container" id="container-welcome">
         <h2> Welcome </h2>
         <p> You have successfully logged in! </p>
-        <button class="log-out-btn"> <a href="index.html"> Logout </a> </button>
+        <button class="log-out-btn"> <a href="index.php"> Logout </a> </button>
     </div>
 
 </body>
