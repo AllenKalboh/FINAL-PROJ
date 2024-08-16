@@ -1,6 +1,8 @@
 <?php
 include('db.php');
 
+include ('session.php');
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username = $_POST['username'];
     $email = $_POST['email'];
