@@ -1,6 +1,6 @@
 <?php
 include('db.php');
-
+include ('session.php');
 // Database configuration
 $host = 'localhost'; // Change if your database host is different
 $dbname = 'skincare';
