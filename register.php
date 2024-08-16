@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $phone_number = $_POST['phoneNumber'];
 
     //                                                     database columns
-    $sql = "INSERT INTO users('', username, password_hash, email, first_name, last_name, address, phone_number ) VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
+    $sql = "INSERT INTO users(username, password_hash, email, first_name, last_name, address, phone_number ) VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
 
     if($conn->query($sql)===TRUE){
         echo "<script>alert('Registration Succesful');</script>";
