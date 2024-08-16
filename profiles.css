@@ -1,0 +1,44 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+.navbar, .sidebar {
+    background-color: #afafaf;
+}
+.navbar {
+    margin-bottom: 20px;
+}
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 56px; /* Adjust based on navbar height */
+    width: 250px;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+.sidebar a {
+    color: #000000;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background-color: #292828;
+    transition: 0.2s;
+    color: #fff;
+}
+.content {
+    padding: 20px;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+.profile-header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.profile-header .ml-2 {
+    margin-left: 10px;
+}
