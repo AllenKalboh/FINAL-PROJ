@@ -29,7 +29,7 @@ body::before {
 }
 .container{
     background: rgba(0, 0, 0, 0.450);
-    width: 33%;
+    width: 25%;
     padding: 60px;
     /*             horizontal     vertical         blur%         blur-color   */
     /* box-shadow:     10px           10px            25px          #8d8d8d; */
@@ -58,7 +58,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
-    background: rgba(100, 100, 97, 0.350);
+    background: rgba(164, 164, 156, 0.35);
     width: 97%;
     padding: 13px;
     margin-bottom: 10px;
@@ -119,21 +119,17 @@ p{
 .login-here a{
     color: rgb(255, 255, 255);
 }
-
-.log-out-btn{
-    width: 100px;
-    height: 40px;
-    margin-left: 100px;
-    background: #6f564d;
-    cursor: pointer;
-    border-radius: 20px;
+.edit-btn{
+    width: 40%;
+    height: 45px;
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
     border: none;
-    font-weight: 700;
-}
-.log-out-btn{
-    background: #8f6456;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
     transition: 0.2s;
-}
-.log-out-btn a{
-   color: white;
+    margin-left: 32%;
+    margin-top: 22px;
 }

@@ -1,0 +1,101 @@
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: 0.5s ease-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px; /* Thin width by default */
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px 10px;
+    box-sizing: border-box; /* Include padding and border in width */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.sidebar:hover {
+    width: 220px; /* Expanded width on hover */
+}
+
+.sidebar a {
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px; /* Added right padding for spacing */
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+}
+
+.sidebar a i {
+    font-size: 20px; /* Consistent icon size */
+    margin-right: 15px; /* Ensure consistent spacing */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.sidebar a span {
+    display: none; /* Hide text by default */
+    font-size: 16px; /* Consistent font size */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.sidebar:hover a span {
+    display: inline; /* Show text on hover */
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0; /* Background color change on hover */
+}
+
+.content {
+    margin-left: 80px; /* Adjust margin to fit the expanded sidebar */
+    padding: 10px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ddd;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-header p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.profile-info h2 {
+    margin-top: 0;
+}
+
+.profile-info p {
+    line-height: 1.6;
+}
