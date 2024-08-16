@@ -1,25 +1,6 @@
 <?php
 include('db.php');
-
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql="SELECT*FROM users WHERE username='$username'";
-    $result=$conn->query($sql);
-
-    if($result->num_rows > 0){
-        $row=$result->fetch_assoc();
-        if(password_verify($password, $row['password_hash'])){
-            header("Location: index.php");
-        }else{
-            echo "<script>alert('Password does not match');</script>";
-        }
-    }else{ 
-        echo "<script>alert('No username found in server');</script>";
-    }
-    $conn->close();
-}
+include('session.php');
 ?>
 
 <!DOCTYPE html>

@@ -2,6 +2,7 @@
 include ('db.php');
 include ('session.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +18,7 @@ include ('session.php');
         <a href="#"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
         <a href="#"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
         <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
-        <?php
-        session_destroy();
-        ?><a href="index.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
     </div>
 
     <div class="content">
@@ -33,19 +32,39 @@ include ('session.php');
             </div>
             <div class="profile-info">
                 <h2>About Me</h2>
-                <p> SINIGANG MIX PAMINTA LUYA </p>
+                <p>
+                    <?php
+                        echo htmlspecialchars($_SESSION['username']);
+                    ?>
+                </p>
 
-                <h2>About Me</h2>
-                <p> SINIGANG MIX PAMINTA LUYA </p>
+                <h2>First Name</h2>
+                <p>
+                    <?php
+                        echo htmlspecialchars($_SESSION['first_name']);
+                    ?>
+                </p>
 
-                <h2>About Me</h2>
-                <p> SINIGANG MIX PAMINTA LUYA </p>
+                <h2>Last Name</h2>
+                <p>
+                    <?php
+                        echo htmlspecialchars($_SESSION['last_name']);
+                    ?>
+                </p>
 
-                <h2>About Me</h2>
-                <p> SINIGANG MIX PAMINTA LUYA </p>
+                <h2>Address</h2>
+                <p>
+                    <?php
+                        echo htmlspecialchars($_SESSION['address']);
+                    ?>
+                </p>
 
-                <h2>About Me</h2>
-                <p> SINIGANG MIX PAMINTA LUYA </p>
+                <h2>Email</h2>
+                <p>
+                    <?php
+                        echo htmlspecialchars($_SESSION['email']);
+                    ?>
+                </p>
             </div>
         </div>
     </div>
