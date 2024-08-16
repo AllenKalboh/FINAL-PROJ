@@ -17,7 +17,9 @@ include ('session.php');
         <a href="#"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
         <a href="#"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
         <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
-        <a href="#"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
+        <?php
+        session_destroy();
+        ?><a href="index.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
     </div>
 
     <div class="content">
