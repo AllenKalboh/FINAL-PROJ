@@ -11,7 +11,7 @@ include ('session.php');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/g&k.png"/>
+	<link rel="icon" type="image/png" href="images/inverted.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -73,8 +73,8 @@ include ('session.php');
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="images/icons/g&k.png" alt="IMG-LOGO">
+					<a href="index.php" class="logo">
+						<img src="images/logoshet.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
