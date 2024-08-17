@@ -337,7 +337,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="item-slick1" style="background-image: url(images/mainpagebg2.jpg);">
+				<div class="item-slick1" style="background-image: url(images/menh.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
@@ -361,7 +361,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="item-slick1" style="background-image: url(images/forest.png);">
+				<div class="item-slick1" style="background-image: url(images/homebg.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
@@ -450,7 +450,7 @@ include ('session.php');
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block3 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/normal.jpg" alt="IMG-BANNER">
+						<img src="images/normals.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
@@ -475,7 +475,7 @@ include ('session.php');
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block4 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/combination.jpg" alt="IMG-BANNER">
+						<img src="images/combinations.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
@@ -500,7 +500,7 @@ include ('session.php');
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block5 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/sensitive.png" alt="IMG-BANNER">
+						<img src="images/sensitivess.png" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
