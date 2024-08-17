@@ -51,7 +51,7 @@ include ('session.php');
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="index.php" class="logo">
 						<img src="images/logoshet.png" alt="IMG-LOGO">
 					</a>
 
