@@ -1,9 +1,8 @@
 <?php
 include('db.php');
+include('session.php');
 
-include ('session.php');
-
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $first_name = $_POST['first-name'];
@@ -12,17 +11,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $address = $_POST['address'];
     $phone_number = $_POST['phoneNumber'];
 
-    //                                                     database columns
-    $sql = "INSERT INTO users(username, password_hash, email, first_name, last_name, address, phone_number ) VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
+    // Ensure you have a valid $username or another identifier for the update
+    $sql = "UPDATE users SET email='$email', first_name='$first_name', last_name='$last_name', 
+            password='$password', address='$address', phone_number='$phone_number' 
+            WHERE username='$username'";
 
-    if($conn->query($sql)===TRUE){
-        echo "<script>alert('Registration Succesful');</script>";
-    } else{
-        echo "Error: " .$sql ."<br>". $conn->error;
+    if($conn->query($sql) === TRUE){
+        echo "<script>alert('Update Successful');</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <body>
     <div class="container">
-        <h2>Register</h2>
+        <h2>Modify Account</h2>
         <form method="post" action="update.php">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -57,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <button type="submit" class="edit-btn">Edit</button>
             
         </form>
-        <a href = "register.php"> <button type="submit" class="edit-btn">Go Back</button> </a>
+        <a href = "profilepage.php"> <button type="submit" class="edit-btn">Go Back</button> </a>
     </div>
 </body>
 </html>

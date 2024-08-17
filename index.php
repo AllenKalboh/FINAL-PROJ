@@ -89,10 +89,6 @@ include ('session.php');
 								<a href="product.php">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.php">Features</a>
-							</li>
-
 							<li>
 								<a href="about.php">About</a>
 							</li>
@@ -111,11 +107,13 @@ include ('session.php');
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+						<a href="shoping-cart.php">
 							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 					</div>
@@ -195,10 +193,6 @@ include ('session.php');
 
 				<li>
 					<a href="product.php">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.php" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>
@@ -818,9 +812,7 @@ include ('session.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/serum1.png" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
+							
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -854,9 +846,6 @@ include ('session.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Moistu.png" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -889,9 +878,7 @@ include ('session.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/sunscreen.png" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
+							
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -923,9 +910,7 @@ include ('session.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/toner1.png" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
+							
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
