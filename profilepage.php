@@ -1,6 +1,26 @@
 <?php
 include ('db.php');
 include ('session.php');
+
+
+if(isset($_SESSION['username'])){
+
+    $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = 'alli'";
+    $result = $conn->query($sql);
+    
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $GLOBALS['first_name'] = $row['first_name'];
+    $GLOBALS['last_name'] = $row['last_name'];
+    $GLOBALS['address'] = $row['address'];
+    $GLOBALS['email'] = $row['email'];
+  }
+}
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,34 +61,35 @@ include ('session.php');
                 <h2>First Name</h2>
                 <p>
                     <?php
-                        echo htmlspecialchars($_SESSION['first_name']);
+                        echo $GLOBALS['first_name'];
                     ?>
                 </p>
 
                 <h2>Last Name</h2>
                 <p>
                     <?php
-                        echo htmlspecialchars($_SESSION['last_name']);
+                           echo $GLOBALS['last_name'];
                     ?>
                 </p>
 
                 <h2>Address</h2>
                 <p>
                     <?php
-                        echo htmlspecialchars($_SESSION['address']);
+                        echo $GLOBALS['address'];
                     ?>
                 </p>
 
                 <h2>Email</h2>
                 <p>
                     <?php
-                        echo htmlspecialchars($_SESSION['email']);
+                        echo $GLOBALS['email'];
                     ?>
                 </p>
+
+                
             </div>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

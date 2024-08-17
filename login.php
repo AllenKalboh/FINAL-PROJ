@@ -19,15 +19,6 @@ include('session.php');
 <!-- IN PROGRESS PA YUNG PAG CLINICK YUNG "MY ACCOUNT" Button mag popop up lang sa gitna yung login form-->
 
 
-
-
-
-
-
-
-
-
-
 <i class="fa-light fa-house"></i>
 
 <div class="container">
@@ -37,8 +28,8 @@ include('session.php');
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
             
             <button type="submit" class="log-in-btn">Login</button>
         </form>
