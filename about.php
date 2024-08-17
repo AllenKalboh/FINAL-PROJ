@@ -81,12 +81,6 @@
 								<a href="product.php">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.php">Features</a>
-							</li>
-
-							
-
 							<li class="active-menu">
 								<a href="about.php">About</a>
 							</li>
@@ -103,11 +97,13 @@
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11js-show-cart">
+						<a href="shoping-cart.php">
 							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 					</div>
@@ -128,11 +124,11 @@
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10">
 					<i class="zmdi zmdi-favorite-outline"></i>
 				</a>
 			</div>
@@ -186,10 +182,6 @@
 
 				<li>
 					<a href="product.php">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.php" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>
