@@ -40,6 +40,25 @@ include ('session.php');
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Free shipping for standard order over $9,000
+					</div>
+
+					<div class="right-top-bar flex-w h-full">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							Help & FAQs
+						</a>
+
+						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
+
+						
+					</div>
+				</div>
+			</div>
 			
 
 			<div class="wrap-menu-desktop how-shadow1">

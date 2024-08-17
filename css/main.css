@@ -324,7 +324,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   display: flex;
   align-items: center;
   height: 65%;
-  margin-right: 15px;
+  margin-right: 55px;
 }
 
 .logo img {
@@ -440,7 +440,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*---------------------------------------------*/
 .main-menu > li:hover > a {
   text-decoration: none;
-  color: #6c7ae0;
+  color: #dfaf12;
 }
 
 .main-menu > li:hover > .sub-menu {
@@ -483,7 +483,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .icon-header-item {
   position: relative;
-  font-size: 26px;
+  font-size: 35px;
   line-height: 1;
   cursor: pointer;
 }
@@ -638,7 +638,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 /*---------------------------------------------*/
 .main-menu > li.active-menu > a {
-  color: #6c7ae0;
+  color: #746b6b;
 }
 
 
