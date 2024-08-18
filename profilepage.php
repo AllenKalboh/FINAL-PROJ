@@ -9,15 +9,15 @@ if(isset($_SESSION['username'])){
     $result = $conn->query($sql);
     
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $GLOBALS['first_name'] = $row['first_name'];
-    $GLOBALS['last_name'] = $row['last_name'];
-    $GLOBALS['address'] = $row['address'];
-    $GLOBALS['email'] = $row['email'];
-  }
-}
+    if ($result->num_rows > 0) {
+    // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $GLOBALS['first_name'] = $row['first_name'];
+            $GLOBALS['last_name'] = $row['last_name'];
+            $GLOBALS['address'] = $row['address'];
+            $GLOBALS['email'] = $row['email'];
+        }
+    }
 }
 
 
@@ -46,8 +46,21 @@ if ($result->num_rows > 0) {
             <div class="profile-header">
                 <img src="https://via.placeholder.com/100" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1>Patrick Allen Skrrrr </h1>
+                    <h1>
+                        <?php
+                            if (isset($_SESSION['$username'])) {
+                                $email = $_SESSION['email'];
+                                $username = $_SESSION['username'];
+                                echo htmlspecialchars($_SESSION['username']);
+                                
+                            } else {
+                                echo "Guest";
+                            }
+                        ?> 
+                    </h1>
+
                     <p>User</p>
+                    
                 </div>
             </div>
             <div class="profile-info">
@@ -68,7 +81,7 @@ if ($result->num_rows > 0) {
                 <h2>Last Name</h2>
                 <p>
                     <?php
-                           echo $GLOBALS['last_name'];
+                        echo $GLOBALS['last_name'];
                     ?>
                 </p>
 
