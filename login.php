@@ -37,6 +37,8 @@ include('session.php');
         <p>Don't have an account?? </p>
         
         <a href="register.php"> <button type="submit" class="reg-btn">  Register </button> </a> 
+        <br>
+        <a href="forgor\forgot-password.php">Forgot Password??</a>
     </div>
 
 </body>
