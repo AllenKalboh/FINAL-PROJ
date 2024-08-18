@@ -9,15 +9,15 @@ if(isset($_SESSION['username'])){
     $result = $conn->query($sql);
     
 
-    if ($result->num_rows > 0) {
-    // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $GLOBALS['first_name'] = $row['first_name'];
-            $GLOBALS['last_name'] = $row['last_name'];
-            $GLOBALS['address'] = $row['address'];
-            $GLOBALS['email'] = $row['email'];
-        }
-    }
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $GLOBALS['first_name'] = $row['first_name'];
+    $GLOBALS['last_name'] = $row['last_name'];
+    $GLOBALS['address'] = $row['address'];
+    $GLOBALS['email'] = $row['email'];
+  }
+}
 }
 
 
@@ -36,8 +36,9 @@ if(isset($_SESSION['username'])){
 <body>
     <div class="sidebar">
         <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
-        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
-        <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
+        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Dashboard</span></a>
+        <a href="add_product.php"><i class="fas fa-plus" style="font-size: 24px;"></i><span>Add Products</span></a>
+
         <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
     </div>
 
@@ -46,21 +47,8 @@ if(isset($_SESSION['username'])){
             <div class="profile-header">
                 <img src="https://via.placeholder.com/100" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1>
-                        <?php
-                            if (isset($_SESSION['$username'])) {
-                                $email = $_SESSION['email'];
-                                $username = $_SESSION['username'];
-                                echo htmlspecialchars($_SESSION['username']);
-                                
-                            } else {
-                                echo "Guest";
-                            }
-                        ?> 
-                    </h1>
-
-                    <p>User</p>
-                    
+                    <h1>SAIRON </h1>
+                    <p>Admin</p>
                 </div>
             </div>
             <div class="profile-info">
@@ -81,7 +69,7 @@ if(isset($_SESSION['username'])){
                 <h2>Last Name</h2>
                 <p>
                     <?php
-                        echo $GLOBALS['last_name'];
+                           echo $GLOBALS['last_name'];
                     ?>
                 </p>
 
