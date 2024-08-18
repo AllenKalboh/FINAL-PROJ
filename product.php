@@ -132,11 +132,11 @@ include ('session.php');
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart" >
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10" >
 					<i class="zmdi zmdi-favorite-outline"></i>
 				</a>
 			</div>
@@ -315,6 +315,9 @@ include ('session.php');
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+
+					<!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
+					 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
 						All Products
 					</button>
@@ -554,14 +557,17 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/toner1.png" alt="IMG-PRODUCT">
+
+							<a href="product-detail.php" target="_blank">
+								<img src="images/Centellar.png" alt="IMG-PRODUCT">
+							</a>
 
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Toner
+								<a href="product-detail.php?id=1" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Centella
 								</a>
 
 								<span class="stext-105 cl3">
@@ -578,7 +584,10 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/toner1.png" alt="IMG-PRODUCT">
+						<a href="product-detail.php" target="_blank">
+								<img src="images/toner1.png" alt="IMG-PRODUCT">
+							</a>
+						
 
 						
 						</div>

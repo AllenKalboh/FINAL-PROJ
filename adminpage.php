@@ -36,8 +36,9 @@ if ($result->num_rows > 0) {
 <body>
     <div class="sidebar">
         <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
-        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
-        <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
+        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Dashboard</span></a>
+        <a href="add_product.php"><i class="fas fa-plus" style="font-size: 24px;"></i><span>Add Products</span></a>
+
         <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
     </div>
 
@@ -46,8 +47,8 @@ if ($result->num_rows > 0) {
             <div class="profile-header">
                 <img src="https://via.placeholder.com/100" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1>Patrick Allen Skrrrr </h1>
-                    <p>User</p>
+                    <h1>SAIRON </h1>
+                    <p>Admin</p>
                 </div>
             </div>
             <div class="profile-info">
