@@ -2,14 +2,13 @@
 include('db.php');
 include('session.php');
 
-<<<<<<< Updated upstream
-
-if(isset($_SESSION['username'])){
+/*
+if (isset($_SESSION['username'])) {
 
     $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = '?'";
     $result = $conn->query($sql);
     
-=======
+*/
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = ?";
@@ -17,7 +16,6 @@ if (isset($_SESSION['username'])) {
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
->>>>>>> Stashed changes
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
