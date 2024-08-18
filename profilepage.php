@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
     <div class="content">
         <div class="container">
             <div class="profile-header">
-                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                <img src="images\icons\user-icon-with-question-mark-vector-20383364-removebg-preview.png" alt="Profile Picture">
                 <div class="ml-3">
                     <h1 style="font-weight: bolder;">
                         <?php

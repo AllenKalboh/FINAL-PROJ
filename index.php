@@ -58,11 +58,22 @@ include ('session.php');
 							Help & FAQs
 						</a>
 
+						<?php
+							if (isset($_SESSION['username'])) {
+							
+						?>
 						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
-
-						
+						<?php
+						} else {
+						?>
+						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
