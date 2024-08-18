@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2024 at 12:35 PM
+-- Generation Time: Aug 18, 2024 at 01:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,89 +37,49 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `categories` (
-  `category_id` int(11) NOT NULL,
-  `category_name` varchar(50) NOT NULL,
-  `description` text DEFAULT NULL
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `category_name` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category_name`) VALUES
+(1, 'Moisturizer'),
+(2, 'Toner'),
+(3, 'Serum'),
+(4, 'Sunscreen'),
+(5, 'Cleanser');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Table structure for table `produx`
 --
 
-CREATE TABLE `orders` (
-  `order_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` enum('pending','shipped','delivered','canceled') DEFAULT 'pending',
-  `total_amount` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_items`
---
-
-CREATE TABLE `order_items` (
-  `order_item_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `products`
---
-
-CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
+CREATE TABLE `produx` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(55) NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `stock_quantity` int(11) NOT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `description` text NOT NULL,
+  `img_01` mediumblob NOT NULL,
+  `img_02` mediumblob NOT NULL,
+  `img_03` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `reviews`
+-- Dumping data for table `produx`
 --
 
-CREATE TABLE `reviews` (
-  `review_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `rating` tinyint(4) NOT NULL CHECK (`rating` between 1 and 5),
-  `comment` text DEFAULT NULL,
-  `review_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `shipping`
---
-
-CREATE TABLE `shipping` (
-  `shipping_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `shipping_address` text NOT NULL,
-  `shipping_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `delivery_date` timestamp NULL DEFAULT NULL,
-  `tracking_number` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `produx` (`id`, `product_name`, `price`, `description`, `img_01`, `img_02`, `img_03`) VALUES
+(8, 'Centella Airfit Sunscreen', 499.00, '-Lightweight with Matte Finish\r\n-Minimized Whitecasts & Natural Skin Tone Correction', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f43656e74656c6c61722e706e67, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f43656e74656c6c61322e706e67, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f43656e74656c6c61332e706e67),
+(9, 'Centella Ampoule Foam', 300.00, 'Ampolh', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333830373333343538302e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333830373234333330352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333830373237383237352e6a7067),
+(10, 'Gentle Calming Pad', 400.00, 'Gentol', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313337323032392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313835313130352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313837383139302e6a7067);
 
 -- --------------------------------------------------------
 
@@ -137,17 +97,17 @@ CREATE TABLE `users` (
   `address` text DEFAULT NULL,
   `phone_number` varchar(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `role` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`) VALUES
-(1, 'asd', '$2y$10$eb1SKhgNgK5v7UshZf/.H.nYQ5LqEgWFYDHIc/HTprHmRuCllG9ui', 'asd@gmail.com', 'patrick', 'allen', 'san marino', '09949079858', '2024-08-16 09:11:19', '2024-08-16 09:11:19'),
-(2, 'allenkalbs', '$2y$10$OnreHFg.Xan9zED5IDaOIOxpRRahz8dLPbNNdNh8BH/MDHSzv9aRO', 'allen@gmail.com', 'allen', 'kalbo', 'san marino', '123123123', '2024-08-16 09:11:48', '2024-08-16 09:11:48'),
-(3, 'franz', '$2y$10$psFcWYTO8CLPN2Bhba.NYesFXk.agrifbq03vS5pONdW4uk2HXz9a', 'franz@gmail.com', 'franz', 'russel', 'san marino', '0909', '2024-08-16 09:12:23', '2024-08-16 09:12:23');
+INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`, `role`) VALUES
+(4, 'alli', '$2y$10$jCKCnKHNhFb1hFGLpzHE9OQ3pkp6Zvo6sLYIDOJWWeMKkSB/A0xqC', 'ali@gmail.com', 'ali', 'alen', 'san marino', '5222', '2024-08-16 10:56:31', '2024-08-18 00:20:23', ''),
+(6, 'admin', '$2y$10$bBqT3zbHQCqfTzFwiN/U5u2gX34ffSKpVMXbqYwc5TZ42G8xVXqOi', 'admin@gmail.com', 'Admin', 'Omsim', 'cvsu', '911', '2024-08-18 11:17:16', '2024-08-18 11:18:24', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -162,48 +122,16 @@ ALTER TABLE `cart`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `categories`
+-- Indexes for table `category`
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`),
-  ADD UNIQUE KEY `category_name` (`category_name`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `produx`
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`order_item_id`),
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`),
-  ADD KEY `category_id` (`category_id`);
-
---
--- Indexes for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`review_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `shipping`
---
-ALTER TABLE `shipping`
-  ADD PRIMARY KEY (`shipping_id`),
-  ADD KEY `order_id` (`order_id`);
+ALTER TABLE `produx`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -224,46 +152,22 @@ ALTER TABLE `cart`
   MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `produx`
 --
-ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `order_items`
---
-ALTER TABLE `order_items`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `reviews`
---
-ALTER TABLE `reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `shipping`
---
-ALTER TABLE `shipping`
-  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `produx`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -275,39 +179,6 @@ ALTER TABLE `users`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
-
---
--- Constraints for table `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `shipping` (`order_id`);
-
---
--- Constraints for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
-
---
--- Constraints for table `shipping`
---
-ALTER TABLE `shipping`
-  ADD CONSTRAINT `shipping_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
