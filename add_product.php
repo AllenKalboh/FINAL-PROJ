@@ -56,7 +56,7 @@ if (isset($_POST['add_product'])) {
         );
 
         if ($stmt->execute()) {
-            echo "New product added successfully!";
+            echo "<script>alert('Added Succesfully')</script>";
         } else {
             echo "Error: " . $stmt->error;
         }
