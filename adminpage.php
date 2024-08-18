@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
 <body>
     <div class="sidebar">
         <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
-        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Dashboard</span></a>
+        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
         <a href="add_product.php"><i class="fas fa-plus" style="font-size: 24px;"></i><span>Add Products</span></a>
 
         <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
