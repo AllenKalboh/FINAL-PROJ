@@ -1,0 +1,4 @@
+;/*FB_PKG_DELIM*/
+
+__d("MAWFTSMergeCutoverSearchResults",["fbt","I64"],(function(a,b,c,d,e,f,g,h){"use strict";var i;function a(a,b){var c;b=(i||(i=d("I64"))).add((c=a.matchCount)!=null?c:(i||(i=d("I64"))).of_string("1"),(c=b.matchCount)!=null?c:(i||(i=d("I64"))).of_string("1"));return babelHelpers["extends"]({},a,{contextLine:h._("__JHASH__MOcENwPdyTO__JHASH__",[h._plural(i.to_int32(b),"number")]).toString(),matchCount:b,matchLengths:void 0,matchOffsets:void 0,messageId:void 0,messageTimestampMs:void 0})}g.mergeCutoverSearchResults=a}),226);
+__d("MWEBHasSeenAutoRestoreNoticeContextProvider.react",["MWEBHasSeenAutoRestoreNoticeContext","react"],(function(a,b,c,d,e,f,g){"use strict";var h,i=h||(h=d("react")),j=h.useMemo;function a(a){var b=a.children,d=a.hasSeenNotice;a=j(function(){return{hasSeenNotice:d}},[d]);return i.jsx(c("MWEBHasSeenAutoRestoreNoticeContext").Provider,{value:a,children:b})}a.displayName=a.name+" [from "+f.id+"]";g["default"]=a}),98);

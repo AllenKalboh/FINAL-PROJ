@@ -31,15 +31,14 @@ if ($result->num_rows > 0) {
     <title>Skincare Profile Page</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="profiles.css">
+    <link rel="stylesheet" href="admin_page.css">
 </head>
 <body>
     <div class="sidebar">
-        <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
-        <a href="shoping-cart.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
-        <a href="add_product.php"><i class="fas fa-plus" style="font-size: 24px;"></i><span>Add Products</span></a>
-
-        <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
+        <a href="dashboard.php"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="product_list.php"><i class="fas fa-box"></i><span>Products List</span></a>
+        <a href="add_product.php"><i class="fas fa-plus"></i><span>Add Products</span></a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
     </div>
 
     <div class="content">
@@ -47,47 +46,33 @@ if ($result->num_rows > 0) {
             <div class="profile-header">
                 <img src="https://via.placeholder.com/100" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1>SAIRON </h1>
+                    <h1>SAIRON</h1>
                     <p>Admin</p>
                 </div>
             </div>
-            <div class="profile-info">
-                <h2>About Me</h2>
-                <p>
-                    <?php
-                        echo htmlspecialchars($_SESSION['username']);
-                    ?>
-                </p>
+            <div class="main-content">
+                <div class="card">
+                    <h3>Overview</h3>
+                    <div class="stats">
+                        <div>
+                            <h4>124</h4>
+                            <p>Users</p>
+                        </div>
+                        <div>
+                            <h4>67</h4>
+                            <p>Posts</p>
+                        </div>
+                        <div>
+                            <h4>12</h4>
+                            <p>Comments</p>
+                        </div>
+                    </div>
+                </div>
 
-                <h2>First Name</h2>
-                <p>
-                    <?php
-                        echo $GLOBALS['first_name'];
-                    ?>
-                </p>
-
-                <h2>Last Name</h2>
-                <p>
-                    <?php
-                           echo $GLOBALS['last_name'];
-                    ?>
-                </p>
-
-                <h2>Address</h2>
-                <p>
-                    <?php
-                        echo $GLOBALS['address'];
-                    ?>
-                </p>
-
-                <h2>Email</h2>
-                <p>
-                    <?php
-                        echo $GLOBALS['email'];
-                    ?>
-                </p>
-
-                
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis eros. Nullam vehicula, risus et dictum volutpat, leo velit facilisis turpis, vel ullamcorper leo arcu vel eros.</p>
+                </div>
             </div>
         </div>
     </div>
