@@ -76,8 +76,11 @@ include ('session.php');
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+					<a href="index.php" class="logo">
+						<img src="images/icons/logpic.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/logtxt.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -356,11 +359,11 @@ include ('session.php');
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 							<div class="slick3 gallery-lb">
-								<div class="item-slick3" data-thumb="images/Centellar.png">
+								<div class="item-slick3" data-thumb="Centella\airfit sunscreen\af2.jpg">
 									<div class="wrap-pic-w pos-relative">
-										<img src="images/Centellar.png" alt="IMG-PRODUCT">
+										<img src="Centella\airfit sunscreen\af2.jpg" alt="IMG-PRODUCT">
 
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/Centellar.png">
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="Centella\airfit sunscreen\af2.jpg">
 											<i class="fa fa-expand"></i>
 										</a>
 									</div>

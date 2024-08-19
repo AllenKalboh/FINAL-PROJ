@@ -37,6 +37,7 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="product.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -68,7 +69,10 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/logoshet.png" alt="IMG-LOGO">
+						<img src="images/icons/logpic.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/logtxt.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -559,7 +563,7 @@ include ('session.php');
 						<div class="block2-pic hov-img0">
 
 							<a href="product-detail.php" target="_blank">
-								<img src="images/Centellar.png" alt="IMG-PRODUCT">
+								<img src="Centella\airfit sunscreen\af1.jpg" alt="IMG-PRODUCT">
 							</a>
 
 						</div>
