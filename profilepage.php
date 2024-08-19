@@ -1,25 +1,31 @@
 <?php
-include ('db.php');
-include ('session.php');
+include('db.php');
+include('session.php');
 
-
-if(isset($_SESSION['username'])){
+/*
+if (isset($_SESSION['username'])) {
 
     $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = '?'";
     $result = $conn->query($sql);
     
+*/
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-    // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $GLOBALS['first_name'] = $row['first_name'];
-            $GLOBALS['last_name'] = $row['last_name'];
-            $GLOBALS['address'] = $row['address'];
-            $GLOBALS['email'] = $row['email'];
-        }
+        $row = $result->fetch_assoc();
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['address'] = $row['address'];
+        $_SESSION['email'] = $row['email'];
     }
+    $stmt->close();
 }
-
 
 ?>
 
@@ -44,18 +50,15 @@ if(isset($_SESSION['username'])){
     <div class="content">
         <div class="container">
             <div class="profile-header">
-                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                <img src="images\icons\user-icon-with-question-mark-vector-20383364-removebg-preview.png" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1>
+                    <h1 style="font-weight: bolder;">
                         <?php
-                            if (isset($_SESSION['$username'])) {
-                                $email = $_SESSION['email'];
-                                $username = $_SESSION['username'];
-                                echo htmlspecialchars($_SESSION['username']);
-                                
-                            } else {
-                                echo "Guest";
-                            }
+                        if (isset($_SESSION['username'])) {
+                            echo htmlspecialchars($_SESSION['username']);
+                        } else {
+                            echo "Guest";
+                        }
                         ?> 
                     </h1>
 
@@ -64,42 +67,40 @@ if(isset($_SESSION['username'])){
                 </div>
             </div>
             <div class="profile-info">
-                <h2>About Me</h2>
-                <p>
+                <h5>About Me</h5>
+                <h4>
                     <?php
-                        echo htmlspecialchars($_SESSION['username']);
+                    echo htmlspecialchars($_SESSION['username']);
                     ?>
-                </p>
+                </h4>
 
-                <h2>First Name</h2>
-                <p>
+                <h5>First Name</h5>
+                <h4>
                     <?php
-                        echo $GLOBALS['first_name'];
+                    echo htmlspecialchars($_SESSION['first_name']);
                     ?>
-                </p>
+                </h4>
 
-                <h2>Last Name</h2>
-                <p>
+                <h5>Last Name</h5>
+                <h4>
                     <?php
-                        echo $GLOBALS['last_name'];
+                    echo htmlspecialchars($_SESSION['last_name']);
                     ?>
-                </p>
+                </h4>
 
-                <h2>Address</h2>
-                <p>
+                <h5>Address</h5>
+                <h4>
                     <?php
-                        echo $GLOBALS['address'];
+                    echo htmlspecialchars($_SESSION['address']);
                     ?>
-                </p>
+                </h4>
 
-                <h2>Email</h2>
-                <p>
+                <h5>Email</h5>
+                <h4>
                     <?php
-                        echo $GLOBALS['email'];
+                    echo htmlspecialchars($_SESSION['email']);
                     ?>
-                </p>
-
-                
+                </h4>
             </div>
         </div>
     </div>
@@ -107,4 +108,13 @@ if(isset($_SESSION['username'])){
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+<style>
+    h5{
+        font-weight: bolder;
+    }
+    h4{
+        font-weight: lighter;
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
 </html>
