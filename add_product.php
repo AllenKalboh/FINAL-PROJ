@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // your database username
 $password = ""; // your database password
-$dbname = "skincare";
+$dbname = "skincare_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,7 +40,7 @@ if (isset($_POST['add_product'])) {
     }
 
     // Prepare SQL query
-    $sql = "INSERT INTO produx (product_name, price, description, img_01, img_02, img_03) 
+    $sql = "INSERT INTO products (product_name, price, description, img_01, img_02, img_03) 
             VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
@@ -79,9 +79,13 @@ $conn->close();
    <title>ADD Products</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="admin_style.css">
+   <link rel="stylesheet" href="add_products.css">
 </head>
 <body>
+
+<a href="adminpage.php" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
 <section class="add-products">
    <h1 class="heading">Add Product</h1>

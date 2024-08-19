@@ -1,0 +1,3 @@
+;/*FB_PKG_DELIM*/
+
+__d("LSPakeMessagesDeleteThenInsertRow",[],(function(a,b,c,d,e,f){function a(){var a=arguments,b=a[a.length-1],c=[];return b.sequence([function(c){return b.sequence([function(a){return b.forEach(b.db.table(258).fetch(),function(a){return a["delete"]()})},function(c){return b.db.table(258).add({sessionId:a[0],responderId:a[1],initiatorId:a[2],messageType:a[5],messagePayload:a[3],pakeSecret:a[4],senderId:a[6],clientType:a[7],timestampSent:a[8]})}])},function(a){return b.resolve(c)}])}a.__sproc_name__="LSPakeMessagesPakeMessagesDeleteThenInsertRowStoredProcedure";e.exports=a}),null);
