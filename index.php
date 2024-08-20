@@ -39,6 +39,7 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="index.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -85,7 +86,10 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/logoshet.png" alt="IMG-LOGO">
+						<img src="images/icons/logpic.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/logtxt.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -393,29 +397,101 @@ include ('session.php');
 
 <section>
 <!-- LAGAY TAYO DITO NG KAHIT SIGURO INFORMATIVE NA VECTORS -->
+ 
 </section>
 
 
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-80 p-b-50">
 		<div class="container">
+			<div class="p-b-10">
+				<h3 class="ltext-103 cl5">
+					Product Lines
+				</h3>
+				<br>
+				<br>
+			</div>
 			<div class="row">
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/oily.jpg" alt="IMG-BANNER">
+						<img src="images/bgindex/bgcentella.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Oily
+									CENTELLA LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Soothing & Calming
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								  FOR ALL SKIN TYPES THE OG
 								</span>
 							</div>
+							
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">
+									Shop Now
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
 
+
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<!-- Block1 -->
+					<div class="block1 wrap-pic-w">
+						<img src="images/bgindex/bghya.jpg" alt="IMG-BANNER">
+
+						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">
+									HYALU CICA LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Soothing & Calming
+								</span>
+
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								  DRY SKIN? SAY NO MORE!
+								</span>
+							</div>
+							
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">
+									Shop Now
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<!-- Block1 -->
+					<div class="block1 wrap-pic-w">
+						<img src="images/bgindex/bgbright.jpg" alt="IMG-BANNER">
+
+						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">
+									BRIGHTENING LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Glow & Brighten
+								</span>
+
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								  ACHIEVE GLOWY SKIN
+								</span>
+							</div>
+							
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
 									Shop Now
@@ -426,21 +502,25 @@ include ('session.php');
 				</div>
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block2 -->
+					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/dry.jpg" alt="IMG-BANNER">
+						<img src="images/bgindex/bgtea.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Dry
+									TEA TRICA LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Relieving & Soothing
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								  FOR SENSITIVE SKIN & ACNE CARE
 								</span>
 							</div>
-
+							
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
 									Shop Now
@@ -451,71 +531,25 @@ include ('session.php');
 				</div>
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block3 -->
+					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/normals.jpg" alt="IMG-BANNER">
+						<img src="images/bgindex/bgpore.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Normal
+									PORE MIZING LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Improving & Tightening
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block4 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/combinations.jpg" alt="IMG-BANNER">
-
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Combination
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Spring 2018
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								  TO MINIMIZE PORES
 								</span>
 							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block5 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/sensitivess.png" alt="IMG-BANNER">
-
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Sensitive
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									New Trend
-								</span>
-							</div>
-
+							
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
 									Shop Now
@@ -527,21 +561,25 @@ include ('session.php');
 
 				
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block6 -->
+					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/malupiton.jpg" alt="IMG-BANNER">
+						<img src="images/bgindex/bgprobio.jpg" alt="IMG-BANNER">
 
 						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Pogi
+									PROBIO CICA LINE	
+								</span>
+						
+								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
+								  Repairing & Strengthening
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
-									New Trend
+								<span class="block1-info text-white fs-10 mt-2 trans-04" >
+								   ANTI AGING AND SKIN BARRIER CONCERNS
 								</span>
 							</div>
-
+							
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
 									Shop Now
@@ -561,7 +599,7 @@ include ('session.php');
 		<div class="container">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
-					Product Overview
+					Best Sellers
 				</h3>
 			</div>
 
