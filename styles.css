@@ -79,11 +79,11 @@ section{
 .btn:hover,
 .delete-btn:hover,
 .option-btn:hover{
-   background-color: var(--black);
+   background-color: rgb(77, 77, 77);
 }
 
 .btn{
-   background-color: var(--main-color);
+   background-color: rgb(0, 0, 0);
 }
 
 .option-btn{
@@ -573,7 +573,7 @@ section{
 }
 
 .products .box-container .box .flex .qty{
-   width: 7rem;
+   width: 6rem;
    padding:1rem;
    border:var(--border);
    font-size: 1.8rem;
@@ -583,7 +583,7 @@ section{
 
 .products .box-container .box .flex .price{
    font-size: 2rem;
-   color:var(--red);
+   color: black;
    margin-right: auto;
 }
 

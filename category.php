@@ -14,7 +14,7 @@ include ('db.php');
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
@@ -22,7 +22,7 @@ include ('db.php');
 
 <section class="products">
 
-   <h1 class="heading">Category</h1>
+   <h1 class="heading">Products</h1>
 
    <div class="box-container">
 
