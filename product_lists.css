@@ -21,13 +21,13 @@ body {
     left: 20px; /* Distance from the left */
     display: flex;
     align-items: center;
-    color: #000000; /* Blue color for the icon */
+    color: #ffffff; /* Blue color for the icon */
     text-decoration: none;
     font-size: 18px; /* Font size for the icon */
     padding: 8px; /* Padding around the button */
     border: 1px solid #000000; /* Border color */
     border-radius: 4px; /* Rounded corners */
-    background-color: white; /* Background color */
+    background-color: #494949; /* Background color */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
     z-index: 1000; /* Ensure it is on top of other elements */
 }
@@ -37,9 +37,8 @@ body {
 }
 
 .back-button:hover {
-    background-color: #494949; /* Background color on hover */
-    color: white; /* Text color on hover */
-    border-color: #ffffff; /* Border color on hover */
+    transform: scale(1.10);
+    transition: 0.3s;
 }
 
 

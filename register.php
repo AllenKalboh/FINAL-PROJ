@@ -28,39 +28,38 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="logins.css">
+    <link rel="stylesheet" href="register.css"> <!-- Link to the CSS file -->
 </head>
-
 <body>
     <div class="container">
         <h2>Register</h2>
         <form method="post" action="">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" placeholder="Enter Username" name="username" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" placeholder="Enter Email" name="email" required>
 
             <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required>
+            <input type="text" id="first-name" placeholder="Enter First Name" name="first-name" required>
 
-            <label for="last-name">Last name:</label>
-            <input type="text" id="last-name" name="last-name" required>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" placeholder="Enter Password" name="password" required>
 
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required>
+            <input type="text" id="address" placeholder="Enter Address" name="address" required>
 
-            
             <label for="phone-number">Phone Number:</label>
-            <input type="number" id="phonenumber" name="phoneNumber" required>
+            <input type="number" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
+
 
             <button type="submit" class="reg-btn">Register</button>
         </form>
-        <p class="login-here">Already have an account? </p>
-        <a href="login.php"> <button type="submit" class="reg-btn">  Login </button> </a> 
+        <p class="login-here">Already have an account?</p>
+        <a href="login.php"><button type="button" class="login-btn">Login</button></a>
     </div>
 </body>
 </html>

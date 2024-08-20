@@ -1,25 +1,26 @@
 <?php
-include ('db.php');
-include ('session.php');
+include ('db.php'); // Include your database connection
 
+// Count the number of users
+$select_users = $conn->prepare("SELECT COUNT(*) as total_users FROM `users`");
+$select_users->execute();
+$select_users->bind_result($total_users);
+$select_users->fetch();
+$select_users->close();
 
-if(isset($_SESSION['username'])){
+// Count the number of products
+$select_products = $conn->prepare("SELECT COUNT(*) as total_products FROM `products`");
+$select_products->execute();
+$select_products->bind_result($total_products);
+$select_products->fetch();
+$select_products->close();
 
-    $sql = "SELECT first_name, last_name, email, address FROM users WHERE username = '?'";
-    $result = $conn->query($sql);
-    
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $GLOBALS['first_name'] = $row['first_name'];
-    $GLOBALS['last_name'] = $row['last_name'];
-    $GLOBALS['address'] = $row['address'];
-    $GLOBALS['email'] = $row['email'];
-  }
-}
-}
-
+// Count the number of admin accounts
+$select_admins = $conn->prepare("SELECT COUNT(*) as total_admins FROM `admins`");
+$select_admins->execute();
+$select_admins->bind_result($total_admins);
+$select_admins->fetch();
+$select_admins->close();
 
 ?>
 
@@ -28,54 +29,105 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skincare Profile Page</title>
+    <title>Admin Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="admin_page.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #343a40;
+            padding-top: 20px;
+            position: fixed;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .dashboard {
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #343a40;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .box h3 {
+            font-size: 32px;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
-        <a href="dashboard.php"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="product_list.php"><i class="fas fa-box"></i><span>Products List</span></a>
-        <a href="add_product.php"><i class="fas fa-plus"></i><span>Add Products</span></a>
-        <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        <a href="dashboard.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="product_list.php"><i class="fas fa-box"></i><span> Products List</span></a>
+        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
     </div>
 
-    <div class="content">
-        <div class="container">
-            <div class="profile-header">
-                <img src="https://via.placeholder.com/100" alt="Profile Picture">
-                <div class="ml-3">
-                    <h1>SAIRON</h1>
-                    <p>Admin</p>
-                </div>
-            </div>
-            <div class="main-content">
-                <div class="card">
-                    <h3>Overview</h3>
-                    <div class="stats">
-                        <div>
-                            <h4>124</h4>
-                            <p>Users</p>
-                        </div>
-                        <div>
-                            <h4>67</h4>
-                            <p>Posts</p>
-                        </div>
-                        <div>
-                            <h4>12</h4>
-                            <p>Comments</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="dashboard">
+        <h1 class="heading">Admin Dashboard</h1>
 
-                <div class="card">
-                    <h3>Recent Activity</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut turpis eros. Nullam vehicula, risus et dictum volutpat, leo velit facilisis turpis, vel ullamcorper leo arcu vel eros.</p>
-                </div>
+        <div class="box-container">
+            <div class="box">
+                <h3><?= $total_users; ?></h3>
+                <p>Users</p>
+            </div>
+            
+            <div class="box">
+                <h3><?= $total_products; ?></h3>
+                <p>Total Products</p>
+            </div>
+
+            <div class="box">
+                <h3><?= $total_admins; ?></h3>
+                <p>Admin</p>
             </div>
         </div>
-    </div>
+    </section>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -29,7 +29,7 @@ body::before {
     z-index: -1; /* Ensures it is behind the content */
 }
 
-.container {
+.login-form {
     background: rgba(255, 255, 255, 0.764);
     width: 25%;
     padding: 60px;
@@ -40,7 +40,7 @@ body::before {
     position: relative;
 }
 
-.container:hover {
+.login-form:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for emphasis */
     transform: translateY(-5px); /* Lift effect on hover */
 }
@@ -61,11 +61,9 @@ label {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"] {
+input[type="password"] {
     background: rgba(255, 255, 255, 0.35);
-    width: 97%;
+    width: 100%; /* Ensure inputs take full width */
     padding: 13px;
     margin-bottom: 10px;
     border: solid 1px black;
@@ -77,18 +75,14 @@ input[type="number"] {
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus {
+input[type="password"]:focus {
     border-color: #007bff; /* Change border color on focus */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
     outline: none; /* Remove default outline */
 }
 
-.log-in-btn,
-.reg-btn,
-.edit-btn {
-    width: 40%;
+button {
+    width: 40%; /* Ensure button takes full width */
     height: 45px;
     padding: 10px;
     background-color: #000000;
@@ -98,28 +92,25 @@ input[type="number"]:focus {
     cursor: pointer;
     transition: 0.3s ease;
     text-decoration: none;
-    margin-left: 30%;
     margin-top: 10px;
     font-size: 16px; /* Adjust font size for buttons */
     font-weight: bold; /* Make text bold */
+    margin-left: 30%;
 }
 
-.log-in-btn:hover,
-.reg-btn:hover,
-.edit-btn:hover {
+button:hover {
     background-color: #333333; /* Slightly lighter shade on hover */
     color: #ffffff;
 }
 
-.log-in-btn:active,
-.reg-btn:active,
-.edit-btn:active {
+button:active {
     background-color: #555555; /* Even lighter shade when clicked */
     transform: translateY(2px); /* Slightly lower button on click */
 }
 
-.reg-btn a {
-    color: white; /* Ensure link color in .reg-btn is white */
+.error {
+    color: red; /* Style for error messages */
+    margin-bottom: 15px;
 }
 
 a {
