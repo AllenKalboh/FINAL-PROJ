@@ -101,7 +101,7 @@ $select_admins->close();
 </head>
 <body>
     <div class="sidebar">
-        <a href="dashboard.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
         <a href="product_list.php"><i class="fas fa-box"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>

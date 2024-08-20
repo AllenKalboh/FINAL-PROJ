@@ -84,17 +84,13 @@ include ('session.php');
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
-								<a href="contact.php">Contact</a>
-							</li>
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+							
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
 						<a href="shoping-cart.php">
@@ -102,9 +98,7 @@ include ('session.php');
 						</a>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+							
 					</div>
 				</nav>
 			</div>	
@@ -426,17 +420,7 @@ include ('session.php');
 						</div>
 
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							<div class="flex-w flex-m m-r-20 m-tb-5">
-								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
-									
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-									Apply coupon
-								</div>
-							</div>
-
-							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-								Update Cart
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -448,11 +432,7 @@ include ('session.php');
 						</h4>
 
 						<div class="flex-w flex-t bor12 p-b-13">
-							<div class="size-208">
-								<span class="stext-110 cl2">
-									Subtotal:
-								</span>
-							</div>
+							
 
 							<div class="size-209">
 								<span class="mtext-110 cl2">
@@ -462,43 +442,20 @@ include ('session.php');
 						</div>
 
 						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
-							<div class="size-208 w-full-ssm">
-								<span class="stext-110 cl2">
-									Shipping:
-								</span>
-							</div>
+							
 
 							<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-								<p class="stext-111 cl6 p-t-2">
-									There are no shipping methods available. Please double check your address, or contact us if you need any help.
-								</p>
+								
 								
 								<div class="p-t-15">
-									<span class="stext-112 cl8">
-										Calculate Shipping
-									</span>
+									
 
-									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-										<select class="js-select2" name="time">
-											<option>Select a country...</option>
-											<option>USA</option>
-											<option>UK</option>
-										</select>
-										<div class="dropDownSelect2"></div>
-									</div>
+									
 
-									<div class="bor8 bg0 m-b-12">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-									</div>
-
-									<div class="bor8 bg0 m-b-22">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
-									</div>
+									
 									
 									<div class="flex-w">
-										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-											Update Totals
-										</div>
+										
 									</div>
 										
 								</div>

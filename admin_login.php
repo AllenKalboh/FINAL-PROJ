@@ -2,7 +2,7 @@
 session_start();
 
 // Hardcoded password
-define('ADMIN_PASSWORD', '1234');
+define('ADMIN_PASSWORD', 'admin1234');
 
 // Check if form is submitted
 if (isset($_POST['submit'])) {
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     // Validate the password
     if ($password === ADMIN_PASSWORD) {
         $_SESSION['loggedin'] = true;
-        header('Location: adminpage.php'); // Redirect to admin dashboard or another page
+        header('Location: admin_page.php'); // Redirect to admin dashboard or another page
         exit();
     } else {
         $error = 'Invalid Username and Password.';
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 
 // Check if the user is already logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
-    header('Location: adminpage.php'); // Redirect to admin dashboard or another page
+    header('Location: admin_page.php'); // Redirect to admin dashboard or another page
     exit();
 }
 ?>

@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-    <a href="adminpage.php" class="back-button">
+    <a href="admin_page.php" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
 

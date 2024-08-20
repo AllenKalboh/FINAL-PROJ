@@ -99,33 +99,24 @@ include ('session.php');
 								<a href="shoping-cart.php">Features</a>
 							</li>
 
-							<li>
-								<a href="blog.php">Blog</a>
-							</li>
 
 							<li>
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
-								<a href="contact.php">Contact</a>
-							</li>
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+					
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11js-show-cart" >
-							<i class="zmdi zmdi-shopping-cart"></i>
+							<i href="shoping-cart.php" class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+					
 					</div>
 				</nav>
 			</div>	
@@ -217,9 +208,7 @@ include ('session.php');
 					<a href="about.php">About</a>
 				</li>
 
-				<li>
-					<a href="contact.php">Contact</a>
-				</li>
+			
 			</ul>
 		</div>
 
