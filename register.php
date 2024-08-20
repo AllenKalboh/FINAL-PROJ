@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="register.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="register.css"> 
 </head>
 <body>
     <div class="container">
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <input type="number" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
 
 
-            <button type="submit" class="reg-btn">Register</button>
+            <button type="submit" class="reg-btn">Create Account</button>
         </form>
         <p class="login-here">Already have an account?</p>
         <a href="login.php"><button type="button" class="login-btn">Login</button></a>

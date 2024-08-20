@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="logins.css">
+    <link rel="stylesheet" type="text/css" href="register.css">
 </head>
 
 <body>
@@ -56,10 +56,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="phone-number">Phone Number:</label>
             <input type="number" id="phonenumber" name="phoneNumber" required>
 
-            <button type="submit" class="edit-btn">Edit</button>
+            <button type="submit" class="edit-btn">Save Changes</button>
             
         </form>
-        <a href = "profilepage.php"> <button type="submit" class="edit-btn">Go Back</button> </a>
+
+        <a href = "profilepage.php"> <button type="submit" class="go-back">Go Back</button> </a>
     </div>
 </body>
 </html>

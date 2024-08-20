@@ -57,7 +57,7 @@ include ('session.php');
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
 					</div>
@@ -101,7 +101,7 @@ include ('session.php');
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<
+						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart" >
 
@@ -165,7 +165,7 @@ include ('session.php');
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="profilepage.php" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
 
