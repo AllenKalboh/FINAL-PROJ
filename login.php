@@ -22,7 +22,7 @@ include('session.php');
 
 <div class="container">
         <div class="left">
-            <img src="images/icons/logpic.png" alt="Left Side Image" class="left-image">
+            <img src="images/logoinver.png" alt="Left Side Image" class="left-image">
         </div>
         <div class="right">
             <img src="images/icons/logtxt.png" alt="Logo Text" class="right-icon">
