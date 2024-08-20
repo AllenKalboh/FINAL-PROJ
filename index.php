@@ -10,6 +10,7 @@ include ('session.php');
 	<title>Skinline</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="index.css">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/inverted.png"/>
 <!--===============================================================================================-->
@@ -39,11 +40,78 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="index.css">
+	
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
 	
+<style>
+	/* CSS for smooth hover effect */
+.block1-txt {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.block1-txt:hover {
+    background-color: #252525cf; /* Hover background color */
+    color: #ffffff; /* Hover text color */
+}
+
+.block1-name {
+    color: #ffffffd1;
+}
+
+.block1  {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Scaling effect and shadow on hover */
+.block1:hover {
+    transform: scale(1.05); /* Scale card up slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Container for card images */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Scaling effect and shadow on hover */
+.card:hover {
+    transform: scale(1.05); /* Scale card up slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Updated card image container */
+.card-img-container {
+    width: 100%; /* Use 100% width for full image display */
+    height: auto; /* Maintain image aspect ratio */
+    overflow: hidden;
+    margin: 0 auto; /* Center the image within the card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.best-seller-banner h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.rating span {
+    font-size: 1.2rem;
+}
+
+.footban {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Scaling effect and shadow on hover */
+.footban:hover {
+    transform: scale(1.05); /* Scale card up slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+</style>
+
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -587,13 +655,91 @@ include ('session.php');
 		</div>
 	</div>
 
+	<style>
+	
+	</style>
+	 <!-- bestseller eme -->
+	 <div class="container mt-5">
+    <div class="best-seller-banner" style="border-bottom: 4px solid #000; margin-bottom: 20px;">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto">
+                    <h2 class="b1 text-center mb-0">Best Sellers</h2>
+                </div>
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-img-container">
+                        <img src="01Product Lines Imgs/Centella Line/Oilcleanse/1723806918425.jpg" class="card-img" alt="SkinLine Centella Light Cleansing Oil">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">SkinLine Centella Light Cleansing Oil</h4>
+                        <div class="rating d-flex justify-content-center align-items-center">
+                            <span class="text-warning mr-2">
+                                &#9733; &#9733; &#9733; &#9733; &#9733;
+                            </span>
+                            <span class="text-muted">(120 ratings)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-img-container">
+                        <img src="01Product Lines Imgs/HyaCica Line/Hyalu Cica Water Fit Sun Serum 50ml 429/Picsart_24-08-20_17-19-23-347.jpg" class="card-img" alt="SkinLine Hyalu Cica Water Fit Sunscreen">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">SkinLine Hyalu Cica Water Fit Sunscreen</h4>
+                        <div class="rating d-flex justify-content-center align-items-center">
+                            <span class="text-warning mr-2">
+                                &#9733; &#9733; &#9733; &#9733; &#9733;
+                            </span>
+                            <span class="text-muted">(98 ratings)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-img-container">
+                        <img src="01Product Lines Imgs/Centella Line/Ampule cleanser/1723807243305.jpg" class="card-img" alt="SkinLine Centella Ampule Foam Gel Cleanser">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">SkinLine Centella Ampule Foam Gel Cleanser</h4>
+                        <div class="rating d-flex justify-content-center align-items-center">
+                            <span class="text-warning mr-2">
+                                &#9733; &#9733; &#9733; &#9733; &#9733;
+                            </span>
+                            <span class="text-muted">(87 ratings)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<br>
+    </div>
+</div>
 
+<br>
+<br>
 	<!-- Product -->
 	<section class="bg0 p-t-23 p-b-140">
 		<div class="container">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
-					Best Sellers
+					Featured Products
 				</h3>
 			</div>
 
@@ -977,9 +1123,9 @@ include ('session.php');
 	</section>
  
 	<!-- Footer Banner -->
-	<div style="text-align: center; margin-bottom: 35px; ">
-		<img src="images/Banners/BannerCuming2Soon.png" alt="fBanner" 
-			style="width: 100%; max-width: 1500px; height: 170px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+	<div class="footban" style="text-align: center; margin-bottom: 35px; ">
+		<img src="images/Banners/bannershe1t.png" alt="fBanner" 
+			style="width: 100%; max-width: 1500px; height: 150px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
 		
 	</div>
 
