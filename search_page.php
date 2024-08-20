@@ -26,7 +26,7 @@ if(isset($_SESSION['user_id'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="nakaw.css">
 
 </head>
 <body>
@@ -56,13 +56,13 @@ if(isset($_POST['search_box']) OR isset($_POST['search_btn'])){
       <input type="hidden" name="name" value="<?= $fetch_product['product_name']; ?>">
       <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
       <input type="hidden" name="image" value="<?= $fetch_product['img_01']; ?>">
-      <img src="uploads<?= $fetch_product['image_01']; ?>" alt="">
+      <img src="uploads"<?= $fetch_product['image_01']; ?> alt="">
       <div class="name"><?= $fetch_product['product_name']; ?></div>
       <div class="flex">
          <div class="price"><span>₱.</span><?= $fetch_product['price']; ?><span>/-</span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="submit" value="add to cart" class="btn" name="add_to_cart"  id="atc-btn">
    </form>
    <?php
          }
