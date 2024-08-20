@@ -108,9 +108,7 @@ include ('session.php');
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
-								<a href="contact.php">Contact</a>
-							</li>
+							
 
 							
 						</ul>
@@ -118,9 +116,7 @@ include ('session.php');
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
 						<a href="shoping-cart.php">
@@ -128,9 +124,7 @@ include ('session.php');
 						</a>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+						
 					</div>
 				</nav>
 			</div>	
@@ -320,24 +314,24 @@ include ('session.php');
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1" style="background-image: url(images/hd.jpg);">
+				<div class="item-slick1" style="background-image: url(images/B1.png);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl2 respon2">
-									2024 SKIN CARE ESSENTIALS
+								<span class="ltext-101 text-white cl2 respon2">
+								Unveil Your Hidden Radiance, Redefine Boundaries
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									MGA SHESH
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 text-white respon1">
+								 2024 SKIN LINE ESSENTIALS
 								</h2>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
 								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Shop Now
+								Shop Now
 								</a>
 							</div>
 						</div>
@@ -611,16 +605,16 @@ include ('session.php');
 
 					
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".serum">
-						Serum
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".cleanser">
+						Cleanser
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".moisturizer">
-						Moisturizer
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".ampoule">
+						Ampoule
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".sunscreen">
-						Sunscreens
+						Sunscreen
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".toner">
@@ -839,19 +833,15 @@ include ('session.php');
 				</div>
 			</div>
 
-
-
-				<!-- WOMEN SECTION -->
-
 			<div class="row isotope-grid">
 				<!--SERUM SECTION-->
 
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item serum">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item cleanser">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/serum1.png" alt="IMG-PRODUCT">
+							<img src="01Product Lines Imgs\Centella Line\Oilcleanse\1723806918425.jpg" alt="IMG-PRODUCT">
 
 							
 						</div>
@@ -859,11 +849,12 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Vintage Inspired Classic 
+									SKINLINE Light Cleansing Oil 200ml
 								</a>
 
 								<span class="stext-105 cl3">
-									$93.20
+								₱699.00
+
 								</span>
 							</div>
 
@@ -881,22 +872,22 @@ include ('session.php');
 					<!--MOISTURIZER SECTION-->
 
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item moisturizer">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ampoule">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Moistu.png" alt="IMG-PRODUCT">
+							<img src="01Product Lines Imgs\ProBioCica\Probio Cica Intensive Ampoule 50ml 509\1724128752542.jpg" alt="IMG-PRODUCT">
 
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Shirt in Stretch Cotton
+								Probio Cica Intensive Ampoule 50ml 
 								</a>
 
 								<span class="stext-105 cl3">
-									$52.66
+								₱509.00
 								</span>
 							</div>
 
@@ -917,7 +908,7 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/sunscreen.png" alt="IMG-PRODUCT">
+							<img src="01Product Lines Imgs\HyaCica Line\Hyalu Cica Water Fit Sun Serum 50ml 429\Picsart_24-08-20_17-19-23-347.jpg" alt="IMG-PRODUCT">
 
 							
 						</div>
@@ -925,11 +916,11 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Pieces Metallic Printed
+								Hyalu Cica Water Fit Sun Serum 50ml
 								</a>
 
 								<span class="stext-105 cl3">
-									$18.96
+								₱429.00
 								</span>
 							</div>
 
@@ -949,7 +940,7 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/toner1.png" alt="IMG-PRODUCT">
+							<img src="01Product Lines Imgs\Tone Bright\Tone Brightening Capsule Ampule 100ml\1724126454270.jpg" alt="IMG-PRODUCT">
 
 							
 						</div>
@@ -957,11 +948,10 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Femme T-Shirt In Stripe
-								</a>
+								Tone Brightening Capsule Ampule 100ml								</a>
 
 								<span class="stext-105 cl3">
-									$25.85
+								₱589.00
 								</span>
 							</div>
 
@@ -985,6 +975,13 @@ include ('session.php');
 			</div>
 		</div>
 	</section>
+ 
+	<!-- Footer Banner -->
+	<div style="text-align: center; margin-bottom: 35px; ">
+		<img src="images/Banners/BannerCuming2Soon.png" alt="fBanner" 
+			style="width: 100%; max-width: 1500px; height: 170px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+		
+	</div>
 
 
 	<!-- Footer -->

@@ -95,17 +95,13 @@ include ('session.php');
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
-								<a href="contact.php">Contact</a>
-							</li>
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+						<
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart" >
 
@@ -133,7 +129,7 @@ include ('session.php');
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+					
 				</div>
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart" >
@@ -205,9 +201,7 @@ include ('session.php');
 					<a href="about.php">About</a>
 				</li>
 
-				<li>
-					<a href="contact.php">Contact</a>
-				</li>
+				
 			</ul>
 		</div>
 
@@ -218,12 +212,6 @@ include ('session.php');
 					<img src="images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
 			</div>
 		</div>
 	</header>
@@ -322,42 +310,57 @@ include ('session.php');
 
 					<!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
 					 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-						All Products
-					</button>
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 cursor-pointer" data-filter=".serum">
-						Serum
-					</button>
+					<section class="category">
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".moisturizer">
-						Moisturizer
-					</button>
+   <h1 class="heading">Shop by Category</h1>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".sunscreen">
-						Sunscreens
-					</button>
+   <div class="swiper category-slider">
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".toner">
-						Toner
-					</button>
+   <div class="swiper-wrapper">
+
+   <a href="category.php?category=serum" class="swiper-slide slide">
+      <img src="images/icon-1.png" alt="">
+      <h3>Serum</h3>
+   </a>
+
+   <a href="category.php?category=Toner" class="swiper-slide slide">
+      <img src="images/icon-2.png" alt="">
+      <h3>Toner</h3>
+   </a>
+
+   <a href="category.php?category=moisturizer" class="swiper-slide slide">
+      <img src="images/icon-3.png" alt="">
+      <h3>Moisturizer</h3>
+   </a>
+
+   <a href="category.php?category=sunscreen" class="swiper-slide slide">
+      <img src="images/icon-4.png" alt="">
+      <h3>Sunscreen</h3>
+   </a>
+
+   <a href="category.php?category=cleanser" class="swiper-slide slide">
+      <img src="images/icon-5.png" alt="">
+      <h3>Cleanser</h3>
+   </a>
+   </div>
+
+<div class="swiper-pagination"></div>
+
+</div>
+
+</section>
 				</div>
 
 				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Search
-					</div>
+				<a href="search_page.php">Search</a>
 				</div>
 				
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
 					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-							<i class="zmdi zmdi-search"></i>
-						</button>
+						
 
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+						
 					</div>	
 				</div>
 
@@ -561,11 +564,9 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-
 							<a href="product-detail.php" target="_blank">
 								<img src="Centella\airfit sunscreen\af1.jpg" alt="IMG-PRODUCT">
 							</a>
-
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -578,8 +579,6 @@ include ('session.php');
 									$93.20
 								</span>
 							</div>
-
-							
 						</div>
 					</div>
 				</div>
