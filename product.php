@@ -35,9 +35,10 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="product.css">
+	<link rel="stylesheet" href="products.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -147,9 +148,7 @@ include ('session.php');
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10" >
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+				
 			</div>
 
 			<!-- Button show menu -->
@@ -180,13 +179,7 @@ include ('session.php');
 							My Account
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
-						</a>
+						
 					</div>
 				</li>
 			</ul>
@@ -314,383 +307,64 @@ include ('session.php');
 
 	
 	<!-- Product -->
-	<div class="bg0 m-t-23 p-b-140">
-		<div class="container">
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+	 
+<div class="bg0 m-t-23 p-b-30">
+    <div class="container">
+        <div class="flex-w flex-sb-m p-b-52">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-10">
 
-					<!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
-					 
-					<section class="category">
+                <!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
+                 
+                <section class="category">
+                    <h1 class="heading">Shop by Category</h1>
+                    <div class="category-slider">
+                        <div class="category-wrapper">
+                            <a href="category.php?category=serum" class="category-slide">
+                                <i class="fas fa-vial"></i>
+                                <h3>Serum</h3>
+                            </a>
 
-   <h1 class="heading">Shop by Category</h1>
+                            <a href="category.php?category=toner" class="category-slide">
+                                <i class="fas fa-wine-bottle"></i>
+                                <h3>Toner</h3>
+                            </a>
 
-   <div class="swiper category-slider">
+                            <a href="category.php?category=moisturizer" class="category-slide">
+                                <i class="fas fa-pump-soap"></i>
+                                <h3>Moisturizer</h3>
+                            </a>
 
-   <div class="swiper-wrapper">
+                            <a href="category.php?category=sunscreen" class="category-slide">
+                                <i class="fas fa-sun"></i>
+                                <h3>Sunscreen</h3>
+                            </a>
 
-   <a href="category.php?category=serum" class="swiper-slide slide">
-      <img src="images/icon-1.png" alt="">
-      <h3>Serum</h3>
-   </a>
+                            <a href="category.php?category=cleanser" class="category-slide">
+                                <i class="fas fa-soap"></i>
+                                <h3>Cleanser</h3>
+                            </a>
 
-   <a href="category.php?category=Toner" class="swiper-slide slide">
-      <img src="images/icon-2.png" alt="">
-      <h3>Toner</h3>
-   </a>
+							<a href="category.php?category=cleanser" class="category-slide">
+                                <i class="fas fa-soap"></i>
+                                <h3>Cleanser</h3>
+                            </a>
 
-   <a href="category.php?category=moisturizer" class="swiper-slide slide">
-      <img src="images/icon-3.png" alt="">
-      <h3>Moisturizer</h3>
-   </a>
+							
+							<a href="search_page.php" class="sc-btn">
+   								 <i class="fas fa-search"></i> Search
+							</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
 
-   <a href="category.php?category=sunscreen" class="swiper-slide slide">
-      <img src="images/icon-4.png" alt="">
-      <h3>Sunscreen</h3>
-   </a>
-
-   <a href="category.php?category=cleanser" class="swiper-slide slide">
-      <img src="images/icon-5.png" alt="">
-      <h3>Cleanser</h3>
-   </a>
-   </div>
-
-<div class="swiper-pagination"></div>
-
+        <!-- ALL PRODUCTS SECTION -->
+        <!-- Load more -->
+        
+    </div>
 </div>
 
-</section>
-				</div>
-
-				<div class="flex-w flex-c-m m-tb-10">
-				<a href="search_page.php">Search</a>
-				</div>
-				
-				<!-- Search product -->
-				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<div class="bor8 dis-flex p-l-15">
-						
-
-						
-					</div>	
-				</div>
-
-				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<div class="filter-col1 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Sort By
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Defaulth
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Popularity
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Average rating
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										Newness
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Price: Low to High
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										Price: High to Low
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col2 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Price
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										All
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$0.00 - $50.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$50.00 - $100.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$100.00 - $150.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$150.00 - $200.00
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<a href="#" class="filter-link stext-106 trans-04">
-										$200.00+
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col3 p-r-15 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Color
-							</div>
-
-							<ul>
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #222;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Black
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #4272d7;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-										Blue
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #b3b3b3;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Grey
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #00ad5f;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Green
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #fa4251;">
-										<i class="zmdi zmdi-circle"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										Red
-									</a>
-								</li>
-
-								<li class="p-b-6">
-									<span class="fs-15 lh-12 m-r-6" style="color: #aaa;">
-										<i class="zmdi zmdi-circle-o"></i>
-									</span>
-
-									<a href="#" class="filter-link stext-106 trans-04">
-										White
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="filter-col4 p-b-27">
-							<div class="mtext-102 cl2 p-b-15">
-								Tags
-							</div>
-
-							<div class="flex-w p-t-4 m-r--5">
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Fashion
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Lifestyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Denim
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Streetstyle
-								</a>
-
-								<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-									Crafts
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-									<!--ALL PRODUCTS SECTION-->
-
-			<div class="row isotope-grid">
-				
-										<!--TONER SECTION-->
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item toner">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<a href="product-detail.php" target="_blank">
-								<img src="Centella\airfit sunscreen\af1.jpg" alt="IMG-PRODUCT">
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php?id=1" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Centella
-								</a>
-
-								<span class="stext-105 cl3">
-									$93.20
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				
-
-								<!--MOISTURIZER SECTION-->
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item moisturizer">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/Moistu.png" alt="IMG-PRODUCT">
-
-						
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Converse All Star Hi Plimsolls
-								</a>
-
-								<span class="stext-105 cl3">
-									$75.00
-								</span>
-							</div>
-
-							
-						</div>
-					</div>
-				</div>
-
-
-						<!-- SERUM SECTION -->
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item serum">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/serum1.png" alt="IMG-PRODUCT">
-
-							
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply
-								</a>
-
-								<span class="stext-105 cl3">
-									$63.15
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-								<!-- SUNSCREENS SECTION-->
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item sunscreen">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/sunscreen.png" alt="IMG-PRODUCT">
-
-							
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Mini Silver Mesh Watch
-								</a>
-
-								<span class="stext-105 cl3">
-									$86.85
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			
-
-
-				
-				
-			</div>
-
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
-			</div>
-		</div>
-	</div>
 		
 
 	<!-- Footer -->
