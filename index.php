@@ -187,7 +187,7 @@ include ('session.php');
 						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php" id="sc">
+						<a href="shoping-cart.php" style="color:white;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						</div>
