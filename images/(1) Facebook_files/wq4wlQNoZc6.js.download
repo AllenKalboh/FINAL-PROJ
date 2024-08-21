@@ -1,4 +1,0 @@
-;/*FB_PKG_DELIM*/
-
-__d("useProfileCometLifeEventsComposerDialog",["react","useProfileCometInlineComposer"],(function(a,b,c,d,e,f,g){"use strict";var h,i=(h||d("react")).c;function a(a){var b=i(10);a=a.profileID;var d;b[0]!==a?(d={profileID:a,shouldOpenVideoSpecificComposer:!1},b[0]=a,b[1]=d):d=b[1];a=c("useProfileCometInlineComposer")(d);var e=a[0];d=a[1];var f=a[2],g=a[3];a=a[4];var h;b[2]!==e?(h=function(){return e({pushedPageOnLoad:"mle"})},b[2]=e,b[3]=h):h=b[3];h=h;var j;b[4]!==h||b[5]!==d||b[6]!==f||b[7]!==g||b[8]!==a?(j=[h,d,f,g,a],b[4]=h,b[5]=d,b[6]=f,b[7]=g,b[8]=a,b[9]=j):j=b[9];return j}g["default"]=a}),98);
-__d("useProfileCometLifeEventsComposerDialogHandler",["cr:675"],(function(a,b,c,d,e,f,g){"use strict";function a(a){return b("cr:675")(a)}g["default"]=a}),98);
