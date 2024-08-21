@@ -29,8 +29,37 @@ if(isset($_SESSION['user_id'])){
    <link rel="stylesheet" href="styless.css">
 
 </head>
-<body>
+<style> 
    
+.back-button {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Blue color for the icon */
+    text-decoration: none;
+    font-size: 18px; /* Font size for the icon */
+    padding: 8px; /* Padding around the button */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #494949; /* Background color */
+}
+
+.back-button i {
+    font-size: 20px; /* Font size for the icon */
+}
+
+.back-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
+</style>
+<body>
+
+<a href="product.php" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
 <section class="search-form">
    <form action="" method="post">

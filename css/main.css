@@ -3080,9 +3080,9 @@ input.num-product::-webkit-inner-spin-button {
 
 /*---------------------------------------------*/
 .hov-btn1:hover {
-  border-color: #222;
+  border-color: #ffffff;
   background-color: #222;
-  color: #fff;
+  color: #000000;
 }
 
 .hov-btn1:hover i {
@@ -3092,8 +3092,8 @@ input.num-product::-webkit-inner-spin-button {
 /*---------------------------------------------*/
 .hov-btn2:hover {
   border-color: #fff;
-  background-color: #fff;
-  color: #717fe0;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /*---------------------------------------------*/

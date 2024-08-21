@@ -50,6 +50,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>Your Orders</title>
     <style>
         body {
@@ -78,10 +79,37 @@ $conn->close();
         th {
             background-color: #f2f2f2;
         }
+        .back-button {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Blue color for the icon */
+    text-decoration: none;
+    font-size: 18px; /* Font size for the icon */
+    padding: 8px; /* Padding around the button */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #494949; /* Background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+.back-button i {
+    font-size: 20px; /* Font size for the icon */
+}
+
+.back-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
     </style>
 </head>
 <body>
-
+<a href="profilepage.php" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 <div class="container">
     <h1>Your Orders</h1>
 

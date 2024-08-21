@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
 
 :root{
-   --main-color:#2980b9;
    --orange:#f39c12;
    --red:#e74c3c;
    --black:#333;
@@ -21,22 +20,11 @@
 }
 
 *::selection{
-   background-color: var(--main-color);
+   background-color: #000;
    color:var(--white);
 }
 
-::-webkit-scrollbar{
-   height: .5rem;
-   width: 1rem;
-}
 
-::-webkit-scrollbar-track{
-   background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb{
-   background-color: var(--main-color);
-}
 
 html{
    font-size: 62.5%;
@@ -45,6 +33,7 @@ html{
 
 body{
    background-color: var(--light-bg);
+   overflow: hidden;
 }
 
 section{
@@ -174,7 +163,7 @@ section{
 }
 
 .header .flex .logo span{
-   color:var(--main-color);
+   color:#000;
 }
 
 .header .flex .navbar a{
@@ -184,7 +173,7 @@ section{
 }
 
 .header .flex .navbar a:hover{
-   color:var(--main-color);
+   color:#000;
    text-decoration: underline;
 }
 
@@ -197,7 +186,7 @@ section{
 }
 
 .header .flex .icons > *:hover{
-   color:var(--main-color);
+   color:#000;
 }
 
 .header .flex .icons a span{
@@ -281,7 +270,7 @@ section{
 }
 
 .swiper-pagination-bullet-active{
-   background-color: var(--main-color);
+   background-color: #000;
 }
 
 .category .slide{
@@ -931,7 +920,7 @@ section{
 }
 
 .orders .box-container .box p span{
-   color:var(--main-color);
+   color:#000;
 }
 
 .footer{
@@ -962,12 +951,12 @@ section{
 
 .footer .grid .box a i{
    padding-right: 1rem;
-   color:var(--main-color);
+   color:#000;
    transition: .2s linear;
 }
 
 .footer .grid .box a:hover{
-   color:var(--main-color);
+   color:#000;
 }
 
 .footer .grid .box a:hover i{

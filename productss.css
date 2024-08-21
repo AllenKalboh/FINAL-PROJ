@@ -1,6 +1,7 @@
 /* General styling for the category section */
 .category {
     text-align: center;
+    margin-left: 40px;
 }
 
 .category .heading {

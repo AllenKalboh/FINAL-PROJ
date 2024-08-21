@@ -38,7 +38,7 @@ include ('session.php');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="products.css">
+	<link rel="stylesheet" href="productss.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -303,12 +303,12 @@ include ('session.php');
 
 	
 	<!-- Product -->
-	 
 <div class="bg0 m-t-23 p-b-30">
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
 
+			
                 <!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
                  
                 <section class="category">
@@ -340,15 +340,19 @@ include ('session.php');
                                 <h3>Cleanser</h3>
                             </a>
 
-							<a href="category.php?category=cleanser" class="category-slide">
-                                <i class="fas fa-soap"></i>
-                                <h3>Cleanser</h3>
+							<a href="category.php?category=mask" class="category-slide">
+							<i class="fas fa-theater-masks"></i>
+
+
+
+
+                                <h3>Masks</h3>
                             </a>
 
-							
+<!-- 							
 							<a href="search_page.php" class="sc-btn">
    								 <i class="fas fa-search"></i> Search
-							</a>
+							</a> -->
                         </div>
                     </div>
                 </section>
@@ -374,26 +378,26 @@ include ('session.php');
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Serum
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Toner
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Moisturizer
 							</a>
 						</li>
 					</ul>
@@ -413,13 +417,13 @@ include ('session.php');
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
+								
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
+								
 							</a>
 						</li>
 
@@ -437,38 +441,35 @@ include ('session.php');
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						mail us at skinline@gmail.com
 					</p>
 
-					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-facebook"></i>
-						</a>
+					<div class="social-icons">
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-facebook-f"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-instagram"></i>
-						</a>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-twitter"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
-						</a>
-					</div>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+    </div>
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
-					</h4>
-
+					
 					<form>
-						<div class="wrap-input1 w-full p-b-4">
+						<!-- <div class="wrap-input1 w-full p-b-4">
 							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
 							<div class="focus-input1 trans-04"></div>
-						</div>
+						</div> -->
 
 						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Follow Us
 							</button>
 						</div>
 					</form>
@@ -500,7 +501,7 @@ include ('session.php');
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <a href="https://www.youtube.com/watch?v=iVIS6KIQx78" target="_blank">Brrrt Gratata</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
@@ -790,6 +791,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	
 
 </body>
 </html>
