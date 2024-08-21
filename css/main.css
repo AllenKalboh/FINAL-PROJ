@@ -1263,7 +1263,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .arrow-slick1:hover {
-  color: #ff0000;
+  color: #ffffff;
 }
 
 .next-slick1 {
@@ -2343,6 +2343,7 @@ input.num-product::-webkit-inner-spin-button {
   font-family: Poppins-Regular;
   font-size: 28px;
   line-height: 1.2857;
+  color: white;
 }
 
 .ltext-102 {
@@ -2402,6 +2403,7 @@ input.num-product::-webkit-inner-spin-button {
   font-size: 60px;
   line-height: 1.1;
   text-transform: uppercase;
+  color: red;
 }
 
 .ltext-202 {
