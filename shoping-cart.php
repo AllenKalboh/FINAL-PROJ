@@ -327,90 +327,51 @@ include ('session.php');
 									<th class="column-5">Total</th>
 								</tr>
 
-								<tr class="table_row">
-									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
-										</div>
-									</td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-									</td>
-									<td class="column-5">$ 36.00</td>
-								</tr>
-
-								<tr class="table_row">
-									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="images/item-cart-05.jpg" alt="IMG">
-										</div>
-									</td>
-									<td class="column-2">Lightweight Jacket</td>
-									<td class="column-3">$ 16.00</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product2" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-									</td>
-									<td class="column-5">$ 16.00</td>
-								</tr>
-
-								<?php 
-								//$sql = "SELECT * FROM users WHERE username = 'alli'"; DAPAT PRODUCTS TABLE! kemi cart table ata
-
-								// if (isset($_POST['add_to_cart'])) {
-								$sql = "SELECT * FROM users WHERE username = 'alli'";
-								// kailangan maging dynamic tong condition depending sa kung sino yung nakasign in na acc
-								$result = mysqli_query($conn, $sql);
-	
-								while ($row = mysqli_fetch_assoc($result)) {
-									echo '
-									<tr class="table_row">
-										<td class="column-1">
-											<div class="how-itemcart1">
-												<img src="images/item-cart-04.jpg" alt="IMG">
-											</div>
-										</td>
-										<td class="column-2">' . htmlspecialchars($row['username']) . '</td>
-										<td class="column-3">$' . htmlspecialchars($row['phone_number']) . '</td>
-										<td class="column-4">
-											<div class="wrap-num-product flex-w m-l-auto m-r-0">
-												<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-													<i class="fs-16 zmdi zmdi-minus"></i>
-												</div>
 								
-												<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
-								
-												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-													<i class="fs-16 zmdi zmdi-plus"></i>
-												</div>
-											</div>
-										</td>
-										<td class="column-5">$' . htmlspecialchars($row['phone_number']) . '</td>
-									</tr>';
-								}
-								// }
-								?>
+
+								<?php
+// Query to select all products
+$sql = "SELECT * FROM products";
+$result = mysqli_query($conn, $sql);
+
+// Check if there are any products
+if (mysqli_num_rows($result) > 0) {
+    // Fetch each product
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Construct the image path
+        $img01Path = 'uploads/' . basename($row["img_01"]);
+
+        echo '
+        <tr class="table_row">
+            <td class="column-1">
+                <div class="how-itemcart1">
+                    <img src="' . htmlspecialchars($img01Path) . '" alt="IMG">
+                </div>
+            </td>
+            <td class="column-2">' . htmlspecialchars($row['product_name']) . '</td>
+            <td class="column-3">$' . htmlspecialchars($row['price']) . '</td>
+            <td class="column-4">
+                <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                    <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                        <i class="fs-16 zmdi zmdi-minus"></i>
+                    </div>
+
+                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product' . htmlspecialchars($row['id']) . '" value="1">
+
+                    <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                        <i class="fs-16 zmdi zmdi-plus"></i>
+                    </div>
+                </div>
+            </td>
+            <td class="column-5">$' . htmlspecialchars($row['price']) . '</td>
+        </tr>';
+    }
+} else {
+    echo '<tr><td colspan="5">No products found</td></tr>';
+}
+?>
+
+
 								<!-- KAILANGAN MAPAGANA NATIN TO NA ONCE NAG ADD TO CART YUNG USER -->
 								 <!-- MAG AADD UP AS TABLE DAPAT YUNG NEWLY ADDED NA ITEM-->
 
