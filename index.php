@@ -13,6 +13,8 @@ include ('session.php');
 	<link rel="stylesheet" href="indexx.css">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/inverted.png"/>
+	
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -38,6 +40,8 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
@@ -46,7 +50,49 @@ include ('session.php');
 <body class="animsition">
 	
 <style>
-	/* CSS for smooth hover effect */
+
+/*events */
+.banner {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+            perspective: 1200px; /* Enhances 3D effect */
+			border-radius: 15px;
+        }
+        .banner-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smooth and realistic transition */
+            transform-style: preserve-3d; /* Allows 3D effects */
+        }
+        .banner:hover .banner-inner {
+            transform: rotateY(180deg); /* Flips the card */
+        }
+        .banner-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hides the back face when turned */
+        }
+        .banner-front, .banner-back {
+            background-size: cover;
+            background-position: center;
+        }
+        .banner-front {
+            background-color: #ddd;
+            /* Front image */
+        }
+        .banner-back {
+            background-color: #ccc;
+            transform: rotateY(180deg); /* Rotates back face */
+            /* Back image */
+        }
+
+	/* saproductlines*/
 .block1-txt {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -102,16 +148,7 @@ include ('session.php');
     font-size: 1.2rem;
 }
 
-.footban {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-
-/* Scaling effect and shadow on hover */
-.footban:hover {
-    transform: scale(1.05); /* Scale card up slightly */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
-}
-
+/* sa ano ratings*/
 .block2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
@@ -128,6 +165,41 @@ include ('session.php');
 	
 }
 
+/* sa ano to vegan free emerut*/
+.servicon {
+	filter: invert(0) grayscale(100%) brightness(0) contrast(100%);
+    /* Adjust the filter values to get the desired color effect */
+}
+.value-card {
+    padding: 20px;
+	margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.value-card img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.value-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+
+.value-description {
+    font-size: 1rem;
+    color: #6c757d;
+	text-align: justify;
+}
 
 
 </style>
@@ -203,21 +275,13 @@ include ('session.php');
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						
-
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+				<div class="wrap-icon-header flex-w flex-r-m">
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
 						<a href="shoping-cart.php" style="color:white;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
-						</div>
-
-						
+					</div>	
 					</div>
-				</nav>
-			</div>	
-		</div>
-
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
@@ -421,50 +485,132 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="item-slick1" style="background-image: url(images/menh.jpg);">
+				<div class="item-slick1" style="background-image: url(images/bgindex/bgprobio.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									Men New-Season
+									Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									BRRRRT GRATATATTA
+							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
+									Normal Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg5 bor1 hov-btn1 p-lr-15 trans-04">
-									Shop Now
-								</a>
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+								<span class="fs-20 text-white cl2 respon2 ">
+								A well-balanced, feeling neither too oily nor too dry. It has a smooth texture, minimal shine, and even tone. To maintain this balance, use a gentle cleanser and a light moisturizer. Daily use of broad-spectrum sunscreen is essential to protect your skin from UV damage. Regular exfoliation helps keep the skin smooth and radiant.
+
+								</span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick1" style="background-image: url(images/bgindex/bghya.jpg);">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+								<span class="ltext-101 cl2 respon2">
+								Get to know your skintype
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="500">
+								<h2 class="ltext-201 cl2 text-light p-t-19 p-b-43 respon1">
+									Dry Skin?
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+								<span class="fs-20 text-white cl2 respon2 ">
+								Often feels tight, rough, or flaky and may appear dull. To combat dryness, use a hydrating cleanser and apply a rich moisturizer to lock in moisture. Look for products with hyaluronic acid or glycerin. Avoid hot water and alcohol-based toners, opting instead for gentle, alcohol-free products.
+								</span>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="item-slick1" style="background-image: url(images/homebg.jpg);">
+				<div class="item-slick1" style="background-image: url(images/bgindex/bgbright.jpg);">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+								<span class="ltext-101 cl2 respon2">
+									Get to know your skintype
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
+									Sensitive Skin?
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+								<span class="fs-20 text-white cl2 respon2 ">
+								Is prone to redness, itching, and irritation from products or environmental factors. Choose fragrance-free and hypoallergenic products to minimize reactions. Use gentle, soothing ingredients like aloe vera or chamomile, and avoid applying multiple products at once. Always patch test new products.
+
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick1" style="background-image: url(images/bgindex/bgcentella.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									Men Collection 2018
+								Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									New arrivals
+							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="500">
+								<h2 class="ltext-201 cl2 text-light p-t-19 p-b-43 respon1">
+									Combination Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
-								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg5 bor1 hov-btn1 p-lr-15 trans-04">
-									Shop Now
-								</a>
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+								<span class="fs-20 text-white cl2 respon2 ">
+								It features both oily and dry areas, typically oily in the T-zone and drier on the cheeks. To manage this, use a balanced cleanser and lightweight moisturizer. You might need different products for different areas of your face. Regular exfoliation helps keep oily areas clear and hydrates dry patches.
+
+                               </span>
 							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick1" style="background-image: url(images/bgindex/bgtea.jpg);">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+								<span class="ltext-101 cl2 respon2">
+									Get to know your skintype
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
+									Oily Skin?
+								</h2>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+								<span class="fs-20 text-white cl2 respon2 ">
+								It appears shiny and greasy, with visible pores and a tendency for breakouts. Use a gel-based or foaming cleanser to control oil and apply an oil-free moisturizer to keep skin hydrated. Products with salicylic acid or benzoyl peroxide can help manage breakouts. Consider a mattifying primer or setting powder to reduce shine.
+
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--end-->
 						</div>
 					</div>
 				</div>
@@ -477,9 +623,78 @@ include ('session.php');
  
 </section>
 
+<!-- Events n promotions -->
+<div class="container mt-5">
+        <div class="row">
+            <!-- First Banner -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="banner">
+                    <div class="banner-inner">
+                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
+                            <!-- Front Image -->
+                        </div>
+                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb1.jpg');">
+                            <!-- Back Image -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Banner -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="banner">
+                    <div class="banner-inner">
+                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
+                            <!-- Front Image -->
+                        </div>
+                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb2.jpg');">
+                            <!-- Back Image -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Third Banner -->
+            <div class="col-12 col-md-4 mb-4">
+                <div class="banner">
+                    <div class="banner-inner">
+                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
+                        </div>
+                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb3.jpg');">
+                            <!-- Back Image -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container mt-5">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto">
+                    <h2 class="b1 text-center mb-0">Events & Promotions</h2>
+                </div>
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
+		
+
+
+
+<!-- guide Banner -->
+			<div class="skguideban mt-5" style="text-align: center; margin-bottom: 35px; ">
+				<img src="images/Banners/SkGuide.png" alt="GBanner" 
+			style="width: 100%; max-width: 1500px; height: 270px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />	
+			</div>
+	</div>
+</div>
 
 	<!-- Banner -->
-	<div class="sec-banner bg0 p-t-80 p-b-50">
+	<div class="sec-banner bg0 p-t-50 p-b-50">
 		<div class="container">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
@@ -756,7 +971,7 @@ include ('session.php');
 <br>
 <br>
 	<!-- Product -->
-	<section class="bg0 p-t-23 p-b-140">
+	<section class="bg0 p-b-14">
 		<div class="container">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
@@ -1264,6 +1479,41 @@ include ('session.php');
 			</div>
 		</div>
 	</section>
+
+<!-- Slogan Chariz -->
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="value-card">
+				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
+                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
+                    <div class="value-description">
+                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
+                    <div class="value-title">EWG Verified</div>
+                    <div class="value-description">
+                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
+                    <div class="value-title">Artificial Fragrance-Free</div>
+                    <div class="value-description">
+                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
  
 	<!-- Footer Banner -->
 	<div class="footban" style="text-align: center; margin-bottom: 35px; ">
@@ -1579,6 +1829,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</div>
+
+</script>
 	
 
 <!--===============================================================================================-->	
