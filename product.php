@@ -117,7 +117,7 @@ include ('session.php');
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart" >
 
-						<a href="shoping-cart.php">
+						<a href="shoping-cart.php" style="color: black;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						
@@ -194,10 +194,6 @@ include ('session.php');
 
 				<li>
 					<a href="product.php">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.php" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				

@@ -93,7 +93,7 @@ include ('session.php');
 							
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php">
+						<a href="shoping-cart.php" style="color:black;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						</div>
@@ -119,15 +119,13 @@ include ('session.php');
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
 					
-				<a href="shoping-cart.php">
+				<a href="shoping-cart.php" style="color:black;">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</a>
 
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+			
 			</div>
 
 			<!-- Button show menu -->
