@@ -102,9 +102,10 @@ $conn->close();
                 <tr>
                     <td><?php echo htmlspecialchars($order['order_id']); ?></td>
                     <td><?php echo htmlspecialchars($order['product_name']); ?></td>
-                    <td><?php echo htmlspecialchars($order['total_price']); ?></td>
+                    <td><?php echo htmlspecialchars($order['total_ price']); ?></td>
                     <td><?php echo htmlspecialchars($order['order_date']); ?></td>
                     <td><?php echo htmlspecialchars($order['status']); ?></td>
+                    <!---dito sa status naiisip ko na gagamit tayo ng buttons na mag iindicate kung to ship, to receive adn received na yung item welp pagmay time nlng natin gawin--->
                 </tr>
             <?php endforeach; ?>
         </table>
