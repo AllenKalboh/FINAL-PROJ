@@ -202,7 +202,7 @@ include ('session.php');
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="images/logoshet.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -215,8 +215,6 @@ include ('session.php');
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 ">
-					<i class="zmdi zmdi-favorite-outline"></i>
 				</a>
 			</div>
 
@@ -268,9 +266,6 @@ include ('session.php');
 					<a href="about.php">About</a>
 				</li>
 
-				<li>
-					<a href="contact.php">Contact</a>
-				</li>
 			</ul>
 		</div>
 
