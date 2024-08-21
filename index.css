@@ -1,13 +1,2 @@
-/* CSS for smooth hover effect */
-.block1-txt {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.block1-txt:hover {
-    background-color: #252525cf; /* Hover background color */
-    color: #ffffff; /* Hover text color */
-}
 
-.block1-name{
-    color: #ffffffd1 ;
-}

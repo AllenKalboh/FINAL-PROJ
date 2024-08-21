@@ -8,7 +8,7 @@ include('session.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>SkinLine Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="loginss.css">
     
@@ -23,7 +23,7 @@ include('session.php');
 
 <div class="container">
         <div class="left">
-            <img src="images/logoinver.png" alt="Left Side Image" class="left-image">
+            <img src="images/loginimg.png" alt="Left Side Image" class="left-image">
         </div>
         <div class="right">
             <img src="images/icons/logtxt.png" alt="Logo Text" class="right-icon">

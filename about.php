@@ -1,3 +1,7 @@
+<?php
+include ('db.php');
+include ('session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,9 +51,22 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<?php
+							if (isset($_SESSION['username'])) {
+							
+						?>
+						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+						<?php
+						} else {
+						?>
+						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
