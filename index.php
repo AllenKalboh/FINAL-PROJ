@@ -205,12 +205,7 @@ include ('session.php');
 						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-<<<<<<< Updated upstream
 						<a href="shoping-cart.php" style="color:white;">
-=======
-							
-						<a href="shoping-cart.php" style="color:white;" id="sc-btn">
->>>>>>> Stashed changes
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						</div>
