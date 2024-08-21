@@ -10,7 +10,7 @@ include ('session.php');
 	<title>Skinline</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="indexx.css">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/inverted.png"/>
 <!--===============================================================================================-->
@@ -90,6 +90,7 @@ include ('session.php');
     display: flex;
     align-items: center;
     justify-content: center;
+	cursor: pointer;
 }
 
 .best-seller-banner h2 {
@@ -110,6 +111,23 @@ include ('session.php');
     transform: scale(1.05); /* Scale card up slightly */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }
+
+.block2 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Scaling effect and shadow on hover */
+.block2:hover {
+    transform: scale(1.05); /* Scale card up slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+.block2{
+	padding: 8px;
+	border-radius: 10px;
+	
+}
+
 </style>
 
 	<!-- Header -->
@@ -187,7 +205,12 @@ include ('session.php');
 						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+<<<<<<< Updated upstream
 						<a href="shoping-cart.php" style="color:white;">
+=======
+							
+						<a href="shoping-cart.php" style="color:white;" id="sc-btn">
+>>>>>>> Stashed changes
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						</div>
@@ -675,8 +698,10 @@ include ('session.php');
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-img-container">
+						<a href="product.php" target> 
                         <img src="01Product Lines Imgs/Centella Line/Oilcleanse/1723806918425.jpg" class="card-img" alt="SkinLine Centella Light Cleansing Oil">
-                    </div>
+						</a>
+					</div>
                     <div class="card-body">
                         <h4 class="card-title">SkinLine Centella Light Cleansing Oil</h4>
                         <div class="rating d-flex justify-content-center align-items-center">
@@ -692,8 +717,10 @@ include ('session.php');
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-img-container">
+					<a href="product.php" target> 
                         <img src="01Product Lines Imgs/HyaCica Line/Hyalu Cica Water Fit Sun Serum 50ml 429/Picsart_24-08-20_17-19-23-347.jpg" class="card-img" alt="SkinLine Hyalu Cica Water Fit Sunscreen">
-                    </div>
+					</a>
+					</div>
                     <div class="card-body">
                         <h4 class="card-title">SkinLine Hyalu Cica Water Fit Sunscreen</h4>
                         <div class="rating d-flex justify-content-center align-items-center">
@@ -709,8 +736,10 @@ include ('session.php');
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-img-container">
+					<a href="product.php" target> 
                         <img src="01Product Lines Imgs/Centella Line/Ampule cleanser/1723807243305.jpg" class="card-img" alt="SkinLine Centella Ampule Foam Gel Cleanser">
-                    </div>
+                   </a>
+					</div>
                     <div class="card-body">
                         <h4 class="card-title">SkinLine Centella Ampule Foam Gel Cleanser</h4>
                         <div class="rating d-flex justify-content-center align-items-center">
@@ -975,13 +1004,14 @@ include ('session.php');
 			</div>
 
 			<div class="row isotope-grid">
-				<!--SERUM SECTION-->
+				<!--cleanser SECTION-->
 
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item cleanser">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
+							
 							<img src="01Product Lines Imgs\Centella Line\Oilcleanse\1723806918425.jpg" alt="IMG-PRODUCT">
 
 							
@@ -989,7 +1019,7 @@ include ('session.php');
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									SKINLINE Light Cleansing Oil 200ml
 								</a>
 
@@ -1006,7 +1036,39 @@ include ('session.php');
 								</a>
 							</div>
 						</div>
-					</div>
+					</div>	
+				</div>
+
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item cleanser">
+					<!-- block -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="01Product Lines Imgs/Centella Line/Ampule cleanser/1723807243305.jpg" alt="IMG-PRODUCT">
+
+							
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								SkinLine Centella Ampule Foam Gel Cleanser
+								</a>
+
+								<span class="stext-105 cl3">
+								₱399.00
+
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>	
 				</div>
 
 
@@ -1017,13 +1079,42 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
+							<img src="01Product Lines Imgs\Tone Bright\Tone Brightening Capsule Ampule 100ml\1724126454270.jpg" alt="IMG-PRODUCT">
+
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								Tone Brightening Capsule Ampule 100ml	
+								</a>
+							
+								<span class="stext-105 cl3">
+								₱589.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ampoule">
+					<!-- Block3 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
 							<img src="01Product Lines Imgs\ProBioCica\Probio Cica Intensive Ampoule 50ml 509\1724128752542.jpg" alt="IMG-PRODUCT">
 
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								Probio Cica Intensive Ampoule 50ml 
 								</a>
 
@@ -1056,12 +1147,42 @@ include ('session.php');
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								Hyalu Cica Water Fit Sun Serum 50ml
 								</a>
 
 								<span class="stext-105 cl3">
 								₱429.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item sunscreen">
+					<!-- Block3 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="01Product Lines Imgs/TeaTrica/Tea Trica Soothing Sun Milk Sunscreen 499/1724143289051.jpg" alt="IMG-PRODUCT">
+
+							
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								Tea Trica Soothing Sun Milk Sunscreen
+								</a>
+
+								<span class="stext-105 cl3">
+								₱499.00
 								</span>
 							</div>
 
@@ -1081,18 +1202,18 @@ include ('session.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="01Product Lines Imgs\Tone Bright\Tone Brightening Capsule Ampule 100ml\1724126454270.jpg" alt="IMG-PRODUCT">
+							<img src="01Product Lines Imgs/HyaCica Line/Hyalu Cica Hydrating Brightening toner 210 ml 589/IMG_20240820_170353_85.jpg" alt="IMG-PRODUCT">
 
 							
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Tone Brightening Capsule Ampule 100ml								</a>
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+																</a>
 
 								<span class="stext-105 cl3">
-								₱589.00
+							
 								</span>
 							</div>
 
@@ -1106,6 +1227,35 @@ include ('session.php');
 					</div>
 				</div>
 
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item toner">
+					<!-- Block3 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="01Product Lines Imgs/Poremizing/Poremizing Clear Toner 210 ml 599/1724140545412.jpg" alt="IMG-PRODUCT">
+
+							
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								Poremizing Clear Toner 210 ml
+								</a>
+
+								<span class="stext-105 cl3">
+								₱599.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<!-- Load more -->

@@ -55,7 +55,7 @@ $result = $conn->query($sql);
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["product_name"]) . "</td>";
-                echo "<td>" . htmlspecialchars($row["price"]) . "</td>";
+                echo "<td> ₱" . htmlspecialchars($row["price"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["description"]) . "</td>";
 
                 // Output images
