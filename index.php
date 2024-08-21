@@ -128,6 +128,8 @@ include ('session.php');
 	
 }
 
+
+
 </style>
 
 	<!-- Header -->
@@ -395,7 +397,7 @@ include ('session.php');
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1" style="background-image: url(images/B1.png);">
+				<div class="item-slick1" style="background-image: url(images/b2.png);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
@@ -1047,7 +1049,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								SkinLine Centella Ampule Foam Gel Cleanser
+								SKINLINE Centella Ampule Foam Gel Cleanser
 								</a>
 
 								<span class="stext-105 cl3">
@@ -1081,7 +1083,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Tone Brightening Capsule Ampule 100ml	
+								SKINLINE Tone Brightening Capsule Ampule 100ml	
 								</a>
 							
 								<span class="stext-105 cl3">
@@ -1110,7 +1112,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Probio Cica Intensive Ampoule 50ml 
+								SKINLINE Probio Cica Intensive Ampoule 50ml 
 								</a>
 
 								<span class="stext-105 cl3">
@@ -1143,7 +1145,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Hyalu Cica Water Fit Sun Serum 50ml
+								SKINLINE Hyalu Cica Water Fit Sun Serum 50ml
 								</a>
 
 								<span class="stext-105 cl3">
@@ -1173,7 +1175,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Tea Trica Soothing Sun Milk Sunscreen
+								SKINLINE Tea Trica Soothing Sun Milk Sunscreen
 								</a>
 
 								<span class="stext-105 cl3">
@@ -1205,10 +1207,11 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								SKINLINE Hyalu Cica Hydrating Brightening Toner
 																</a>
 
 								<span class="stext-105 cl3">
-							
+							₱589.00
 								</span>
 							</div>
 
@@ -1234,7 +1237,7 @@ include ('session.php');
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Poremizing Clear Toner 210 ml
+								SKINLINE Poremizing Clear Toner 210 ml
 								</a>
 
 								<span class="stext-105 cl3">
