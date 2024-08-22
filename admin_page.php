@@ -22,6 +22,11 @@ $select_admins->bind_result($total_admins);
 $select_admins->fetch();
 $select_admins->close();
 
+$select_orders = $conn->prepare("SELECT COUNT(*) as total_orders FROM `orders`");
+$select_orders->execute();
+$select_orders->bind_result($total_orders);
+$select_orders->fetch();
+$select_orders->close();
 ?>
 
 <!DOCTYPE html>
@@ -102,8 +107,10 @@ $select_admins->close();
 <body>
     <div class="sidebar">
         <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
-        <a href="product_list.php"><i class="fas fa-box"></i><span> Products List</span></a>
+        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
+        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
     </div>
 
@@ -124,6 +131,11 @@ $select_admins->close();
             <div class="box">
                 <h3><?= $total_admins; ?></h3>
                 <p>Admin</p>
+            </div>
+
+            <div class="box">
+                <h3><?= $total_orders; ?></h3>
+                <p>Orders</p>
             </div>
         </div>
     </section>

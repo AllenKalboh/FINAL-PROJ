@@ -5,6 +5,53 @@ include ('session.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+/* Styling for the products */
+.all-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 14px;
+}
+.btn {
+    background-color: #000; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Top and bottom, left and right padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Align button inline with other elements */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin around the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.name {
+	font-size: 18px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+</style>
 	<title>Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +86,67 @@ include ('session.php');
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="productss.css">
+	<link rel="stylesheet" href="all-products.css">
 <!--===============================================================================================-->
 </head>
+
+<style>
+.all-products-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.swiper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+    max-width: 1200px; /* Optional: Limit the maximum width of the grid */
+    width: 100%;
+}
+
+.swiper-slide {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+ 
+    margin-bottom: 15px;
+	object-fit: contain;
+}
+
+/* Responsive grid: Adjust the number of columns based on screen size */
+@media (max-width: 1200px) {
+    .swiper {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+}
+
+@media (max-width: 900px) {
+    .swiper {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .swiper {
+        grid-template-columns: 1fr; /* 1 item per row */
+    }
+}
+</style>
 <body class="animsition">
 	
 	<!-- Header -->
@@ -126,6 +232,10 @@ include ('session.php');
 						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
 							<i class="zmdi zmdi-user"></i>
 						</a>
+
+						<a href="search_page.php" class="sc-btn">
+   								 <i class="fas fa-search" style ="color:black;"></i> 
+							</a> 
 					</div>
 				</nav>
 			</div>	
@@ -143,10 +253,12 @@ include ('session.php');
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					
 				</div>
+				
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart" >
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
+				
 
 				
 			</div>
@@ -171,7 +283,7 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="helpfaq.html" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -179,6 +291,9 @@ include ('session.php');
 							My Account
 						</a>
 
+						<a href="search_page.php" class="sc-btn">
+   								 <i class="fas fa-search" style ="color: gray;"></i> 
+							</a> 
 						
 					</div>
 				</li>
@@ -342,30 +457,116 @@ include ('session.php');
 
 							<a href="category.php?category=mask" class="category-slide">
 							<i class="fas fa-theater-masks"></i>
-
-
-
-
                                 <h3>Masks</h3>
                             </a>
 
-<!-- 							
-							<a href="search_page.php" class="sc-btn">
-   								 <i class="fas fa-search"></i> Search
-							</a> -->
+						
+							
                         </div>
                     </div>
+					
                 </section>
+
+			
             </div>
+			
         </div>
 
         <!-- ALL PRODUCTS SECTION -->
         <!-- Load more -->
         
     </div>
+	<h1 class="heading">All Product</h1>
 </div>
 
-		
+<?php
+
+// Initialize the result variable
+$result = null;
+
+    $sql = "SELECT * FROM products LIMIT 6";
+    $result = $conn->query($sql);
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swiper/6.8.4/swiper-bundle.min.css">
+
+</head>
+<body>
+
+<section class="all-products-container">
+    
+    <div class="swiper products-slider">
+        <?php
+        if ($result && $result->num_rows > 0) {
+            while ($fetch_product = $result->fetch_assoc()) {
+                // Construct image paths
+                $img01Path = 'uploads/' . basename($fetch_product['img_01']);
+                ?>
+                <div class="swiper-slide">
+                    <form action="" method="post">
+                        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+                        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+                        <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
+                        <a href="quickview.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye"></a>
+                        <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                        <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+                        <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
+                    </form>
+                </div>
+                <?php
+            }
+        } else {
+            echo '<p class="empty">No products added yet!</p>';
+        }
+        ?>
+    </div>
+    <div class="swiper-pagination"></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/6.8.4/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.products-slider', {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: 4
+            },
+            900: {
+                slidesPerView: 3
+            },
+            600: {
+                slidesPerView: 2
+            },
+            0: {
+                slidesPerView: 1
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+</body>
+</html>
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">

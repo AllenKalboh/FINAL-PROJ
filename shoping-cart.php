@@ -313,6 +313,8 @@ include ('session.php');
 									<th class="column-3">Price</th>
 									<th class="column-4">Quantity</th>
 									<th class="column-5">Total</th>
+									<th class="column-6">Delete</th>
+									
 								</tr>
 
 								
@@ -336,7 +338,7 @@ if (mysqli_num_rows($result) > 0) {
                     <img src="' . htmlspecialchars($img01Path) . '" alt="IMG">
                 </div>
             </td>
-            <td class="column-2">' . htmlspecialchars($row['product_name']) . '</td>
+            <td class="column-2">' . htmlspecialchars($row['product_name']) . ' </td>
             <td class="column-3">$' . htmlspecialchars($row['price']) . '</td>
             <td class="column-4">
                 <div class="wrap-num-product flex-w m-l-auto m-r-0">
