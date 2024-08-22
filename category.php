@@ -18,8 +18,6 @@ include ('db.php');
 
 </head>
 <style> 
-
-
 .back-button {
     position: fixed; /* Fixed position relative to the viewport */
     top: 20px; /* Distance from the top */
