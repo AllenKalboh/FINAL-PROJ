@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Help & FAQs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="helpfaq.css">
+</head>
+<body> <a href="index.php" class="back-button">
+    <i class="fas fa-arrow-left"></i>
+</a>
+    <div class="container">
+        <img src="images/icons/logpic.png" alt="" class="img-logo">
+        <header>
+            <h1>Skincare Help & FAQs</h1>
+            <p>Your guide to all things skincare.</p>
+        </header>
+
+        <div class="buttons">
+            <button class="button" onclick="showContent('help')">Help</button>
+            <button class="button" onclick="showContent('faq')">FAQs</button>
+        </div>
+
+        <div id="content" class="content">
+            <!-- Content will change dynamically -->
+        </div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            const contentDiv = document.getElementById('content');
+            if (section === 'help') {
+                contentDiv.innerHTML = `
+                    <h2>Help</h2>
+                    <p>If you need assistance with your skincare routine, feel free to reach out to us at skinlineessentials@gmail.com.</p>
+                    <p>Here are a few tips to enhance your skincare routine:</p>
+                    <ul>
+                        <li><strong>Understand Your Skin Type:</strong> Knowing whether your skin is oily, dry, combination, or sensitive is the first step in choosing the right products.</li>
+                        <li><strong>Layer Your Products Correctly:</strong> Always apply lighter, water-based products first and thicker, cream-based products later.</li>
+                        <li><strong>Include Antioxidants:</strong> Incorporate serums with Vitamin C, which help in protecting the skin from damage and brighten the complexion.</li>
+                        <li><strong>Double Cleanse:</strong> Use an oil-based cleanser first, followed by a water-based cleanser to effectively remove makeup and dirt.</li>
+                        <li><strong>Stay Consistent:</strong> Results take time. Stick to your routine for at least a few weeks before switching products.</li>
+                    </ul>
+                    <p>Still need help? Here are some common scenarios:</p>
+                    <ul>
+                        <li><strong>Dealing with Breakouts:</strong> Consider products with salicylic acid and benzoyl peroxide.</li>
+                        <li><strong>Uneven Skin Tone:</strong> Try serums with niacinamide or alpha arbutin.</li>
+                        <li><strong>Dry Patches:</strong> Hydrating masks and overnight moisturizers can do wonders.</li>
+                    </ul>
+                `;
+            } else if (section === 'faq') {
+                contentDiv.innerHTML = `
+                    <h2>FAQs</h2>
+                    <p>Here are some frequently asked questions about skincare:</p>
+                    <ul>
+                        <li><strong>What’s the best routine for oily skin?</strong><br>Use a gentle foaming cleanser, followed by a toner, an oil-free moisturizer, and a lightweight sunscreen.</li>
+                        <li><strong>How often should I exfoliate?</strong><br>For most skin types, exfoliating 1-2 times a week is enough. Over-exfoliation can lead to irritation and damage.</li>
+                        <li><strong>Can I skip moisturizer if I have oily skin?</strong><br>No! Even oily skin needs hydration. Opt for a gel-based or lightweight, oil-free moisturizer.</li>
+                        <li><strong>What’s the ideal order of applying products?</strong><br>Cleansing -> Toning -> Serum -> Moisturizer -> Sunscreen (in the morning). In the evening, replace sunscreen with treatments or oils.</li>
+                        <li><strong>How do I reduce fine lines?</strong><br>Look for products containing retinoids, peptides, and hyaluronic acid. Always use sunscreen to prevent further damage.</li>
+                        <li><strong>What’s a good routine for sensitive skin?</strong><br>Stick to gentle, fragrance-free products. Avoid harsh exfoliants and incorporate soothing ingredients like chamomile, aloe, and ceramides.</li>
+                        <li><strong>Why is sunscreen important indoors?</strong><br>UV rays can penetrate windows and contribute to aging. Broad-spectrum sunscreen protects against both UVA and UVB rays.</li>
+                    </ul>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
