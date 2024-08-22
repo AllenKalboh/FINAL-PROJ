@@ -282,7 +282,7 @@ include ('session.php');
 						</a>
 					</div>	
 					</div>
-		<!-- Header Mobile -->
+		<!-- helpfaq.html -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
@@ -322,7 +322,7 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="helpfaq.html" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -676,6 +676,7 @@ include ('session.php');
                 <div class="col-auto">
                     <h2 class="b1 text-center mb-0">Events & Promotions</h2>
                 </div>
+				
                 <div class="col">
                     <hr class="border-dark" style="border-width: 4px;">
                 </div>
@@ -689,7 +690,11 @@ include ('session.php');
 			<div class="skguideban mt-5" style="text-align: center; margin-bottom: 35px; ">
 				<img src="images/Banners/SkGuide.png" alt="GBanner" 
 			style="width: 100%; max-width: 1500px; height: 270px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />	
+			<a href = "https://www.youtube.com/shorts/p68FLWb3LHw"> <div class="block1-link stext-101 cl2">
+									Watch Guide
+								</div> </a>
 			</div>
+			
 	</div>
 </div>
 

@@ -73,32 +73,40 @@ if(isset($_SESSION['user_id'])){
    <div class="box-container">
 
    <?php
-if(isset($_POST['search_box']) OR isset($_POST['search_btn'])){
-    $search_box = $_POST['search_box'];
-    $select_products = $conn->query("SELECT * FROM `products` WHERE product_name LIKE '%$search_box%'");
-    
-    if($select_products->num_rows > 0){
-        while($fetch_product = $select_products->fetch_assoc()){
-?>
-   <form action="" method="post" class="box">
-      <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
-      <input type="hidden" name="name" value="<?= $fetch_product['product_name']; ?>">
-      <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
-      <input type="hidden" name="image" value="<?= $fetch_product['img_01']; ?>">
-      <img src="uploads"<?= $fetch_product['image_01']; ?> alt="">
-      <div class="name"><?= $fetch_product['product_name']; ?></div>
-      <div class="flex">
-         <div class="price"><span>₱.</span><?= $fetch_product['price']; ?><span>/-</span></div>
-         <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
-      </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart"  id="atc-btn">
-   </form>
-   <?php
-         }
-      }else{
-         echo '<p class="empty"No products found!</p>';
-      }
+if (isset($_POST['search_box']) || isset($_POST['search_btn'])) {
+   $search_box = $_POST['search_box'];
+
+   // Use prepared statements to prevent SQL injection
+   $stmt = $conn->prepare("SELECT * FROM products WHERE product_name LIKE ?");
+   $searchTerm = "%$search_box%";
+   $stmt->bind_param("s", $searchTerm);
+   $stmt->execute();
+   $result = $stmt->get_result();
+
+   if ($result->num_rows > 0) {
+       while ($fetch_product = $result->fetch_assoc()) {
+           // Fetch the image path
+           $img01Path = 'uploads/' . basename($fetch_product["img_01"]);
+           ?>
+           <form action="" method="post" class="box">
+               <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+               <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+               <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+               <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
+               <img src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+               <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+               <div class="flex">
+                   <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?><span>/-</span></div>
+                   <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
+               </div>
+               <input type="submit" value="Add to Cart" class="btn" name="add_to_cart" id="atc-btn">
+           </form>
+           <?php
+       }
+   } else {
+       echo "<script>alert('No Product Found');</script>";
    }
+}
    ?>
 
    </div>
