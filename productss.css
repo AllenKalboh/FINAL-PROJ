@@ -90,9 +90,17 @@
 /* Additional button styles */
 .sc-btn {
     font-size: 32px;
-    color: rgb(107, 107, 107);
+    color: black; /* Initial color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 20px; /* Optional padding for better click area */
+    display: inline-block; /* Ensure the button aligns properly */
+    transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .sc-btn:hover {
-    color: black;
+    color: rgb(107, 107, 107); /* Color on hover */
+}
+
+.sc-btn i {
+    color: inherit; /* Make sure the icon inherits the color from .sc-btn */
 }

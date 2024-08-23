@@ -233,8 +233,8 @@ include ('session.php');
 							<i class="zmdi zmdi-user"></i>
 						</a>
 
-						<a href="search_page.php" class="sc-btn">
-   								 <i class="fas fa-search" style ="color:black;"></i> 
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px;">
+   								 <i class="fas fa-search"></i> 
 							</a> 
 					</div>
 				</nav>
@@ -516,7 +516,7 @@ $result = null;
                         <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
                         <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
-                        <a href="quickview.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye"></a>
+                        <a href="quickview.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
                         <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
                         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">

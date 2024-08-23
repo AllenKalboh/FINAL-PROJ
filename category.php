@@ -28,7 +28,6 @@ include ('db.php');
     text-decoration: none;
     font-size: 18px; /* Font size for the icon */
     padding: 8px; /* Padding around the button */
-    border: 1px solid #000000; /* Border color */
     border-radius: 4px; /* Rounded corners */
     background-color: #494949; /* Background color */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
@@ -43,13 +42,42 @@ include ('db.php');
     transform: scale(1.10);
     transition: 0.3s;
 }
+.home-button {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Blue color for the icon */
+    text-decoration: none;
+    font-size: 18px; /* Font size for the icon */
+    padding: 8px; /* Padding around the button */
+
+    border-radius: 4px; /* Rounded corners */
+    background-color: #494949; /* Background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it is on top of other elements */
+    margin-left: 50px;
+}
+
+.home-button i {
+    font-size: 20px; /* Font size for the icon */
+}
+
+.home-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
+
 
 </style>
 <body>
 <a href="product.php" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
-
+    <a href="index.php" class="home-button">
+        <i class="fas fa-home"></i>
+    </a>
 <section class="products">
 
    <h1 class="heading">Products</h1>

@@ -60,6 +60,7 @@ if(isset($_SESSION['user_id'])){
 <a href="product.php" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
+    
 
 <section class="search-form">
    <form action="" method="post">

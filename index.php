@@ -200,6 +200,22 @@ include ('session.php');
     color: #6c757d;
 	text-align: justify;
 }
+.sc-btn {
+    font-size: 32px;
+    color: black; /* Initial color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 20px; /* Optional padding for better click area */
+    display: inline-block; /* Ensure the button aligns properly */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.sc-btn:hover {
+    color: rgb(107, 107, 107); /* Color on hover */
+}
+
+.sc-btn i {
+    color: inherit; /* Make sure the icon inherits the color from .sc-btn */
+}
 
 
 </style>
@@ -1012,11 +1028,9 @@ include ('session.php');
 				<div class="flex-w flex-c-m m-tb-10">
 					
 
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Search
-					</div>
+				<a href="search_page.php" class="sc-btn" style="font-size: 28px; text-decoration:">
+   								 <i class="fas fa-search"></i> 
+							</a> 
 				</div>
 				
 				<!-- Search product -->
