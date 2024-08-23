@@ -33,6 +33,55 @@ include ('session.php');
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
+<style> 
+.cart-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.cart-table td {
+    background-color: #fff;
+}
+
+.checkout-button-container {
+    text-align: right;
+}
+
+.checkout-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+</style>
 <body class="animsition">
 	
 	<!-- Header -->
@@ -300,139 +349,53 @@ include ('session.php');
 		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-					<div class="m-l-25 m-r--38 m-lr-0-xl">
-						<div class="wrap-table-shopping-cart">
-							<table class="table-shopping-cart">
-								<tr class="table_head">
-									<th class="column-1">Product</th>
-									<th class="column-2"></th>
-									<th class="column-3">Price</th>
-									<th class="column-4">Quantity</th>
-									<th class="column-5">Total</th>
-									<th class="column-6">Delete</th>
-									
-								</tr>
+	 <!-- Shopping Cart Content -->
+	  <!-- Shopping Cart Content -->
+	  <section class="cart-section">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+			include('db.php');
+            // Assuming you already have the database connection setup
+            $cart_items = $conn->query("SELECT * FROM cart");
 
-								
+            if ($cart_items->num_rows > 0) {
+                while ($item = $cart_items->fetch_assoc()) {
+                    $total = $item['price'] * $item['quantity'];  // Using 'price' instead of 'product_price'
+                    ?>
+                    <tr>
+                        <td><img src="uploads/<?= htmlspecialchars($item['product_img']); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" style="width: 50px; height: 50px;"></td>
+                        <td><?= htmlspecialchars($item['product_name']); ?></td>
+                        <td>$<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
+                        <td><?= htmlspecialchars($item['quantity']); ?></td>
+                        <td>$<?= htmlspecialchars(number_format($total, 2)); ?></td>
+                        <td><a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>">DELETE</a></td>
+                    </tr>
+                    <?php
+                }
+            } else {
+                echo '<tr><td colspan="6">No items in the cart.</td></tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
-								<?php
-// Query to select all products
-$sql = "SELECT * FROM products";
-$result = mysqli_query($conn, $sql);
-
-// Check if there are any products
-if (mysqli_num_rows($result) > 0) {
-    // Fetch each product
-    while ($row = mysqli_fetch_assoc($result)) {
-        // Construct the image path
-        $img01Path = 'uploads/' . basename($row["img_01"]);
-
-        echo '
-        <tr class="table_row">
-            <td class="column-1">
-                <div class="how-itemcart1">
-                    <img src="' . htmlspecialchars($img01Path) . '" alt="IMG">
-                </div>
-            </td>
-            <td class="column-2">' . htmlspecialchars($row['product_name']) . ' </td>
-            <td class="column-3">$' . htmlspecialchars($row['price']) . '</td>
-            <td class="column-4">
-                <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                    <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                        <i class="fs-16 zmdi zmdi-minus"></i>
-                    </div>
-
-                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product' . htmlspecialchars($row['id']) . '" value="1">
-
-                    <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                        <i class="fs-16 zmdi zmdi-plus"></i>
-                    </div>
-                </div>
-            </td>
-            <td class="column-5">$' . htmlspecialchars($row['price']) . '</td>
-        </tr>';
-    }
-} else {
-    echo '<tr><td colspan="5">No products found</td></tr>';
-}
-?>
+    <div class="checkout-button-container">
+        <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+</section>
 
 
-								<!-- KAILANGAN MAPAGANA NATIN TO NA ONCE NAG ADD TO CART YUNG USER -->
-								 <!-- MAG AADD UP AS TABLE DAPAT YUNG NEWLY ADDED NA ITEM-->
-
-							</table>
-						</div>
-
-						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-						<h4 class="mtext-109 cl2 p-b-30">
-							Cart Totals
-						</h4>
-
-						<div class="flex-w flex-t bor12 p-b-13">
-							
-
-							<div class="size-209">
-								<span class="mtext-110 cl2">
-									$79.65
-								</span>
-							</div>
-						</div>
-
-						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
-							
-
-							<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-								
-								
-								<div class="p-t-15">
-									
-
-									
-
-									
-									
-									<div class="flex-w">
-										
-									</div>
-										
-								</div>
-							</div>
-						</div>
-
-						<div class="flex-w flex-t p-t-27 p-b-33">
-							<div class="size-208">
-								<span class="mtext-101 cl2">
-									Total:
-								</span>
-							</div>
-
-							<div class="size-209 p-t-1">
-								<span class="mtext-110 cl2">
-									$79.65
-								</span>
-							</div>
-						</div>
-
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-							Proceed to Checkout
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
 		
 	
 		

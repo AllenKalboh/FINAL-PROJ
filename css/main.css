@@ -161,7 +161,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   height: 38px;
   bottom: 0px;
   right: 40px;
-  background-color: #717fe0;
+  background-color: rgb(0, 0, 0);
   opacity: 0.5;
   justify-content: center;
   align-items: center;
@@ -175,13 +175,13 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .symbol-btn-back-to-top {
   font-size: 25px;
-  color: white;
+  color: rgb(255, 255, 255);
   line-height: 1em;
 }
 
 .btn-back-to-top:hover {
   opacity: 1;
-  background-color: #717fe0;
+  background-color: #6e6e6e;
 }
 
 @media (max-width: 575px) {

@@ -1,29 +1,26 @@
 <?php
 
-include ('db.php');
+include('db.php');
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
-
-if(!isset($admin_id)){
-   header('location:admin_login.php');
-}
-
 if(isset($_POST['update_payment'])){
-   $order_id = $_POST['order_id'];  
-   $status = $_POST['status'];
-   $status = filter_var($payment_status, FILTER_SANITIZE_STRING);
-   $update_payment = $conn->prepare("UPDATE `orders` SET status = ? WHERE order_id = ?");
-   $update_payment->execute([$payment_status, $order_id]);
-   $message[] = 'Payment Status Updated!';
+    $order_id = $_POST['order_id'];
+    $status = $_POST['status'];
+    $status = filter_var($status, FILTER_SANITIZE_STRING); // Corrected variable
+
+    $update_payment = $conn->prepare("UPDATE `orders` SET status = ? WHERE order_id = ?");
+    $update_payment->execute([$status, $order_id]);
+
+    $message[] = 'Payment Status Updated!';
 }
 
 if(isset($_GET['delete'])){
-   $delete_id = $_GET['delete'];
-   $delete_order = $conn->prepare("DELETE FROM `orders` WHERE order_id = ?");
-   $delete_order->execute([$delete_id]);
-   header('location:admin_orders.php');
+    $delete_id = $_GET['delete'];
+    $delete_order = $conn->prepare("DELETE FROM `orders` WHERE order_id = ?");
+    $delete_order->execute([$delete_id]);
+    header('Location: admin_orders.php'); // Corrected redirect
+    exit();
 }
 
 ?>
