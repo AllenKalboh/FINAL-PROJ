@@ -1,5 +1,7 @@
 <?php
 include('db.php');
+include('session.php');
+include('session-checker.php');
 
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['pid'];
@@ -16,7 +18,7 @@ if (isset($_POST['add_to_cart'])) {
         echo "<script>
                 alert('Product added to cart successfully!');
                 window.location.href = 'shoping-cart.php';
-              </script>";
+                </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
