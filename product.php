@@ -2,6 +2,30 @@
 include ('db.php');
 include ('session.php');
 ?>
+<?php
+// Handle Add to Cart Form Submission
+if (isset($_POST['add_to_cart'])) {
+    $product_id = $_POST['pid'];
+    $quantity = $_POST['qty'];
+    $price = $_POST['price'];
+    $user_id = $_SESSION['user_id']; // Assuming user_id is stored in session
+
+    // Check if the item is already in the cart
+    $check_cart = $conn->query("SELECT * FROM `cart` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
+    
+    if ($check_cart->num_rows > 0) {
+        // Update quantity if item is already in the cart
+        $conn->query("UPDATE `cart` SET `quantity` = `quantity` + '$quantity' WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
+    } else {
+        // Insert new item into the cart
+        $conn->query("INSERT INTO `cart` (`user_id`, `product_id`, `quantity`, `price`, `added_at`) VALUES ('$user_id', '$product_id', '$quantity', '$price', NOW())");
+    }
+
+    // Redirect to avoid resubmission on page refresh
+    header('Location: product.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -501,8 +525,10 @@ $result = null;
 </head>
 <body>
 
+<?php 
+
+?>
 <section class="all-products-container">
-    
     <div class="swiper products-slider">
         <?php
         if ($result && $result->num_rows > 0) {
@@ -511,7 +537,7 @@ $result = null;
                 $img01Path = 'uploads/' . basename($fetch_product['img_01']);
                 ?>
                 <div class="swiper-slide">
-                    <form action="" method="post">
+                    <form action="cart_action.php" method="post">
                         <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
                         <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
@@ -519,6 +545,7 @@ $result = null;
                         <a href="quickview.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
                         <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+                        <input type="number" name="quantity" value="1" min="1" class="quantity">
                         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
                     </form>
                 </div>
@@ -531,6 +558,7 @@ $result = null;
     </div>
     <div class="swiper-pagination"></div>
 </section>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/6.8.4/swiper-bundle.min.js"></script>
 <script>
