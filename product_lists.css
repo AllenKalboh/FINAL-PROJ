@@ -21,7 +21,7 @@ body {
     left: 20px; /* Distance from the left */
     display: flex;
     align-items: center;
-    color: #ff0000; /* Blue color for the icon */
+    color: #ffffff; /* Blue color for the icon */
     text-decoration: none;
     font-size: 18px; /* Font size for the icon */
     padding: 8px; /* Padding around the button */
