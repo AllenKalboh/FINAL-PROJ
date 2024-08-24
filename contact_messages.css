@@ -1,0 +1,56 @@
+/* user_message.css */
+
+.user-msg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height to center vertically */
+}
+
+.message-container {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional: adds a border around the container */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    background-color: #f9f9f9; /* Optional: sets a background color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a shadow */
+}
+
+.message {
+    margin-bottom: 10px; /* Adds spacing between messages */
+}
+/* user_message.css */
+
+.user-msg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height to center vertically */
+}
+
+.message-table {
+    width: 500px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.message-table th, .message-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.message-table th {
+    background-color: #f2f2f2;
+}
+
+.message-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.message-table tr:hover {
+    background-color: #f1f1f1;
+}
