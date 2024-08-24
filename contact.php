@@ -1,6 +1,8 @@
 <?php
 include ('db.php');
 include ('session.php');
+include ('session-checker.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
