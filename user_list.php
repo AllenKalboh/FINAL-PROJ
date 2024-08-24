@@ -10,65 +10,23 @@ include ('db.php');
    <title>User Accounts</title>
 
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="user_list.css">
    
-   <style>
-       body {
-           background-color: #f4f4f4;
-           font-family: Arial, sans-serif;
-       }
-       .accounts {
-           padding: 20px;
-           max-width: 1200px;
-           margin: 0 auto;
-       }
-       .heading {
-           text-align: center;
-           margin-bottom: 30px;
-           color: #333;
-           font-size: 2.5rem;
-           font-weight: bold;
-       }
-       .box-container {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 20px;
-           justify-content: center;
-       }
-       .user {
-           background: #fff;
-           border: 1px solid #ddd;
-           border-radius: 8px;
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           padding: 20px;
-           width: 300px;
-           transition: transform 0.2s, box-shadow 0.2s;
-       }
-       .user:hover {
-           transform: translateY(-5px);
-           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-       }
-       .user p {
-           margin: 0 0 10px;
-           color: #555;
-       }
-       .delete-btn {
-           display: inline-block;
-           margin-top: 10px;
-           padding: 8px 16px;
-           background-color: #dc3545;
-           color: #fff;
-           border-radius: 4px;
-           text-decoration: none;
-           font-size: 0.9rem;
-           transition: background-color 0.2s;
-       }
-       .delete-btn:hover {
-           background-color: #c82333;
-       }
-   </style>
+
 </head>
-<center><body>
+    <body>
+    <div class="sidebar">
+    <img src="images/inverted.png" alt="">
+        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
+        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
+        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
+        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
+        <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+    </div>
+
 
 <section class="accounts">
 

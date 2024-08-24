@@ -1,11 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    font-family: Poppins;
+}
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+}
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #343a40;
+    padding-top: 20px;
+    position: fixed;
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+}
+.sidebar img {
+display: block; /* Make the image a block element */
+margin: 0 auto 20px; /* Center the image and add bottom margin */
+max-width: 100%; /* Ensure the image does not overflow the sidebar width */
+height: auto; /* Maintain the aspect ratio */
 }
 .orders {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    margin-left: 23%;
 }
 .heading {
     text-align: center;
@@ -49,50 +81,28 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     transition: background-color 0.2s;
+    text-decoration: none;
 }
 .option-btn {
-    background-color: #007bff;
+    background-color: #000000;
+    text-decoration: none;
 }
 .option-btn:hover {
-    background-color: #0056b3;
+    background-color: gray;
+    color:white;
+    text-decoration: none;
 }
 .delete-btn {
     background-color: #dc3545;
+    text-decoration: none;
 }
 .delete-btn:hover {
     background-color: #c82333;
+    text-decoration: none;
+    color: white;
 }
 .empty {
     text-align: center;
     color: #777;
     font-size: 1.2rem;
-}
-.back-button {
-position: fixed; /* Fixed position relative to the viewport */
-top: 20px; /* Distance from the top */
-left: 20px; /* Distance from the left */
-display: flex;
-align-items: center;
-color: #ffffff; /* Blue color for the icon */
-text-decoration: none;
-font-size: 18px; /* Font size for the icon */
-padding: 8px; /* Padding around the button */
-border: 1px solid #000000; /* Border color */
-border-radius: 4px; /* Rounded corners */
-background-color: #494949; /* Background color */
-transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-z-index: 1000; /* Ensure it is on top of other elements */
-text-decoration: none;
-}
-
-.back-button i {
-font-size: 20px; /* Font size for the icon */
-text-decoration: none;
-}
-
-.back-button:hover {
-    color: white;
-transform: scale(1.10);
-transition: 0.3s;
-text-decoration: none;
 }
