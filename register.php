@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
 
     if($conn->query($sql)===TRUE){
-        echo "<script>alert('Registration Succesful');</script>";
+        echo "<script>alert('Registration Successful. Please log in.');</script>";
     } else{
         echo "Error: " .$sql ."<br>". $conn->error;
     }
@@ -47,14 +47,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="Enter Password" name="password" required>
+            <input type="password" id="password" placeholder="Enter Password" name="password" minlength="8" required>
 
             <label for="address">Address:</label>
-            <input type="text" id="address" placeholder="Enter Address" name="address" required>
+            <select id="address" name="address" required>
+                <option value="" disabled selected>Select Your Location</option>
+                <option value="Location 1">Location 1</option>
+                <option value="Location 2">Location 2</option>
+                <option value="Location 3">Location 3</option>
+                <!-- Add more options as needed -->
+            </select>
 
             <label for="phone-number">Phone Number:</label>
             <input type="number" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
-
 
             <button type="submit" class="reg-btn">Create Account</button>
         </form>

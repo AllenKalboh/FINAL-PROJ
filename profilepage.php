@@ -1,6 +1,7 @@
 <?php
 include('db.php');
 include('session.php');
+include ("session-checker.php");
 
 /*
 if (isset($_SESSION['username'])) {
