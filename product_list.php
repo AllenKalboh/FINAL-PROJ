@@ -42,7 +42,7 @@ $result = $conn->query($sql);
     <title>View Products</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="product_lists.css">
+    <link rel="stylesheet" href="product_listss.css">
     <style>
         /* Button Styles */
 /* Button Styles */
@@ -104,9 +104,16 @@ table {
 </head>
 <body>
 
-    <a href="admin_page.php" class="back-button">
-        <i class="fas fa-arrow-left"></i>
-    </a>
+    <div class="sidebar">
+    <img src="images/inverted.png" alt="">
+        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
+        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
+        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
+        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
+        <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+    </div>
 
 <h1 class="heading">Product List</h1>
 

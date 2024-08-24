@@ -44,76 +44,12 @@ $select_orders->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sidebar {
-            width: 200px;
-            height: 100vh;
-            background-color: #343a40;
-            padding-top: 20px;
-            position: fixed;
-        }
-
-        .sidebar a {
-            padding: 15px 25px;
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .sidebar a:hover {
-            background-color: #495057;
-        }
-
-        .dashboard {
-            margin-left: 200px;
-            padding: 20px;
-        }
-
-        .heading {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 36px;
-            color: #343a40;
-        }
-
-        .box-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .box {
-            width: 200px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .box h3 {
-            font-size: 32px;
-            color: #343a40;
-            margin-bottom: 10px;
-        }
-
-        .box p {
-            font-size: 18px;
-            color: #6c757d;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="admin_page.css">
 </head>
 <body>
     <div class="sidebar">
+    <img src="images/inverted.png" alt="">
         <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>

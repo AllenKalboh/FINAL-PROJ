@@ -33,80 +33,13 @@ if(isset($_GET['delete'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Order Status</title>
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   <style>
-       body {
-           background-color: #f4f4f4;
-           font-family: Arial, sans-serif;
-       }
-       .orders {
-           padding: 20px;
-           max-width: 1200px;
-           margin: 0 auto;
-       }
-       .heading {
-           text-align: center;
-           margin-bottom: 30px;
-           color: #333;
-           font-size: 2.5rem;
-           font-weight: bold;
-       }
-       .box-container {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 20px;
-           justify-content: center;
-       }
-       .box {
-           background: #fff;
-           border: 1px solid #ddd;
-           border-radius: 8px;
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           padding: 20px;
-           width: 300px;
-           transition: transform 0.2s, box-shadow 0.2s;
-       }
-       .box:hover {
-           transform: translateY(-5px);
-           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-       }
-       .box p {
-           margin: 0 0 10px;
-           color: #555;
-       }
-       .box span {
-           font-weight: bold;
-       }
-       .option-btn, .delete-btn {
-           display: inline-block;
-           margin-top: 10px;
-           padding: 8px 16px;
-           border-radius: 4px;
-           color: #fff;
-           text-decoration: none;
-           font-size: 0.9rem;
-           transition: background-color 0.2s;
-       }
-       .option-btn {
-           background-color: #007bff;
-       }
-       .option-btn:hover {
-           background-color: #0056b3;
-       }
-       .delete-btn {
-           background-color: #dc3545;
-       }
-       .delete-btn:hover {
-           background-color: #c82333;
-       }
-       .empty {
-           text-align: center;
-           color: #777;
-           font-size: 1.2rem;
-       }
-   </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="admin_orders.css">
 </head>
 <body>
-
+<a href="admin_page.php" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 <center><section class="orders">
 
 <h1 class="heading">Order Status</h1>
