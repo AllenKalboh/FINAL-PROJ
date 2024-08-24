@@ -45,6 +45,7 @@ include ('session-checker.php');
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed; /* Ensures all columns are given a fixed width */
 }
 
 .cart-table th, .cart-table td {
@@ -79,6 +80,25 @@ include ('session-checker.php');
 .checkout-button:hover {
     background-color: #0056b3;
 }
+
+/* Add this to set the width of the "Product Image" column */
+.cart-table th:first-child,
+.cart-table td:first-child {
+    width: 750px;  /* Adjust width as needed */
+    text-align: center; /* Optional: Center align image */
+}
+.cart-table td:first-child {
+    width: 750px;  /* Adjust width as needed */
+	height:200px;
+    text-align: center; /* Optional: Center align image */
+}
+.cart-table td img {
+    width: 330px;  /* Set the width of the image */
+    height: auto;  /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Cover the cell area without distortion */
+}
+
+
 
 
 
@@ -366,27 +386,51 @@ include ('session-checker.php');
         </thead>
         <tbody>
             <?php
-			include('db.php');
-            // Assuming you already have the database connection setup
-            $cart_items = $conn->query("SELECT * FROM cart");
+            
+            include('db.php');
+            
+            // Check if the user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                echo '<tr><td colspan="6">Please log in to view your cart.</td></tr>';
+                exit();
+            }
+            
+            $user_id = $_SESSION['user_id'];
+            
+            // Fetching cart items from the database for the logged-in user
+            $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $cart_items = $stmt->get_result();
 
             if ($cart_items->num_rows > 0) {
                 while ($item = $cart_items->fetch_assoc()) {
-                    $total = $item['price'] * $item['quantity'];  // Using 'price' instead of 'product_price'
+                    $total = $item['price'] * $item['quantity'];  // Calculating the total for each item
+                    $imgPath = 'uploads/' . htmlspecialchars($item['img_01']); // Updated column name
+
+                    // Debugging the image path
+                    if (file_exists($imgPath)) {
+                        $imgSrc = $imgPath;
+                    } else {
+                        $imgSrc = 'uploads/default.jpg'; // Fallback image
+                    }
                     ?>
                     <tr>
-                        <td><img src="uploads/<?= htmlspecialchars($item['product_img']); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" style="width: 50px; height: 50px;"></td>
+                        <td><img src="<?= htmlspecialchars($imgSrc); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" style="width: 50px; height: 50px;"></td>
                         <td><?= htmlspecialchars($item['product_name']); ?></td>
                         <td>$<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
                         <td><?= htmlspecialchars($item['quantity']); ?></td>
                         <td>$<?= htmlspecialchars(number_format($total, 2)); ?></td>
-                        <td><a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>">DELETE</a></td>
+                        <td><a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>" style="color:red;">DELETE</a></td>
                     </tr>
                     <?php
                 }
             } else {
                 echo '<tr><td colspan="6">No items in the cart.</td></tr>';
             }
+            
+            $stmt->close();
+            $conn->close();
             ?>
         </tbody>
     </table>
@@ -395,6 +439,11 @@ include ('session-checker.php');
         <button class="checkout-button">Proceed to Checkout</button>
     </div>
 </section>
+
+
+
+
+
 
 
 		
