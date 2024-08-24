@@ -30,37 +30,62 @@ include ('session-checker.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<style> 
+<style>
+/* Ensure the main wrapper takes full height */
+.main-wrapper {
+    max-height: 100vh; /* Changed from max-height to min-height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f1f1f1; /* Adjust as needed */
+    padding: 75px 0 32px;
+    margin-top: 200px; /* Push footer to the bottom */
+}
+
 .cart-section {
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+    max-width: 95%;
+    margin: auto;
+    font-family: Arial, sans-serif;
 }
 
 .cart-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    table-layout: fixed; /* Ensures all columns are given a fixed width */
 }
 
 .cart-table th, .cart-table td {
-    padding: 15px;
-    text-align: left;
+    padding: 12px;
+    text-align: center;
     border-bottom: 1px solid #ddd;
+	border: solid black 1px;
 }
 
 .cart-table th {
-    background-color: #f2f2f2;
+    background-color: #f4f4f4;
     font-weight: bold;
 }
 
-.cart-table td {
-    background-color: #fff;
+.cart-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.cart-table td a {
+    text-decoration: none;
+    color: #e74c3c;
+}
+
+.cart-table td a:hover {
+    text-decoration: underline;
 }
 
 .checkout-button-container {
@@ -68,38 +93,27 @@ include ('session-checker.php');
 }
 
 .checkout-button {
-    background-color: #007bff;
-    color: #fff;
     padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 .checkout-button:hover {
-    background-color: #0056b3;
+    background-color: gray;
+}
+.bold {
+    font-weight: bold;
 }
 
-/* Add this to set the width of the "Product Image" column */
-.cart-table th:first-child,
-.cart-table td:first-child {
-    width: 750px;  /* Adjust width as needed */
-    text-align: center; /* Optional: Center align image */
+/* If you want to ensure that the strong tag is always bold */
+.bold strong {
+    font-weight: bold;
 }
-.cart-table td:first-child {
-    width: 750px;  /* Adjust width as needed */
-	height:200px;
-    text-align: center; /* Optional: Center align image */
-}
-.cart-table td img {
-    width: 330px;  /* Set the width of the image */
-    height: auto;  /* Maintain aspect ratio */
-    object-fit: cover; /* Optional: Cover the cell area without distortion */
-}
-
-
-
 
 
 </style>
@@ -113,7 +127,7 @@ include ('session-checker.php');
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $9,000
+						Free shipping for standard order over ₱500
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -376,8 +390,7 @@ include ('session-checker.php');
     <table class="cart-table">
         <thead>
             <tr>
-                <th>Product Image</th>
-                <th>Product Name</th>
+                <th class="bold">Product Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
@@ -386,17 +399,17 @@ include ('session-checker.php');
         </thead>
         <tbody>
             <?php
-            
             include('db.php');
-            
+
             // Check if the user is logged in
             if (!isset($_SESSION['user_id'])) {
                 echo '<tr><td colspan="6">Please log in to view your cart.</td></tr>';
                 exit();
             }
-            
+
             $user_id = $_SESSION['user_id'];
-            
+            $grand_total = 0;
+
             // Fetching cart items from the database for the logged-in user
             $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
             $stmt->bind_param("i", $user_id);
@@ -406,6 +419,7 @@ include ('session-checker.php');
             if ($cart_items->num_rows > 0) {
                 while ($item = $cart_items->fetch_assoc()) {
                     $total = $item['price'] * $item['quantity'];  // Calculating the total for each item
+                    $grand_total += $total; // Accumulate the grand total
                     $imgPath = 'uploads/' . htmlspecialchars($item['img_01']); // Updated column name
 
                     // Debugging the image path
@@ -416,23 +430,31 @@ include ('session-checker.php');
                     }
                     ?>
                     <tr>
-                        <td><img src="<?= htmlspecialchars($imgSrc); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" style="width: 50px; height: 50px;"></td>
-                        <td><?= htmlspecialchars($item['product_name']); ?></td>
-                        <td>$<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
+                        <td class="bold"><?= htmlspecialchars($item['product_name']); ?></td>
+                        <td>₱<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
                         <td><?= htmlspecialchars($item['quantity']); ?></td>
-                        <td>$<?= htmlspecialchars(number_format($total, 2)); ?></td>
-                        <td><a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>" style="color:red;">DELETE</a></td>
+                        <td>₱<?= htmlspecialchars(number_format($total, 2)); ?></td>
+                        <td><button class="dlt-btn"><a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>">DELETE</a></button></td>
                     </tr>
                     <?php
                 }
             } else {
                 echo '<tr><td colspan="6">No items in the cart.</td></tr>';
             }
-            
+
             $stmt->close();
             $conn->close();
             ?>
         </tbody>
+        <!-- Grand Total Row -->
+        <tfoot>
+            <tr>
+			<td colspan="3" style="border: none;"></td>
+
+                <td class="bold"><strong>Grand Total: ₱ <?= htmlspecialchars(number_format($grand_total, 2)); ?></strong></td>
+                <td class="bold"> </td>
+            </tr>
+        </tfoot>
     </table>
 
     <div class="checkout-button-container">
@@ -451,7 +473,8 @@ include ('session-checker.php');
 		
 
 	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
+		<!-- Footer -->
+		<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -461,26 +484,38 @@ include ('session-checker.php');
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Masks
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Toner
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Moisturizer
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Sunscreen
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 					</ul>
@@ -500,18 +535,18 @@ include ('session-checker.php');
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
+								
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
+								
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>
@@ -524,38 +559,35 @@ include ('session-checker.php');
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						mail us at skinline@gmail.com
 					</p>
 
-					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-facebook"></i>
-						</a>
+					<div class="social-icons">
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-facebook-f"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-instagram"></i>
-						</a>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-twitter"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
-						</a>
-					</div>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+    </div>
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
-					</h4>
-
+					
 					<form>
-						<div class="wrap-input1 w-full p-b-4">
+						<!-- <div class="wrap-input1 w-full p-b-4">
 							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
 							<div class="focus-input1 trans-04"></div>
-						</div>
+						</div> -->
 
 						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Follow Us
 							</button>
 						</div>
 					</form>
@@ -564,36 +596,25 @@ include ('session-checker.php');
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
+					
+				<a href="images/icons/gcass.jfif" class="m-all-1" target="_blank">
+    <img src="images/icons/gcash.png" alt="ICON-PAY">
+</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
+				
 				</div>
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <a href="https://www.youtube.com/watch?v=iVIS6KIQx78" target="_blank">Group 2</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
 			</div>
 		</div>
 	</footer>
+	</div>
 
 
 	<!-- Back to top -->

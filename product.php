@@ -5,7 +5,13 @@ include ('session.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
 <style>
+	*{
+		font-family: Poppins;
+	}
 /* Styling for the products */
 .all-products-container {
     display: flex;
@@ -15,7 +21,7 @@ include ('session.php');
 }
 
 .product-item {
-    border: 1px solid #ccc;
+    border: 50px solid #ccc;
     padding: 20px;
     width: 200px;
     text-align: center;
@@ -45,7 +51,7 @@ include ('session.php');
 }
 
 .btn:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: gray; /* Darker green on hover */
 }
 
 .name {
@@ -53,16 +59,6 @@ include ('session.php');
     margin-bottom: 20px;
     margin-top: 20px;
 }
-
-/* Style for the product card container */
-.swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Centers text inside the card */
-    padding: 10px;
-}
-
 /* Style for the quantity input */
 .quantity {
     border: solid black 1px;
@@ -131,7 +127,6 @@ include ('session.php');
 
 .heading {
     text-align: center;
-    margin-bottom: 20px;
     font-size: 2em;
 }
 
@@ -177,6 +172,49 @@ include ('session.php');
     .swiper {
         grid-template-columns: 1fr; /* 1 item per row */
     }
+}
+.pagination {
+	margin-bottom: 30px;
+    text-align: center;
+
+}
+
+.pagination a {
+	font-family: Montserrat;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: gray;
+    color: white;
+}
+
+.pagination a.active {
+    font-weight: bold;
+    color: white;
+    background-color: pink;
+}
+
+.pagination a.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+/* Ensure the container of pagination is centered */
+.pagination-container {
+    display: flex;
+    justify-content: center;
 }
 </style>
 <body class="animsition">
@@ -462,9 +500,9 @@ include ('session.php');
                     <h1 class="heading">Shop by Category</h1>
                     <div class="category-slider">
                         <div class="category-wrapper">
-                            <a href="category.php?category=serum" class="category-slide">
+                            <a href="category.php?category=Hyalu" class="category-slide">
                                 <i class="fas fa-vial"></i>
-                                <h3>Serum</h3>
+                                <h3>Hyalu Cica</h3>
                             </a>
 
                             <a href="category.php?category=toner" class="category-slide">
@@ -508,18 +546,27 @@ include ('session.php');
         <!-- Load more -->
         
     </div>
-	<h1 class="heading">All Product</h1>
+	<h1 class="heading">All Products</h1>
 </div>
 
 <?php
+// Database connection
+// Assuming $conn is your MySQLi connection
 
-// Initialize the result variable
-$result = null;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$productsPerPage = 6; // Number of products per page
 
-    $sql = "SELECT * FROM products LIMIT 6";
-    $result = $conn->query($sql);
+// Calculate the offset
+$offset = ($page - 1) * $productsPerPage;
 
+// Fetch total number of products
+$totalProductsResult = $conn->query("SELECT COUNT(*) as count FROM products");
+$totalProducts = $totalProductsResult->fetch_assoc()['count'];
+$totalPages = ceil($totalProducts / $productsPerPage);
 
+// Fetch the products for the current page
+$sql = "SELECT * FROM products LIMIT $offset, $productsPerPage";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -529,7 +576,7 @@ $result = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swiper/6.8.4/swiper-bundle.min.css">
-
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
 <section class="all-products-container">
@@ -537,7 +584,6 @@ $result = null;
         <?php
         if ($result && $result->num_rows > 0) {
             while ($fetch_product = $result->fetch_assoc()) {
-                // Construct image paths
                 $img01Path = 'uploads/' . basename($fetch_product['img_01']);
                 ?>
                 <div class="swiper-slide">
@@ -562,15 +608,32 @@ $result = null;
     </div>
 </section>
 
+<!-- Pagination Links -->
+<!-- Pagination Links -->
+<div class="pagination-container">
+    <div class="pagination">
+        <?php
+        // Previous page link
+        if ($page > 1) {
+            echo '<a href="?page=' . ($page - 1) . '">« Previous</a>';
+        }
+
+        // Page number links
+        for ($i = 1; $i <= $totalPages; $i++) {
+            echo '<a href="?page=' . $i . '"' . ($i == $page ? ' class="active"' : '') . '>' . $i . '</a>';
+        }
+
+        // Next page link
+        if ($page < $totalPages) {
+            echo '<a href="?page=' . ($page + 1) . '">Next »</a>';
+        }
+        ?>
+    </div>
+</div>
+
 </body>
 </html>
 
-
-
-
-
-</body>
-</html>
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
@@ -584,7 +647,7 @@ $result = null;
 					<ul>
 						<li class="p-b-10">
 							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Serum
+								Masks
 							</a>
 						</li>
 
@@ -603,6 +666,18 @@ $result = null;
 						<li class="p-b-10">
 							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
 								Moisturizer
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Sunscreen
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 					</ul>
@@ -633,7 +708,7 @@ $result = null;
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>
@@ -665,48 +740,24 @@ $result = null;
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
-					
-					<form>
-						<!-- <div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-							<div class="focus-input1 trans-04"></div>
-						</div> -->
-
-						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-								Follow Us
-							</button>
-						</div>
-					</form>
+				
 				</div>
 			</div>
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
+					
+				<a href="images/icons/gcass.jfif" class="m-all-1" target="_blank">
+    <img src="images/icons/gcash.png" alt="ICON-PAY">
+</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
+				
 				</div>
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <a href="https://www.youtube.com/watch?v=iVIS6KIQx78" target="_blank">Brrrt Gratata</a>
+<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <a href="https://www.youtube.com/watch?v=iVIS6KIQx78" target="_blank" style="text-decoration: none; color: white;">Brrrt Gratata</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
@@ -725,33 +776,6 @@ $result = null;
 		</div>
 	</div>
 </div>
-							<!-- footer of right box -->
-							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-								<div class="flex-m bor9 p-r-10 m-r-11">
-									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-										<i class="zmdi zmdi-favorite"></i>
-									</a>
-								</div>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-									<i class="fa fa-twitter"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-									<i class="fa fa-google-plus"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

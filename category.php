@@ -14,7 +14,7 @@ include ('db.php');
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="styless.css">
+   <link rel="stylesheet" href="category.css">
 
 </head>
 <style> 
@@ -80,7 +80,7 @@ include ('db.php');
     </a>
 <section class="products">
 
-   <h1 class="heading">Products</h1>
+   <h1 class="heading">Skinline Products</h1>
 
    <div class="box-container">
 
@@ -97,17 +97,17 @@ if($select_products->num_rows > 0){
         echo "<!-- Image Path: $img01Path -->";
 ?>
 
-<form action="" method="post" class="box">
+<form action="cart_action.php" method="post" class="box">
    <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
    <input type="hidden" name="name" value="<?= $fetch_product['product_name']; ?>">
    <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
    <input type="hidden" name="image" value="<?= $fetch_product['img_01']; ?>">
-   <img src="<?= $img01Path; ?>" alt="<?= $fetch_product['product_name']; ?>">
+   <img src="<?= $img01Path; ?>" alt="<?= $fetch_product['product_name']; ?>"> <br>
    <a href="quickview.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
    <div class="name"><?= $fetch_product['product_name']; ?></div>
    <div class="flex">
       <div class="price"><span>₱</span><?= $fetch_product['price']; ?></div>
-      <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
+      <input type="number" name="quantity" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
    </div>
    <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
 </form>

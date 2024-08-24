@@ -28,7 +28,14 @@ $select_orders->execute();
 $select_orders->bind_result($total_orders);
 $select_orders->fetch();
 $select_orders->close();
+
+// $select_orders = $conn->prepare("SELECT COUNT(*) as total_orders FROM `orders`");            MESSAGES
+// $select_orders->execute();
+// $select_orders->bind_result($total_orders);
+// $select_orders->fetch();
+// $select_orders->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +115,7 @@ $select_orders->close();
 <body>
     <div class="sidebar">
         <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
         <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>

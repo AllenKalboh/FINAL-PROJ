@@ -29,10 +29,48 @@ include ('session.php');
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
+<style>
+
+.mapa {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure container has a height for vertical centering */
+	margin-top:50px;
+}
+
+.mapa img {
+    width: 500px;
+}
+
+/* Center the button container */
+.button-container {
+    text-align: center; /* Center align the button */
+    margin-top: 20px; /* Optional margin to add space above the button */
+}
+
+.minimalist-button {
+    background: #fff; /* White background */
+    border: 2px solid #000; /* Black border */
+    color: #000; /* Black text color */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 16px; /* Font size */
+    font-family: 'Arial', sans-serif; /* Font family */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.minimalist-button:hover {
+    background-color: #000; /* Black background on hover */
+    color: #fff; /* White text color on hover */
+}
+	</style>
 <body class="animsition">
 	
 	<!-- Header -->
@@ -90,19 +128,14 @@ include ('session.php');
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+						
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php">
+						<a href="shoping-cart.php" style="color:black;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
 					</div>
 				</nav>
 			</div>	
@@ -117,17 +150,13 @@ include ('session.php');
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
+				
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 ">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+				
 			</div>
 
 			<!-- Button show menu -->
@@ -181,22 +210,6 @@ include ('session.php');
 					<a href="contact.php">Contact</a>
 				</li>
 			</ul>
-		</div>
-
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
 		</div>
 	</header>
 
@@ -287,7 +300,7 @@ include ('session.php');
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bglogin.png');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Contact
 		</h2>
@@ -299,24 +312,27 @@ include ('session.php');
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-					<form>
-						<h4 class="mtext-105 cl2 txt-center p-b-30">
-							Send Us A Message
-						</h4>
+				<form>
+					<h4 class="mtext-105 cl2 txt-center p-b-30">
+						Send Us A Message
+					</h4>
 
-						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
-							<img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON">
-						</div>
+					<div class="bor8 m-b-20 how-pos4-parent">
+						<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
+						<img class="how-pos4 ">
+					</div>
 
-						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
-						</div>
+					<div class="bor8 m-b-30">
+						<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+					</div>
 
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+					<div class="button-container">
+						<button class="minimalist-button">
 							Submit
 						</button>
-					</form>
+					</div>
+</form>
+
 				</div>
 
 				<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
@@ -331,7 +347,7 @@ include ('session.php');
 							</span>
 
 							<p class="stext-115 cl6 size-213 p-t-18">
-								Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+								Trece Martires, Cavite
 							</p>
 						</div>
 					</div>
@@ -347,7 +363,7 @@ include ('session.php');
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								+1 800 1236879
+								+63 994 907 9858
 							</p>
 						</div>
 					</div>
@@ -363,20 +379,30 @@ include ('session.php');
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								contact@example.com
+								skinline@gmail.com
 							</p>
 						</div>
 					</div>
 				</div>
+				
 			</div>
+			
 		</div>
+		
+
+		<div class="mapa">
+			<img src="images/icons/gmaps.png" alt="">
+		</div>
+
+
+
+
+
 	</section>	
 	
 	
 	<!-- Map -->
-	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div>
-	</div>
+	
 
 
 
@@ -391,26 +417,38 @@ include ('session.php');
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Women
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Masks
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Toner
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Moisturizer
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Sunscreen
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Cleanser
 							</a>
 						</li>
 					</ul>
@@ -430,18 +468,18 @@ include ('session.php');
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
+								
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
+								
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>
@@ -454,76 +492,68 @@ include ('session.php');
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						mail us at skinline@gmail.com
 					</p>
 
-					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-facebook"></i>
-						</a>
+					<div class="social-icons">
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-facebook-f"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-instagram"></i>
-						</a>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-twitter"></i>
+        </a>
 
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
-						</a>
-					</div>
+        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+    </div>
 				</div>
+				
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
+				
 					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
+						Kayo na bahala dito
 					</h4>
-
+					</div>
+					</div>
 					<form>
-						<div class="wrap-input1 w-full p-b-4">
+						<!-- <div class="wrap-input1 w-full p-b-4">
 							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
 							<div class="focus-input1 trans-04"></div>
-						</div>
+						</div> -->
 
-						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
+						<!-- <div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Follow Us
 							</button>
-						</div>
+						</div> -->
 					</form>
 				</div>
 			</div>
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
+					
+				<a href="images/icons/gcass.jfif" class="m-all-1" target="_blank">
+    <img src="images/icons/gcash.png" alt="ICON-PAY">
+</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
+				
 				</div>
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<script>document.write(new Date().getFullYear());</script> All rights reserved |Made with <a href="https://www.youtube.com/watch?v=iVIS6KIQx78" target="_blank" style="text-decoration: none; color: white;">Group 2</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>
 			</div>
 		</div>
 	</footer>
+
 
 
 	<!-- Back to top -->

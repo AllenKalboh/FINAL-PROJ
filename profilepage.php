@@ -43,6 +43,7 @@ if (isset($_SESSION['username'])) {
     <div class="sidebar">
         <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
         <a href="orders.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
+        <a href="shoping-cart.php"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i><span>Your Cart</span></a>
         <a href="update-user.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Update account</span></a>
         <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px;"></i><span>Logout</span></a>
     </div>
