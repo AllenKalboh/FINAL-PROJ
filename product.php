@@ -2,30 +2,6 @@
 include ('db.php');
 include ('session.php');
 ?>
-<?php
-// Handle Add to Cart Form Submission
-if (isset($_POST['add_to_cart'])) {
-    $product_id = $_POST['pid'];
-    $quantity = $_POST['qty'];
-    $price = $_POST['price'];
-    $user_id = $_SESSION['user_id']; // Assuming user_id is stored in session
-
-    // Check if the item is already in the cart
-    $check_cart = $conn->query("SELECT * FROM `cart` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
-    
-    if ($check_cart->num_rows > 0) {
-        // Update quantity if item is already in the cart
-        $conn->query("UPDATE `cart` SET `quantity` = `quantity` + '$quantity' WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
-    } else {
-        // Insert new item into the cart
-        $conn->query("INSERT INTO `cart` (`user_id`, `product_id`, `quantity`, `price`, `added_at`) VALUES ('$user_id', '$product_id', '$quantity', '$price', NOW())");
-    }
-
-    // Redirect to avoid resubmission on page refresh
-    header('Location: product.php');
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +29,7 @@ if (isset($_POST['add_to_cart'])) {
 .product-item p {
     font-size: 14px;
 }
+
 .btn {
     background-color: #000; /* Green background */
     border: none; /* Remove borders */
@@ -70,11 +47,42 @@ if (isset($_POST['add_to_cart'])) {
 .btn:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+
 .name {
-	font-size: 18px;
-	margin-bottom: 20px;
-	margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
+
+/* Style for the product card container */
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centers text inside the card */
+    padding: 10px;
+}
+
+/* Style for the quantity input */
+.quantity {
+    border: solid black 1px;
+    width: 60px; /* Adjust width as needed */
+    margin: 10px auto; /* Centers the input field under the product */
+    text-align: center; /* Centers the number inside the input */
+    display: block; /* Ensures input field is displayed as a block element */
+}
+
+/* Style for the "Add to Cart" button */
+.btn {
+    margin-top: 10px; /* Adds spacing above the button */
+}
+
+
+/* Style for the "Add to Cart" button */
+.btn {
+    margin-top: 10px; /* Adds spacing above the button */
+}
+
 </style>
 	<title>Product</title>
 	<meta charset="UTF-8">
@@ -524,10 +532,6 @@ $result = null;
 
 </head>
 <body>
-
-<?php 
-
-?>
 <section class="all-products-container">
     <div class="swiper products-slider">
         <?php
@@ -556,35 +560,7 @@ $result = null;
         }
         ?>
     </div>
-    <div class="swiper-pagination"></div>
 </section>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/6.8.4/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper('.products-slider', {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            1200: {
-                slidesPerView: 4
-            },
-            900: {
-                slidesPerView: 3
-            },
-            600: {
-                slidesPerView: 2
-            },
-            0: {
-                slidesPerView: 1
-            }
-        }
-    });
-</script>
 
 </body>
 </html>
@@ -745,153 +721,10 @@ $result = null;
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
-
-
-
-
-
-
-
-	<!-- Modal1 -->
-	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
-		<div class="overlay-modal1 js-hide-modal1"></div>
-
-		<div class="container">
-			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
-					<img src="images/icons/icon-close.png" alt="CLOSE">
-				</button>
-
-				<div class="row">
-					<div class="col-md-6 col-lg-7 p-b-30">
-						<div class="p-l-25 p-r-30 p-lr-0-lg">
-							<div class="wrap-slick3 flex-sb flex-w">
-								<div class="wrap-slick3-dots"></div>
-								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-								<div class="slick3 gallery-lb">
-									<div class="item-slick3" data-thumb="images/Moistu.png">
-										<div class="wrap-pic-w pos-relative">
-
-
-											<!-- MAIN THUMBNAIL -->
-											<img src="images/Moistu.png" alt="IMG-PRODUCT">
-
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/">
-												<i class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-											<!-- Product 2 -->
-									<div class="item-slick3" data-thumb="images/bglogin.png">
-										<!-- PICTURES SA LEFT NA MALILIIT-->
-										<div class="wrap-pic-w pos-relative">
-											<img src="images/bglogin.png" alt="IMG-PRODUCT">
-
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/">
-												<i class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-											<!-- Product 3 -->
-									<div class="item-slick3" data-thumb="images/toner1.png">
-										<div class="wrap-pic-w pos-relative">
-											<img src="images/" alt="IMG-PRODUCT">
-
-											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/">
-												<i class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-lg-5 p-b-30">
-						<div class="p-r-50 p-t-5 p-lr-0-lg">
-							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								Hey
-							</h4>
-
-							<span class="mtext-106 cl2">
-								$58.79
-							</span>
-
-							<p class="stext-102 cl3 p-t-23">
-								Description ng product
-							</p>
-							
-							<!-- PRODUCT RIGHT BOX-DESCRIPTION AND ADD TO CART -->
-							 <div class="p-t-33">
-								<div class="flex-w flex-r-m p-b-10">
-
-									
-									<div class="size-203 flex-c-m respon6">
-										Size
-									</div>
-
-										
-
-									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Size S</option>
-												<option>Size M</option>
-												<option>Size L</option>
-												<option>Size XL</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-203 flex-c-m respon6">
-										Color
-									</div>
-
-									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Red</option>
-												<option>Blue</option>
-												<option>White</option>
-												<option>Grey</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-204 flex-w flex-m respon6-next">
-										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
-										</button>
-									</div>
-								</div>	
-							</div>
-
+</div>
+		</div>
+	</div>
+</div>
 							<!-- footer of right box -->
 							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 								<div class="flex-m bor9 p-r-10 m-r-11">
