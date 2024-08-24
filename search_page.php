@@ -97,10 +97,10 @@ if (isset($_POST['search_box']) || isset($_POST['search_btn'])) {
                <img src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
                <div class="flex">
-                   <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?><span>/-</span></div>
-                   <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
+                   <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?><span></span></div>
+               
                </div>
-               <input type="submit" value="Add to Cart" class="btn" name="add_to_cart" id="atc-btn">
+              
            </form>
            <?php
        }
