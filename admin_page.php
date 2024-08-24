@@ -34,6 +34,24 @@ $select_orders->close();
 // $select_orders->bind_result($total_orders);
 // $select_orders->fetch();
 // $select_orders->close();
+
+// Get the first and last day of the current month
+$firstDayOfMonth = date('Y-m-01');
+$lastDayOfMonth = date('Y-m-t');
+
+// Query to count completed orders for each day in the current month
+$sql = "SELECT DATE(order_date) AS date, COUNT(*) AS total_sales FROM orders WHERE status = 'completed' AND order_date BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth' GROUP BY DATE(order_date)";
+$result = $conn->query($sql);
+
+$dates = [];
+$sales = [];
+while ($row = $result->fetch_assoc()) {
+    $dates[] = $row['date'];
+    $sales[] = $row['total_sales'];
+}
+
+// Close the connection
+$conn->close();
 ?>
 
 
@@ -84,6 +102,79 @@ $select_orders->close();
             </div>
         </div>
     </section>
+
+    <div class="dashboard-stats">
+        <h2>Sales This Month</h2>
+        <p>Total Sales: <?php echo array_sum($sales); ?> Sales</p>
+        <canvas id="salesChart"></canvas>
+    </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+
+        // Define the data for the chart
+        const data = {
+            labels: <?php echo json_encode($dates); ?>, // X-axis labels (dates)
+            datasets: [{
+                label: 'Number of Sales',
+                data: <?php echo json_encode($sales); ?>, // Data points
+                borderColor: 'rgba(255, 255, 255, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                pointStyle: '', // Point style (can be 'circle', 'rect', 'triangle', 'star', 'line', 'cross', 'crossRot', 'dash', 'rectRounded', 'rectRot')
+                pointRadius: 10, // Radius of points
+                pointHoverRadius: 20 // Radius of points on hover
+            }]
+        };
+
+        // Define the configuration for the chart
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: (ctx) => '' + ctx.chart.data.datasets[0].pointStyle,
+                        color: '#00bcd4', // Title color
+                        font: {
+                            size: 16 // Font size for the title
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1e1e1e',
+                        bodyColor: '#ffffff',
+                        borderColor: '#333',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false // Hide grid lines for x-axis
+                        },
+                        ticks: {
+                            color: '#b0bec5' // Color for x-axis labels
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#333' // Darker grid lines for y-axis
+                        },
+                        ticks: {
+                            color: '#b0bec5' // Color for y-axis labels
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Create the chart
+        const salesChart = new Chart(ctx, config);
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
