@@ -58,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
       <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
       <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
       <p>Payment Method: <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
-      <p>Your orders: <span><?= htmlspecialchars($fetch_orders['total_products']); ?></span></p>
+      <p>Your orders: <span><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
       <p>Total price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
       <p>Payment status: <span style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
    </div>

@@ -79,7 +79,8 @@ include('db.php');
    ?>
    <div class="box">
       <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
-      <p>Product Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+      <p>Product Name:<span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
+      <p>User Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
       <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
       <p>Ordered Date: <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
       <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>

@@ -262,10 +262,10 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/icons/logpic.png" alt="IMG-LOGO">
+						<img src="images/icons/logupp.png" alt="IMG-LOGO">
 					</a>
 					<a href="index.php" class="logo">
-						<img src="images/icons/logtxt.png" alt="IMG-LOGO">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -306,7 +306,7 @@ include ('session.php');
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/logoshet.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -481,7 +481,7 @@ include ('session.php');
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1" style="background-image: url(images/hd.jpg);">
+				<div class="item-slick1" style="background-image: url(images/b3.png);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
@@ -734,7 +734,7 @@ include ('session.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bgcentella.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="category.php?category=Centella" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									CENTELLA LINE	
@@ -764,7 +764,8 @@ include ('session.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bghya.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="category.php?category=Hyalu" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									HYALU CICA LINE	
@@ -793,8 +794,8 @@ include ('session.php');
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bgbright.jpg" alt="IMG-BANNER">
-
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						
+						<a href="category.php?category=Brightening" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									BRIGHTENING LINE	
@@ -823,7 +824,7 @@ include ('session.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bgtea.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="category.php?category=TeaTrica" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									TEA TRICA LINE	
@@ -852,7 +853,7 @@ include ('session.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bgpore.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="category.php?category=PoreMizing" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									PORE MIZING LINE	
@@ -882,7 +883,7 @@ include ('session.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/bgindex/bgprobio.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="category.php?category=ProbioCica" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									PROBIO CICA LINE	
