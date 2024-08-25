@@ -262,10 +262,10 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/icons/logpic.png" alt="IMG-LOGO">
+						<img src="images/icons/logupp.png" alt="IMG-LOGO">
 					</a>
 					<a href="index.php" class="logo">
-						<img src="images/icons/logtxt.png" alt="IMG-LOGO">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -481,7 +481,7 @@ include ('session.php');
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1" style="background-image: url(images/hd.jpg);">
+				<div class="item-slick1" style="background-image: url(images/b3.png);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
