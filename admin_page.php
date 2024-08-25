@@ -40,7 +40,7 @@ $firstDayOfMonth = date('Y-m-01');
 $lastDayOfMonth = date('Y-m-t');
 
 // Query to count completed orders for each day in the current month
-$sql = "SELECT DATE(order_date) AS date, COUNT(*) AS total_sales FROM orders WHERE status = 'completed' AND order_date BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth' GROUP BY DATE(order_date)";
+$sql = "SELECT DATE(placed_on) AS date, COUNT(*) AS total_sales FROM orders WHERE payment_status = 'completed' AND placed_on BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth' GROUP BY DATE(placed_on)";
 $result = $conn->query($sql);
 
 $dates = [];

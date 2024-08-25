@@ -97,11 +97,40 @@ if (isset($_POST['update_product'])) {
    <title>Update Product</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="add_productss.css">
+   <link rel="stylesheet" href="add_productsss.css">
 </head>
+<style> 
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #494949;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1000;
+}
+
+.back-button i {
+    font-size: 20px;
+}
+
+.back-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
+
+</style>
 <body>
 
-<a href="admin_page.php" class="back-button">
+<a href="product_list.php" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
 

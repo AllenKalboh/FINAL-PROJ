@@ -615,7 +615,7 @@ $result = $conn->query($sql);
         <?php
         // Previous page link
         if ($page > 1) {
-            echo '<a href="?page=' . ($page - 1) . '">« Previous</a>';
+            echo '<a href="?page=' . ($page - 1) . '">««</a>';
         }
 
         // Page number links
@@ -625,7 +625,7 @@ $result = $conn->query($sql);
 
         // Next page link
         if ($page < $totalPages) {
-            echo '<a href="?page=' . ($page + 1) . '">Next »</a>';
+            echo '<a href="?page=' . ($page + 1) . '"> »»</a>';
         }
         ?>
     </div>
