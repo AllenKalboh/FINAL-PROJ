@@ -230,7 +230,9 @@ $conn->close();
                                 <?php if (!empty($cart_items)) : ?>
                                     <?php foreach ($cart_items as $item) : ?>
                                         <tr>
-                                            <td><?= htmlspecialchars($item['product_name']) ?></td>
+                                            <td>
+                                                <?= htmlspecialchars($item['product_name']) ?>, x<?= htmlspecialchars($item['quantity']) ?> - ₱<?= number_format($item['price'], 2) ?>
+                                            </td>
                                             <td>₱<?= number_format($item['price'], 2) ?></td>
                                             <td><?= htmlspecialchars($item['quantity']) ?></td>
                                             <td>₱<?= number_format($item['price'] * $item['quantity'], 2) ?></td>
