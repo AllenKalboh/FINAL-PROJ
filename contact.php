@@ -1,9 +1,102 @@
 <?php
-include ('db.php');
-include ('session.php');
-include ('session-checker.php');
+session_start();
+include('db.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['first_name']) && isset($_POST['email']) && isset($_POST['msg'])) {
+        // Check if the user is logged in
+        if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
+			echo "
+            <div id='loginAlert' style='
+                position: fixed; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                padding: 20px; 
+                background-color: #d9534f; /* Red background */
+                color: white; 
+                border: 1px solid #c9302c; /* Darker red border */
+                border-radius: 8px; /* Rounded corners */
+                text-align: center; 
+                font-size: 24px; 
+                font-weight: bold; /* Bold text */
+                z-index: 1000;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                transition: opacity 1s ease;
+            '>
+                You must be logged in to submit feedback.
+            </div>
+            <script>
+                setTimeout(function() {
+                    var alert = document.getElementById('loginAlert');
+                    alert.style.opacity = '0'; // Start fade-out
+                }, 1600); // Wait for 0.8 seconds before starting the fade-out
+
+                setTimeout(function() {
+                    var alert = document.getElementById('loginAlert');
+                    alert.style.display = 'none'; // Hide the message after fade-out
+                    window.location.href = 'login.php'; // Redirect to login page
+                }, 1800); // Ensure it's fully hidden 1 second after the fade-out completes
+            </script>";
+        } else {
+            // Retrieve user inputs
+            $firstName = $_POST['first_name'];
+            $userEmail = $_POST['email'];
+            $userMessage = $_POST['msg'];
+
+            // Retrieve user ID from session
+            $userId = $_SESSION['user_id']; // Ensure user_id is set in session
+
+            // Prepare and execute the SQL statement to insert the data
+            $stmt = $conn->prepare("INSERT INTO feedbacks (first_name, userMessage, user_id, user_email) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssis", $firstName, $userMessage, $userId, $userEmail);
+
+            if ($stmt->execute()) {
+				echo "
+				<div id='feedbackMessage' style='
+					position: fixed; 
+					top: 25%; /* Adjusted to be higher on the page */
+					left: 50%; 
+					transform: translate(-50%, -50%); 
+					padding: 20px; 
+					background-color: black; /* Green background */
+					color: white; 
+					text-align: center; 
+					font-size: 24px; 
+					font-weight: bold; /* Bold text */
+					z-index: 1000; 
+					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+					transition: opacity 1s ease;
+				'>
+					Thank you for contacting us! Your message has been sent successfully.
+				</div>
+				<script>
+					setTimeout(function() {
+						var message = document.getElementById('feedbackMessage');
+						message.style.opacity = '0'; // Start fade-out
+					}, 2000); // Wait for 2 seconds before starting the fade-out
+			
+					setTimeout(function() {
+						var message = document.getElementById('feedbackMessage');
+						message.style.display = 'none'; // Hide the message after fade-out
+					}, 3000); // Ensure it's fully hidden 1 second after the fade-out completes
+				</script>";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+
+            // Close the statement
+            $stmt->close();
+        }
+    } else {
+        echo "Error: Required fields are missing.";
+    }
+
+    // Close the database connection
+    $conn->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,10 +183,22 @@ include ('session-checker.php');
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<?php
+							if (isset($_SESSION['username'])) {
+							
+						?>
+						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+						<?php
+						} else {
+						?>
+						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
@@ -289,7 +394,7 @@ include ('session-checker.php');
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
-						</a>
+					1</a>
 
 						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
@@ -314,25 +419,31 @@ include ('session-checker.php');
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-				<form>
-					<h4 class="mtext-105 cl2 txt-center p-b-30">
-						Send Us A Message
-					</h4>
+				<form method="POST" action="">
+    <h4 class="mtext-105 cl2 txt-center p-b-30">
+        Send Us A Message
+    </h4>
 
-					<div class="bor8 m-b-20 how-pos4-parent">
-						<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
-						<img class="how-pos4 ">
-					</div>
+    <div class="bor8 m-b-20 how-pos4-parent" style="position: relative;">
+    <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="first_name" placeholder="Your First Name" required style="padding-left: 65px;">
+    <img class="how-pos4 pointer-none" src="images/icons/icon-user.png" alt="ICON" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); width: 24px; height: 24px; margin-left: 18px;">
+</div>
 
-					<div class="bor8 m-b-30">
-						<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
-					</div>
 
-					<div class="button-container">
-						<button class="minimalist-button">
-							Submit
-						</button>
-					</div>
+    <div class="bor8 m-b-20 how-pos4-parent">
+        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address" required>
+        <img class="how-pos4 pointer-none" src="images/icons/icon-email.png" alt="ICON">
+    </div>
+
+    <div class="bor8 m-b-30">
+        <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?" required></textarea>
+    </div>
+
+    <div class="button-container">
+        <button class="minimalist-button">
+            Submit
+        </button>
+    </div>
 </form>
 
 				</div>

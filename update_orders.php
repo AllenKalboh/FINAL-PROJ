@@ -1,5 +1,5 @@
 <?php
-include ('db.php')
+include('db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,79 +9,21 @@ include ('db.php')
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Order Status</title>
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   <style>
-       body {
-           background-color: #f4f4f4;
-           font-family: Arial, sans-serif;
-       }
-       .orders {
-           padding: 20px;
-           max-width: 1200px;
-           margin: 0 auto;
-       }
-       .heading {
-           text-align: center;
-           margin-bottom: 30px;
-           color: #333;
-           font-size: 2.5rem;
-           font-weight: bold;
-       }
-       .box-container {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 20px;
-           justify-content: center;
-       }
-       .box {
-           background: #fff;
-           border: 1px solid #ddd;
-           border-radius: 8px;
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           padding: 20px;
-           width: 300px;
-           transition: transform 0.2s, box-shadow 0.2s;
-       }
-       .box:hover {
-           transform: translateY(-5px);
-           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-       }
-       .box p {
-           margin: 0 0 10px;
-           color: #555;
-       }
-       .box span {
-           font-weight: bold;
-       }
-       .option-btn, .delete-btn {
-           display: inline-block;
-           margin-top: 10px;
-           padding: 8px 16px;
-           border-radius: 4px;
-           color: #fff;
-           text-decoration: none;
-           font-size: 0.9rem;
-           transition: background-color 0.2s;
-       }
-       .option-btn {
-           background-color: #007bff;
-       }
-       .option-btn:hover {
-           background-color: #0056b3;
-       }
-       .delete-btn {
-           background-color: #dc3545;
-       }
-       .delete-btn:hover {
-           background-color: #c82333;
-       }
-       .empty {
-           text-align: center;
-           color: #777;
-           font-size: 1.2rem;
-       }
-   </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="update_orders.css">
 </head>
 <body>
+
+<div class="sidebar">
+    <img src="images/inverted.png" alt="">
+        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
+        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
+        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
+        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
+        <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+    </div>
 
 <section class="orders">
 
@@ -90,20 +32,30 @@ include ('db.php')
 <div class="box-container">
 
    <?php
-
-
    // Update order status if form is submitted
    if (isset($_POST['update_status'])) {
        $order_id = $_POST['order_id'];
        $new_status = $_POST['status'];
 
        // Prepare the SQL statement to update the status
-       $update_status = $conn->prepare("UPDATE `orders` SET `status` = ? WHERE `order_id` = ?");
+       $update_status = $conn->prepare("UPDATE `orders` SET `payment_status` = ? WHERE `id` = ?");
        $update_status->bind_param("si", $new_status, $order_id);
 
        // Execute the query
        if ($update_status->execute()) {
-           echo "<p>Status updated successfully.</p>";
+            echo "
+            <div id='updateMessage' style='position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 50%; padding: 10px; background-color: black; color: white; border-bottom: 1px solid #ccc; text-align: center; font-size: 24px; transition: opacity 1s ease; margin-top: 20px;'>
+                Order Updated Successfully
+            </div>
+            <script>
+                setTimeout(function() {
+                    document.getElementById('updateMessage').style.opacity = '0';
+                }, 1000); // Wait for 1 second before starting the fade out
+            
+                setTimeout(function() {
+                    document.getElementById('updateMessage').style.display = 'none';
+                }, 2000); // Ensure it's fully hidden after the fade out completes
+            </script>";
        } else {
            echo "<p>Error updating status.</p>";
        }
@@ -126,20 +78,23 @@ include ('db.php')
        while ($fetch_orders = $result->fetch_assoc()) {
    ?>
    <div class="box">
-   <p>Order Id: <span><?= htmlspecialchars($fetch_orders['order_id']); ?></span></p>
-      <p>Product Name: <span><?= htmlspecialchars($fetch_orders['product_name']); ?></span></p>
-      <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?>/-</span></p>
-      <p>Ordered Date: <span><?= htmlspecialchars($fetch_orders['order_date']); ?></span></p>
-      <p>Status: <span><?= htmlspecialchars($fetch_orders['status']); ?></span></p>
+      <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
+      <p>Product Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+      <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+      <p>Ordered Date: <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+      <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p> <!-- Added Address Field -->
+      <p>Payment Method: <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p> <!-- Added Payment Method Field -->
 
       <!-- Update form -->
       <form action="" method="post">
-         <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['order_id']); ?>">
+         <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
          <select name="status" required>
-            <option value="Shipping" <?= $fetch_orders['status'] == 'To Ship' ? 'selected' : ''; ?>>Ship</option>
-            <option value="Processing" <?= $fetch_orders['status'] == 'To Recieve' ? 'selected' : ''; ?>>Recieve</option>
-            <option value="Completed" <?= $fetch_orders['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
-            <option value="Cancelled" <?= $fetch_orders['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+            <option value="Pending" <?= $fetch_orders['payment_status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+            <option value="Shipping" <?= $fetch_orders['payment_status'] == 'Shipping' ? 'selected' : ''; ?>>Shipping</option>
+            <option value="Processing" <?= $fetch_orders['payment_status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
+            <option value="Completed" <?= $fetch_orders['payment_status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
+            <option value="Cancelled" <?= $fetch_orders['payment_status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
          </select>
          <button type="submit" name="update_status" class="option-btn">Update Status</button>
       </form>
