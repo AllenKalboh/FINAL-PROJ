@@ -5,11 +5,11 @@ include ('session.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>About</title>
+	<title>SkinLine About</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/inverted.png"/>
+<link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -77,9 +77,11 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/logoshet.png" alt="IMG-LOGO">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
-
+					<a href="index.php" class="logo">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
+					</a>
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
@@ -93,6 +95,10 @@ include ('session.php');
 
 							<li class="active-menu">
 								<a href="about.php">About</a>
+							</li>
+
+							<li>
+								<a href="contact.php">Contact</a>
 							</li>
 
 						</ul>
@@ -117,9 +123,12 @@ include ('session.php');
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="index.php"><img src="images/logoshet.png" alt="IMG-LOGO"></a>
-			</div>
+			<a href="index.php" class="logo">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
+					</a>
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
@@ -179,6 +188,11 @@ include ('session.php');
 				<li>
 					<a href="about.php">About</a>
 				</li>
+
+				<li>
+								<a href="contact.php">Contact</a>
+							</li>
+
 
 			</ul>
 		</div>

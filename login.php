@@ -9,6 +9,7 @@ include('session.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkinLine Login</title>
+    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="loginsss.css">
     
@@ -23,10 +24,10 @@ include('session.php');
 
 <div class="container">
         <div class="left">
-            <img src="images/loginimg.png" alt="Left Side Image" class="left-image">
+            <img src="images/Banners/loginbanner.png" alt="Left Side Image" class="left-image">
         </div>
         <div class="right">
-            <img src="images/icons/logtxt.png" alt="Logo Text" class="right-icon">
+            <img src="images/icons/log.png" alt="Logo Text" class="right-icon">
             <form action="" method="post">
                 <input type="text" id="username" name="username" placeholder="Enter Username" required>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
