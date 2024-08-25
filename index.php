@@ -12,7 +12,7 @@ include ('session.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="indexx.css">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/inverted.png"/>
+<link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 	
 
 <!--===============================================================================================-->
@@ -52,12 +52,44 @@ include ('session.php');
 <style>
 
 /*events */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.banner-slide {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-image {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.banner-wrapper:hover .banner-image {
+    transform: scale(1);
+}
+
+.banner-wrapper:hover .banner-slide {
+    animation: slideShow 5s infinite
+}
+
+@keyframes slideShow {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+/*
 .banner {
             width: 100%;
-            padding-top: 100%; /* 1:1 Aspect Ratio */
+            padding-top: 100%; /* 1:1 Aspect Ratio 
             position: relative;
             overflow: hidden;
-            perspective: 1200px; /* Enhances 3D effect */
+            perspective: 1200px;  Enhances 3D effect 
 			border-radius: 15px;
         }
         .banner-inner {
@@ -66,31 +98,122 @@ include ('session.php');
             left: 0;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smooth and realistic transition */
-            transform-style: preserve-3d; /* Allows 3D effects */
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);  Smooth and realistic transition 
+            transform-style: preserve-3d;  Allows 3D effects 
         }
         .banner:hover .banner-inner {
-            transform: rotateY(180deg); /* Flips the card */
+            transform: rotateY(180deg);  Flips the card 
         }
         .banner-face {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden; /* Hides the back face when turned */
+            backface-visibility: hidden;  Hides the back face when turned 
         }
+		
         .banner-front, .banner-back {
             background-size: cover;
             background-position: center;
         }
         .banner-front {
             background-color: #ddd;
-            /* Front image */
+            Front image 
         }
         .banner-back {
             background-color: #ccc;
-            transform: rotateY(180deg); /* Rotates back face */
-            /* Back image */
+            transform: rotateY(180deg);  Rotates back face 
+             Back image 
         }
+		*/
+
+/* sa step skincare*/
+.banner-container {
+            background-image: url('images/bgindex/bgstep.png');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px 50px; /* Adjusted padding */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .title-image {
+            margin-bottom: 10px; /* Reduced margin */
+            width: auto;
+            max-width: 100%;
+        }
+        .step-container {
+            text-align: center;
+            width: 150px; /* Fixed width */
+            height: 250px; /* Fixed height to create a vertically semi-rectangular shape */
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 10px; /* Add horizontal margin between steps */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .step-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .step-image {
+            width: 100%;
+            height: 60%; /* Adjust height to fit within the step-container */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .step-text {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 5px;
+        }
+
+		/* Media Queries for responsiveness */
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .step-container {
+        width: 120px; /* Adjusted width for smaller screens */
+        height: 250px; /* Adjusted height for smaller screens */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 1rem; /* Adjusted font size */
+    }
+    .step-text {
+        font-size: 0.75rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-container {
+        padding: 20px 5px; /* Reduced padding for smaller screens */
+    }
+    .step-container {
+        width: 100px; /* Further adjusted width */
+        height: 200px; /* Further adjusted height */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 0.875rem; /* Further adjusted font size */
+    }
+    .step-text {
+        font-size: 0.625rem; /* Further adjusted font size */
+    }
+}
+
 
 	/* saproductlines*/
 .block1-txt {
@@ -227,7 +350,7 @@ include ('session.php');
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $9,000
+						Free shipping for standard order over ₱1,000
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -262,7 +385,7 @@ include ('session.php');
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/icons/logupp.png" alt="IMG-LOGO">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
 					<a href="index.php" class="logo">
 						<img src="images/icons/log.png" alt="IMG-LOGO">
@@ -297,7 +420,7 @@ include ('session.php');
 					<!-- Icon header -->
 				<div class="wrap-icon-header flex-w flex-r-m">
 					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php" style="color:white;">
+						<a href="shoping-cart.php" style="color:grey;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 					</div>	
@@ -306,7 +429,14 @@ include ('session.php');
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
+<<<<<<< Updated upstream
 				<a href="index.php"><img src="" alt="IMG-LOGO"></a>
+=======
+				<a href="index.php"><img src="images/icons/logupp.png" alt="IMG-LOGO"></a>
+			</div>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO"></a>
+>>>>>>> Stashed changes
 			</div>
 
 			<!-- Icon header -->
@@ -336,7 +466,7 @@ include ('session.php');
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						Free shipping for standard order over ₱1,000
 					</div>
 				</li>
 
@@ -369,6 +499,11 @@ include ('session.php');
 				<li>
 					<a href="about.php">About</a>
 				</li>
+
+				<li>
+								<a href="contact.php">Contact</a>
+							</li>
+
 
 			</ul>
 		</div>
@@ -508,19 +643,19 @@ include ('session.php');
 				<div class="item-slick1" style="background-image: url(images/bgindex/bgprobio.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 									Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="500">
 								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
 									Normal Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1100">
 								<span class="fs-20 text-white cl2 respon2 ">
 								A well-balanced, feeling neither too oily nor too dry. It has a smooth texture, minimal shine, and even tone. To maintain this balance, use a gentle cleanser and a light moisturizer. Daily use of broad-spectrum sunscreen is essential to protect your skin from UV damage. Regular exfoliation helps keep the skin smooth and radiant.
 
@@ -534,19 +669,19 @@ include ('session.php');
 				<div class="item-slick1" style="background-image: url(images/bgindex/bghya.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 								Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="500">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="500">
 								<h2 class="ltext-201 cl2 text-light p-t-19 p-b-43 respon1">
 									Dry Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1100">
 								<span class="fs-20 text-white cl2 respon2 ">
 								Often feels tight, rough, or flaky and may appear dull. To combat dryness, use a hydrating cleanser and apply a rich moisturizer to lock in moisture. Look for products with hyaluronic acid or glycerin. Avoid hot water and alcohol-based toners, opting instead for gentle, alcohol-free products.
 								</span>
@@ -558,19 +693,19 @@ include ('session.php');
 				<div class="item-slick1" style="background-image: url(images/bgindex/bgbright.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 									Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="500">
 								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
 									Sensitive Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1100">
 								<span class="fs-20 text-white cl2 respon2 ">
 								Is prone to redness, itching, and irritation from products or environmental factors. Choose fragrance-free and hypoallergenic products to minimize reactions. Use gentle, soothing ingredients like aloe vera or chamomile, and avoid applying multiple products at once. Always patch test new products.
 
@@ -583,19 +718,19 @@ include ('session.php');
 				<div class="item-slick1" style="background-image: url(images/bgindex/bgcentella.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 								Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="500">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="500">
 								<h2 class="ltext-201 cl2 text-light p-t-19 p-b-43 respon1">
 									Combination Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1100">
 								<span class="fs-20 text-white cl2 respon2 ">
 								It features both oily and dry areas, typically oily in the T-zone and drier on the cheeks. To manage this, use a balanced cleanser and lightweight moisturizer. You might need different products for different areas of your face. Regular exfoliation helps keep oily areas clear and hydrates dry patches.
 
@@ -608,19 +743,19 @@ include ('session.php');
 				<div class="item-slick1" style="background-image: url(images/bgindex/bgtea.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 									Get to know your skintype
 								</span>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="500">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="500">
 								<h2 class="ltext-201 text-light cl2 p-t-19 p-b-43 respon1">
 									Oily Skin?
 								</h2>
 							</div>
 								
-							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1100">
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1100">
 								<span class="fs-20 text-white cl2 respon2 ">
 								It appears shiny and greasy, with visible pores and a tendency for breakouts. Use a gel-based or foaming cleanser to control oil and apply an oil-free moisturizer to keep skin hydrated. Products with salicylic acid or benzoyl peroxide can help manage breakouts. Consider a mattifying primer or setting powder to reduce shine.
 
@@ -644,48 +779,42 @@ include ('session.php');
 </section>
 
 <!-- Events n promotions -->
-<div class="container mt-5">
+<div class="container my-5">
         <div class="row">
-            <!-- First Banner -->
-            <div class="col-12 col-md-4 mb-4">
-                <div class="banner">
-                    <div class="banner-inner">
-                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
-                            <!-- Front Image -->
-                        </div>
-                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb1.jpg');">
-                            <!-- Back Image -->
-                        </div>
+            <div class="col-md-4">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="images/Banners/eventsb1.jpg" class="img-fluid banner-image" alt="Banner 1">
+                        <img src="image2.jpg" class="img-fluid banner-image" alt="Banner 2">
+                        <img src="image3.jpg" class="img-fluid banner-image" alt="Banner 3">
                     </div>
                 </div>
             </div>
-            <!-- Second Banner -->
-            <div class="col-12 col-md-4 mb-4">
-                <div class="banner">
-                    <div class="banner-inner">
-                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
-                            <!-- Front Image -->
-                        </div>
-                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb2.jpg');">
-                            <!-- Back Image -->
-                        </div>
+            <div class="col-md-4">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="images/Banners/eventsb2.jpg" class="img-fluid banner-image" alt="Banner 4">
+                        <img src="image5.jpg" class="img-fluid banner-image" alt="Banner 5">
+                        <img src="image6.jpg" class="img-fluid banner-image" alt="Banner 6">
                     </div>
                 </div>
             </div>
-            <!-- Third Banner -->
-            <div class="col-12 col-md-4 mb-4">
-                <div class="banner">
-                    <div class="banner-inner">
-                        <div class="banner-face banner-front" style="background-image: url('images/Banners/bannerback.png');">
-                        </div>
-                        <div class="banner-face banner-back" style="background-image: url('images/Banners/eventsb3.jpg');">
-                            <!-- Back Image -->
-                        </div>
+            <div class="col-md-4">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="images/Banners/eventsb3.jpg" class="img-fluid banner-image" alt="Banner 7">
+                        <img src="image8.jpg" class="img-fluid banner-image" alt="Banner 8">
+                        <img src="image9.jpg" class="img-fluid banner-image" alt="Banner 9">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 
 <div class="container mt-5">
         <div class="depota">
@@ -703,13 +832,54 @@ include ('session.php');
             </div>
         </div>
 		
+<!-- guide Banner 1 -->
 
-
+<div class="container mt-5">
+        <div class="banner-container">
+			<!-- Title Image -->
+			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
+            <div class="d-flex flex-wrap justify-content-center">
+            <!-- Step 1 -->
+            <div class="step-container">
+                <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
+                <h3 class="step-title">Cleanser</h3>
+                <p class="step-text">Step 1</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-container">
+                <img src="images/bgindex/toner.jpg" alt="Step 2" class="step-image">
+                <h3 class="step-title">Toner</h3>
+                <p class="step-text">Step 2</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-container">
+                <img src="images/bgindex/serum.jpg" alt="Step 3" class="step-image">
+                <h3 class="step-title">Ampoule</h3>
+                <p class="step-text">Step 3</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="step-container">
+                <img src="images/bgindex/moisturizer.jpg" alt="Step 4" class="step-image">
+                <h3 class="step-title">Moisturizer</h3>
+                <p class="step-text">Step 4</p>
+            </div>
+            <!-- Step 5 -->
+            <div class="step-container">
+                <img src="images/bgindex/eyecare.jpg" alt="Step 5" class="step-image">
+                <h3 class="step-title">Eyecare</h3>
+                <p class="step-text">Step 5</p>
+            </div>
+            <!-- Step 6 -->
+            <div class="step-container">
+                <img src="images/bgindex/sunscreen.jpg" alt="Step 6" class="step-image">
+                <h3 class="step-title">Sunscreen</h3>
+                <p class="step-text">Step 6</p>
+            </div>
+        </div>
+    </div>
 
 <!-- guide Banner -->
-			<div class="skguideban mt-5" style="text-align: center; margin-bottom: 35px; ">
-				<img src="images/Banners/SkGuide.png" alt="GBanner" 
-			style="width: 100%; max-width: 1500px; height: 270px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />	
+			
 			<a href = "https://www.youtube.com/shorts/p68FLWb3LHw"> <div class="block1-link stext-101 cl2">
 									Watch Guide
 								</div> </a>

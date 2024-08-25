@@ -137,9 +137,7 @@ p{
 .footer a:hover {
     text-decoration: underline;
 }
-.place-order-btn{
-    background: red;
-}
+
 
 .btn-back-to-top {
     position: fixed;
