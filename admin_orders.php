@@ -46,24 +46,17 @@ if(isset($_GET['delete'])){
         <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
         <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
         <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
-    </div>
+</div>
 
-
-
-
-
-
-
-<center><section class="orders">
+<center>
+<section class="orders">
 
 <h1 class="heading">Order Status</h1>
 
 <div class="box-container">
 
    <?php
-
-
-   // Prepare the SQL statement
+   // Prepare the SQL statement to include address and payment_method
    $select_orders = $conn->prepare("SELECT * FROM `orders`");
 
    // Execute the query
@@ -77,16 +70,19 @@ if(isset($_GET['delete'])){
        while ($fetch_orders = $result->fetch_assoc()) {
    ?>
    <div class="box">
-      <p>Order Id: <span><?= htmlspecialchars($fetch_orders['order_id']); ?></span></p>
-      <p>Product Name: <span><?= htmlspecialchars($fetch_orders['product_name']); ?></span></p>
-      <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?>/-</span></p>
-      <p>Ordered Date: <span><?= htmlspecialchars($fetch_orders['order_date']); ?></span></p>
-      <p>Status: <span><?= htmlspecialchars($fetch_orders['status']); ?></span></p>
-
+      <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
+      <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+      <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+      <p>Date Created:  <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+      <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p> <!-- Added Address Field -->
+      <!--
+      <p>Payment Method: <span><?= htmlspecialchars($fetch_orders['payment_method']); ?></span></p> Added Payment Method Field
+       -->
       <div class="flex-btn">
          <!-- Example buttons (for actual functionality, additional code needed) -->
-         <a href="update_orders.php?id=<?= htmlspecialchars($fetch_orders['order_id']); ?>" class="option-btn">Update</a>
-         <a href="admin_orders.php?delete=<?= htmlspecialchars($fetch_orders['order_id']); ?>" class="delete-btn" onclick="return confirm('Delete this order?');">Delete</a>
+         <a href="update_orders.php?id=<?= htmlspecialchars($fetch_orders['id']); ?>" class="option-btn">Update</a>
+         <a href="admin_orders.php?delete=<?= htmlspecialchars($fetch_orders['id']); ?>" class="delete-btn" onclick="return confirm('Delete this order?');">Delete</a>
       </div>
    </div>
    <?php
@@ -103,6 +99,7 @@ if(isset($_GET['delete'])){
 </div>
 
 </section>
+</center>
 
 </body>
 </html>
