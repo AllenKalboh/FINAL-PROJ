@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Hardcoded password
 define('ADMIN_PASSWORD', 'admin1234');

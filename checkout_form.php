@@ -25,10 +25,12 @@ if ($stmt = $conn->prepare($sql)) {
     
     if ($result->num_rows > 0) {
         // Fetch cart items
+        $product_names = [];
         while ($row = $result->fetch_assoc()) {
             $cart_items[] = $row;
             $total_products += $row['quantity']; // assuming `quantity` field in cart
             $total_price += $row['price'] * $row['quantity']; // assuming `price` field in cart
+            $product_names[] = $row['product_name']; // Collect product names
         }
         $grand_total = $total_price; // Update grand total
     } else {
@@ -48,13 +50,18 @@ if (isset($_POST['order'])) {
     $address = 'flat no. ' . filter_var($_POST['flat'], FILTER_SANITIZE_STRING) . ', ' . filter_var($_POST['street'], FILTER_SANITIZE_STRING) . ', ' . filter_var($_POST['city'], FILTER_SANITIZE_STRING) . ', ' . filter_var($_POST['state'], FILTER_SANITIZE_STRING) . ', ' . filter_var($_POST['country'], FILTER_SANITIZE_STRING) . ' - ' . filter_var($_POST['pin_code'], FILTER_SANITIZE_STRING);
 
     if ($total_products > 0) {
+        // Join product names into a single string
+        $product_names_str = implode(', ', $product_names);
+
         // Insert order into the database
-        $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
-        $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
+        $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, product_names) VALUES(?,?,?,?,?,?,?,?,?)");
+        $insert_order->bind_param("issssssis", $user_id, $name, $number, $email, $method, $address, $total_products, $total_price, $product_names_str);
+        $insert_order->execute();
 
         // Delete cart items after successful order placement
         $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-        $delete_cart->execute([$user_id]);
+        $delete_cart->bind_param("i", $user_id);
+        $delete_cart->execute();
 
         $message[] = 'Order placed successfully!';
     } else {

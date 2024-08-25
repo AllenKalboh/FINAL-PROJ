@@ -4,23 +4,28 @@ include('db.php');
 
 session_start();
 
-if(isset($_POST['update_payment'])){
-    $order_id = $_POST['order_id'];
+if (isset($_POST['update_payment'])) {
+    $order_id = $_POST['id'];
     $status = $_POST['status'];
-    $status = filter_var($status, FILTER_SANITIZE_STRING); // Corrected variable
+    $status = filter_var($status, FILTER_SANITIZE_STRING); // Sanitized status
 
-    $update_payment = $conn->prepare("UPDATE `orders` SET status = ? WHERE order_id = ?");
+    // Use prepared statements to prevent SQL injection
+    $update_payment = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
     $update_payment->execute([$status, $order_id]);
 
     $message[] = 'Payment Status Updated!';
 }
 
-if(isset($_GET['delete'])){
+if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
-    $delete_order = $conn->prepare("DELETE FROM `orders` WHERE order_id = ?");
-    $delete_order->execute([$delete_id]);
-    header('Location: admin_orders.php'); // Corrected redirect
-    exit();
+
+    // Validate and sanitize the delete_id
+    if (filter_var($delete_id, FILTER_VALIDATE_INT)) {
+        $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
+        $delete_order->execute([$delete_id]);
+        header('Location: admin_orders.php');
+        exit();
+    }
 }
 
 ?>
@@ -49,6 +54,7 @@ if(isset($_GET['delete'])){
 </div>
 
 <center>
+<center>
 <section class="orders">
 
 <h1 class="heading">Order Status</h1>
@@ -56,7 +62,7 @@ if(isset($_GET['delete'])){
 <div class="box-container">
 
    <?php
-   // Prepare the SQL statement to include address and payment_method
+   // Prepare the SQL statement to include phone number and product_names
    $select_orders = $conn->prepare("SELECT * FROM `orders`");
 
    // Execute the query
@@ -71,16 +77,15 @@ if(isset($_GET['delete'])){
    ?>
    <div class="box">
       <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
-      <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+      <p>Products: <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p> <!-- Added Product Names Field -->
       <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+      <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
       <p>Date Created:  <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
       <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
-      <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p> <!-- Added Address Field -->
-      <!--
-      <p>Payment Method: <span><?= htmlspecialchars($fetch_orders['payment_method']); ?></span></p> Added Payment Method Field
-       -->
+      <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
+      <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p> <!-- Added Phone Number Field -->
+      
       <div class="flex-btn">
-         <!-- Example buttons (for actual functionality, additional code needed) -->
          <a href="update_orders.php?id=<?= htmlspecialchars($fetch_orders['id']); ?>" class="option-btn">Update</a>
          <a href="admin_orders.php?delete=<?= htmlspecialchars($fetch_orders['id']); ?>" class="delete-btn" onclick="return confirm('Delete this order?');">Delete</a>
       </div>

@@ -47,11 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                 filter_var($_POST['city'], FILTER_SANITIZE_STRING) . ', ' .
                 filter_var($_POST['pin_code'], FILTER_SANITIZE_STRING);
 
+    $product_names = isset($_SESSION['product_names']) ? $_SESSION['product_names'] : '';
+
     if ($total_products > 0) {
         // Insert order into the database
-        $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
+        $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, product_names, total_price) VALUES(?,?,?,?,?,?,?,?)");
         if ($insert_order) {
-            $insert_order->bind_param("issssssi", $user_id, $name, $number, $email, $method, $address, $total_products, $total_price);
+            $insert_order->bind_param("issssssi", $user_id, $name, $number, $email, $method, $address, $product_names, $total_price);
             $insert_order->execute();
 
             // Check if the order was inserted successfully
@@ -68,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 
                 $message[] = 'Order placed successfully!';
                 $_SESSION['grand_total'] = 0; // Reset grand total after placing the order
+                unset($_SESSION['product_names']); // Clear product names from session
             } else {
                 $message[] = 'Failed to place the order.';
             }
@@ -103,8 +106,37 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="user_orders.css">
+	<link rel="stylesheet" href="user_orderss.css">
 </head>
+<style>
+/* General styling for the button */
+.place-order-btn {
+    background-color: black; /* Default background color */
+    color: white;            /* Default text color */
+    border: none;            /* Remove default border */
+    padding: 10px 20px;      /* Add padding */
+    font-size: 16px;         /* Set font size */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer;         /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    border-radius: 5px;      /* Rounded corners */
+    width: 50%;
+}
+
+/* Hover state */
+.place-order-btn:hover {
+    background-color: #333; /* Slightly lighter color on hover */
+    transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Disabled state */
+.place-order-btn.disabled {
+    background-color: #ccc; /* Gray background for disabled */
+    color: #666;            /* Gray text for disabled */
+    cursor: not-allowed;    /* Change cursor to indicate disabled state */
+    opacity: 0.6;           /* Make button look less active */
+}
+</style>
 <body class="animsition">
     <!-- Header -->
     <header class="header-v4">
@@ -270,7 +302,7 @@ $conn->close();
                                 </div>
                                 <p>Total Products: <?= htmlspecialchars($total_products) ?></p>
                                 <p>Total Price: ₱<?= number_format($grand_total, 2) ?></p>
-                                <input type="submit" name="order" class="btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order">
+                                <input type="submit" name="order" class="place-order-btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order" style="background-color: black; color: white; cursor: pointer;">
                             </div>
                         </div>
                     </form>

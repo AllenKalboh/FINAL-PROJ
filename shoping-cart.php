@@ -326,115 +326,120 @@ footer {
 	  <!-- Shopping Cart Content -->
 	    <!-- Shopping Cart Content -->
 		<section class="cart-section">
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th class="bold">Product Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Remove Product</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-                    <div id='feedbackMessage' class='alert-success'>
-                        Product quantity has been updated.
-                    </div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var message = document.getElementById('feedbackMessage');
-                            message.style.display = 'block'; // Show the alert
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th class="bold">Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove Product</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
+                <div id='feedbackMessage' class='alert-success'>
+                    Product quantity has been updated.
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var message = document.getElementById('feedbackMessage');
+                        message.style.display = 'block'; // Show the alert
 
-                            setTimeout(function() {
-                                message.style.opacity = '0'; // Start fade-out
-                            }, 2000); // Wait for 2 seconds before starting the fade-out
+                        setTimeout(function() {
+                            message.style.opacity = '0'; // Start fade-out
+                        }, 2000); // Wait for 2 seconds before starting the fade-out
 
-                            setTimeout(function() {
-                                message.style.display = 'none'; // Hide the message after fade-out
-                            }, 3000); // Ensure it's fully hidden 1 second after the fade-out completes
-                        });
-                    </script>
-                <?php endif;
+                        setTimeout(function() {
+                            message.style.display = 'none'; // Hide the message after fade-out
+                        }, 3000); // Ensure it's fully hidden 1 second after the fade-out completes
+                    });
+                </script>
+            <?php endif;
 
-                // Check if the user is logged in
-                if (!isset($_SESSION['user_id'])) {
-                    echo '<tr><td colspan="5">Please log in to view your cart.</td></tr>';
-                    exit();
-                }
+            // Check if the user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                echo '<tr><td colspan="5">Please log in to view your cart.</td></tr>';
+                exit();
+            }
 
-                $user_id = $_SESSION['user_id'];
-                $grand_total = 0;
+            $user_id = $_SESSION['user_id'];
+            $grand_total = 0;
+            $product_names = []; // Array to accumulate product names
 
-                // Fetching cart items from the database for the logged-in user
-                $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
-                $stmt->bind_param("i", $user_id);
-                $stmt->execute();
-                $cart_items = $stmt->get_result();
+            // Fetching cart items from the database for the logged-in user
+            $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $cart_items = $stmt->get_result();
 
-                if ($cart_items->num_rows > 0) {
-                    while ($item = $cart_items->fetch_assoc()) {
-                        $total = $item['price'] * $item['quantity'];  // Calculating the total for each item
-                        $grand_total += $total; // Accumulate the grand total
-                        $imgPath = 'uploads/' . htmlspecialchars($item['img_01']); // Updated column name
+            if ($cart_items->num_rows > 0) {
+                while ($item = $cart_items->fetch_assoc()) {
+                    $total = $item['price'] * $item['quantity'];  // Calculating the total for each item
+                    $grand_total += $total; // Accumulate the grand total
+                    $imgPath = 'uploads/' . htmlspecialchars($item['img_01']); // Updated column name
 
-                        // Debugging the image path
-                        if (file_exists($imgPath)) {
-                            $imgSrc = $imgPath;
-                        } else {
-                            $imgSrc = 'uploads/default.jpg'; // Fallback image
-                        }
-                        ?>
-                        <tr>
-                            <td class="bold"><?= htmlspecialchars($item['product_name']); ?></td>
-                            <td>₱<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
-                            <td>
-                                <div class="quantity-container">
-                                    <form action="update-cart.php" method="POST" style="display: flex; align-items: center; justify-content: center;">
-                                        <input type="number" name="quantity" value="<?= htmlspecialchars($item['quantity']); ?>" min="1" class="quantity-input"> <br>
-                                        <input type="hidden" name="cart_id" value="<?= htmlspecialchars($item['id']); ?>">
-                                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                            <i class="fas fa-pen-to-square update-icon"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>₱<?= htmlspecialchars(number_format($total, 2)); ?></td>
-                            <td>
-                                <button class="dlt-btn" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                    <a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>" style="text-decoration: none; color: inherit;">
-                                        <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon -->
-                                    </a>
-                                </button>
-                            </td>
-                        </tr>
-                        <?php
+                    // Debugging the image path
+                    if (file_exists($imgPath)) {
+                        $imgSrc = $imgPath;
+                    } else {
+                        $imgSrc = 'uploads/default.jpg'; // Fallback image
                     }
-                } else {
-                    echo '<tr><td colspan="5">No items in the cart.</td></tr>';
+
+                    // Accumulate product names
+                    $product_names[] = htmlspecialchars($item['product_name']);
+                    ?>
+                    <tr>
+                        <td class="bold"><?= htmlspecialchars($item['product_name']); ?></td>
+                        <td>₱<?= htmlspecialchars(number_format($item['price'], 2)); ?></td>
+                        <td>
+                            <div class="quantity-container">
+                                <form action="update-cart.php" method="POST" style="display: flex; align-items: center; justify-content: center;">
+                                    <input type="number" name="quantity" value="<?= htmlspecialchars($item['quantity']); ?>" min="1" class="quantity-input"> <br>
+                                    <input type="hidden" name="cart_id" value="<?= htmlspecialchars($item['id']); ?>">
+                                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                        <i class="fas fa-pen-to-square update-icon"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>₱<?= htmlspecialchars(number_format($total, 2)); ?></td>
+                        <td>
+                            <button class="dlt-btn" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                <a href="delete_from_cart.php?cart_id=<?= htmlspecialchars($item['id']); ?>" style="text-decoration: none; color: inherit;">
+                                    <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon -->
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                    <?php
                 }
+            } else {
+                echo '<tr><td colspan="5">No items in the cart.</td></tr>';
+            }
 
-                $_SESSION['grand_total'] = $grand_total; // Store the grand total in session
+            $_SESSION['grand_total'] = $grand_total; // Store the grand total in session
+            $_SESSION['product_names'] = implode(', ', $product_names); // Store the product names in session
 
-                $stmt->close();
-                $conn->close();
-                ?>
-            </tbody>
-            <!-- Grand Total Row -->
-            <tfoot>
-                <tr>
-                    <td colspan="3" style="border: none;"></td>
-                    <td class="bold"><strong>Grand Total: ₱ <?= htmlspecialchars(number_format($grand_total, 2)); ?></strong></td>
-                    <td class="bold"></td>
-                </tr>
-            </tfoot>
-        </table>
+            $stmt->close();
+            $conn->close();
+            ?>
+        </tbody>
+        <!-- Grand Total Row -->
+        <tfoot>
+            <tr>
+                <td colspan="3" style="border: none;"></td>
+                <td class="bold"><strong>Grand Total: ₱ <?= htmlspecialchars(number_format($grand_total, 2)); ?></strong></td>
+                <td class="bold"></td>
+            </tr>
+        </tfoot>
+    </table>
 
-        <div class="checkout-button-container">
-            <a href="user_orders.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">Proceed to Checkout</a>
-        </div>
-    </section>
+    <div class="checkout-button-container">
+        <a href="user_orders.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">Proceed to Checkout</a>
+    </div>
+</section>
 
 
 
