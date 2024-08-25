@@ -230,9 +230,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<a href="about.php">About</a>
 							</li>
 
+							<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
+
 							<li class="active-menu">
 								<a href="contact.php">Contact</a>
 							</li>
+
 						</ul>
 					</div>	
 
@@ -318,6 +323,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<li>
 					<a href="about.php">About</a>
 				</li>
+
+				<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
 
 				<li>
 					<a href="contact.php">Contact</a>
@@ -413,7 +422,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bglogin.png');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Contact
 		</h2>

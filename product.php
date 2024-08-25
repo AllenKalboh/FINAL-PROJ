@@ -277,10 +277,12 @@ include ('session.php');
 
 							
 
-							
-
 							<li>
 								<a href="about.php">About</a>
+							</li>
+
+							<li>
+								<a href="tutorial.php">SkinHub</a>
 							</li>
 
 							<li>
@@ -394,6 +396,12 @@ include ('session.php');
 				<li>
 					<a href="about.php">About</a>
 				</li>
+
+				<li>
+					<a href="tutorial.php">SkinHub</a>
+				</li>
+				
+
 				<li>
 					<a href="contact.php">Contact</a>
 				</li>

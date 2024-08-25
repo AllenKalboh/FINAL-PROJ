@@ -5,7 +5,7 @@ include ('session.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SkinLine About</title>
+	<title>SkinLine Tutorial</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -35,6 +35,98 @@ include ('session.php');
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
+
+<style>
+
+	/* sa step skincare*/
+.banner-container {
+            background-image: url('images/bgindex/bgstep.png');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px 50px; /* Adjusted padding */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .title-image {
+            margin-bottom: 10px; /* Reduced margin */
+            width: auto;
+            max-width: 100%;
+        }
+        .step-container {
+            text-align: center;
+            width: 150px; /* Fixed width */
+            height: 200px; /* Fixed height to create a vertically semi-rectangular shape */
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 10px; /* Add horizontal margin between steps */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .step-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .step-image {
+            width: 100%;
+            height: 60%; /* Adjust height to fit within the step-container */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .step-text {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 5px;
+        }
+
+		/* Media Queries for responsiveness */
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .step-container {
+        width: 120px; /* Adjusted width for smaller screens */
+        height: 250px; /* Adjusted height for smaller screens */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 1rem; /* Adjusted font size */
+    }
+    .step-text {
+        font-size: 0.75rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-container {
+        padding: 20px 5px; /* Reduced padding for smaller screens */
+    }
+    .step-container {
+        width: 100px; /* Further adjusted width */
+        height: 200px; /* Further adjusted height */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 0.875rem; /* Further adjusted font size */
+    }
+    .step-text {
+        font-size: 0.625rem; /* Further adjusted font size */
+    }
+}
+
+</style>
 	
 	<!-- Header -->
 	<header class="header-v4">
@@ -93,14 +185,12 @@ include ('session.php');
 								<a href="product.php">Shop</a>
 							</li>
 
-							
-
-							<li class="active-menu">
+							<li >
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
-								<a href="tutorial.php">SkinHub</a>
+							<li class="active-menu">
+								<a href="tutorial.php"> SkinHub</a>
 							</li>
 
 							<li>
@@ -313,11 +403,56 @@ include ('session.php');
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
 		<h2 class="ltext-105 cl0 txt-center">
-			About
+			SkinHub
 		</h2>
 	</section>	
 
+<!-- guide Banner 1 -->
 
+<div class="container mt-5">
+        <div class="banner-container">
+			<!-- Title Image -->
+			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
+            <div class="d-flex flex-wrap justify-content-center">
+            <!-- Step 1 -->
+            <div class="step-container">
+                <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
+                <h3 class="step-title">Cleanser</h3>
+                <p class="step-text">Step 1</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-container">
+                <img src="images/bgindex/toner.jpg" alt="Step 2" class="step-image">
+                <h3 class="step-title">Toner</h3>
+                <p class="step-text">Step 2</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-container">
+                <img src="images/bgindex/serum.jpg" alt="Step 3" class="step-image">
+                <h3 class="step-title">Ampoule</h3>
+                <p class="step-text">Step 3</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="step-container">
+                <img src="images/bgindex/moisturizer.jpg" alt="Step 4" class="step-image">
+                <h3 class="step-title">Moisturizer</h3>
+                <p class="step-text">Step 4</p>
+            </div>
+            <!-- Step 5 -->
+            <div class="step-container">
+                <img src="images/bgindex/eyecare.jpg" alt="Step 5" class="step-image">
+                <h3 class="step-title">Eyecare</h3>
+                <p class="step-text">Step 5</p>
+            </div>
+            <!-- Step 6 -->
+            <div class="step-container">
+                <img src="images/bgindex/sunscreen.jpg" alt="Step 6" class="step-image">
+                <h3 class="step-title">Sunscreen</h3>
+                <p class="step-text">Step 6</p>
+            </div>
+        </div>
+    </div>
+	</div>
 	<!-- Content page -->
 	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
@@ -325,7 +460,7 @@ include ('session.php');
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
 						<h3 class="mtext-111 cl2 p-b-16">
-						About Skinline
+						Centella Line
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
@@ -339,17 +474,13 @@ include ('session.php');
 						<p class="stext-113 cl6 p-b-26">
 						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
 						</p>
-
-						<p class="stext-113 cl6 p-b-26">
-						Explore. Discover. Transform. Join Skinline today and let us help you achieve the healthy, radiant skin you deserve.
-						</p>
 					</div>
 				</div>
 
 				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
-							<img src="images/Banners/loginbanner.png" alt="IMG">
+							<img src="images/Banners/cente.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -359,7 +490,7 @@ include ('session.php');
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
 					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
 						<h3 class="mtext-111 cl2 p-b-16">
-							Our Mission
+							Hyalu Cica Line
 						</h3>
 						<p class="stext-113 cl6 p-b-26">
 						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
@@ -384,99 +515,146 @@ include ('session.php');
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
 					<div class="how-bor2">
 						<div class="hov-img0">
-							<img src="images/Banners/aboutskin.jpg" alt="IMG">
+							<img src="images/Banners/hya.png" alt="IMG">
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+						Brightening Line
+						</h3>
+
+						<p class="stext-113 cl6 p-b-26">
+						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							<img src="images/Banners/bright.png" alt="IMG">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							Tea Trica Line
+						</h3>
+						<p class="stext-113 cl6 p-b-26">
+						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
+						</p>
+
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<p class="stext-114 cl6 p-r-40 p-b-11">
+							“Great skin doesn't happen by chance; it happens by making informed choices.”
+							</p>
+
+							<span class="stext-111 cl8">
+								- SkinLine
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+					<div class="how-bor2">
+						<div class="hov-img0">
+							<img src="images/Banners/tt.png" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+						Pore Mizing Line
+						</h3>
+
+						<p class="stext-113 cl6 p-b-26">
+						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							<img src="images/Banners/pore.png" alt="IMG">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							ProBio Cica Line
+						</h3>
+						<p class="stext-113 cl6 p-b-26">
+						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
+						</p>
+
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<p class="stext-114 cl6 p-r-40 p-b-11">
+							“Great skin doesn't happen by chance; it happens by making informed choices.”
+							</p>
+
+							<span class="stext-111 cl8">
+								- SkinLine
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+					<div class="how-bor2">
+						<div class="hov-img0">
+							<img src="images/Banners/probio.png" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			</div>
 		</div>
+
 	</section>	
 	
-	<style>
-/* sa ano to vegan free emerut*/
-.servicon {
-	filter: invert(0) grayscale(100%) brightness(0) contrast(100%);
-    /* Adjust the filter values to get the desired color effect */
-}
-.value-card {
-    padding: 20px;
-	margin-bottom: 25px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-
-.value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.value-card img {
-    width: 60px;
-    margin-bottom: 20px;
-}
-
-.value-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    }
-
-.value-description {
-    font-size: 1rem;
-    color: #6c757d;
-	text-align: justify;
-}
-.sc-btn {
-    font-size: 32px;
-    color: black; /* Initial color */
-    text-decoration: none; /* Remove underline from links */
-    padding: 10px 20px; /* Optional padding for better click area */
-    display: inline-block; /* Ensure the button aligns properly */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
-
-.sc-btn:hover {
-    color: rgb(107, 107, 107); /* Color on hover */
-}
-
-.sc-btn i {
-    color: inherit; /* Make sure the icon inherits the color from .sc-btn */
-}
-	</style>
-
-	<div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="value-card">
-				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
-                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
-                    <div class="value-description">
-                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
-                    <div class="value-title">EWG Verified</div>
-                    <div class="value-description">
-                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
-                    <div class="value-title">Artificial Fragrance-Free</div>
-                    <div class="value-description">
-                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>v	
+		
 
 	<!-- Footer -->
 		<!-- Footer -->

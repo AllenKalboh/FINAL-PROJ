@@ -125,6 +125,68 @@ include ('session.php');
              Back image 
         }
 		*/
+/* video banners*/
+.video-banner {
+            background-color: #2c2c2c;
+            padding: 50px 0;
+        }
+
+        .video-container {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            height: 100%;
+            max-height: 450px; /* Adjust this to control the height of the container */
+        }
+
+        .video-wrapper {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f0f0f0;
+        }
+
+        .video-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        /* Slider Control Styling */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000;
+            padding: 20px;
+            border-radius: 50%;
+        }
 
 /* sa step skincare*/
 .banner-container {
@@ -148,7 +210,7 @@ include ('session.php');
         .step-container {
             text-align: center;
             width: 150px; /* Fixed width */
-            height: 250px; /* Fixed height to create a vertically semi-rectangular shape */
+            height: 200px; /* Fixed height to create a vertically semi-rectangular shape */
             padding: 20px;
             border-radius: 10px;
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -408,6 +470,10 @@ include ('session.php');
 							</li>
 
 							<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
+				
+							<li>
 								<a href="contact.php">Contact</a>
 							</li>
 
@@ -429,14 +495,10 @@ include ('session.php');
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-<<<<<<< Updated upstream
-				<a href="index.php"><img src="" alt="IMG-LOGO"></a>
-=======
 				<a href="index.php"><img src="images/icons/logupp.png" alt="IMG-LOGO"></a>
 			</div>
 			<div class="logo-mobile">
 				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO"></a>
->>>>>>> Stashed changes
 			</div>
 
 			<!-- Icon header -->
@@ -501,8 +563,12 @@ include ('session.php');
 				</li>
 
 				<li>
-								<a href="contact.php">Contact</a>
-							</li>
+					<a href="tutorial.php">SkinHub</a>
+				</li>
+
+				<li>
+					<a href="contact.php">Contact</a>
+				</li>
 
 
 			</ul>
@@ -620,13 +686,13 @@ include ('session.php');
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 text-white cl2 respon2">
+								<span class="ltext-101 text-dark cl2 respon2">
 								Unveil Your Hidden Radiance, Redefine Boundaries
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 text-white respon1">
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 text-dark respon1">
 								 2024 SKIN LINE ESSENTIALS
 								</h2>
 							</div>
@@ -774,10 +840,27 @@ include ('session.php');
 	</section>
 
 <section>
+
+
+
 <!-- LAGAY TAYO DITO NG KAHIT SIGURO INFORMATIVE NA VECTORS -->
  
 </section>
-
+<div class="container mt-5">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto">
+                    <h2 class="b1 text-center mb-0">Events & Promotions</h2>
+                </div>
+				
+                <div class="col">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
 <!-- Events n promotions -->
 <div class="container my-5">
         <div class="row">
@@ -816,77 +899,161 @@ include ('session.php');
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 
-<div class="container mt-5">
-        <div class="depota">
-            <div class="row align-items-center mb-4">
-                <div class="col">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
-                <div class="col-auto">
-                    <h2 class="b1 text-center mb-0">Events & Promotions</h2>
-                </div>
-				
-                <div class="col">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
-            </div>
-        </div>
+
 		
-<!-- guide Banner 1 -->
 
-<div class="container mt-5">
-        <div class="banner-container">
-			<!-- Title Image -->
-			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
-            <div class="d-flex flex-wrap justify-content-center">
-            <!-- Step 1 -->
-            <div class="step-container">
-                <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
-                <h3 class="step-title">Cleanser</h3>
-                <p class="step-text">Step 1</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="step-container">
-                <img src="images/bgindex/toner.jpg" alt="Step 2" class="step-image">
-                <h3 class="step-title">Toner</h3>
-                <p class="step-text">Step 2</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="step-container">
-                <img src="images/bgindex/serum.jpg" alt="Step 3" class="step-image">
-                <h3 class="step-title">Ampoule</h3>
-                <p class="step-text">Step 3</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="step-container">
-                <img src="images/bgindex/moisturizer.jpg" alt="Step 4" class="step-image">
-                <h3 class="step-title">Moisturizer</h3>
-                <p class="step-text">Step 4</p>
-            </div>
-            <!-- Step 5 -->
-            <div class="step-container">
-                <img src="images/bgindex/eyecare.jpg" alt="Step 5" class="step-image">
-                <h3 class="step-title">Eyecare</h3>
-                <p class="step-text">Step 5</p>
-            </div>
-            <!-- Step 6 -->
-            <div class="step-container">
-                <img src="images/bgindex/sunscreen.jpg" alt="Step 6" class="step-image">
-                <h3 class="step-title">Sunscreen</h3>
-                <p class="step-text">Step 6</p>
-            </div>
-        </div>
-    </div>
 
-<!-- guide Banner -->
+<!-- guide Banner 
 			
 			<a href = "https://www.youtube.com/shorts/p68FLWb3LHw"> <div class="block1-link stext-101 cl2">
 									Watch Guide
-								</div> </a>
+								</div> </a>-->
 			</div>
 			
 	</div>
 </div>
+
+<div class="container-fluid video-banner">
+    <div class="container">
+        <h2 class="text-center mb-5">Real Video Reviews</h2>
+        <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-description">
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-description">
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-description">
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 4</div>
+                                    <div class="video-description">
+                                        This review covers the customer's experience after using the product for a longer period and the lasting benefits they've seen.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 5</div>
+                                    <div class="video-description">
+                                        A detailed review from another customer highlighting the pros and cons of the product based on their personal experience.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video6.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 6</div>
+                                    <div class="video-description">
+                                        Another in-depth review discussing the product's effects and overall satisfaction from a long-term user.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Footer Banner -->
+<div class="footban" style="text-align: center; margin-bottom: 35px; ">
+		<img src="images/Banners/SkGuide.png" alt="fBanner" 
+			style="width: 100%; max-width: 1500px; height: 250px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+		
+	</div>
+
+
 
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-50 p-b-50">
