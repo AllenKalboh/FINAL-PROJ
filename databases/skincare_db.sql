@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2024 at 01:09 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Aug 26, 2024 at 09:09 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -208,16 +208,18 @@ CREATE TABLE `users` (
   `address` text DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`) VALUES
-(12, 'asd', '$2y$10$K13rw3mSYBMRysh0g3UAdOCi0iucfUmf7LnaMgZH91l7pcXscfBHe', 'patriccsio@gmail.com', 'Patrick', 'Casili', 'san marino', '09949079858', '2024-08-24 12:00:18', '2024-08-24 12:00:18'),
-(13, 'allen', '$2y$10$W3ivcssSlR41sPYUg9reJuB7i53nevqmZ0Uhxwn9rEuGgdU6AIzjW', 'allen@gmail.com', 'allen', 'heyhey', 'san marino', '09218091823', '2024-08-24 12:00:49', '2024-08-24 12:00:49');
+INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`, `profile_picture`) VALUES
+(12, 'asd', '$2y$10$K13rw3mSYBMRysh0g3UAdOCi0iucfUmf7LnaMgZH91l7pcXscfBHe', 'patriccsio@gmail.com', 'Patrick', 'Casili', 'san marino', '09949079858', '2024-08-24 12:00:18', '2024-08-24 12:00:18', NULL),
+(13, 'allen', '$2y$10$W3ivcssSlR41sPYUg9reJuB7i53nevqmZ0Uhxwn9rEuGgdU6AIzjW', 'allen@gmail.com', 'allen', 'heyhey', 'san marino', '09218091823', '2024-08-24 12:00:49', '2024-08-24 12:00:49', NULL),
+(14, 'aaron', '$2y$10$Ekh2ErtilSNxOs8Wx/mRC.SBrTb1yjXBCldvJC426un.Lno2pKkTG', 'derayaaron5@gmail.com', 'aaron', 'de raya', 'Location 3', '09553568279', '2024-08-26 05:08:56', '2024-08-26 05:08:56', 'uploads/profile_pictures/66cc155f081f9-FB_IMG_1703823661403.jpg');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +314,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

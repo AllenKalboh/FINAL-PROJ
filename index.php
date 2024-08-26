@@ -928,7 +928,8 @@ include ('session.php');
 
 <div class="container-fluid video-banner">
     <div class="container">
-        <h2 class="text-center text-light mb-5">Video Gallery</h2>
+        <h2 class="text-center text-light mb-2">Video Gallery</h2>
+		<p class="stext-113 text-center text-light cl6 p-b-26 mb-3"> Get to know more about skincare</p>
         <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -937,14 +938,31 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v1.mp4" type="video/mp4">
+                                        <source src="vid/vidd1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-title">Sunscreen Guide</div>
                                     <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+If your in the Philippines you need this sunscreen!                                    
+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/vidd2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Fake Spf? Worry not</div>
+                                    <div class="video-description">
+                                        We offer 100% real spf, use it with confidence! 
                                     </div>
                                 </div>
                             </div>
@@ -954,31 +972,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v2.mp4" type="video/mp4">
+                                        <source src="vid/vidd3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title"> Skincare? Yes!</div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="video-container">
-                                <div class="video-wrapper">
-                                    <video controls>
-                                        <source src="vid/i1.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
-                                    <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                         Watch a simple skincare tutorial with  Ms. Micah Ella Fontanillas.
                                     </div>
                                 </div>
                             </div>
@@ -993,31 +994,30 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/i2.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
-                                    <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="video-container">
-                                <div class="video-wrapper">
-                                    <video controls>
                                         <source src="vid/i3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title">Glowing Skin everyday thanks to this products!</div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+One of the perfect duos for hydration and protction, My secret to a radiant complexion                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/sk7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Confused which ampoule to get?</div>
+                                    <div class="video-description">
+                                        Which among our ampoules is best for your skin? Here's a quick guide.
                                     </div>
                                 </div>
                             </div>
@@ -1027,14 +1027,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/i4.mp4" type="video/mp4">
+                                        <source src="vid/vidd5.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-title">Your ultimate guide to your skincare routine!</div>
                                     <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                      Cleanse, Prep, Hydrate, Restore, Repair & Protect!
                                     </div>
                                 </div>
                             </div>

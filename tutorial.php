@@ -819,9 +819,12 @@ include ('session.php');
 </section>
 
 
-				<div class="container-fluid video-banner">
+				<div class="container-fluid video-banner  text-effect" data-effect="fade-down">
     <div class="container">
-        <h2 class="text-center text-light mb-5">Video Gallery</h2>
+        <h2 class="text-center text-light mb-2 ">Video Gallery</h2>
+		<p class="stext-113 text-center text-light cl6 p-b-26 mb-3"> Know more about skincare
+</p>
+
         <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -830,14 +833,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v1.mp4" type="video/mp4">
+                                        <source src="vid/sk1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-title">Get your sun protection ready!</div>
                                     <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                        See what consistency & textures of the different sunscreens we offer! choose what fits you the most!
                                     </div>
                                 </div>
                             </div>
@@ -847,15 +850,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v2.mp4" type="video/mp4">
+                                        <source src="vid/sk3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title">Does your skin feels dry? dark? damaged? </div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
-                                    </div>
+We offer a variety of products each designed to tackle specific skin issues!                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -864,14 +866,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        <source src="vid/sk4.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-title">Do rainy days calls for sunscreens?</div>
                                     <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                        UV rays doesn't take a break, so neither your SPF routine!
                                     </div>
                                 </div>
                             </div>
@@ -887,15 +889,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        <source src="vid/vidd6.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-title">Wondering how much sunscreen to apply?</div>
                                     <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
-                                    </div>
+Tune in for a quick tutorial and learn the perfect amount for sun protection.                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -904,15 +905,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        <source src="vid/sk6.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title">Need targeted solutions?</div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
-                                    </div>
+										Customize your products to target your various skin concerns                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -921,14 +921,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        <source src="vid/vidd4.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-title">Glow like never before!</div>
                                     <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                        Experience the magic of a clean, hydrated, and radiant complexion.
                                     </div>
                                 </div>
                             </div>
@@ -1093,132 +1093,133 @@ include ('session.php');
 
 
 	</section>	
-	
+
 	<div class="container-fluid video-banner">
     <div class="container">
-        <h2 class="text-center text-light mb-5">Video Gallery</h2>
-        <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
+        <h2 class="text-center text-light mb-2">Video Gallery</h2>
+        <p class="stext-113 text-center text-light cl6 p-b-26 mb-3"> Get to know more about skincare</p>
+
+        <div id="videoReviewsCarousel2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+                <!-- First Slide (First 3 Videos) -->
                 <div class="carousel-item active">
                     <div class="row">
+                        <!-- Video 1 -->
                         <div class="col-md-4">
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v1.mp4" type="video/mp4">
+                                        <source src="vid/sk8.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-title">Very Mindful, Very Demure, Very Coquette!</div>
                                     <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+Experience the purifying effect of ouur Pore Mizing Line. Cleanses deep & tigtens pores.                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video 2 -->
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/sk9.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Embrace the future of skincare!</div>
+                                    <div class="video-description">
+                                        Embark on your skincare journey with our New Probio Cica Line.
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Video 3 -->
                         <div class="col-md-4">
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="vid/v2.mp4" type="video/mp4">
+                                        <source src="vid/sk10.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title">Skincare for oily & yet sensitive skin.</div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="video-container">
-                                <div class="video-wrapper">
-                                    <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
-                                    <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                        Watch us do a simple skincare tutorial to soothe out and hydrate your skin.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-				
-<!--video banner-->
+
+                <!-- Second Slide (Next 3 Videos) -->
                 <div class="carousel-item">
-                <div class="carousel-item active">
                     <div class="row">
+                        <!-- Video 4 -->
                         <div class="col-md-4">
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        <source src="vid/sk11.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-title">Your Skin Breakout Saver is here!!!</div>
                                     <div class="video-description">
-                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+Banish your breakout with our Tea Trica Line, for a clear, calm & balanced skin.                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video 5 -->
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/sk12.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Cleanse with us ! as an acne prone girly!</div>
+                                    <div class="video-description">
+                                        Experience acne relief, hydrating, and refreshing deep cleansing!
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Video 6 -->
                         <div class="col-md-4">
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        <source src="vid/sk13.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-title">Believe in skincare supremacy!</div>
                                     <div class="video-description">
-                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="video-container">
-                                <div class="video-wrapper">
-                                    <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="text-container">
-                                    <div class="video-title">Customer Review 3</div>
-                                    <div class="video-description">
-                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                       Achieve the ultimate glow and confidence!
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
 
-           <!--  Controls -->
-            <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
+            <!-- Controls -->
+            <a class="carousel-control-prev" href="#videoReviewsCarousel2" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#videoReviewsCarousel2" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
