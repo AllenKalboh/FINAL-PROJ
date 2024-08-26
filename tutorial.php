@@ -126,6 +126,174 @@ include ('session.php');
     }
 }
 
+/* video banners*/
+.video-banner {
+    background-color: #686D76;
+    padding: 50px 0;
+	margin-top: 80px;
+}
+
+.video-container {
+    display: flex;
+    align-items: center;
+    background-color: #393E46;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    max-height: 450px; /* Ensure consistent max height for all slides */
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 250px; /* Ensure consistent height for all video containers */
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.video-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.video-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* Slider Control Styling */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Adjust the width to be smaller */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev {
+    left: -3%; /* Move the button to the far left edge */
+}
+
+.carousel-control-next {
+    right: -3%; /* Move the button to the far right edge */
+}
+
+
+/* sa step skincare*/
+.banner-container {
+            background-image: url('images/bgindex/bgstep.png');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px 50px; /* Adjusted padding */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .title-image {
+            margin-bottom: 10px; /* Reduced margin */
+            width: auto;
+            max-width: 100%;
+        }
+        .step-container {
+            text-align: center;
+            width: 150px; /* Fixed width */
+            height: 200px; /* Fixed height to create a vertically semi-rectangular shape */
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 10px; /* Add horizontal margin between steps */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .step-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .step-image {
+            width: 100%;
+            height: 60%; /* Adjust height to fit within the step-container */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .step-text {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 5px;
+        }
+
+		/* Media Queries for responsiveness */
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .step-container {
+        width: 120px; /* Adjusted width for smaller screens */
+        height: 250px; /* Adjusted height for smaller screens */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 1rem; /* Adjusted font size */
+    }
+    .step-text {
+        font-size: 0.75rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-container {
+        padding: 20px 5px; /* Reduced padding for smaller screens */
+    }
+    .step-container {
+        width: 100px; /* Further adjusted width */
+        height: 200px; /* Further adjusted height */
+        margin-bottom: 20px; /* Added margin below each step */
+    }
+    .step-title {
+        font-size: 0.875rem; /* Further adjusted font size */
+    }
+    .step-text {
+        font-size: 0.625rem; /* Further adjusted font size */
+    }
+}
+
+
+
 </style>
 	
 	<!-- Header -->
@@ -216,6 +384,8 @@ include ('session.php');
 			</div>	
 		</div>
 
+
+		
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
@@ -515,11 +685,14 @@ include ('session.php');
         </div>
     </div>
 	</div>
+
+
+
 	<!-- Content page -->
 	 
-	<section class="bg0 p-t-75 p-b-120">
+	<section class="bg0 p-t-75 p-b-6">
 		<div class="container">
-			<div class="row p-b-148">
+			<div class="row p-b-20">
 				<div class="col-md-7 col-lg-8">
 
 
@@ -600,15 +773,17 @@ include ('session.php');
 			<br>
 <br>
 <br>
-			<div class="row p-b-148">
+
+				<div class="row p-b-">
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
 						Brightening Line
 						</h3>
-						<p class=" cl2 p-b-16 text-secondary">
+						<p class=" cl2 p-b-1 text-secondary">
 						Achieving Radiant, Glowing Skin
-						</p>
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
 						The Tone Brightening Line is SkinLine’s answer for those seeking a luminous, even complexion. This line focuses on brightening the skin and reducing the appearance of dark spots and discoloration. Formulated with powerful brightening agents, each product works to enhance your skin’s natural radiance and provide a more uniform tone.
@@ -635,6 +810,149 @@ include ('session.php');
 					</div>
 				</div>
 
+
+
+				
+</div>
+</div>
+
+</section>
+
+
+				<div class="container-fluid video-banner">
+    <div class="container">
+        <h2 class="text-center text-light mb-5">Video Gallery</h2>
+        <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/v1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-description">
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/v2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-description">
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-description">
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+<!--video banner-->
+                <div class="carousel-item">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-description">
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-description">
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-description">
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+           <!--  Controls -->
+            <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="bg0 p-t-75 p-b-6">
+<div class="container">
 				<div class="row">
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
 					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md text-effect" data-effect="fade-down">
@@ -682,7 +1000,7 @@ include ('session.php');
 			<br>
 			<br>
 
-			<div class="row p-b-148">
+			<div class="row p-b-">
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
@@ -769,10 +1087,144 @@ include ('session.php');
 
 			</div>
 		</div>
+		</div>
+		</div>
+		</div>
+
 
 	</section>	
 	
-		
+	<div class="container-fluid video-banner">
+    <div class="container">
+        <h2 class="text-center text-light mb-5">Video Gallery</h2>
+        <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/v1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-description">
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/v2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-description">
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-description">
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+<!--video banner-->
+                <div class="carousel-item">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 1</div>
+                                    <div class="video-description">
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 2</div>
+                                    <div class="video-description">
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Customer Review 3</div>
+                                    <div class="video-description">
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+           <!--  Controls -->
+            <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
 
 	<!-- Footer -->
 		<!-- Footer -->

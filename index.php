@@ -55,7 +55,7 @@ include ('session.php');
 .banner-wrapper {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 400px;
 }
 
 .banner-slide {
@@ -127,67 +127,79 @@ include ('session.php');
 		*/
 /* video banners*/
 .video-banner {
-            background-color: #2c2c2c;
-            padding: 50px 0;
-        }
+    background-color: #686D76;
+    padding: 50px 0;
+}
 
-        .video-container {
-            display: flex;
-            align-items: center;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            height: 100%;
-            max-height: 450px; /* Adjust this to control the height of the container */
-        }
+.video-container {
+    display: flex;
+    align-items: center;
+    background-color: #393E46;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    max-height: 450px; /* Ensure consistent max height for all slides */
+}
 
-        .video-wrapper {
-            width: 100%;
-            height: 100%;
-            border: 2px solid #f0f0f0;
-            border-radius: 8px;
-            overflow: hidden;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.video-wrapper {
+    width: 100%;
+    height: 250px; /* Ensure consistent height for all video containers */
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .text-container {
-            flex: 1;
-            margin-left: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
+.text-container {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
 
-        .video-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #f0f0f0;
-        }
+.video-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
 
-        .video-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #b0b0b0;
-        }
+.video-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
 
-        /* Slider Control Styling */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-			margin: 200px;
-            background-color: #000;
-            padding: 5px;
-            border-radius: 50%;
-        }
+/* Slider Control Styling */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Adjust the width to be smaller */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev {
+    left: -3%; /* Move the button to the far left edge */
+}
+
+.carousel-control-next {
+    right: -3%; /* Move the button to the far right edge */
+}
 
 /* sa step skincare*/
 .banner-container {
@@ -916,7 +928,7 @@ include ('session.php');
 
 <div class="container-fluid video-banner">
     <div class="container">
-        <h2 class="text-center mb-5">Real Video Reviews</h2>
+        <h2 class="text-center text-light mb-5">Video Gallery</h2>
         <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -925,7 +937,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        <source src="vid/v1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -942,7 +954,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        <source src="vid/v2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -959,7 +971,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        <source src="vid/i1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -981,7 +993,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video1.mp4" type="video/mp4">
+                                        <source src="vid/i2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -998,7 +1010,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video2.mp4" type="video/mp4">
+                                        <source src="vid/i3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -1015,7 +1027,7 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video3.mp4" type="video/mp4">
+                                        <source src="vid/i4.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -1040,7 +1052,7 @@ include ('session.php');
             <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>-->
+            </a>
         </div>
     </div>
 </div>
