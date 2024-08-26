@@ -257,7 +257,7 @@ $conn->close();
                                 </div>
                                 <div class="form-group">
                                     <label for="number">Phone Number</label>
-                                    <input type="text" id="number" name="number" placeholder="Your phone number" required>
+                                    <input type="text"  required pattern="[0-9]{11}" maxlength=11 id="number" name="number" placeholder="Your phone number" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -271,7 +271,7 @@ $conn->close();
                                         <!-- Add more payment methods as needed -->
                                     </select>
                                 </div>
-                               
+                                    
                                 <div class="form-group">
                                     <label for="street">Street</label>
                                     <input type="text" id="street" name="street" placeholder="Street" required>
@@ -280,7 +280,7 @@ $conn->close();
                                     <label for="city">City</label>
                                     <input type="text" id="city" name="city" placeholder="City" required>
                                 </div>
-                               
+                                    
                                 
                                 <div class="form-group">
                                     <label for="pin_code">Postal Code</label>
@@ -304,7 +304,7 @@ $conn->close();
                                 </div>
                                 <p>Total Products: <?= htmlspecialchars($total_products) ?></p>
                                 <p>Total Price: ₱<?= number_format($grand_total, 2) ?></p>
-                                <input type="submit" name="order" class="place-order-btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order" style="background-color: black; color: white; cursor: pointer;">
+                                <input type="submit" name="order" class="place-order-btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order" style="background-color: black; color: white; cursor: pointer;">a
                             </div>
                         </div>
                     </form>

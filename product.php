@@ -150,7 +150,7 @@ include ('session.php');
 .swiper-slide img {
     width: 100%;
     height: 200px; /* Fixed height for consistency */
- 
+
     margin-bottom: 15px;
 	object-fit: contain;
 }
