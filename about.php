@@ -503,6 +503,77 @@ include ('session.php');
 .sc-btn i {
     color: inherit; /* Make sure the icon inherits the color from .sc-btn */
 }
+/* Developer Profiles Section */
+.developer-profile {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.developer-img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.developer-img img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.developer-info {
+    padding: 20px;
+}
+
+.mtext-112 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.stext-114 {
+    font-size: 1rem;
+    color: #333;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.bg0 {
+    background-color: #fff;
+}
+
+.p-t-75 {
+    padding-top: 75px;
+}
+
+.p-b-120 {
+    padding-bottom: 120px;
+}
+
+.p-b-30 {
+    padding-bottom: 30px;
+}
+
+.p-t-18 {
+    padding-top: 18px;
+}
+
+.mtext-111 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cl2 {
+    color: #333;
+}
+
+.cl6 {
+    color: #666;
+}
+
 	</style>
 
 	<div class="container mt-5">
@@ -536,6 +607,83 @@ include ('session.php');
             </div>
         </div>
     </div>v	
+
+	<!-- Developer Profiles -->
+<section class="bg0 p-t-75 p-b-120">
+    <div class="container">
+        <h3 class="mtext-111 cl2 p-b-16 txt-center">
+            Meet Our Developers
+			<br><br><br>
+        </h3>
+
+        <div class="row">
+            <!-- Developer 1 -->
+            <div class="col-md-4 p-b-30">
+                <div class="developer-profile">
+                    <div class="developer-img">
+                        <img src="allen.jpg" alt="Developer 1">
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="mtext-112 cl2">Patrick Allen CAsili</h4>
+                        <p class="stext-114 cl6">Patrick is a senior developer with over 10 years of experience in full-stack development. He specializes in building scalable web applications and has a passion for clean, efficient code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer 2 -->
+            <div class="col-md-4 p-b-30">
+                <div class="developer-profile">
+                    <div class="developer-img">
+                        <img src="aaron.jpg" alt="Developer 2">
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="mtext-112 cl2">Aaron de Raya</h4>
+                        <p class="stext-114 cl6">Aaron is a frontend developer who loves creating intuitive and user-friendly interfaces. With a keen eye for design, she ensures that our applications are both beautiful and functional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer 3 -->
+            <div class="col-md-4 p-b-30">
+                <div class="developer-profile">
+                    <div class="developer-img">
+                        <img src="ced.jpg" alt="Developer 3">
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="mtext-112 cl2">Cedrique Alvarez</h4>
+                        <p class="stext-114 cl6">Cedrique is a frontend developer with expertise in server-side technologies. She focuses on optimizing performance and ensuring that our applications run smoothly and securely.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer 4 -->
+            <div class="col-md-4 p-b-30">
+                <div class="developer-profile">
+                    <div class="developer-img">
+                        <img src="jezreel.jpg" alt="Developer 4">
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="mtext-112 cl2">Jezreel Peralta</h4>
+                        <p class="stext-114 cl6">Jezreel is a DevOps engineer who streamlines the development and deployment processes. His expertise in cloud services and automation ensures that our projects are delivered efficiently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer 5 -->
+            <div class="col-md-4 p-b-30">
+                <div class="developer-profile">
+                    <div class="developer-img">
+                        <img src="sairon.jpg" alt="Developer 5">
+                    </div>
+                    <div class="developer-info">
+                        <h4 class="mtext-112 cl2">Sairon Manalad</h4>
+                        <p class="stext-114 cl6">Sairon is a UI/UX designer who transforms ideas into engaging user experiences. Her creativity and attention to detail ensure that our applications are both functional and visually appealing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 	<!-- Footer -->
 		<!-- Footer -->
