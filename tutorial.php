@@ -455,14 +455,18 @@ include ('session.php');
 });
 	 </script>
 
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92 m-b-5" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center  text-effect" data-effect="fade-down">
         SkinHub
     </h2>
-    <br>
-    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Your guide to all things skincare.
-    </p>
+<br>
+	<br>
+    <p class="stext-113 text-light cl6 p-b-5  text-effect justify-content text-center" data-effect="zoom-in">
+				Welcome to SkinHub, your trusted destination for specialized skincare solutions. At SkinLine, we understand that every skin type has unique needs,
+						</p>
+						<p class="stext-113 text-light cl6 p-b-5 text-effect justify-content text-center " data-effect="zoom-in">
+						 which is why we offer a diverse range of product lines, each meticulously formulated to address specific skin concerns
+						</p>
 </section>
 
 <!-- guide Banner 1 -->
@@ -512,33 +516,41 @@ include ('session.php');
     </div>
 	</div>
 	<!-- Content page -->
+	 
 	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
+
+
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
-						Centella Line
+						Centella Line  
 						</h3>
+						<p class=" cl2 p-b-16 text-secondary">
+						 Intensive Soothing and Calming
+</p>
+						
 
 						<p class="stext-113 cl6 p-b-26">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
-						</p>
+						This Line is the heart of SkinLine, tailored for those who need immediate relief from irritated and sensitive skin. This line centers around Centella Asiatica, a botanical ingredient renowned for its anti-inflammatory and skin-repairing properties. It is especially beneficial for skin that is prone to redness, irritation, or stress-induced flare-ups.						</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
+						Each product in the Centella Line is carefully formulated to calm the skin and support its natural healing processes. By reducing inflammation and reinforcing the skin’s protective barrier, these products help restore balance and comfort. This line is ideal for anyone dealing with sensitivity, whether due to environmental factors, stress, or chronic conditions.
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
+						Ultimately, the Centella Line offers a nurturing experience that leaves your skin feeling soothed, strengthened, and more resilient. It’s a trusted solution for those seeking to bring peace and calm to their skin, ensuring long-term health and vitality.
+
+</p>
 					</div>
 				</div>
 
 				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
-							<img src="images/Banners/cente.png" alt="IMG">
+							<img src="images/Banners/c.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -547,33 +559,40 @@ include ('session.php');
 			<div class="row">
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
 					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md text-effect" data-effect="fade-down">
-						<h3 class="mtext-111 cl2 p-b-16">
+						<h3 class="mtext-111 cl2 p-b-16 ">
 							Hyalu Cica Line
 						</h3>
+						<p class=" cl2 p-b-16 text-secondary">
+						Deep Hydration and Moisturizing
+
+</p>
 						<p class="stext-113 cl6 p-b-26">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
+						The Hyalu Cica Line is designed to combat dehydration and restore moisture to your skin. This line features a powerful combination of Hyaluronic Acid, known for its exceptional ability to retain water, and Centella Asiatica, which provides additional soothing benefits. Together, they create a deeply hydrating experience that replenishes and locks in moisture.
+
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
+						Products in the Hyalu Cica Line are perfect for those with dry or moisture-depleted skin, offering long-lasting hydration that keeps the skin plump and smooth. The lightweight formulas are easily absorbed, delivering moisture deep into the skin without feeling heavy or greasy.
 
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<p class="stext-114 cl6 p-r-40 p-b-11">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
+</p>
+
+						
+						<p class="stext-113 cl6 p-b-26">
+						By regularly using the Hyalu Cica Line, your skin will appear more hydrated, supple, and youthful. This line is all about maintaining optimal moisture levels, ensuring your skin looks and feels its best, day in and day out.
+</p>
 
 							<span class="stext-111 cl8">
-								- SkinLine
+								
 							</span>
-						</div>
+						
 					</div>
 				</div>
 
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
-							<img src="images/Banners/hya.png" alt="IMG">
+							<img src="images/Banners/h.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -587,25 +606,31 @@ include ('session.php');
 						<h3 class="mtext-111 cl2 p-b-16">
 						Brightening Line
 						</h3>
-
-						<p class="stext-113 cl6 p-b-26">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
+						<p class=" cl2 p-b-16 text-secondary">
+						Achieving Radiant, Glowing Skin
 						</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
+						The Tone Brightening Line is SkinLine’s answer for those seeking a luminous, even complexion. This line focuses on brightening the skin and reducing the appearance of dark spots and discoloration. Formulated with powerful brightening agents, each product works to enhance your skin’s natural radiance and provide a more uniform tone.
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
+						Products in the Tone Brightening Line are ideal for anyone looking to achieve a healthy glow. Whether you're dealing with hyperpigmentation, dullness, or uneven skin tone, this line offers targeted solutions that gradually reveal a more radiant complexion. The formulas are gentle yet effective, making them suitable for daily use.
+
+</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						With consistent use, the Tone Brightening Line helps to reveal brighter, more luminous skin, allowing you to achieve that coveted glow. It’s your go-to solution for enhancing skin clarity and boosting overall radiance, giving you a fresh, youthful look.
+
+</p>
 					</div>
 				</div>
 
 				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
-							<img src="images/Banners/bright.png" alt="IMG">
+							<img src="images/Banners/b.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -618,30 +643,37 @@ include ('session.php');
 					<h3 class="mtext-111 cl2 p-b-16">
 							Tea Trica Line
 						</h3>
+						<p class=" cl2 p-b-16 text-secondary">
+						Sensitive and Acne-Prone Skin Care
+
+</p>
 						<p class="stext-113 cl6 p-b-26">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
+						The Tea Trica Line is specifically designed for those with sensitive, acne-prone skin. This line harnesses the purifying power of Tea Tree Oil and other natural ingredients known for their antibacterial and anti-inflammatory properties. Each product is carefully formulated to target acne and blemishes without irritating the skin.
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
+						The Tea Trica Line provides a comprehensive approach to acne care, helping to unclog pores, reduce excess oil, and calm inflammation. This line is perfect for those who experience regular breakouts, as well as those with combination or oily skin types that are prone to congestion.
 
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<p class="stext-114 cl6 p-r-40 p-b-11">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
+</p>
+
+						
+						<p class="stext-113 cl6 p-b-26">
+						Over time, the Tea Trica Line helps to clear up blemishes while maintaining the skin’s balance, preventing future breakouts, and soothing irritation. It’s a must-have for anyone looking to manage acne while keeping their skin calm and comfortable.
+
+</p>
 
 							<span class="stext-111 cl8">
-								- SkinLine
+								
 							</span>
-						</div>
+						
 					</div>
 				</div>
 
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
-							<img src="images/Banners/tt.png" alt="IMG">
+							<img src="images/Banners/t.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -656,25 +688,32 @@ include ('session.php');
 						<h3 class="mtext-111 cl2 p-b-16">
 						Pore Mizing Line
 						</h3>
+						<p class=" cl2 p-b-1 text-secondary">
+						Pore Care and Refinement
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
-						</p>
+						The Poremizing Line is SkinLine’s solution for those looking to refine and minimize the appearance of pores. This line focuses on deep-cleaning pores and tightening the skin to create a smoother, more refined texture. Each product is designed to target enlarged pores and reduce excess oil production.
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
+						The Poremizing Line works by clearing out impurities from the pores and shrinking them over time, leaving your skin looking smoother and more even. This line is particularly beneficial for those with oily or combination skin, where visible pores are a common concern.
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
+						By incorporating the Poremizing Line into your skincare routine, you’ll notice a reduction in the appearance of pores and a more matte, refined finish to your skin. It’s the ideal choice for achieving a polished, poreless look.
+
+</p>
 					</div>
 				</div>
 
 				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
-							<img src="images/Banners/pore.png" alt="IMG">
+							<img src="images/Banners/p.png" alt="IMG">
 						</div>
 					</div>
 				</div>
@@ -689,32 +728,40 @@ include ('session.php');
 					<br>
 					
 					<h3 class="mtext-111 cl2 p-b-16">
-							ProBio Cica Line
+							ProBio Cica Line 
 						</h3>
+						<p class=" cl2 p-b-16 text-secondary">
+						Skin Barrier Care and Revitalization
+
+</p>
 						<p class="stext-113 cl6 p-b-26">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
+						The Probio Cica Line is dedicated to strengthening and revitalizing the skin’s natural barrier. This line combines probiotics with Centella Asiatica to enhance the skin’s resilience and protect against environmental stressors. Each product is formulated to support the skin’s microbiome, which is essential for maintaining healthy, balanced skin.
+
+
+
+</p>
 
 						<p class="stext-113 cl6 p-b-26">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
+						Products in the Probio Cica Line focus on repairing and fortifying the skin barrier, making it more resistant to damage and irritation. This line is ideal for those who have compromised skin barriers due to harsh treatments, environmental damage, or general sensitivity.
 
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<p class="stext-114 cl6 p-r-40 p-b-11">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
+</p>
+
+						
+						<p class="stext-113 cl6 p-b-26">
+						With regular use, the Probio Cica Line helps to restore your skin’s natural strength and vitality, leaving it healthier, more resilient, and visibly revitalized. It’s the perfect choice for anyone looking to rebuild and maintain a strong, healthy skin barrier.
+</p>
 
 							<span class="stext-111 cl8">
-								- SkinLine
+								
 							</span>
-						</div>
+						
 					</div>
 				</div>
 
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
-							<img src="images/Banners/probio.png" alt="IMG">
+							<img src="images/Banners/pbc.png" alt="IMG">
 						</div>
 					</div>
 				</div>

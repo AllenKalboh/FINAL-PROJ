@@ -183,8 +183,9 @@ include ('session.php');
         /* Slider Control Styling */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
+			margin: 200px;
             background-color: #000;
-            padding: 20px;
+            padding: 5px;
             border-radius: 50%;
         }
 
@@ -974,19 +975,20 @@ include ('session.php');
                 </div>
 
                 <div class="carousel-item">
+                <div class="carousel-item active">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video4.mp4" type="video/mp4">
+                                        <source src="path-to-your-video1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 4</div>
+                                    <div class="video-title">Customer Review 1</div>
                                     <div class="video-description">
-                                        This review covers the customer's experience after using the product for a longer period and the lasting benefits they've seen.
+                                        This is a detailed review of the product by the customer. The customer shares their experience with the product and how it has benefited them.
                                     </div>
                                 </div>
                             </div>
@@ -996,14 +998,14 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video5.mp4" type="video/mp4">
+                                        <source src="path-to-your-video2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 5</div>
+                                    <div class="video-title">Customer Review 2</div>
                                     <div class="video-description">
-                                        A detailed review from another customer highlighting the pros and cons of the product based on their personal experience.
+                                        Another satisfied customer shares their thoughts on the product, detailing the positive changes they've noticed.
                                     </div>
                                 </div>
                             </div>
@@ -1013,23 +1015,24 @@ include ('session.php');
                             <div class="video-container">
                                 <div class="video-wrapper">
                                     <video controls>
-                                        <source src="path-to-your-video6.mp4" type="video/mp4">
+                                        <source src="path-to-your-video3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="text-container">
-                                    <div class="video-title">Customer Review 6</div>
+                                    <div class="video-title">Customer Review 3</div>
                                     <div class="video-description">
-                                        Another in-depth review discussing the product's effects and overall satisfaction from a long-term user.
+                                        A comprehensive review that highlights the key benefits and overall satisfaction with the product.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
-            <!-- Controls -->
+           <!--  Controls -->
             <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -1037,7 +1040,7 @@ include ('session.php');
             <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
+            </a>-->
         </div>
     </div>
 </div>
@@ -1109,7 +1112,7 @@ include ('session.php');
 								</span>
 						
 								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
-								  Soothing & Calming
+								  Hydrating & Moisturizing
 								</span>
 
 								<span class="block1-info text-white fs-10 mt-2 trans-04" >
