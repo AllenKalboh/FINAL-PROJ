@@ -1,4 +1,4 @@
-<?php
+<div?php
 include ('db.php');
 include ('session.php');
 ?>
@@ -33,14 +33,127 @@ include ('session.php');
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
 </head>
 <body class="animsition">
+<style>
+.wrap-menu-desktop {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Reduce the header width to 80% */
+    left: 50%;
+    transform: translateX(-50%); /* Center the header */
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition for animation */
+	border-radius: 5px;
+}
+
+.logo-large img {
+    max-height: 90px; /* Larger size for the first logo */
+    transform: translateY(-10%); /* Surpass the header size slightly */
+	margin-left: 150px;
+}
+
+.logo img {
+    max-height: 80px; /* Regular size for the second logo */
+	align-items: left;
+}
+
+/* Animation effect on scroll */
+.wrap-menu-desktop.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+	border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    padding: 5px 0; /* Reduce padding when scrolled */
+
+}
+/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 0.9s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+
+</style>
+<div class="wrap-menu-desktop how-shadow1">
+    
+        <div class="row align-items-center justify-content-between">
+            <!-- First Logo (larger, on the left) -->
+            <div class="col-auto">
+                <a href="index.php" class="logo-large">
+                    <img src="images/icons/logoo.png" alt="IMG-LOGO">
+                </a>
+            </div>
+            <!-- Second Logo (on the right) -->
+            <div class="col">
+                <a href="index.php" class="logo">
+                    <img src="images/icons/log.png" alt="IMG-LOGO">
+                </a>
+            </div>
+        </div>
+    </div>
+
+<script>
+	window.addEventListener('scroll', function() {
+    const header = document.querySelector('.wrap-menu-desktop');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 800); // Adjust the delay as needed
+    });
+});
+
+
+</script>
+
+		<!-- Title page -->
+		 <br>
+		 <br>
+		 <br>
+		 <br>
+		 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Refund Policy
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Your guide to all things skincare.
+    </p>
+</section>
+	<!-- Header 
 	
-	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
+		 Header desktop
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
+			<!-- Topbar 
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
@@ -48,7 +161,7 @@ include ('session.php');
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
@@ -71,18 +184,20 @@ include ('session.php');
 					</div>
 				</div>
 			</div>
-
+			
+			
 			<div class="wrap-menu-desktop how-shadow1">
-				<nav class="limiter-menu-desktop container">
+				< class="limiter-menu-desktop container">
 					
-					<!-- Logo desktop -->		
+					<!-- Logo desktop 		
 					<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
 					<a href="index.php" class="logo">
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
-					<!-- Menu desktop -->
+					</div>
+					<!-- Menu desktop 
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
@@ -108,9 +223,9 @@ include ('session.php');
 							</li>
 
 						</ul>
-					</div>	
+					</div>	-->
 
-					<!-- Icon header -->
+					<!-- Icon header 
 					<div class="wrap-icon-header flex-w flex-r-m">
 						
 
@@ -122,13 +237,13 @@ include ('session.php');
 
 					
 					</div>
-				</nav>
+				</nav>-->
 			</div>	
 		</div>
 
-		<!-- Header Mobile -->
+		<!-- Header Mobile 
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
+			<!-- Logo moblie 		
 			<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
@@ -136,7 +251,7 @@ include ('session.php');
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
-			<!-- Icon header -->
+			<!-- Icon header 
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
@@ -147,8 +262,8 @@ include ('session.php');
 				</div>
 
 			</div>
-
-			<!-- Button show menu -->
+-->
+			<!-- Button show menu -
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
 				<span class="hamburger-box">
 					<span class="hamburger-inner"></span>
@@ -157,7 +272,7 @@ include ('session.php');
 		</div>
 
 
-		<!-- Menu Mobile -->
+		<!-- Menu Mobile 
 		<div class="menu-mobile">
 			<ul class="topbar-mobile">
 				<li>
@@ -168,38 +283,25 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
-						<?php
-							if (isset($_SESSION['username'])) {
-							
-						?>
-						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
-						<?php
-						} else {
-						?>
-						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
-							Login
-						</a>
-						<?php
-						}
-						?>
 					</div>
 				</li>
 			</ul>
-
-			<ul class="main-menu-m">
+-->
+			<!--<ul class="main-menu-m">
 				<li>
 					<a href="index.php">Home</a>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
 				</li>
-
+		
 				<li>
 					<a href="product.php">Shop</a>
 				</li>
@@ -216,11 +318,11 @@ include ('session.php');
 								<a href="contact.php">Contact</a>
 							</li>
 
-
+							
 			</ul>
 		</div>
 
-		<!-- Modal Search -->
+ <!--Modal Search 
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
@@ -237,7 +339,7 @@ include ('session.php');
 		</div>
 	</header>
 
-	<!-- Cart -->
+	 Cart 
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
@@ -322,378 +424,307 @@ include ('session.php');
 		</div>
 	</div>
 
+-->
+	
+<style>
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-	<!-- Title page -->
-	<style>
-		/* Common styles for the text effects */
-.text-effect {
-    display: inline-block;
+/* Container */
+.container {
+   
+    padding: 20px;
+    width: 80%;
+    border-radius: 8px;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Buttons */
+.buttons {
+    margin: 20px 0;
+}
+
+.button {
+    background-color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #505050;
+    color: #ffffff;
+}
+
+/* Content */
+.content {
+    text-align: left;
+    font-size: 1em;
+    color: #444;
+    margin-top: 20px;
     opacity: 0; /* Hidden initially */
-    transition: all 1s ease; /* Smooth transition */
+    transform: translateY(20px); /* Move down initially */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
 }
 
-/* Fade Down Effect */
-.text-effect[data-effect="fade-down"] {
-    transform: translateY(-20px); /* Move up initially */
+/* Animation for smooth appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.text-effect[data-effect="fade-down"].active {
+.content.animate {
     opacity: 1; /* Fade in */
     transform: translateY(0); /* Move to original position */
 }
 
-/* Zoom In Effect */
-.text-effect[data-effect="zoom-in"] {
-    transform: scale(0.5); /* Shrink initially */
-}
-
-.text-effect[data-effect="zoom-in"].active {
-    opacity: 1; /* Fade in */
-    transform: scale(1); /* Zoom to original size */
-}
-
-	 </style>
-
-	 <script>
-		document.addEventListener('DOMContentLoaded', function() {
-    const textEffects = document.querySelectorAll('.text-effect');
-
-    textEffects.forEach(function(el) {
-        setTimeout(function() {
-            el.classList.add('active');
-        }, 500); // Adjust the delay as needed
-    });
-});
-	 </script>
-
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        About
-    </h2>
-    <br>
-    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Get to know more about us.
-    </p>
-</section>	
-
-
-	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120 text-justify">
-		<div class="container">
-			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-						About Skinline
-						</h3>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Explore. Discover. Transform. Join Skinline today and let us help you achieve the healthy, radiant skin you deserve.
-						</p>
-					</div>
-				</div>
-
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
-					<div class="how-bor1 ">
-						<div class="hov-img0">
-							<img src="images/Banners/loginbanner.png" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-							Our Mission
-						</h3>
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
-
-						<div class="bor16 p-l-29 p-b-9 m-t-22 text-effect" data-effect="fade-down">
-							<p class="stext-114 cl6 p-r-40 p-b-11 text-effect" data-effect="fade-down">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
-
-							<span class="stext-111 cl8 text-effect" data-effect="zoom-in">
-								- SkinLine
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
-					<div class="how-bor2">
-						<div class="hov-img0">
-							<img src="images/Banners/aboutskin.jpg" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
-	
-	<style>
-/* sa ano to vegan free emerut*/
-.servicon {
-	filter: invert(0) grayscale(100%) brightness(0) contrast(100%);
-    /* Adjust the filter values to get the desired color effect */
-}
-.value-card {
-    padding: 20px;
-	margin-bottom: 25px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-
-.value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.value-card img {
-    width: 60px;
-    margin-bottom: 20px;
-}
-
-.value-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.content h2 {
+    font-size: 1.8em;
     margin-bottom: 10px;
-    }
-
-.value-description {
-    font-size: 1rem;
-    color: #6c757d;
-	text-align: justify;
-}
-.sc-btn {
-    font-size: 32px;
-    color: black; /* Initial color */
-    text-decoration: none; /* Remove underline from links */
-    padding: 10px 20px; /* Optional padding for better click area */
-    display: inline-block; /* Ensure the button aligns properly */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: #555;
 }
 
-.sc-btn:hover {
-    color: rgb(107, 107, 107); /* Color on hover */
+.content ul {
+    padding-left: 20px;
 }
 
-.sc-btn i {
-    color: inherit; /* Make sure the icon inherits the color from .sc-btn */
-}
-/* Developer Profiles Section */
-.developer-profile {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.content ul li {
+    margin-bottom: 10px;
+    list-style-type: disc;
 }
 
-.developer-img {
-    width: 100%;
-    overflow: hidden;
+.img-logo {
+    width: 100px;
 }
 
-.developer-img img {
+.back-button {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Blue color for the icon */
+    text-decoration: none;
+    font-size: 18px; /* Font size for the icon */
+    padding: 8px; /* Padding around the button */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #494949; /* Background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+.back-button i {
+    font-size: 20px; /* Font size for the icon */
+}
+
+.back-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
+
+/* Responsive layout for columns */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-md-7, .col-md-5 {
+    padding: 15px;
+}
+
+.col-md-7 {
+    flex: 0 0 58.333%;
+    max-width: 58.333%;
+}
+
+.col-md-5 {
+    flex: 0 0 41.667%;
+    max-width: 41.667%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.how-bor1 {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.hov-img0 img {
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #ddd;
+}
+/* Animation for fading in and zooming up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.developer-info {
-    padding: 20px;
+.content.animate {
+    animation: fadeInUp 0.6s ease-out;
 }
 
-.mtext-112 {
-    font-size: 1.25rem;
-    font-weight: bold;
+
+
+        h1, h2 {
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+		a {
+            color: #5A9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+footer ul {
+    margin-left: 0; /* Remove left margin */
+    padding-left: 0; /* Remove left padding */
+    list-style-type: none; /* Remove default bullet points */
 }
 
-.stext-114 {
-    font-size: 1rem;
-    color: #333;
+footer ul li {
+    margin-bottom: 0.5rem; /* Adjust spacing between list items */
 }
+</style>
 
-.txt-center {
-    text-align: center;
-}
+<div class="container my-5">
+        <h1>Terms of Service</h1>
+        <p>Welcome to Skinline. These Terms of Service ("Terms") govern your use of our website located at [Your Website URL] (the "Site") and the services provided by Skinline. By accessing or using our Site, you agree to comply with and be bound by these Terms. If you do not agree with these Terms, please do not use our Site.</p>
 
-.bg0 {
-    background-color: #fff;
-}
+        <h2>1. Use of Our Site</h2>
+        <ul>
+            <li><strong>Eligibility:</strong> You must be at least 18 years old to use our Site or have the consent of a parent or guardian.</li>
+            <li><strong>Account:</strong> You may be required to create an account to use certain features of our Site. You agree to provide accurate and complete information and to update it as necessary.</li>
+            <li><strong>Prohibited Activities:</strong> You agree not to engage in any activity that interferes with or disrupts our Site, including but not limited to transmitting malware or other harmful content.</li>
+        </ul>
 
-.p-t-75 {
-    padding-top: 75px;
-}
+        <h2>2. Products and Services</h2>
+        <ul>
+            <li><strong>Product Information:</strong> We strive to provide accurate descriptions of our products. However, we do not warrant that the product descriptions are accurate, complete, or error-free.</li>
+            <li><strong>Pricing:</strong> All prices are listed in [Currency] and are subject to change without notice. We reserve the right to correct any errors in pricing or product information.</li>
+            <li><strong>Order Acceptance:</strong> Your order is considered accepted when you receive a confirmation email from us. We reserve the right to refuse or cancel any order for reasons including but not limited to product availability or errors in the order.</li>
+        </ul>
 
-.p-b-120 {
-    padding-bottom: 120px;
-}
+        <h2>3. Payment and Billing</h2>
+        <ul>
+            <li><strong>Payment Methods:</strong> We accept various payment methods as listed on our Site. You agree to provide accurate payment information and to pay all charges incurred by you.</li>
+            <li><strong>Billing Issues:</strong> If you encounter any issues with billing or payment, please contact our customer support team at <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a>.</li>
+        </ul>
 
-.p-b-30 {
-    padding-bottom: 30px;
-}
+        <h2>4. Shipping and Delivery</h2>
+        <ul>
+            <li><strong>Shipping:</strong> We offer shipping options as described on our Site. Shipping costs and delivery times may vary based on your location and the shipping method chosen.</li>
+            <li><strong>Delivery:</strong> We are not responsible for any delays in delivery caused by circumstances beyond our control, such as weather conditions or carrier delays.</li>
+        </ul>
 
-.p-t-18 {
-    padding-top: 18px;
-}
+        <h2>5. Returns and Refunds</h2>
+        <ul>
+            <li><strong>Return Policy:</strong> Please refer to our Refund Policy for detailed information on returns and refunds.</li>
+            <li><strong>Defective Products:</strong> If you receive a defective product, please contact us within [Number] days of receiving the product to arrange a return or exchange.</li>
+        </ul>
 
-.mtext-111 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        <h2>6. Intellectual Property</h2>
+        <ul>
+            <li><strong>Ownership:</strong> All content on our Site, including text, images, and logos, is the property of Skinline and is protected by intellectual property laws.</li>
+            <li><strong>Usage:</strong> You may not use any content from our Site for commercial purposes without our express written consent.</li>
+        </ul>
 
-.cl2 {
-    color: #333;
-}
+        <h2>7. Limitation of Liability</h2>
+		<ul>
+        <p>To the fullest extent permitted by law, Skinline is not liable for any indirect, incidental, special, or consequential damages arising from your use of our Site or services. Our total liability to you for any claim arising from these Terms or your use of our Site is limited to the amount you paid for the products or services that are the subject of the claim.</p>
+		</ul>
 
-.cl6 {
-    color: #666;
-}
-
-	</style>
-
-	<div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="value-card">
-				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
-                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
-                    <div class="value-description">
-                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
-                    <div class="value-title">EWG Verified</div>
-                    <div class="value-description">
-                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
-                    <div class="value-title">Artificial Fragrance-Free</div>
-                    <div class="value-description">
-                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>v	
-
-	<!-- Developer Profiles -->
-	<div id="section2">
-    <!-- Content for section 2 -->
+        <h2>8. Governing Law</h2>
+		<ul>
+        <p>These Terms are governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of [Your Jurisdiction].</p>
+		</ul>
 
 
-<section class="bg0 p-t-75 p-b-120">
-    <div class="container">
-        <h3 class="mtext-111 cl2 p-b-16 txt-center">
-            Meet Our Developers
-			<br><br><br>
-        </h3>
+        <h2>9. Changes to These Terms</h2>
+		<ul>
+        <p>We may update these Terms from time to time. The updated Terms will be posted on our Site, and your continued use of our Site following the posting of changes constitutes your acceptance of the new Terms.</p>
+		</ul>
 
-        <div class="row">
-            <!-- Developer 1 -->
-            <div class="col-md-4 p-b-30">
-                <div class="developer-profile">
-                    <div class="developer-img">
-                        <img src="allen.jpg" alt="Developer 1">
-                    </div>
-                    <div class="developer-info">
-                        <h4 class="mtext-112 cl2">Patrick Allen CAsili</h4>
-                        <p class="stext-114 cl6">Patrick is a senior developer with over 10 years of experience in full-stack development. He specializes in building scalable web applications and has a passion for clean, efficient code.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Developer 2 -->
-            <div class="col-md-4 p-b-30">
-                <div class="developer-profile">
-                    <div class="developer-img">
-                        <img src="aaron.jpg" alt="Developer 2">
-                    </div>
-                    <div class="developer-info">
-                        <h4 class="mtext-112 cl2">Aaron de Raya</h4>
-                        <p class="stext-114 cl6">Aaron is a frontend developer who loves creating intuitive and user-friendly interfaces. With a keen eye for design, she ensures that our applications are both beautiful and functional.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Developer 3 -->
-            <div class="col-md-4 p-b-30">
-                <div class="developer-profile">
-                    <div class="developer-img">
-                        <img src="ced.jpg" alt="Developer 3">
-                    </div>
-                    <div class="developer-info">
-                        <h4 class="mtext-112 cl2">Cedrique Alvarez</h4>
-                        <p class="stext-114 cl6">Cedrique is a frontend developer with expertise in server-side technologies. She focuses on optimizing performance and ensuring that our applications run smoothly and securely.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Developer 4 -->
-            <div class="col-md-4 p-b-30">
-                <div class="developer-profile">
-                    <div class="developer-img">
-                        <img src="jezreel.jpg" alt="Developer 4">
-                    </div>
-                    <div class="developer-info">
-                        <h4 class="mtext-112 cl2">Jezreel Peralta</h4>
-                        <p class="stext-114 cl6">Jezreel is a DevOps engineer who streamlines the development and deployment processes. His expertise in cloud services and automation ensures that our projects are delivered efficiently.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Developer 5 -->
-            <div class="col-md-4 p-b-30">
-                <div class="developer-profile">
-                    <div class="developer-img">
-                        <img src="sairon.jpg" alt="Developer 5">
-                    </div>
-                    <div class="developer-info">
-                        <h4 class="mtext-112 cl2">Sairon Manalad</h4>
-                        <p class="stext-114 cl6">Sairon is a UI/UX designer who transforms ideas into engaging user experiences. Her creativity and attention to detail ensure that our applications are both functional and visually appealing.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions or concerns about these Terms, please contact us at:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a></li>
+            <li><strong>Phone:</strong> 09925424712</li>
+            <li><strong>Address:</strong> Trece Martires, Cavite</li>
+        </ul>
     </div>
-</section>
+	<!-- Content page -->
 
-</div>
 
-	<!-- Footer -->
-	<!-- Footer -->
-	<footer class="bg3 p-t-60 p-b-25">
+	
+	
+		<!-- Footer -->
+		<footer class="bg3 p-t-60 p-b-25">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 text-justify">
@@ -876,6 +907,7 @@ include ('session.php');
 		</div>
 	</footer>
 	<script src="https://kit.fontawesome.com/b8a0ff877f.js" crossorigin="anonymous"></script>
+	
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
