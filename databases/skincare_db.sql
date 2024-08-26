@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2024 at 01:48 PM
+-- Generation Time: Aug 25, 2024 at 01:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,6 +43,118 @@ INSERT INTO `admins` (`admin_id`, `username`, `password_hash`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1,
+  `price` decimal(10,2) NOT NULL,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `img_01` mediumblob NOT NULL,
+  `product_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`, `price`, `added_at`, `img_01`, `product_name`) VALUES
+(52, 8, 11, 5, 800.00, '2024-08-24 04:54:51', 0x30, 'Toner (Skin Boosting Toner)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedbacks`
+--
+
+CREATE TABLE `feedbacks` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(55) NOT NULL,
+  `userMessage` varchar(500) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_email` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`id`, `first_name`, `userMessage`, `user_id`, `user_email`) VALUES
+(15, 'allen', 'hoy di ako yon', 0, 'allen@gmail.com'),
+(16, 'asd', 'hey', 12, 'admin@gmail.com'),
+(17, 'asd', 'hey', 12, 'admin@gmail.com'),
+(18, 'asd', 'hey', 12, 'admin@gmail.com'),
+(19, 'hey', 'asdkaskdaksdkasd', 12, 'hey@gmail.com'),
+(20, 'hoy', 'hoy', 12, 'hoy@gmail.com'),
+(21, 'hoy', 'hoy', 12, 'hoy@gmail.com'),
+(22, 'asd', 'laksdjlaksjdlkajskld', 12, 'asd@gmail.com'),
+(23, 'hoy', 'laksjdlkasjdlkasd', 12, 'hoy@gmail.com'),
+(24, 'hoy', 'laksjdlkasjdlkasd', 12, 'hoy@gmail.com'),
+(25, 'hoy', 'laksjdlkasjdlkasd', 12, 'hoy@gmail.com'),
+(26, 'hoy', 'laksjdlkasjdlkasd', 12, 'hoy@gmail.com'),
+(27, 'hoy', 'laksjdlkasjdlkasd', 12, 'hoy@gmail.com'),
+(28, 'hoy', 'askdjalsdjlka', 12, 'hoy@gmail.com'),
+(29, 'hpoy', 'lkasjdlaksjdkl', 12, 'hoy@gmail.com'),
+(30, 'hpoy', 'lkasjdlaksjdkl', 12, 'hoy@gmail.com'),
+(31, 'hoy', 'laksdjlkasjdkl', 12, 'hoy@gmail.com'),
+(32, 'hoy', 'alskdaklshdkj', 12, 'hoy@gmail.com'),
+(33, 'allen', 'askldjalksdjklas', 12, 'allen@gmail.com'),
+(34, 'allen', 'askldjalksdjklas', 12, 'allen@gmail.com'),
+(35, 'hoy', 'ahhhhhhh', 12, 'ho@gmailc.im'),
+(36, 'hoy', 'lkkllkklkl', 12, 'ho@gmailc.im'),
+(37, 'allen', 'alkshdjklajsdlajskldasd', 12, 'allen@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(100) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `number` varchar(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `method` varchar(50) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `product_names` varchar(1000) NOT NULL,
+  `total_price` int(100) NOT NULL,
+  `placed_on` date NOT NULL DEFAULT current_timestamp(),
+  `payment_status` varchar(20) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `product_names`, `total_price`, `placed_on`, `payment_status`) VALUES
+(18, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Toner (Skin Boosting Toner)', 800, '2024-08-02', 'Completed'),
+(19, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Toner (Skin Boosting Toner), Serum (Plump Hydration), Mask (Hyalu-Cica Overnight Mask)', 5190, '2024-08-15', 'Completed'),
+(20, 99, 'Kalbo', '09999', 'kalbo@gmail.com', ' Cash', 'Mabuhay', 'Toner, Sunscreen, Cleanser', 5000, '2024-08-25', 'Completed'),
+(21, 100, 'Kalbow', '099992', 'kalbow@gmail.com', ' Cash', 'Mabuhay', 'Toner, Sunscreen, Cleanser, Moisturizer', 50000, '2024-08-25', 'Completed'),
+(22, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Hyalu Cica (Ceramide Biom)', 3000, '2024-08-25', 'Completed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `payment_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `payment_method` varchar(255) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `payment_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -53,18 +165,32 @@ CREATE TABLE `products` (
   `description` text NOT NULL,
   `img_01` mediumblob NOT NULL,
   `img_02` mediumblob NOT NULL,
-  `img_03` mediumblob NOT NULL
+  `img_03` mediumblob NOT NULL,
+  `brand` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `product_name`, `price`, `description`, `img_01`, `img_02`, `img_03`) VALUES
-(1, 'Gentle Calming Pad', 400.00, 'Maganda', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313337323032392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313835313130352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313837383139302e6a7067),
-(2, 'Gentle Calming Pad', 400.00, 'Maganda', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313337323032392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313835313130352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313837383139302e6a7067),
-(4, 'Toner (Loreal)', 135.00, 'Eyy', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f746f6e6572312e706e67, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f67616c6c6572792d30362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f6974656d2d636172742d30312e6a7067),
-(6, 'Sunscreen (Centella)', 200.00, 'Maganda to bobo', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f53756e73637265656e2d312e77656270, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f53756e73637265656e2d322e77656270, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f53756e73637265656e2d332e77656270);
+INSERT INTO `products` (`id`, `product_name`, `price`, `description`, `img_01`, `img_02`, `img_03`, `brand`) VALUES
+(8, 'Serum (Plump Hydration)', 9.00, 'Serum na blue', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630355f3937382e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630355f3837312e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630355f3935352e6a7067, ''),
+(9, 'Mask (Hyalu-Cica Overnight Mask)', 700.00, 'MaskMask', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31332d35392d3630392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137313330315f3933362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137313330315f3237362e6a7067, ''),
+(10, 'Cleanser (Poremizing Deep Cleansing Foam)', 800.00, 'eyy eyy', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303831393630352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303832383930322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303836393332382e6a7067, ''),
+(11, 'Toner (Skin Boosting Toner)', 800.00, 'Tonir', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363834353736342e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363835343335362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363839353432302e6a7067, ''),
+(12, 'Toner (Non Irritating Toner)', 400.00, 'Recommended for People Who: \r\n-Have sensitive skin requiring in need of exfoliation and moisturization\r\n-experience of makeup lumps due to rough skin\r\n-are suffering from the dark and dull skin tone ', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f74312e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f74322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f74332e6a7067, ''),
+(15, 'Hallo', 1000.00, 'Jalo', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137313330315f3933362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31332d35392d3630392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31332d33342d3335302e6a7067, ''),
+(16, 'Hyalu Cica (Blue Serum)', 500.00, '2nd hya', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630355f3937382e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630365f3530302e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303630355f3935352e6a7067, ''),
+(17, 'Hyalu Cica (Ceramide Biom)', 1000.00, 'Daymnnn', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303335335f3531392e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303335335f38352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303335335f3634352e6a7067, ''),
+(18, 'Hyalu Cica (Step-O) Ampoule', 999.00, 'Maganda rin to tanga', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303732385f3432302e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d30372d35342d3134312e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303732385f3730342e6a7067, ''),
+(19, 'Hyalu Cica (Moisture Cream)', 999.00, 'lorem tiktuk', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31312d32302d3536382e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137313033355f3237322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137313033355f3433322e6a7067, ''),
+(20, 'Hyalu Cica (Lightweight Samsung Stick)', 899.00, 'lorem toktik', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31382d31392d3130312e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f506963736172745f32342d30382d32305f31372d31372d34332d3031362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f494d475f32303234303832305f3137303130305f3433332e6a7067, ''),
+(21, 'Centella Airfit Suncream Plus', 1000.00, 'heyhey', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f6166322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f6166322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f6166352e6a7067, ''),
+(22, 'Brightening Line (Skin Boosting Toner)', 1000.00, 'heyhey', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363834353736342e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363835343335362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132363839353432302e6a7067, ''),
+(23, 'Teatrica (BHA Foam)', 1000.00, 'heyhey', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134313533303630362e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134313534303238372e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134313538363039372e6a7067, ''),
+(24, 'PoreMizing (Clear Toner)', 1000.00, 'heyhey', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303534303031382e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303534353431322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343134303537373837372e6a7067, ''),
+(25, 'ProbioCica (Bachiol Ice Cream)', 1000.00, 'heyhey', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132383438333433352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132383438393430322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732343132383439353734352e6a7067, ''),
+(26, 'Sunscreen (Daily Soothing Sunscreen)', 1000.00, 'eyyyy', 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313034373537322e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313036323233352e6a7067, 0x443a5c58414d50505c6874646f63735c46494e414c2d50524f4a2f75706c6f6164732f313732333831313132333932342e6a7067, '');
 
 -- --------------------------------------------------------
 
@@ -90,9 +216,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`) VALUES
-(1, 'asd', '$2y$10$FHvbb43d9gifK/kssvzMK.tL/f0Ayq1LycxvYy.Zm0eu8/SbvoOBi', 'asd@gmail.com', 'patrick', 'allen', 'san marino', '09949079858', '2024-08-19 03:10:14', '2024-08-19 03:10:14'),
-(2, 'asd', '$2y$10$jjDOw7Nf0EcEiH03/63yuejxAbmtm4c42vf5MA7Tv3uHl5CqCH5le', 'asd@gmail.com', 'patrick', 'allen', 'san marino', '09949079858', '2024-08-20 06:45:51', '2024-08-20 06:45:51'),
-(3, 'alli', '$2y$10$OGbaCcTMYqNFducaLssBjO3PXOm5TTlFMBRXBIRsCdjnIgjxEO7a6', 'alli@gmail.com', 'alli', 'allen', 'san marino', '0921', '2024-08-20 12:05:36', '2024-08-20 12:05:36');
+(12, 'asd', '$2y$10$K13rw3mSYBMRysh0g3UAdOCi0iucfUmf7LnaMgZH91l7pcXscfBHe', 'patriccsio@gmail.com', 'Patrick', 'Casili', 'san marino', '09949079858', '2024-08-24 12:00:18', '2024-08-24 12:00:18'),
+(13, 'allen', '$2y$10$W3ivcssSlR41sPYUg9reJuB7i53nevqmZ0Uhxwn9rEuGgdU6AIzjW', 'allen@gmail.com', 'allen', 'heyhey', 'san marino', '09218091823', '2024-08-24 12:00:49', '2024-08-24 12:00:49');
 
 --
 -- Indexes for dumped tables
@@ -103,6 +228,33 @@ INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_nam
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`payment_id`),
+  ADD UNIQUE KEY `customer_id` (`customer_id`);
 
 --
 -- Indexes for table `products`
@@ -127,16 +279,40 @@ ALTER TABLE `admins`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- AUTO_INCREMENT for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

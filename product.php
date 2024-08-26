@@ -230,7 +230,7 @@ include ('session.php');
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						<?php
 							if (isset($_SESSION['username'])) {
@@ -364,7 +364,7 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="helpfaq.html" class="flex-c-m p-lr-10 trans-04">
+						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -730,7 +730,7 @@ $result = $conn->query($sql);
 						</li>
 
 						<li class="p-b-10">
-							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>

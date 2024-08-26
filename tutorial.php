@@ -140,7 +140,7 @@ include ('session.php');
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
@@ -258,13 +258,25 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<?php
+							if (isset($_SESSION['username'])) {
+							
+						?>
+						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
+						<?php
+						} else {
+						?>
+						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php
+						}
+						?>
 					</div>
 				</li>
 			</ul>
@@ -401,21 +413,67 @@ include ('session.php');
 
 
 	<!-- Title page -->
+	 <style>
+		/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.9); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+	 </style>
+
+	 <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 500); // Adjust the delay as needed
+    });
+});
+	 </script>
+
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-		<h2 class="ltext-105 cl0 txt-center">
-			SkinHub
-		</h2>
-	</section>	
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        SkinHub
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Your guide to all things skincare.
+    </p>
+</section>
 
 <!-- guide Banner 1 -->
 
-<div class="container mt-5">
-        <div class="banner-container">
+<div class="container mt-5 ">
+        <div class="banner-container text-effect" data-effect="fade-down">
 			<!-- Title Image -->
 			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
-            <div class="d-flex flex-wrap justify-content-center">
+            <div class="d-flex flex-wrap justify-content-center text-effect" data-effect="zoom-in">
             <!-- Step 1 -->
-            <div class="step-container">
+            <div class="step-container text-effect" data-effect="zoom-in">
                 <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
                 <h3 class="step-title">Cleanser</h3>
                 <p class="step-text">Step 1</p>
@@ -458,7 +516,7 @@ include ('session.php');
 		<div class="container">
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
 						Centella Line
 						</h3>
@@ -477,7 +535,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
 							<img src="images/Banners/cente.png" alt="IMG">
@@ -485,10 +543,10 @@ include ('session.php');
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
 							Hyalu Cica Line
 						</h3>
@@ -512,7 +570,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
 							<img src="images/Banners/hya.png" alt="IMG">
@@ -520,10 +578,12 @@ include ('session.php');
 					</div>
 				</div>
 			</div>
-
+			<br>
+<br>
+<br>
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
 						Brightening Line
 						</h3>
@@ -542,7 +602,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
 							<img src="images/Banners/bright.png" alt="IMG">
@@ -552,8 +612,10 @@ include ('session.php');
 
 				<div class="row">
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md text-effect" data-effect="fade-down">
+					<br>
+					<br>
+					<h3 class="mtext-111 cl2 p-b-16">
 							Tea Trica Line
 						</h3>
 						<p class="stext-113 cl6 p-b-26">
@@ -576,7 +638,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
 							<img src="images/Banners/tt.png" alt="IMG">
@@ -585,9 +647,12 @@ include ('session.php');
 				</div>
 			</div>
 
+			<br>
+			<br>
+
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
 						<h3 class="mtext-111 cl2 p-b-16">
 						Pore Mizing Line
 						</h3>
@@ -606,7 +671,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto text-effect" data-effect="zoom-in">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
 							<img src="images/Banners/pore.png" alt="IMG">
@@ -614,10 +679,16 @@ include ('session.php');
 					</div>
 				</div>
 
+				<br>
+				<br>
+			
 				<div class="row">
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md text-effect" data-effect="fade-down">
+					<br>
+					<br>
+					
+					<h3 class="mtext-111 cl2 p-b-16">
 							ProBio Cica Line
 						</h3>
 						<p class="stext-113 cl6 p-b-26">
@@ -640,7 +711,7 @@ include ('session.php');
 					</div>
 				</div>
 
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30 text-effect" data-effect="zoom-in">
 					<div class="how-bor2">
 						<div class="hov-img0">
 							<img src="images/Banners/probio.png" alt="IMG">
@@ -730,7 +801,7 @@ include ('session.php');
 						</li>
 
 						<li class="p-b-10">
-							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>

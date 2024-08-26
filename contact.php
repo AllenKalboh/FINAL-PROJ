@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 						<?php
@@ -297,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -422,15 +422,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 	<!-- Title page -->
+	<style>
+		/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+	 </style>
+
+	 <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 500); // Adjust the delay as needed
+    });
+});
+	 </script>
+
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-		<h2 class="ltext-105 cl0 txt-center">
-			Contact
-		</h2>
-	</section>	
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Contact
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Wherever you are, whenever you are contact us right here!
+    </p>
+</section>
 
 
 	<!-- Content page -->
-	<section class="bg0 p-t-104 p-b-116">
+	<section class="bg0 p-t-104 p-b-60">
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
@@ -516,13 +562,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>
 			
 		</div>
-		
-
-		<div class="mapa">
-			<img src="images/icons/gmaps.png" alt="">
-		</div>
-
-
+		<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-5">
+            <img src="images/Banners/map.jpg" alt="map" class="img-fluid">
+        </div>
+    </div>
+</div>
+		<style>
+/* Additional styling if needed */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+    </style>
+    
 
 
 
@@ -607,7 +661,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</li>
 
 						<li class="p-b-10">
-							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>

@@ -1,4 +1,4 @@
-<?php
+<div?php
 include ('db.php');
 include ('session.php');
 ?>
@@ -33,14 +33,127 @@ include ('session.php');
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
 </head>
 <body class="animsition">
+<style>
+.wrap-menu-desktop {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Reduce the header width to 80% */
+    left: 50%;
+    transform: translateX(-50%); /* Center the header */
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition for animation */
+	border-radius: 5px;
+}
+
+.logo-large img {
+    max-height: 90px; /* Larger size for the first logo */
+    transform: translateY(-10%); /* Surpass the header size slightly */
+	margin-left: 150px;
+}
+
+.logo img {
+    max-height: 80px; /* Regular size for the second logo */
+	align-items: left;
+}
+
+/* Animation effect on scroll */
+.wrap-menu-desktop.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+	border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    padding: 5px 0; /* Reduce padding when scrolled */
+
+}
+/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 0.9s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+
+</style>
+<div class="wrap-menu-desktop how-shadow1">
+    
+        <div class="row align-items-center justify-content-between">
+            <!-- First Logo (larger, on the left) -->
+            <div class="col-auto">
+                <a href="index.php" class="logo-large">
+                    <img src="images/icons/logoo.png" alt="IMG-LOGO">
+                </a>
+            </div>
+            <!-- Second Logo (on the right) -->
+            <div class="col">
+                <a href="index.php" class="logo">
+                    <img src="images/icons/log.png" alt="IMG-LOGO">
+                </a>
+            </div>
+        </div>
+    </div>
+
+<script>
+	window.addEventListener('scroll', function() {
+    const header = document.querySelector('.wrap-menu-desktop');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 800); // Adjust the delay as needed
+    });
+});
+
+
+</script>
+
+		<!-- Title page -->
+		 <br>
+		 <br>
+		 <br>
+		 <br>
+		 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Skincare Help & FAQs
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Your guide to all things skincare.
+    </p>
+</section>
+	<!-- Header 
 	
-	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
+		 Header desktop
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
+			<!-- Topbar 
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
@@ -48,7 +161,7 @@ include ('session.php');
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
@@ -71,18 +184,20 @@ include ('session.php');
 					</div>
 				</div>
 			</div>
-
+			
+			
 			<div class="wrap-menu-desktop how-shadow1">
-				<nav class="limiter-menu-desktop container">
+				< class="limiter-menu-desktop container">
 					
-					<!-- Logo desktop -->		
+					<!-- Logo desktop 		
 					<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
 					<a href="index.php" class="logo">
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
-					<!-- Menu desktop -->
+					</div>
+					<!-- Menu desktop 
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
@@ -108,9 +223,9 @@ include ('session.php');
 							</li>
 
 						</ul>
-					</div>	
+					</div>	-->
 
-					<!-- Icon header -->
+					<!-- Icon header 
 					<div class="wrap-icon-header flex-w flex-r-m">
 						
 
@@ -122,13 +237,13 @@ include ('session.php');
 
 					
 					</div>
-				</nav>
+				</nav>-->
 			</div>	
 		</div>
 
-		<!-- Header Mobile -->
+		<!-- Header Mobile 
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
+			<!-- Logo moblie 		
 			<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
@@ -136,7 +251,7 @@ include ('session.php');
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
-			<!-- Icon header -->
+			<!-- Icon header 
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
@@ -147,8 +262,8 @@ include ('session.php');
 				</div>
 
 			</div>
-
-			<!-- Button show menu -->
+-->
+			<!-- Button show menu -
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
 				<span class="hamburger-box">
 					<span class="hamburger-inner"></span>
@@ -157,7 +272,7 @@ include ('session.php');
 		</div>
 
 
-		<!-- Menu Mobile -->
+		<!-- Menu Mobile 
 		<div class="menu-mobile">
 			<ul class="topbar-mobile">
 				<li>
@@ -168,38 +283,25 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
-						<?php
-							if (isset($_SESSION['username'])) {
-							
-						?>
-						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
-						<?php
-						} else {
-						?>
-						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
-							Login
-						</a>
-						<?php
-						}
-						?>
 					</div>
 				</li>
 			</ul>
-
-			<ul class="main-menu-m">
+-->
+			<!--<ul class="main-menu-m">
 				<li>
 					<a href="index.php">Home</a>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
 				</li>
-
+		
 				<li>
 					<a href="product.php">Shop</a>
 				</li>
@@ -216,11 +318,11 @@ include ('session.php');
 								<a href="contact.php">Contact</a>
 							</li>
 
-
+							
 			</ul>
 		</div>
 
-		<!-- Modal Search -->
+ <!--Modal Search 
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
@@ -237,7 +339,7 @@ include ('session.php');
 		</div>
 	</header>
 
-	<!-- Cart -->
+	 Cart 
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
@@ -322,134 +424,280 @@ include ('session.php');
 		</div>
 	</div>
 
+-->
+	
+<style>
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-	<!-- Title page -->
-	<style>
-		/* Common styles for the text effects */
-.text-effect {
-    display: inline-block;
+/* Container */
+.container {
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Buttons */
+.buttons {
+    margin: 20px 0;
+}
+
+.button {
+    background-color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #505050;
+    color: #ffffff;
+}
+
+/* Content */
+.content {
+    text-align: left;
+    font-size: 1em;
+    color: #444;
+    margin-top: 20px;
     opacity: 0; /* Hidden initially */
-    transition: all 1s ease; /* Smooth transition */
+    transform: translateY(20px); /* Move down initially */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
 }
 
-/* Fade Down Effect */
-.text-effect[data-effect="fade-down"] {
-    transform: translateY(-20px); /* Move up initially */
+/* Animation for smooth appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.text-effect[data-effect="fade-down"].active {
+.content.animate {
     opacity: 1; /* Fade in */
     transform: translateY(0); /* Move to original position */
 }
 
-/* Zoom In Effect */
-.text-effect[data-effect="zoom-in"] {
-    transform: scale(0.5); /* Shrink initially */
+.content h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #555;
 }
 
-.text-effect[data-effect="zoom-in"].active {
-    opacity: 1; /* Fade in */
-    transform: scale(1); /* Zoom to original size */
+.content ul {
+    padding-left: 20px;
 }
 
-	 </style>
+.content ul li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
 
-	 <script>
-		document.addEventListener('DOMContentLoaded', function() {
-    const textEffects = document.querySelectorAll('.text-effect');
+.img-logo {
+    width: 100px;
+}
 
-    textEffects.forEach(function(el) {
-        setTimeout(function() {
-            el.classList.add('active');
-        }, 500); // Adjust the delay as needed
-    });
-});
-	 </script>
+.back-button {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Blue color for the icon */
+    text-decoration: none;
+    font-size: 18px; /* Font size for the icon */
+    padding: 8px; /* Padding around the button */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #494949; /* Background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
 
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        About
-    </h2>
-    <br>
-    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Get to know more about us.
-    </p>
-</section>	
+.back-button i {
+    font-size: 20px; /* Font size for the icon */
+}
 
+.back-button:hover {
+    transform: scale(1.10);
+    transition: 0.3s;
+}
 
+/* Responsive layout for columns */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-md-7, .col-md-5 {
+    padding: 15px;
+}
+
+.col-md-7 {
+    flex: 0 0 58.333%;
+    max-width: 58.333%;
+}
+
+.col-md-5 {
+    flex: 0 0 41.667%;
+    max-width: 41.667%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.how-bor1 {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.hov-img0 img {
+    width: 100%;
+    height: auto;
+}
+/* Animation for fading in and zooming up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content.animate {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+</style>
+
+	<div class="container" style="width:9999999999999999999999999px;">
+
+       
+
+        <div class="buttons">
+            <button class="button" onclick="showContent('help')">Help</button>
+            <button class="button" onclick="showContent('faq')">FAQs</button>
+        </div>
+
+        <div id="content" class="content">
+            <!-- Content will change dynamically -->
+        </div>
+   <script>
+function showContent(section) {
+    const contentDiv = document.getElementById('content');
+
+    // Clear any existing content
+    contentDiv.innerHTML = '';
+
+    // Remove animation class if it exists
+    contentDiv.classList.remove('animate');
+
+    // Force reflow to ensure animation class is re-applied
+    void contentDiv.offsetWidth; // Trigger a reflow
+
+    // Update content based on the section
+    if (section === 'help') {
+        contentDiv.innerHTML = `
+            <div class="row">
+                <div class="col-md-7"> <!-- Text content column -->
+                    <h2>Help</h2>
+                    <p>If you need assistance with your skincare routine, feel free to reach out to us at skinlineessentials@gmail.com.</p>
+                    <br>
+                    <p>Here are a few tips to enhance your skincare routine:</p>
+                    <ul>
+                        <li><strong>What’s the best routine for oily skin?</strong><br>Use a gentle foaming cleanser, followed by a toner, an oil-free moisturizer, and a lightweight sunscreen.</li>
+                        <li><strong>How often should I exfoliate?</strong><br>For most skin types, exfoliating 1-2 times a week is enough. Over-exfoliation can lead to irritation and damage.</li>
+                        <li><strong>Can I skip moisturizer if I have oily skin?</strong><br>No! Even oily skin needs hydration. Opt for a gel-based or lightweight, oil-free moisturizer.</li>
+                        <li><strong>What’s the ideal order of applying products?</strong><br>Cleansing -> Toning -> Serum -> Moisturizer -> Sunscreen (in the morning). In the evening, replace sunscreen with treatments or oils.</li>
+                        <li><strong>How do I reduce fine lines?</strong><br>Look for products containing retinoids, peptides, and hyaluronic acid. Always use sunscreen to prevent further damage.</li>
+                        <li><strong>What’s a good routine for sensitive skin?</strong><br>Stick to gentle, fragrance-free products. Avoid harsh exfoliants and incorporate soothing ingredients like chamomile, aloe, and ceramides.</li>
+                        <li><strong>Why is sunscreen important indoors?</strong><br>UV rays can penetrate windows and contribute to aging. Broad-spectrum sunscreen protects against both UVA and UVB rays.</li>
+                    </ul>
+                    <p>Still need help? Here are some common scenarios:</p>
+                    <ul>
+                        <li><strong>Dealing with Breakouts:</strong> Consider products with salicylic acid and benzoyl peroxide.</li>
+                        <li><strong>Uneven Skin Tone:</strong> Try serums with niacinamide or alpha arbutin.</li>
+                        <li><strong>Dry Patches:</strong> Hydrating masks and overnight moisturizers can do wonders.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5"> <!-- Image column -->
+                    <div class="how-bor1">
+                        <div class="hov-img0">
+                            <img src="images/Banners/bgcentella.jpg" alt="Help Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    } else if (section === 'faq') {
+        contentDiv.innerHTML = `
+            <div class="row">
+                <div class="col-md-5"> <!-- Image column -->
+                    <div class="how-bor1">
+                        <div class="hov-img0">
+                            <img src="images/Banners/bgbright.jpg" alt="FAQ Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7"> <!-- Text content column -->
+                    <h2>FAQs</h2>
+                    <p>Here are some frequently asked questions about skincare:</p>
+                    <ul>
+                        <li><strong>What’s the best routine for oily skin?</strong><br>Use a gentle foaming cleanser, followed by a toner, an oil-free moisturizer, and a lightweight sunscreen.</li>
+                        <li><strong>How often should I exfoliate?</strong><br>For most skin types, exfoliating 1-2 times a week is enough. Over-exfoliation can lead to irritation and damage.</li>
+                        <li><strong>Can I skip moisturizer if I have oily skin?</strong><br>No! Even oily skin needs hydration. Opt for a gel-based or lightweight, oil-free moisturizer.</li>
+                        <li><strong>What’s the ideal order of applying products?</strong><br>Cleansing -> Toning -> Serum -> Moisturizer -> Sunscreen (in the morning). In the evening, replace sunscreen with treatments or oils.</li>
+                        <li><strong>How do I reduce fine lines?</strong><br>Look for products containing retinoids, peptides, and hyaluronic acid. Always use sunscreen to prevent further damage.</li>
+                        <li><strong>What’s a good routine for sensitive skin?</strong><br>Stick to gentle, fragrance-free products. Avoid harsh exfoliants and incorporate soothing ingredients like chamomile, aloe, and ceramides.</li>
+                        <li><strong>Why is sunscreen important indoors?</strong><br>UV rays can penetrate windows and contribute to aging. Broad-spectrum sunscreen protects against both UVA and UVB rays.</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    }
+
+    // Add animation class
+    contentDiv.classList.add('animate');
+}
+
+</script>
+</div>
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
-		<div class="container">
-			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-						About Skinline
-						</h3>
 
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
-						</p>
 
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Explore. Discover. Transform. Join Skinline today and let us help you achieve the healthy, radiant skin you deserve.
-						</p>
-					</div>
-				</div>
-
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
-					<div class="how-bor1 ">
-						<div class="hov-img0">
-							<img src="images/Banners/loginbanner.png" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-							Our Mission
-						</h3>
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
-
-						<div class="bor16 p-l-29 p-b-9 m-t-22 text-effect" data-effect="fade-down">
-							<p class="stext-114 cl6 p-r-40 p-b-11 text-effect" data-effect="fade-down">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
-
-							<span class="stext-111 cl8 text-effect" data-effect="zoom-in">
-								- SkinLine
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
-					<div class="how-bor2">
-						<div class="hov-img0">
-							<img src="images/Banners/aboutskin.jpg" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
+	
 	
 	<style>
 /* sa ano to vegan free emerut*/
@@ -505,37 +753,6 @@ include ('session.php');
 }
 	</style>
 
-	<div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="value-card">
-				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
-                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
-                    <div class="value-description">
-                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
-                    <div class="value-title">EWG Verified</div>
-                    <div class="value-description">
-                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
-                    <div class="value-title">Artificial Fragrance-Free</div>
-                    <div class="value-description">
-                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>v	
 
 	<!-- Footer -->
 		<!-- Footer -->
@@ -611,7 +828,7 @@ include ('session.php');
 						</li>
 
 						<li class="p-b-10">
-							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
 								FAQs
 							</a>
 						</li>
