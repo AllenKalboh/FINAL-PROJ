@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 						<?php
@@ -230,9 +230,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<a href="about.php">About</a>
 							</li>
 
+							<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
+
 							<li class="active-menu">
 								<a href="contact.php">Contact</a>
 							</li>
+
 						</ul>
 					</div>	
 
@@ -292,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -318,6 +323,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<li>
 					<a href="about.php">About</a>
 				</li>
+
+				<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
 
 				<li>
 					<a href="contact.php">Contact</a>
@@ -413,15 +422,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bglogin.png');">
-		<h2 class="ltext-105 cl0 txt-center">
-			Contact
-		</h2>
-	</section>	
+	<style>
+		/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+	 </style>
+
+	 <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 500); // Adjust the delay as needed
+    });
+});
+	 </script>
+
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Contact
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Wherever you are, whenever you are contact us right here!
+    </p>
+</section>
 
 
 	<!-- Content page -->
-	<section class="bg0 p-t-104 p-b-116">
+	<section class="bg0 p-t-104 p-b-60">
 		<div class="container">
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
@@ -507,13 +562,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>
 			
 		</div>
-		
-
-		<div class="mapa">
-			<img src="images/icons/gmaps.png" alt="">
-		</div>
-
-
+		<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-5">
+            <img src="images/Banners/map.jpg" alt="map" class="img-fluid">
+        </div>
+    </div>
+</div>
+		<style>
+/* Additional styling if needed */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+    </style>
+    
 
 
 
@@ -524,117 +587,153 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 
 
-
-	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
+	<script src="https://kit.fontawesome.com/b8a0ff877f.js" crossorigin="anonymous"></script>
+		<!-- Footer -->
+		<footer class="bg3 p-t-60 p-b-25">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Categories
+				<div class="col-sm-6 col-lg-3 text-justify">
+					<h4 class="stext-301 cl0 p-b-10">
+						SKINLINE
 					</h4>
 
 					<ul>
 						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Masks
-							</a>
+							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
+							Nurturing Your Skin, One Line at a Time, Discover Endless Possibilities with Skinline
+							</>
 						</li>
 
 						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Toner
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Cleanser
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Moisturizer
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Sunscreen
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Cleanser
+							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
+							"At Skinline, we’re dedicated to nurturing your skin with the finest products and expert advice. Explore endless skincare possibilities as we guide you toward healthier, more radiant skin. Your journey to beauty and wellness starts here."
 							</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Help
+				<div class="col-sm-6 col-lg-3 ">
+					<h4 class="stext-301 cl0 p-b-10">
+						Help & Faqs
 					</h4>
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Track Order
+							<a href="tutorial.php" class="stext-107  cl7 hov-cl1 trans-04">
+								SkinHub
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								
+							<a href="contact.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Technical Issues
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								
+							<a href="about.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Know more about our product
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="about.php#section2" class="stext-107 cl7 hov-cl1 trans-04">
+								Our Developers
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" >
 								FAQs
 							</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
+				<div class="col-sm-6 col-lg-3 ">
+					<h4 class="stext-301 cl0 p-b-10">
+						Get in Touch
 					</h4>
 
-					<p class="stext-107 cl7 size-201">
-						mail us at skinline@gmail.com
+					<ul>
+					<li class="p-b-10">
+							<a href="contact.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Reach to us
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a class="stext-107 cl7 text-secondary hov-cl1 trans-04"> 
+								# 09925424712
+							</a>
+						</li>
+
+					<li class="p-b-10">
+							<a class="stext-107 text-secondary cl7 hov-cl1 trans-04">
+							Monday to Friday: 07:00 - 21:00
+
+							</a>
+						</li>
+
+						</ul>
+					<p class="stext-107 cl7 size-201 p-b-10">
+						Follow us
 					</p>
 
 					<div class="social-icons">
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+        <a href="https://www.facebook.com/profile.php?id=61564942100112" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
             <i class="fab fa-facebook-f"></i>
         </a>
 
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
-            <i class="fab fa-twitter"></i>
+        <a href="https://www.tiktok.com/@skinline.est2024?_t=8pC3gPTHrX7&_r=1" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-tiktok"></i>
         </a>
 
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
-            <i class="fab fa-google-plus-g"></i>
+        <a href="mailto:skinlineest2024@gmail.com" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+           <i class="fa-solid fa-envelope"></i>
         </a>
+		
+		<a href="https://www.instagram.com/skinline.est2024?igsh=d2Y5bGgwZ3RsZXo0" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-instagram"></i>
+		</a>
+
+		<a href="https://www.youtube.com/@SkinLineest2024" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-youtube"></i>
+        </a>
+		
     </div>
 				</div>
 				
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
+				<div class="col-sm-6 col-lg-3 ">
 				
-					<h4 class="stext-301 cl0 p-b-30">
-						Kayo na bahala dito
+					<h4 class="stext-301 cl0 p-b-10">
+						Policy
 					</h4>
+
+					<ul>
+					<li class="p-b-10">
+							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Refund Policy
+							</a>
+						</li>
+					<li class="p-b-10">
+							<a href="privacy.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Privacy Policy
+							</a>
+						</li>
+
+						<li class="p-b-16">
+							<a href="termsofservice.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Terms of Service
+							</a>
+
+							<a href="https://maps.app.goo.gl/D8WoExssGoSUVhs29" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+							<p class="stext-112 m-t-40 cl7 size-201 p-b-10"> <i class="fa-solid fa-location-pin"> </i> Trece Martires, Cavite </p> 
+        </a>
+							
+						</li>
+						</ul>
 					</div>
 					</div>
 					<form>

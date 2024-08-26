@@ -55,7 +55,7 @@ include ('session.php');
 .banner-wrapper {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 400px;
 }
 
 .banner-slide {
@@ -125,6 +125,81 @@ include ('session.php');
              Back image 
         }
 		*/
+/* video banners*/
+.video-banner {
+    background-color: #686D76;
+    padding: 50px 0;
+}
+
+.video-container {
+    display: flex;
+    align-items: center;
+    background-color: #393E46;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    max-height: 450px; /* Ensure consistent max height for all slides */
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 250px; /* Ensure consistent height for all video containers */
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.video-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.video-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* Slider Control Styling */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Adjust the width to be smaller */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-control-prev {
+    left: -3%; /* Move the button to the far left edge */
+}
+
+.carousel-control-next {
+    right: -3%; /* Move the button to the far right edge */
+}
 
 /* sa step skincare*/
 .banner-container {
@@ -148,7 +223,7 @@ include ('session.php');
         .step-container {
             text-align: center;
             width: 150px; /* Fixed width */
-            height: 250px; /* Fixed height to create a vertically semi-rectangular shape */
+            height: 200px; /* Fixed height to create a vertically semi-rectangular shape */
             padding: 20px;
             border-radius: 10px;
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -340,8 +415,55 @@ include ('session.php');
     color: inherit; /* Make sure the icon inherits the color from .sc-btn */
 }
 
+/* Common styles for the text effects */
+.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 0.9s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+
 
 </style>
+
+<script>
+	window.addEventListener('scroll', function() {
+    const header = document.querySelector('.wrap-menu-desktop');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 800); // Adjust the delay as needed
+    });
+});
+
+
+</script>
 
 	<!-- Header -->
 	<header>
@@ -354,7 +476,7 @@ include ('session.php');
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="helpfaq.html" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
@@ -408,6 +530,10 @@ include ('session.php');
 							</li>
 
 							<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
+				
+							<li>
 								<a href="contact.php">Contact</a>
 							</li>
 
@@ -429,14 +555,10 @@ include ('session.php');
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-<<<<<<< Updated upstream
-				<a href="index.php"><img src="" alt="IMG-LOGO"></a>
-=======
 				<a href="index.php"><img src="images/icons/logupp.png" alt="IMG-LOGO"></a>
 			</div>
 			<div class="logo-mobile">
 				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO"></a>
->>>>>>> Stashed changes
 			</div>
 
 			<!-- Icon header -->
@@ -472,7 +594,7 @@ include ('session.php');
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="helpfaq.html" class="flex-c-m p-lr-10 trans-04">
+						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
 
@@ -501,8 +623,12 @@ include ('session.php');
 				</li>
 
 				<li>
-								<a href="contact.php">Contact</a>
-							</li>
+					<a href="tutorial.php">SkinHub</a>
+				</li>
+
+				<li>
+					<a href="contact.php">Contact</a>
+				</li>
 
 
 			</ul>
@@ -620,13 +746,13 @@ include ('session.php');
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 text-white cl2 respon2">
+								<span class="ltext-101 text-dark cl2 respon2">
 								Unveil Your Hidden Radiance, Redefine Boundaries
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 text-white respon1">
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 text-dark respon1">
 								 2024 SKIN LINE ESSENTIALS
 								</h2>
 							</div>
@@ -774,10 +900,27 @@ include ('session.php');
 	</section>
 
 <section>
+
+
+
 <!-- LAGAY TAYO DITO NG KAHIT SIGURO INFORMATIVE NA VECTORS -->
  
 </section>
-
+<div class="container mt-5">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto text-effect" data-effect="zoom-in">
+                    <h2 class="b1 text-center mb-0">Events & Promotions</h2>
+                </div>
+				
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
 <!-- Events n promotions -->
 <div class="container my-5">
         <div class="row">
@@ -816,83 +959,169 @@ include ('session.php');
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 
-<div class="container mt-5">
-        <div class="depota">
-            <div class="row align-items-center mb-4">
-                <div class="col">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
-                <div class="col-auto">
-                    <h2 class="b1 text-center mb-0">Events & Promotions</h2>
-                </div>
-				
-                <div class="col">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
-            </div>
-        </div>
+
 		
-<!-- guide Banner 1 -->
 
-<div class="container mt-5">
-        <div class="banner-container">
-			<!-- Title Image -->
-			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
-            <div class="d-flex flex-wrap justify-content-center">
-            <!-- Step 1 -->
-            <div class="step-container">
-                <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
-                <h3 class="step-title">Cleanser</h3>
-                <p class="step-text">Step 1</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="step-container">
-                <img src="images/bgindex/toner.jpg" alt="Step 2" class="step-image">
-                <h3 class="step-title">Toner</h3>
-                <p class="step-text">Step 2</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="step-container">
-                <img src="images/bgindex/serum.jpg" alt="Step 3" class="step-image">
-                <h3 class="step-title">Ampoule</h3>
-                <p class="step-text">Step 3</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="step-container">
-                <img src="images/bgindex/moisturizer.jpg" alt="Step 4" class="step-image">
-                <h3 class="step-title">Moisturizer</h3>
-                <p class="step-text">Step 4</p>
-            </div>
-            <!-- Step 5 -->
-            <div class="step-container">
-                <img src="images/bgindex/eyecare.jpg" alt="Step 5" class="step-image">
-                <h3 class="step-title">Eyecare</h3>
-                <p class="step-text">Step 5</p>
-            </div>
-            <!-- Step 6 -->
-            <div class="step-container">
-                <img src="images/bgindex/sunscreen.jpg" alt="Step 6" class="step-image">
-                <h3 class="step-title">Sunscreen</h3>
-                <p class="step-text">Step 6</p>
-            </div>
-        </div>
-    </div>
 
-<!-- guide Banner -->
+<!-- guide Banner 
 			
 			<a href = "https://www.youtube.com/shorts/p68FLWb3LHw"> <div class="block1-link stext-101 cl2">
 									Watch Guide
-								</div> </a>
+								</div> </a>-->
 			</div>
 			
 	</div>
 </div>
 
+<div class="container-fluid video-banner  text-effect" data-effect="fade-down">
+    <div class="container">
+        <h2 class="text-center text-light mb-2">Video Gallery</h2>
+		<p class="stext-113 text-center text-light cl6 p-b-26 mb-3"> Get to know more about skincare</p>
+        <div id="videoReviewsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/vidd1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Sunscreen Guide</div>
+                                    <div class="video-description">
+If your in the Philippines you need this sunscreen!                                    
+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/vidd2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Fake Spf? Worry not</div>
+                                    <div class="video-description">
+                                        We offer 100% real spf, use it with confidence! 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/vidd3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title"> Skincare? Yes!</div>
+                                    <div class="video-description">
+                                         Watch a simple skincare tutorial with  Ms. Micah Ella Fontanillas.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/i3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Glowing Skin everyday thanks to this products!</div>
+                                    <div class="video-description">
+One of the perfect duos for hydration and protction, My secret to a radiant complexion                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/sk7.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Confused which ampoule to get?</div>
+                                    <div class="video-description">
+                                        Which among our ampoules is best for your skin? Here's a quick guide.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="video-container">
+                                <div class="video-wrapper">
+                                    <video controls>
+                                        <source src="vid/vidd5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="text-container">
+                                    <div class="video-title">Your ultimate guide to your skincare routine!</div>
+                                    <div class="video-description">
+                                      Cleanse, Prep, Hydrate, Restore, Repair & Protect!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+           <!--  Controls -->
+            <a class="carousel-control-prev" href="#videoReviewsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoReviewsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Footer Banner -->
+<div class="footban" style="text-align: center; margin-bottom: 35px; margin-top: 35px;">
+		<img src="images/Banners/SkGuide.png" alt="fBanner" 
+			style="width: 100%; max-width: 1500px; height: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+		
+	</div>
+
+
+
 	<!-- Banner -->
-	<div class="sec-banner bg0 p-t-50 p-b-50">
+	<div class="sec-banner bg0 p-t-50 p-b-30">
 		<div class="container">
 			<div class="p-b-10">
-				<h3 class="ltext-103 cl5">
+				<h3 class="ltext-103 cl5 text-effect" data-effect="zoom-in">
 					Product Lines
 				</h3>
 				<br>
@@ -901,7 +1130,7 @@ include ('session.php');
 			<div class="row">
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bgcentella.jpg" alt="IMG-BANNER">
 
 						<a href="category.php?category=Centella" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -931,7 +1160,7 @@ include ('session.php');
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bghya.jpg" alt="IMG-BANNER">
 
 						<a href="category.php?category=Hyalu" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -942,7 +1171,7 @@ include ('session.php');
 								</span>
 						
 								<span class="block1-info text-white mt-3 fs-16 mt-2 trans-04" >
-								  Soothing & Calming
+								  Hydrating & Moisturizing
 								</span>
 
 								<span class="block1-info text-white fs-10 mt-2 trans-04" >
@@ -962,7 +1191,7 @@ include ('session.php');
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bgbright.jpg" alt="IMG-BANNER">
 						
 						<a href="category.php?category=Brightening" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -991,7 +1220,7 @@ include ('session.php');
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bgtea.jpg" alt="IMG-BANNER">
 
 						<a href="category.php?category=TeaTrica" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -1020,7 +1249,7 @@ include ('session.php');
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bgpore.jpg" alt="IMG-BANNER">
 
 						<a href="category.php?category=PoreMizing" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -1050,7 +1279,7 @@ include ('session.php');
 				
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
+					<div class="block1 wrap-pic-w text-effect" data-effect="fade-down">
 						<img src="images/bgindex/bgprobio.jpg" alt="IMG-BANNER">
 
 						<a href="category.php?category=ProbioCica" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -1089,13 +1318,13 @@ include ('session.php');
     <div class="best-seller-banner" style="border-bottom: 4px solid #000; margin-bottom: 20px;">
         <div class="depota">
             <div class="row align-items-center mb-4">
-                <div class="col">
+                <div class="col text-effect" data-effect="fade-down">
                     <hr class="border-dark" style="border-width: 4px;">
                 </div>
-                <div class="col-auto">
+                <div class="col-auto text-effect" data-effect="zoom-in">
                     <h2 class="b1 text-center mb-0">Best Sellers</h2>
                 </div>
-                <div class="col">
+                <div class="col text-effect" data-effect="fade-down">
                     <hr class="border-dark" style="border-width: 4px;">
                 </div>
             </div>
@@ -1716,117 +1945,154 @@ include ('session.php');
 		
 	</div>
 
-
+	<script src="https://kit.fontawesome.com/b8a0ff877f.js" crossorigin="anonymous"></script>
+	
 	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
+	<footer class="bg3 p-t-60 p-b-25">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Categories
+				<div class="col-sm-6 col-lg-3 text-justify">
+					<h4 class="stext-301 cl0 p-b-10">
+						SKINLINE
 					</h4>
 
 					<ul>
 						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Masks
-							</a>
+							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
+							Nurturing Your Skin, One Line at a Time, Discover Endless Possibilities with Skinline
+							</>
 						</li>
 
 						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Toner
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Cleanser
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Moisturizer
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Sunscreen
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="product.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Cleanser
+							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
+							"At Skinline, we’re dedicated to nurturing your skin with the finest products and expert advice. Explore endless skincare possibilities as we guide you toward healthier, more radiant skin. Your journey to beauty and wellness starts here."
 							</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Help
+				<div class="col-sm-6 col-lg-3 ">
+					<h4 class="stext-301 cl0 p-b-10">
+						Help & Faqs
 					</h4>
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Track Order
+							<a href="tutorial.php" class="stext-107  cl7 hov-cl1 trans-04">
+								SkinHub
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								
+							<a href="contact.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Technical Issues
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								
+							<a href="about.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Know more about our product
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="helpfaq.html" class="stext-107 cl7 hov-cl1 trans-04" target=_blank>
+							<a href="about.php#section2" class="stext-107 cl7 hov-cl1 trans-04">
+								Our Developers
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="Helpfaqs.php" class="stext-107 cl7 hov-cl1 trans-04" >
 								FAQs
 							</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
+				<div class="col-sm-6 col-lg-3 ">
+					<h4 class="stext-301 cl0 p-b-10">
+						Get in Touch
 					</h4>
 
-					<p class="stext-107 cl7 size-201">
-						mail us at skinline@gmail.com
+					<ul>
+					<li class="p-b-10">
+							<a href="contact.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Reach to us
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a class="stext-107 cl7 text-secondary hov-cl1 trans-04"> 
+								# 09925424712
+							</a>
+						</li>
+
+					<li class="p-b-10">
+							<a class="stext-107 text-secondary cl7 hov-cl1 trans-04">
+							Monday to Friday: 07:00 - 21:00
+
+							</a>
+						</li>
+
+						</ul>
+					<p class="stext-107 cl7 size-201 p-b-10">
+						Follow us
 					</p>
 
 					<div class="social-icons">
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+        <a href="https://www.facebook.com/profile.php?id=61564942100112" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
             <i class="fab fa-facebook-f"></i>
         </a>
 
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
-            <i class="fab fa-twitter"></i>
+        <a href="https://www.tiktok.com/@skinline.est2024?_t=8pC3gPTHrX7&_r=1" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-tiktok"></i>
         </a>
 
-        <a href="#" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
-            <i class="fab fa-google-plus-g"></i>
+        <a href="mailto:skinlineest2024@gmail.com" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+           <i class="fa-solid fa-envelope"></i>
         </a>
+		
+		<a href="https://www.instagram.com/skinline.est2024?igsh=d2Y5bGgwZ3RsZXo0" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-instagram"></i>
+		</a>
+
+		<a href="https://www.youtube.com/@SkinLineest2024" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+		<i class="fa-brands fa-youtube"></i>
+        </a>
+		
     </div>
 				</div>
 				
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
+				<div class="col-sm-6 col-lg-3 ">
 				
-					<h4 class="stext-301 cl0 p-b-30">
-						Kayo na bahala dito
+					<h4 class="stext-301 cl0 p-b-10">
+						Policy
 					</h4>
+
+					<ul>
+					<li class="p-b-10">
+							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Refund Policy
+							</a>
+						</li>
+					<li class="p-b-10">
+							<a href="privacy.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Privacy Policy
+							</a>
+						</li>
+
+						<li class="p-b-16">
+							<a href="termsofservice.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Terms of Service
+							</a>
+
+							<a href="https://maps.app.goo.gl/D8WoExssGoSUVhs29" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
+							<p class="stext-112 m-t-40 cl7 size-201 p-b-10"> <i class="fa-solid fa-location-pin"> </i> Trece Martires, Cavite </p> 
+        </a>
+							
+						</li>
+						</ul>
 					</div>
 					</div>
 					<form>
@@ -1975,6 +2241,7 @@ include ('session.php');
 				ps.update();
 			})
 		});
+		<script src="https://kit.fontawesome.com/b8a0ff877f.js" crossorigin="anonymous"></script>
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

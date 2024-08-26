@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_to_cart'])) {
     $conn->close();
 
     // Redirect to the shopping cart page
-    header('Location: shoping-cart.php');
+    header('Location: product.php');
     exit();
 }
 ?>
