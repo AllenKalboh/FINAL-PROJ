@@ -5,7 +5,7 @@ include('db.php');
 // Fetch user data including the profile picture
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    $sql = "SELECT first_name, last_name, email, address, profile_picture FROM users WHERE username = ?";
+    $sql = "SELECT first_name, last_name, gender, email, address, profile_picture FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $username);
     $stmt->execute();
@@ -15,6 +15,7 @@ if (isset($_SESSION['username'])) {
         $row = $result->fetch_assoc();
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['gender'] = $row['gender'];
         $_SESSION['address'] = $row['address'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['profile_picture'] = $row['profile_picture']; // Save profile picture path in session
@@ -69,6 +70,9 @@ if (isset($_SESSION['username'])) {
 
                 <h5>Last Name</h5>
                 <h4><?php echo htmlspecialchars($_SESSION['last_name']); ?></h4>
+
+                <h5>Gender</h5>
+                <h4><?php echo htmlspecialchars($_SESSION['gender']); ?></h4>
 
                 <h5>Address</h5>
                 <h4><?php echo htmlspecialchars($_SESSION['address']); ?></h4>

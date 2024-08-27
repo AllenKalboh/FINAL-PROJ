@@ -6,13 +6,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $email = $_POST['email'];
     $first_name = $_POST['first-name'];
     $last_name = $_POST['last-name'];
+    $gender = $_POST['gender'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $address = $_POST['address'];
     $phone_number = $_POST['phoneNumber'];
 
     //                                                     database columns
-    $sql = "INSERT INTO users(username, password_hash, email, first_name, last_name, address, phone_number )
-    VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
+    $sql = "INSERT INTO users(username, password_hash, email, first_name, last_name, gender, address, phone_number )
+    VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$gender', '$address', '$phone_number')";
 
     if($conn->query($sql)===TRUE){
         echo "<script>alert('Registration Successful. Please log in.');</script>";
@@ -45,6 +46,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
             <label for="last-name">Last Name:</label>
             <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select Your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
 
             <label for="password">Password:</label>
             <input type="password" id="password" placeholder="Enter Password" name="password" minlength="8" required>
