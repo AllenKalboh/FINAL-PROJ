@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2024 at 09:09 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Aug 27, 2024 at 07:35 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -136,7 +136,9 @@ INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `add
 (19, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Toner (Skin Boosting Toner), Serum (Plump Hydration), Mask (Hyalu-Cica Overnight Mask)', 5190, '2024-08-15', 'Completed'),
 (20, 99, 'Kalbo', '09999', 'kalbo@gmail.com', ' Cash', 'Mabuhay', 'Toner, Sunscreen, Cleanser', 5000, '2024-08-25', 'Completed'),
 (21, 100, 'Kalbow', '099992', 'kalbow@gmail.com', ' Cash', 'Mabuhay', 'Toner, Sunscreen, Cleanser, Moisturizer', 50000, '2024-08-25', 'Completed'),
-(22, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Hyalu Cica (Ceramide Biom)', 3000, '2024-08-25', 'Completed');
+(22, 12, 'Patrick ALlen', '09949070858', 'patriccsio@gmaill.com', 'cash', 'Iran, Dasmarinas, 4114', 'Hyalu Cica (Ceramide Biom)', 3000, '2024-08-25', 'Completed'),
+(23, 15, 'sai', '02655641232', 'saisai@gmail.com', 'cash', 'agaaddafasfa, cavite, 151544', 'Toner (Non Irritating Toner)', 400, '2024-08-27', 'Pending'),
+(24, 15, 'sai', '03265689898', 'saisai@gmail.com', 'cash', 'jBDJbjdhHDK, cavite, 5456454', 'Serum (Plump Hydration)', 9, '2024-08-27', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -205,6 +207,7 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
+  `gender` varchar(100) NOT NULL,
   `address` text DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -216,10 +219,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `address`, `phone_number`, `created_at`, `updated_at`, `profile_picture`) VALUES
-(12, 'asd', '$2y$10$K13rw3mSYBMRysh0g3UAdOCi0iucfUmf7LnaMgZH91l7pcXscfBHe', 'patriccsio@gmail.com', 'Patrick', 'Casili', 'san marino', '09949079858', '2024-08-24 12:00:18', '2024-08-24 12:00:18', NULL),
-(13, 'allen', '$2y$10$W3ivcssSlR41sPYUg9reJuB7i53nevqmZ0Uhxwn9rEuGgdU6AIzjW', 'allen@gmail.com', 'allen', 'heyhey', 'san marino', '09218091823', '2024-08-24 12:00:49', '2024-08-24 12:00:49', NULL),
-(14, 'aaron', '$2y$10$Ekh2ErtilSNxOs8Wx/mRC.SBrTb1yjXBCldvJC426un.Lno2pKkTG', 'derayaaron5@gmail.com', 'aaron', 'de raya', 'Location 3', '09553568279', '2024-08-26 05:08:56', '2024-08-26 05:08:56', 'uploads/profile_pictures/66cc155f081f9-FB_IMG_1703823661403.jpg');
+INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `first_name`, `last_name`, `gender`, `address`, `phone_number`, `created_at`, `updated_at`, `profile_picture`) VALUES
+(12, 'asd', '$2y$10$K13rw3mSYBMRysh0g3UAdOCi0iucfUmf7LnaMgZH91l7pcXscfBHe', 'patriccsio@gmail.com', 'Patrick', 'Casili', '', 'san marino', '09949079858', '2024-08-24 12:00:18', '2024-08-24 12:00:18', NULL),
+(13, 'allen', '$2y$10$W3ivcssSlR41sPYUg9reJuB7i53nevqmZ0Uhxwn9rEuGgdU6AIzjW', 'allen@gmail.com', 'allen', 'heyhey', '', 'san marino', '09218091823', '2024-08-24 12:00:49', '2024-08-24 12:00:49', NULL),
+(14, 'aaron', '$2y$10$Ekh2ErtilSNxOs8Wx/mRC.SBrTb1yjXBCldvJC426un.Lno2pKkTG', 'derayaaron5@gmail.com', 'aaron', 'de raya', '', 'Location 3', '09553568279', '2024-08-26 05:08:56', '2024-08-26 05:08:56', 'uploads/profile_pictures/66cc155f081f9-FB_IMG_1703823661403.jpg'),
+(15, 'sai', '$2y$10$fPpr7xYgJ1GBL2s8yx88nu4BO2YaqYCJMi.1kWnV8Z2eaegR7RPLG', 'saisai@gmail.com', 'sairon', 'Manalad', '', 'Cavite', '03695566565', '2024-08-27 04:27:44', '2024-08-27 04:27:44', NULL),
+(16, 'kevin', '$2y$10$n7/DiLzAVyz.kq1Nhy1Hj.jZ4I0R5wmE78d9oUaanqZEtpn2nmp5y', 'kevin@gmail.com', 'kevin', 'Male', '', 'Nueva Vizcaya', '09546565652', '2024-08-27 04:48:19', '2024-08-27 04:48:19', NULL),
+(17, 'kevin', '$2y$10$6kvhif10uSY12CzFp3FHdOjpNeg57QFKeDz63N57r3tuzy/zRjQO.', 'kevin@gmail.com', 'kevin', 'Male', '', 'Nueva Vizcaya', '09546565652', '2024-08-27 04:48:37', '2024-08-27 04:48:37', NULL),
+(18, 'pat', '$2y$10$pQ/leBpuF1AcA5PTE9M.XOgFXDcQxwXK087DCWekKSypeFQwFEpzW', 'pat@gmail.com', 'patrick', 'Male', '', 'Cavite', '09656565655', '2024-08-27 04:51:54', '2024-08-27 04:51:54', NULL),
+(19, 'pat', '$2y$10$3KWH/neXbmZSeuQIBQuQbOOfHNy2eGW6WzkQwpHFyNVmbrRgPHuRi', 'pat@gmail.com', 'patrick', 'Meredor', 'Male', 'Cavite', '09656565655', '2024-08-27 04:53:05', '2024-08-27 04:53:05', NULL),
+(20, 'kyle', '$2y$10$c0RM/CWfdSpokaA9bLv5QexIVr6gTdS6flLaqaJpBXNpCkGfaUkWG', 'kyle@gmail.com', 'Kyle', 'Garcia', 'Male', 'Isabela', '03995231231', '2024-08-27 04:54:34', '2024-08-27 04:54:34', NULL);
 
 --
 -- Indexes for dumped tables
@@ -284,7 +293,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `feedbacks`
@@ -296,7 +305,7 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -314,7 +323,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
