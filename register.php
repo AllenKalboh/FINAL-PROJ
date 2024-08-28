@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_name = $_POST['last-name'];
     $password = $_POST['password']; // Get the raw password for validation
     $address = $_POST['address'];
+    $gender = $_POST['gender'];
     $phone_number = $_POST['phoneNumber'];
 
     // Validate password
@@ -18,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepare SQL statement to insert user data
-        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, address, gender=?, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssssss', $username, $hashed_password, $email, $first_name, $last_name, $address, $phone_number);
 
         if ($stmt->execute()) {
@@ -40,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="register.css"> 
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
     <div class="container">
@@ -59,13 +60,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="Enter Password" name="password" required
-                   minlength="8" 
-                   pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
-                   title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
+            <div class="password-toggle">
+                <input type="password" id="password" placeholder="Enter Password" name="password" required
+                minlength="8" 
+                pattern="(?=.*[A-Z,a-z])(?=_.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
+                title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
+                <input type="checkbox" id="togglePassword" style="margin-bottom: 15px;"> Show Password
+            </div>
+
+            <label for="gender">Gender:</label>
+            <select  id="gender" name="gender" required style="margin-bottom: 15px;">
+                <option value="" disabled selected>Select Your Location</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
 
             <label for="address">Address:</label>
-            <select id="address" name="address" required>
+            <select id="address" name="address" required style="margin-bottom: 15px;">
                 <option value="" disabled selected>Select Your Location</option>
                 <option value="Metro Manila">Metro Manila</option>
                 <option value="Abra">Abra</option>
@@ -161,4 +173,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="login.php"><button type="button" class="login-btn">Login</button></a>
     </div>
 </body>
+
+<script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('change', function (e) {
+            if (password.type === 'password') {
+                password.type = 'text';
+            } else {
+                password.type = 'password';
+            }
+        });
+</script>
+
 </html>
