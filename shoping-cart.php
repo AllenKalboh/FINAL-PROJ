@@ -201,6 +201,7 @@ footer {
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
+							
 							<li>
 								<a href="index.php">Home</a>
 							</li>
@@ -209,9 +210,20 @@ footer {
 								<a href="product.php">Shop</a>
 							</li>
 
+
+							<li>
+								<a href="tutorial.php">SkinHub</a>
+							</li>
+
+
 							<li>
 								<a href="about.php">About</a>
 							</li>
+
+							<li>
+								<a href="contact.php">Contact</a>
+							</li>
+							
 
 							
 						</ul>
@@ -273,13 +285,6 @@ footer {
 							My Account
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
-						</a>
 					</div>
 				</li>
 			</ul>

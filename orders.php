@@ -38,12 +38,16 @@ if (isset($_SESSION['user_id'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="orders.css">
-   <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="orderss.css">
+  
 
 </head>
 <body>
 <style>
+   *{
+      text-decoration: none;
+   }
    .place-order-btn {
     background-color: black; /* Default background color */
     color: white;            /* Default text color */
@@ -70,6 +74,7 @@ if (isset($_SESSION['user_id'])) {
     cursor: not-allowed;    /* Change cursor to indicate disabled state */
     opacity: 0.6;           /* Make button look less active */
 }
+
 </style>
 <!-- Header -->
 <header class="header-v4">
@@ -129,7 +134,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="right-top-bar flex-w h-full">
                <a href="#" class="flex-c-m p-lr-10 trans-04">Help & FAQs</a>
                <a href="#" class="flex-c-m p-lr-10 trans-04">My Account</a>
-               <a href="#" class="flex-c-m p-lr-10 trans-04">Log Out</a>
+               <a href="logout.php" class="flex-c-m p-lr-10 trans-04">Log Out</a>
             </div>
          </li>
       </ul>
@@ -172,6 +177,7 @@ if (isset($_SESSION['user_id'])) {
                   <p>Your orders: <span><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
                   <p>Total price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
                   <p>Payment status: <span style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+                  <button class="bg-danger"> Cancel Order </button>
                   <p>---------------------------------</p>
                </div>
             </div>

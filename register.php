@@ -1,24 +1,36 @@
 <?php
 include('db.php');
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $first_name = $_POST['first-name'];
     $last_name = $_POST['last-name'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = $_POST['password']; // Get the raw password for validation
     $address = $_POST['address'];
     $phone_number = $_POST['phoneNumber'];
 
-    //                                                     database columns
-    $sql = "INSERT INTO users(username, password_hash, email, first_name, last_name, address, phone_number )
-    VALUES('$username', '$password', '$email', '$first_name', '$last_name', '$address', '$phone_number')";
+    // Validate password
+    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?"{}|<>]).{8,}$/', $password)) {
+        echo "<script>alert('Password must be at least 8 characters long, contain at least one letter, one number, and one special character.');</script>";
+    } else {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    if($conn->query($sql)===TRUE){
-        echo "<script>alert('Registration Successful. Please log in.');</script>";
-    } else{
-        echo "Error: " .$sql ."<br>". $conn->error;
+        // Prepare SQL statement to insert user data
+        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('sssssss', $username, $hashed_password, $email, $first_name, $last_name, $address, $phone_number);
+
+        if ($stmt->execute()) {
+            echo "<script>alert('Registration Successful. Please log in.');</script>";
+        } else {
+            echo "<script>alert('Error: " . $stmt->error . "');</script>";
+        }
+
+        $stmt->close();
     }
+
+    // Close connection
     $conn->close();
 }
 ?>
@@ -47,7 +59,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="Enter Password" name="password" minlength="8" required>
+            <input type="password" id="password" placeholder="Enter Password" name="password" required
+                   minlength="8" 
+                   pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
+                   title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
 
             <label for="address">Address:</label>
             <select id="address" name="address" required>
@@ -114,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 <option value="Camiguin">Camiguin</option>
                 <option value="Lanao del Norte">Lanao del Norte</option>
                 <option value="Misamis Occidental">Misamis Occidental</option>
-                <option value="Misamis Orienta">Misamis Orienta</option>
+                <option value="Misamis Oriental">Misamis Oriental</option>
                 <option value="Davao de Oro">Davao de Oro</option>
                 <option value="Davao del Norte">Davao del Norte</option>
                 <option value="Davao del Sur">Davao del Sur</option>
@@ -138,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </select>
 
             <label for="phone-number">Phone Number:</label>
-            <input type="number" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
+            <input type="text" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
 
             <button type="submit" class="reg-btn">Create Account</button>
         </form>

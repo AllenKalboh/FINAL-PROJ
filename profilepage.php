@@ -35,6 +35,7 @@ if (isset($_SESSION['username'])) {
 </head>
 <body>
 <div class="sidebar">
+    <a href="profilepage.php"><i class="fas fa-user" style="font-size: 24px;"></i><span>Your Profile</span></a>
     <a href="index.php"><i class="fas fa-home" style="font-size: 24px;"></i><span>Home</span></a>
     <a href="orders.php"><i class="fas fa-box" style="font-size: 24px;"></i><span>Orders</span></a>
     <a href="shoping-cart.php"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i><span>Your Cart</span></a>
@@ -61,7 +62,7 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="profile-info">
-                <h5>About Me</h5>
+                <h5>Your Details:</h5>
                 <h4><?php echo htmlspecialchars($_SESSION['username']); ?></h4>
 
                 <h5>First Name</h5>
