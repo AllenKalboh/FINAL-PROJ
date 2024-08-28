@@ -647,7 +647,7 @@ include ('session.php');
 			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
             <div class="d-flex flex-wrap justify-content-center text-effect" data-effect="zoom-in">
             <!-- Step 1 -->
-            <div class="step-container text-effect" data-effect="zoom-in">
+            <div class="step-container">
                 <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
                 <h3 class="step-title">Cleanser</h3>
                 <p class="step-text">Step 1</p>
