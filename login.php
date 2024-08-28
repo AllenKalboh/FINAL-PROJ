@@ -28,7 +28,7 @@ include('session.php');
         </div>
         <div class="right">
             <img src="images/icons/log.png" alt="Logo Text" class="right-icon">
-            <form action="" method="post">
+            <form action="session.php" method="post">
                 <input type="text" id="username" name="username" placeholder="Enter Username" required>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
                 <button type="submit" class="log-in-btn">Login</button>
@@ -40,3 +40,4 @@ include('session.php');
     </div>
 </body>
 </html>
+
