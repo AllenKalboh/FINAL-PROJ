@@ -652,7 +652,8 @@ footer ul li {
 }
 </style>
 
-<div class="container my-5">
+<div class="container my-5 policy-content ">
+<div class=" text-effect" data-effect="fade-down">
         <h1>Terms of Service</h1>
         <p>Welcome to Skinline. These Terms of Service ("Terms") govern your use of our website located at [Your Website URL] (the "Site") and the services provided by Skinline. By accessing or using our Site, you agree to comply with and be bound by these Terms. If you do not agree with these Terms, please do not use our Site.</p>
 
@@ -717,6 +718,7 @@ footer ul li {
             <li><strong>Phone:</strong> 09925424712</li>
             <li><strong>Address:</strong> Trece Martires, Cavite</li>
         </ul>
+		</div>
     </div>
 	<!-- Content page -->
 

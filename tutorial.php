@@ -632,7 +632,7 @@ include ('session.php');
 <br>
 	<br>
     <p class="stext-113 text-light cl6 p-b-5  text-effect justify-content text-center" data-effect="zoom-in">
-				Welcome to SkinHub, your trusted destination for specialized skincare solutions. At SkinLine, we understand that every skin type has unique needs,
+				Welcome to SkinHub, your trusted destination for specialized skincare guides. At SkinLine, we understand that every skin type has unique needs,
 						</p>
 						<p class="stext-113 text-light cl6 p-b-5 text-effect justify-content text-center " data-effect="zoom-in">
 						 which is why we offer a diverse range of product lines, each meticulously formulated to address specific skin concerns
@@ -647,7 +647,7 @@ include ('session.php');
 			<img src="images/bgindex/bgtit.png" alt="Skincare Routine Title" class="title-image">
             <div class="d-flex flex-wrap justify-content-center text-effect" data-effect="zoom-in">
             <!-- Step 1 -->
-            <div class="step-container text-effect" data-effect="zoom-in">
+            <div class="step-container">
                 <img src="images/bgindex/cleanser.jpg" alt="Step 1" class="step-image">
                 <h3 class="step-title">Cleanser</h3>
                 <p class="step-text">Step 1</p>
@@ -1002,11 +1002,12 @@ Tune in for a quick tutorial and learn the perfect amount for sun protection.   
 
 			<div class="row p-b-">
 				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
-						<h3 class="mtext-111 cl2 p-b-16">
+					<div class="p-t-7 p-z-85 p-r-15-lg p-r-0-md text-effect" data-effect="fade-down">
+					<h3 class="mtext-111 cl2 p-b-16">
 						Pore Mizing Line
+						
 						</h3>
-						<p class=" cl2 p-b-1 text-secondary">
+						<p class=" cl2 p-b-16 text-secondary">
 						Pore Care and Refinement
 
 </p>

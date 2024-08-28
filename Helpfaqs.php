@@ -436,7 +436,7 @@ body, html {
 
 /* Container */
 .container {
-    text-align: center;
+    
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -457,6 +457,7 @@ header p {
 /* Buttons */
 .buttons {
     margin: 20px 0;
+	text-align: center;
 }
 
 .button {
@@ -468,6 +469,7 @@ header p {
     font-size: 1.1em;
     cursor: pointer;
     border-radius: 5px;
+	text-align: center;
     transition: background-color 0.3s;
 }
 

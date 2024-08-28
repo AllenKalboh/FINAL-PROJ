@@ -372,10 +372,6 @@ include ('session.php');
 							My Account
 						</a>
 
-						<a href="search_page.php" class="sc-btn">
-   								 <i class="fas fa-search" style ="color: gray;"></i> 
-							</a> 
-						
 					</div>
 				</li>
 			</ul>

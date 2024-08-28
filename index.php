@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<!-- Icon header -->
 				<div class="wrap-icon-header flex-w flex-r-m">
 					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php" style="color:grey;">
+						<a href="shoping-cart.php" style="color:black;">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 					</div>	
@@ -1111,7 +1111,7 @@ One of the perfect duos for hydration and protction, My secret to a radiant comp
 <!-- Footer Banner -->
 <div class="footban" style="text-align: center; margin-bottom: 35px; margin-top: 35px;">
 		<img src="images/Banners/SkGuide.png" alt="fBanner" 
-			style="width: 100%; max-width: 1500px; height: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+			style="width: 100%; max-width: 1200px; height: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
 		
 	</div>
 

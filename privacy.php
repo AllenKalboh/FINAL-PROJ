@@ -642,6 +642,7 @@ h1 {
 </style>
 
 <div class="container my-5 policy-content">
+<div class=" text-effect" data-effect="fade-down">
     <h1>Privacy Policy</h1>
     <p>
         At Skinline, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our website and services.
@@ -696,6 +697,7 @@ h1 {
         <li><strong>• Phone:</strong> 09925424712</li>
         <li><strong>• Address:</strong> Trece Martires, Cavite</li>
     </ul>
+	</div>
 </div>
 	<!-- Content page -->
 
