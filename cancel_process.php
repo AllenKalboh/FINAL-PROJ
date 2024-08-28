@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the order ID from the POST request
     $order_id = $_POST['order_id'];
 
+    $user_id = $_SESSION['user_id'];
+
     // Begin a transaction
     $conn->begin_transaction();
 
@@ -22,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $order = $result->fetch_assoc();
                 
                 // Insert the order into cancelled_orders
-                $sql_insert = "INSERT INTO cancelled_orders (id, placed_on, name, email, number, address, method, product_names, total_price, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql_insert = "INSERT INTO cancelled_orders (id, user_id, name, email, number, address, method, product_names, total_price, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 if ($stmt_insert = $conn->prepare($sql_insert)) {
-                    $stmt_insert->bind_param("isssssssss", $order['id'], $order['placed_on'], $order['name'], $order['email'], $order['number'], $order['address'], $order['method'], $order['product_names'], $order['total_price'], $order['payment_status']);
+                    $stmt_insert->bind_param("isssssssss", $order['id'], $order['user_id'], $order['name'], $order['email'], $order['number'], $order['address'], $order['method'], $order['product_names'], $order['total_price'], $order['payment_status']);
                     $stmt_insert->execute();
                 }
 

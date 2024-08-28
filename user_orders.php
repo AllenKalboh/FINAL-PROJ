@@ -304,7 +304,7 @@ $conn->close();
                                 </div>
                                 <p>Total Products: <?= htmlspecialchars($total_products) ?></p>
                                 <p>Total Price: ₱<?= number_format($grand_total, 2) ?></p>
-                                <input type="submit" name="order" class="place-order-btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order" style="background-color: black; color: white; cursor: pointer;">a
+                                <input type="submit" name="order" class="place-order-btn <?= ($total_price > 1) ? '' : 'disabled'; ?>" value="Place Order" style="background-color: black; color: white; cursor: pointer;">
                             </div>
                         </div>
                     </form>
