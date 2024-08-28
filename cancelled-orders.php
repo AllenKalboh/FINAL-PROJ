@@ -38,9 +38,9 @@ if (isset($_SESSION['user_id'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
+   <link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="orderss.css">
-  
+
 
 </head>
 <body>
@@ -101,6 +101,11 @@ if (isset($_SESSION['user_id'])) {
                   <li><a href="index.php">Home</a></li>
                   <li><a href="product.php">Shop</a></li>
                   <li><a href="about.php">About</a></li>
+               </ul>
+            </div>
+            <div class="cancel-box" style="margin-left: 700px; margin-top: 10px;">
+               <ul>
+                  <li class="cancelled"><a href="cancelled-orders.php" style="color: #333;">Cancelled Orders</a></li>
                </ul>
             </div>
          </nav>
@@ -177,7 +182,14 @@ if (isset($_SESSION['user_id'])) {
                   <p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
                   <p class="fw-bold">Total price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
                   <p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
-                  <button class="btn btn-outline-danger btn-sm ms-5 fw-bolder"> Cancel Order </button>
+                  
+                  <form method="post" action="cancel_process.php">
+                     <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
+                     <button type="submit" class="btn btn-outline-danger btn-sm ms-5 fw-bolder">Cancel Order</button>
+                  </form>
+
+
+
                   <p>---------------------------------</p>
                </div>
             </div>
@@ -341,20 +353,24 @@ if (isset($_SESSION['user_id'])) {
 			</div>
 		</div>
 	</footer>
-    <!-- Back to top -->
-    <div class="btn-back-to-top" id="myBtn">
+   <!-- Back to top -->
+   <div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-    <!-- JS Scripts -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/sweetalert/sweetalert.min.js"></script>
-    <script src="js/main.js"></script>
+   <!-- JS Scripts -->
+   <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+   <script src="vendor/animsition/js/animsition.min.js"></script>
+   <script src="vendor/bootstrap/js/popper.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+   <script src="vendor/select2/select2.min.js"></script>
+   <script src="vendor/sweetalert/sweetalert.min.js"></script>
+   <script src="js/main.js"></script>
+
+
+
+
 
 </body>
 </html>
