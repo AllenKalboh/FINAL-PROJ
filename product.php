@@ -216,6 +216,19 @@ include ('session.php');
     display: flex;
     justify-content: center;
 }
+.place-order button{
+    padding: 6px 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.place-order button:hover{
+    background-color: gray;
+}
 </style>
 <body class="animsition">
 	
@@ -616,6 +629,17 @@ $result = $conn->query($sql);
                         <input type="number" name="quantity" value="1" min="1" class="quantity">
                         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
                     </form>
+
+	<div class="place-order">
+        <form action="solo_checkout.php" method="POST">
+            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+            <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
+            <button type="submit" name="place_order">Buy Now</button>
+        </form>
+    </div>
+
                 </div>
                 <?php
             }

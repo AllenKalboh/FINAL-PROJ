@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepare SQL statement to insert user data
-        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, address, gender=?, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('sssssss', $username, $hashed_password, $email, $first_name, $last_name, $address, $phone_number);
+        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, email, first_name, last_name, address, gender, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssssss', $username, $hashed_password, $email, $first_name, $last_name, $address, $gender, $phone_number);
 
         if ($stmt->execute()) {
             echo "<script>alert('Registration Successful. Please log in.');</script>";
@@ -63,14 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="password-toggle">
                 <input type="password" id="password" placeholder="Enter Password" name="password" required
                 minlength="8" 
-                pattern="(?=.*[A-Z,a-z])(?=_.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
+                pattern="(?=.*[A-Z,a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
                 title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
                 <input type="checkbox" id="togglePassword" style="margin-bottom: 15px;"> Show Password
             </div>
 
             <label for="gender">Gender:</label>
-            <select  id="gender" name="gender" required style="margin-bottom: 15px;">
-                <option value="" disabled selected>Select Your Location</option>
+            <select id="gender" name="gender" required style="margin-bottom: 15px;">
+                <option value="" disabled selected>Select Your Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Others">Others</option>

@@ -104,3 +104,17 @@
 .sc-btn i {
     color: inherit; /* Make sure the icon inherits the color from .sc-btn */
 }
+.place-order button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.place-order button:hover{
+    background-color: gray;
+}

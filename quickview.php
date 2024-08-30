@@ -66,6 +66,20 @@
         .thumbnail.selected {
             border: 2px solid #333;
         }
+        .place-order button{
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #000000;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .place-order button:hover{
+            background-color: gray;
+        }
    </style>
 </head>
 <body>
@@ -96,43 +110,54 @@
                 $img02Path = 'uploads/' . basename($fetch_product["img_02"]);
                 $img03Path = 'uploads/' . basename($fetch_product["img_03"]);
     ?>
-               <section class="heading">
-        <div class="quick-view">
-            <div class="image-container">
-                <button class="nav-button left" onclick="prevImage()">&#10094;</button>
-                <div class="main-image">
-                    <img id="mainImage" src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                </div>
-                <button class="nav-button right" onclick="nextImage()">&#10095;</button>
-                <div class="sub-image">
-                    <?php if (!empty($fetch_product['img_01'])): ?>
-                        <img class="thumbnail" id="thumb1" src="<?= htmlspecialchars($img01Path); ?>" onclick="changeImage('<?= htmlspecialchars($img01Path); ?>', 'thumb1')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                    <?php endif; ?>
-                    <?php if (!empty($fetch_product['img_02'])): ?>
-                        <img class="thumbnail" id="thumb2" src="<?= htmlspecialchars($img02Path); ?>" onclick="changeImage('<?= htmlspecialchars($img02Path); ?>', 'thumb2')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                    <?php endif; ?>
-                    <?php if (!empty($fetch_product['img_03'])): ?>
-                        <img class="thumbnail" id="thumb3" src="<?= htmlspecialchars($img03Path); ?>" onclick="changeImage('<?= htmlspecialchars($img03Path); ?>', 'thumb3')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                    <?php endif; ?>
-                </div>
+              <section class="heading">
+    <div class="quick-view">
+        <div class="image-container">
+            <button class="nav-button left" onclick="prevImage()">&#10094;</button>
+            <div class="main-image">
+                <img id="mainImage" src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
             </div>
-            <div class="content">
-                <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
-                <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?></div>
-                <div class="details"><?= htmlspecialchars($fetch_product['description']); ?></div>
-                <div class="add-to-cart">
-                    <form action="cart_action.php" method="POST">
-                        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-                        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" value="1">
-                        <button type="submit" name="add_to_cart">Add to Cart</button>
-                    </form>
-                </div>
+            <button class="nav-button right" onclick="nextImage()">&#10095;</button>
+            <div class="sub-image">
+                <?php if (!empty($fetch_product['img_01'])): ?>
+                    <img class="thumbnail" id="thumb1" src="<?= htmlspecialchars($img01Path); ?>" onclick="changeImage('<?= htmlspecialchars($img01Path); ?>', 'thumb1')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                <?php endif; ?>
+                <?php if (!empty($fetch_product['img_02'])): ?>
+                    <img class="thumbnail" id="thumb2" src="<?= htmlspecialchars($img02Path); ?>" onclick="changeImage('<?= htmlspecialchars($img02Path); ?>', 'thumb2')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                <?php endif; ?>
+                <?php if (!empty($fetch_product['img_03'])): ?>
+                    <img class="thumbnail" id="thumb3" src="<?= htmlspecialchars($img03Path); ?>" onclick="changeImage('<?= htmlspecialchars($img03Path); ?>', 'thumb3')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                <?php endif; ?>
             </div>
         </div>
-    </section>
+        <div class="content">
+    <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+    <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?></div>
+    <div class="details"><?= htmlspecialchars($fetch_product['description']); ?></div>
+    
+    <div class="add-to-cart">
+        <form action="cart_action.php" method="POST">
+            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button type="submit" name="add_to_cart">Add to Cart</button>
+        </form>
+    </div>
+
+    <div class="place-order">
+        <form action="solo_checkout.php" method="POST">
+            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+            <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
+            <button type="submit" name="place_order">Buy Now</button>
+        </form>
+    </div>
+</div>
+    </div>
+</section>
 
     <script>
         let currentIndex = 0;
