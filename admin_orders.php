@@ -11,9 +11,14 @@ if (isset($_POST['update_payment'])) {
 
     // Use prepared statements to prevent SQL injection
     $update_payment = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
-    $update_payment->execute([$status, $order_id]);
-
-    $message[] = 'Payment Status Updated!';
+    if ($update_payment->execute([$status, $order_id])) {
+        $_SESSION['message'] = 'Payment Status Updated!'; // Set session message
+        // Redirect to completed_orders.php with order_id
+        header('Location: completed_orders.php?id=' . $order_id);
+        exit();
+    } else {
+        $_SESSION['error'] = 'Error updating payment status'; // Set session error
+    }
 }
 
 if (isset($_GET['delete'])) {
@@ -44,16 +49,17 @@ if (isset($_GET['delete'])) {
 <body>
 <div class="sidebar">
     <img src="images/inverted.png" alt="">
-        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
-        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
-        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
-        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
-        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
-        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
-        <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+    <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+    <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
+    <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
+    <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+    <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Placed Orders</span></a>
+    <a href="update_orders.php"><i class="fas fa-upload"></i><span> Update Order Status</span></a>
+    <a href="completed_orders.php"><i class="fas fa-check"></i><span> Completed Orders</span></a>
+    <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
+    <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
 </div>
 
-<center>
 <center>
 <section class="orders">
 
@@ -62,13 +68,9 @@ if (isset($_GET['delete'])) {
 <div class="box-container">
 
    <?php
-   // Prepare the SQL statement to include phone number and product_names
-   $select_orders = $conn->prepare("SELECT * FROM `orders`");
-
-   // Execute the query
+   // Prepare and execute the SQL statement to fetch all orders except those with 'Completed' status
+   $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE `payment_status` != 'Completed'");
    $select_orders->execute();
-
-   // Get the result
    $result = $select_orders->get_result();
 
    // Check if there are any rows
@@ -80,10 +82,10 @@ if (isset($_GET['delete'])) {
       <p>Products: <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p> <!-- Added Product Names Field -->
       <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
       <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
-      <p>Date Created:  <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+      <p>Date Created: <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
       <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
       <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p> <!-- Added Phone Number Field -->
+      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
       
       <div class="flex-btn">
          <a href="update_orders.php?id=<?= htmlspecialchars($fetch_orders['id']); ?>" class="option-btn">Update</a>

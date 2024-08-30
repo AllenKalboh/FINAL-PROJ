@@ -42,7 +42,7 @@ if ($stmt = $conn->prepare($sql)) {
 }
 
 // Handle order placement
-if (isset($_POST['order'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order'])) {
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $number = filter_var($_POST['number'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);

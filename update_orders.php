@@ -16,14 +16,16 @@ include('db.php');
 
 <div class="sidebar">
     <img src="images/inverted.png" alt="">
-        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
-        <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
-        <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
-        <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
-        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
-        <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
-        <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
-    </div>
+    <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+    <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
+    <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
+    <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
+    <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Placed Orders</span></a>
+    <a href="update_orders.php"><i class="fas fa-upload"></i><span> Update Order Status</span></a>
+    <a href="completed_orders.php"><i class="fas fa-check"></i><span> Completed Orders</span></a>
+    <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
+    <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+</div>
 
 <section class="orders">
 
@@ -43,19 +45,19 @@ include('db.php');
 
        // Execute the query
        if ($update_status->execute()) {
-            echo "
-            <div id='updateMessage' style='position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 50%; padding: 10px; background-color: black; color: white; border-bottom: 1px solid #ccc; text-align: center; font-size: 24px; transition: opacity 1s ease; margin-top: 20px;'>
-                Order Updated Successfully
-            </div>
-            <script>
-                setTimeout(function() {
-                    document.getElementById('updateMessage').style.opacity = '0';
-                }, 1000); // Wait for 1 second before starting the fade out
+           echo "
+           <div id='updateMessage' style='position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 50%; padding: 10px; background-color: black; color: white; border-bottom: 1px solid #ccc; text-align: center; font-size: 24px; transition: opacity 1s ease; margin-top: 20px;'>
+               Order Updated Successfully
+           </div>
+           <script>
+               setTimeout(function() {
+                   document.getElementById('updateMessage').style.opacity = '0';
+               }, 1000); // Wait for 1 second before starting the fade out
             
-                setTimeout(function() {
-                    document.getElementById('updateMessage').style.display = 'none';
-                }, 2000); // Ensure it's fully hidden after the fade out completes
-            </script>";
+               setTimeout(function() {
+                   document.getElementById('updateMessage').style.display = 'none';
+               }, 2000); // Ensure it's fully hidden after the fade out completes
+           </script>";
        } else {
            echo "<p>Error updating status.</p>";
        }
@@ -64,8 +66,8 @@ include('db.php');
        $update_status->close();
    }
 
-   // Prepare the SQL statement to fetch orders
-   $select_orders = $conn->prepare("SELECT * FROM `orders`");
+   // Prepare the SQL statement to fetch orders excluding 'Completed' status
+   $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE `payment_status` != 'Completed'");
 
    // Execute the query
    $select_orders->execute();
@@ -83,9 +85,10 @@ include('db.php');
       <p>User Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
       <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
       <p>Ordered Date: <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+     
       <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p> <!-- Added Address Field -->
       <p>Payment Method: <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p> <!-- Added Payment Method Field -->
+      <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
 
       <!-- Update form -->
       <form action="" method="post">

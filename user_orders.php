@@ -39,19 +39,19 @@ if ($stmt = $conn->prepare($sql)) {
 
 // Handle order placement
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $number = filter_var($_POST['number'], FILTER_SANITIZE_STRING);
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $number = filter_var($_POST['number'], FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $method = filter_var($_POST['method'], FILTER_SANITIZE_STRING);
-    $address =  filter_var($_POST['street'], FILTER_SANITIZE_STRING) . ', ' .
-                filter_var($_POST['city'], FILTER_SANITIZE_STRING) . ', ' .
-                filter_var($_POST['pin_code'], FILTER_SANITIZE_STRING);
+    $method = filter_var($_POST['method'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $address = filter_var($_POST['street'], FILTER_SANITIZE_SPECIAL_CHARS) . ', ' .
+                filter_var($_POST['city'], FILTER_SANITIZE_SPECIAL_CHARS) . ', ' .
+                filter_var($_POST['pin_code'], FILTER_SANITIZE_SPECIAL_CHARS);
 
     $product_names = isset($_SESSION['product_names']) ? $_SESSION['product_names'] : '';
 
     if ($total_products > 0) {
         // Insert order into the database
-        $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, product_names, total_price) VALUES(?,?,?,?,?,?,?,?)");
+        $insert_order = $conn->prepare("INSERT INTO `orders` (user_id, name, number, email, method, address, product_names, total_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         if ($insert_order) {
             $insert_order->bind_param("issssssi", $user_id, $name, $number, $email, $method, $address, $product_names, $total_price);
             $insert_order->execute();
