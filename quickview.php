@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="quickviews.css">
    <style>
+    
    /* Include your existing CSS here */
 
    .main-image {
@@ -83,6 +84,7 @@
    </style>
 </head>
 <body>
+    
 <a href="product.php" class="back-button">
     <i class="fas fa-arrow-left"></i>
 </a>
@@ -146,6 +148,10 @@
         </form>
     </div>
 
+
+    
+
+
     <div class="place-order">
         <form action="solo_checkout.php" method="POST">
             <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
@@ -153,8 +159,10 @@
             <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
             <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
             <button type="submit" name="place_order">Buy Now</button>
+            
         </form>
     </div>
+    
 </div>
     </div>
 </section>

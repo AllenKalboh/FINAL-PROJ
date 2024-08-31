@@ -103,7 +103,7 @@ if($select_products->num_rows > 0){
    <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
    <input type="hidden" name="image" value="<?= $fetch_product['img_01']; ?>">
    <img src="<?= $img01Path; ?>" alt="<?= $fetch_product['product_name']; ?>"> <br>
-   <a href="quickview.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
+   <a href="comment-sec.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
    <div class="name"><?= $fetch_product['product_name']; ?></div>
    <div class="flex">
       <div class="price"><span>₱</span><?= $fetch_product['price']; ?></div>

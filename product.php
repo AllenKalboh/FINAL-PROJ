@@ -600,6 +600,26 @@ $sql = "SELECT * FROM products LIMIT $offset, $productsPerPage";
 $result = $conn->query($sql);
 ?>
 
+
+<?php
+// Include your database connection and any other necessary code
+
+// Check for status messages
+if (isset($_SESSION['status'])) {
+    $status = $_SESSION['status'];
+    unset($_SESSION['status']); // Clear the status after displaying
+
+    if ($status === 'success') {
+        echo '<script>alert("Rating submitted successfully!");</script>';
+    } elseif ($status === 'already_rated') {
+        echo '<script>alert("You have already rated this product.");</script>';
+    } elseif ($status === 'invalid_rating') {
+        echo '<script>alert("Invalid rating submitted.");</script>';
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -623,23 +643,25 @@ $result = $conn->query($sql);
                         <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
                         <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
-                        <a href="quickview.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
+                        <a href="comment-sec.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
                         <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                         <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
                         <input type="number" name="quantity" value="1" min="1" class="quantity">
                         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
                     </form>
 
-	<div class="place-order">
-        <form action="solo_checkout.php" method="POST">
-            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
-            <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
-            <button type="submit" name="place_order">Buy Now</button>
-        </form>
-    </div>
+                    <div class="place-order">
+                        <form action="solo_checkout.php" method="POST">
+                            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+                            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+                            <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
+                            <button type="submit" name="place_order">Buy Now</button>
+                        </form>
+                    </div>
 
+                    <!-- Rating System -->
+					
                 </div>
                 <?php
             }
