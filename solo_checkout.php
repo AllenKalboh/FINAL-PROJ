@@ -206,55 +206,56 @@ $conn->close();
 <!-- Order Details Section -->
 <!-- Order Details Section -->
 <section class="single-product">
-    <h1>Check out Item</h1>
+    <h1>Check Out</h1>
     <form action="checkout.php" method="POST">
-        <div class="product-image-container">
-            <img src="<?= $img01Path; ?>" alt="Product Image">
-        </div>
-        <div class="product-info">
-            <p><strong>Product Name:</strong> <?= htmlspecialchars($row["product_name"]); ?></p>
-            <p><strong>Price:</strong> <span id="price" data-price="<?= htmlspecialchars($row["price"]); ?>">₱<?= htmlspecialchars($row["price"]); ?></span></p>
-            <p><strong>Description:</strong> <?= htmlspecialchars($row["description"]); ?></p>
-        </div>
-        <div class="quantity-container">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="<?= htmlspecialchars($quantity); ?>">
-        </div>
-        <!-- New Fields -->
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="method">Payment Method:</label>
-            <select id="method" name="method" required>
-                <option value="credit_card">Cash</option>
-                <option value="paypal">G-Cash</option>
-                <!-- Add other payment methods as needed -->
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" required></textarea>
-        </div>
-        <!-- New Number Field -->
-        <div class="form-group">
-            <label for="number">Phone Number:</label>
-            <input type="text" id="number" name="number" required>
-        </div>
-        <input type="hidden" name="pid" value="<?= $pid; ?>">
-        <input type="hidden" name="price" value="<?= htmlspecialchars($price); ?>">
-        <input type="hidden" name="user_id" value="<?= htmlspecialchars($user_id); ?>">
-        <input type="hidden" name="product_name" value="<?= htmlspecialchars($row["product_name"]); ?>">
-        <input type="hidden" name="total_price" id="total_price" value="0"> <!-- Initialize with a default value -->
-        <div class="submit-button">
-            <button type="submit">Place Order</button>
-        </div>
-    </form>
+    <div class="product-image-container">
+        <img src="<?= $img01Path; ?>" alt="Product Image">
+    </div>
+    <div class="product-info">
+        <p><strong>Product Name:</strong> <?= htmlspecialchars($row["product_name"]); ?></p>
+        <p><strong>Price:</strong> <span id="price" data-price="<?= htmlspecialchars($row["price"]); ?>">₱<?= htmlspecialchars($row["price"]); ?></span></p>
+        <p><strong>Description:</strong> <?= htmlspecialchars($row["description"]); ?></p>
+    </div>
+    <div class="quantity-container">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="<?= htmlspecialchars($quantity); ?>" placeholder="1">
+    </div>
+    <!-- New Fields -->
+    <div class="form-group">
+        <label for="name">Receiver Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your name or Receiver's Name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="asd@gmail.com">
+    </div>
+    <div class="form-group">
+        <label for="method">Payment Method:</label>
+        <select id="method" name="method" required>
+            <option value="credit_card">Cash</option>
+            <option value="paypal">G-Cash</option>
+            <!-- Add other payment methods as needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="address">Complete Address:</label>
+        <textarea id="address" name="address" required placeholder="Blk and Lot, Street, Subdivision, Brgy., City"></textarea>
+    </div>
+    <!-- New Number Field -->
+    <div class="form-group">
+        <label for="number">Phone Number:</label>
+        <input type="text" id="number" name="number" required placeholder="09123456789">
+    </div>
+    <input type="hidden" name="pid" value="<?= $pid; ?>">
+    <input type="hidden" name="price" value="<?= htmlspecialchars($price); ?>">
+    <input type="hidden" name="user_id" value="<?= htmlspecialchars($user_id); ?>">
+    <input type="hidden" name="product_name" value="<?= htmlspecialchars($row["product_name"]); ?>">
+    <input type="hidden" name="total_price" id="total_price" value="0"> <!-- Initialize with a default value -->
+    <div class="submit-button">
+        <button type="submit">Place Order</button>
+    </div>
+</form>
+
 </section>
 
 <?php include('footer.php'); ?>

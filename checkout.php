@@ -25,9 +25,10 @@ $total_price = isset($_POST['total_price']) ? floatval($_POST['total_price']) : 
 $user_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
 $product_name = isset($_POST['product_name']) ? trim($_POST['product_name']) : '';
 $price = isset($_POST['price']) ? floatval($_POST['price']) : 0.0;
+$number = isset($_POST['number']) ? trim($_POST['number']) : ''; // Added phone number
 
 // Check if all required fields are filled
-if (!$name || !$email || !$quantity || !$method || !$address || !$user_id || !$product_name || !$price) {
+if (!$name || !$email || !$quantity || !$method || !$address || !$user_id || !$product_name || !$price || !$number) {
     echo "<script>alert('Please fill in all required fields.'); window.location.href = 'product.php';</script>";
     exit();
 }
@@ -36,9 +37,9 @@ if (!$name || !$email || !$quantity || !$method || !$address || !$user_id || !$p
 $product_names = sprintf("%s - %dx ₱%.2f", $product_name, $quantity, $price);
 
 // Prepare and execute the query to insert order details
-$order_sql = "INSERT INTO orders (user_id, name, email, method, address, product_names, total_price, placed_on, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), 'Pending')";
+$order_sql = "INSERT INTO orders (user_id, name, email, number, method, address, product_names, total_price, placed_on, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), 'Pending')";
 $order_stmt = $conn->prepare($order_sql);
-$order_stmt->bind_param("isssssd", $user_id, $name, $email, $method, $address, $product_names, $total_price);
+$order_stmt->bind_param("issssssd", $user_id, $name, $email, $number, $method, $address, $product_names, $total_price);
 
 if ($order_stmt->execute()) {
     echo "<script>alert('Order placed successfully!'); window.location.href = 'product.php';</script>";

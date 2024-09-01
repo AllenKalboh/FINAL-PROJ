@@ -52,6 +52,7 @@ $result = $select_orders->get_result();
       <p>Status: <span><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
       <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
       <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
+      <a href="admin_orders.php?delete=<?= htmlspecialchars($fetch_orders['id']); ?>" class="delete-btn" onclick="return confirm('Delete this order?');">Delete</a>
    </div>
    <?php
        }
