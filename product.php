@@ -119,6 +119,8 @@ include ('session.php');
 </head>
 
 <style>
+
+	
 .all-products-container {
     padding: 20px;
     display: flex;
@@ -229,7 +231,48 @@ include ('session.php');
 .place-order button:hover{
     background-color: gray;
 }
-</style>
+
+		/* Common styles for the text effects */
+		.text-effect {
+    display: inline-block;
+    opacity: 0; /* Hidden initially */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+/* Fade Down Effect */
+.text-effect[data-effect="fade-down"] {
+    transform: translateY(-20px); /* Move up initially */
+}
+
+.text-effect[data-effect="fade-down"].active {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Zoom In Effect */
+.text-effect[data-effect="zoom-in"] {
+    transform: scale(0.5); /* Shrink initially */
+}
+
+.text-effect[data-effect="zoom-in"].active {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to original size */
+}
+
+	 </style>
+
+	 <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
+
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 500); // Adjust the delay as needed
+    });
+});
+	 </script>
+
 <body class="animsition">
 	
 	<!-- Header -->
@@ -516,7 +559,15 @@ include ('session.php');
 			</div>
 		</div>
 	</div>
-
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Shop
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Welcome to our shop feel free to browser our exclusive profucts.
+    </p>
+</section>	
 	
 	<!-- Product -->
 <div class="bg0 m-t-23 p-b-30">
@@ -526,9 +577,9 @@ include ('session.php');
 
 			
                 <!-- SA PART NA TO MAGPRPRINT YUNG CATEGORY LANG NG MGA PRODUCTS -->
-                 
+				
                 <section class="category">
-                    <h1 class="heading">Shop by Category</h1>
+                  
                     <div class="category-slider">
                         <div class="category-wrapper">
                             <a href="category.php?category=Serum" class="category-slide">
