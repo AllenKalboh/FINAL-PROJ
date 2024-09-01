@@ -2,8 +2,16 @@
 include('db.php');
 session_start();
 
-// Fetch completed orders including product_names
-$select_orders = $conn->prepare("SELECT id, product_ids, product_names, total_price, name, placed_on, payment_status, address, number FROM `orders` WHERE payment_status = 'Completed'");
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    die("User not logged in.");
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Fetch completed orders for the logged-in user
+$select_orders = $conn->prepare("SELECT id, product_ids, product_names, total_price, name, placed_on, payment_status, address, number FROM `orders` WHERE payment_status = 'Completed' AND user_id = ?");
+$select_orders->bind_param("i", $user_id);
 $select_orders->execute();
 $result = $select_orders->get_result();
 ?>
