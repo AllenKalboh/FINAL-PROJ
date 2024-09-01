@@ -25,7 +25,9 @@ $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
 $user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
 
 if (!$user_id) {
-    die("User not logged in.");
+    die("<script>
+            window.location.href = 'login.php';
+          </script>");
 }
 
 // Prepare and execute the query

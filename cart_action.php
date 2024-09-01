@@ -15,6 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_to_cart'])) {
+    
     // Validate and sanitize input data
     $product_id = isset($_POST['pid']) ? intval($_POST['pid']) : 0;
     $product_name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';

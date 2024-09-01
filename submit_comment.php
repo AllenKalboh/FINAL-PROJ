@@ -4,7 +4,9 @@ include('db.php');
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    echo 'You must be logged in to submit a comment.';
+    die("<script>
+            window.location.href = 'login.php';
+          </script>");
     exit;
 }
 
