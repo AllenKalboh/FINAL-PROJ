@@ -79,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify Account</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
     <script>
         function showAlert(message) {
             alert(message);

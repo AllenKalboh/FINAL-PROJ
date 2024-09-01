@@ -1,11 +1,21 @@
 <?php
-include ('db.php');
-include ('session.php');
+
+include('db.php'); // Ensure this file contains the MySQLi connection setup
+
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+   $user_id = $_SESSION['user_id'];
+} else {
+   $user_id = '';
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SkinLine About</title>
+	<title>SkinLine duplicate</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -366,7 +376,7 @@ include ('session.php');
 });
 	 </script>
 
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
         About
     </h2>
@@ -378,6 +388,7 @@ include ('session.php');
 
 
 	<!-- Content page -->
+	
 	<section class="bg0 p-t-75 p-b-120 text-justify">
 		<div class="container">
 			<div class="row p-b-148">
@@ -503,114 +514,8 @@ include ('session.php');
 .sc-btn i {
     color: inherit; /* Make sure the icon inherits the color from .sc-btn */
 }
-/* Developer Profiles Section */
-.developer-profile {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
 
-.developer-img {
-    width: 100%;
-    overflow: hidden;
-}
-
-.developer-img img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-}
-
-.developer-info {
-    padding: 20px;
-}
-
-.mtext-112 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.stext-114 {
-    font-size: 1rem;
-    color: #333;
-}
-
-.txt-center {
-    text-align: center;
-}
-
-.bg0 {
-    background-color: #fff;
-}
-
-.p-t-75 {
-    padding-top: 75px;
-}
-
-.p-b-120 {
-    padding-bottom: 120px;
-}
-
-.p-b-30 {
-    padding-bottom: 30px;
-}
-
-.p-t-18 {
-    padding-top: 18px;
-}
-
-.mtext-111 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.cl2 {
-    color: #333;
-}
-
-.cl6 {
-    color: #666;
-}
-
-	</style>
-
-	<div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="value-card">
-				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
-                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
-                    <div class="value-description">
-                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
-                    <div class="value-title">EWG Verified</div>
-                    <div class="value-description">
-                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
-                    <div class="value-title">Artificial Fragrance-Free</div>
-                    <div class="value-description">
-                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-	<!-- Developer Profiles -->
-
-	<style>
+/* sa dev team css*/
 .team-member {
     position: relative;
     overflow: hidden;
@@ -691,11 +596,6 @@ include ('session.php');
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.container {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
 .team-row {
     row-gap: 30px;
     display: flex;
@@ -709,17 +609,53 @@ include ('session.php');
     align-items: center;
 }
 
-	</style>
+
+</style>
+
+	<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="value-card">
+				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
+                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
+                    <div class="value-description">
+                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
+                    <div class="value-title">EWG Verified</div>
+                    <div class="value-description">
+                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
+                    <div class="value-title">Artificial Fragrance-Free</div>
+                    <div class="value-description">
+                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 	<div id="section2">
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        Skinlin DEV Team
+        Skinline DEV Team
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
         Meet our developers!
     </p>
 </section>	
+<br>
 <br>
     <!-- Content for section 2 -->
 	<div class="container">
@@ -800,10 +736,11 @@ include ('session.php');
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+</div>
+<br>
 	<!-- Footer -->
-	<!-- Footer -->
-	<footer class="bg3 p-t-60 p-b-25">
+			<!-- Footer -->
+			<footer class="bg3 p-t-60 p-b-25">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 text-justify">
@@ -815,7 +752,7 @@ include ('session.php');
 						<li class="p-b-10">
 							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
 							Nurturing Your Skin, One Line at a Time, Discover Endless Possibilities with Skinline
-							</s>
+							</d>
 						</li>
 
 						<li class="p-b-10">

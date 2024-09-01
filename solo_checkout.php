@@ -209,7 +209,7 @@ $conn->close();
 <!-- Order Details Section -->
 <section class="single-product">
     <h1>Check Out</h1>
-    <form action="checkout.php" method="POST">
+    <form action="chekwa.php" method="POST">
     <div class="product-image-container">
         <img src="<?= $img01Path; ?>" alt="Product Image">
     </div>

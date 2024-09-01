@@ -43,149 +43,20 @@ $result = $select_orders->get_result();
    <link rel="stylesheet" type="text/css" href="css/main.css">
    <link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="orderss.css">
+    <link rel="stylesheet" href="to-rates.css">
 
 
 </head>
 <style>
-   .box-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-.box {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    transition: transform 0.2s, box-shadow 0.2s;
   
-}
-.box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-.box p {
-    margin: 0 0 10px;
-    color: black;
-}
-.box span {
-    font-weight: bold;
-}
-.option-btn, .delete-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    color: black;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
-    text-decoration: none;
-}
-.option-btn {
-    background-color: #000000;
-    text-decoration: none;
-}
-.option-btn:hover {
-    background-color: gray;
-    color:white;
-    text-decoration: none;
-}
-.delete-btn {
-    background-color: #dc3545;
-    text-decoration: none;
-}
-.delete-btn:hover {
-    background-color: #c82333;
-    text-decoration: none;
-    color: white;
-}
-.empty {
-    text-align: center;
-    color: #777;
-    font-size: 1.2rem;
-}
-.orders-box-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.box {
-    width: 500px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    
-}
-
-.table, .table th, .table td {
-    border: 1px solid #ddd;
-    color: black;
-    
-}
-
-.table th, .table td {
-    padding: 12px;
-    text-align: left;
-    color: black;
-}
-
-.table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: black;
-}
-
-.table td {
-    color: black;
-}
-
-.subheading {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    color: black;
-    
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
 </style> 
 <!-- Header -->
 <?php include ('header.php');?>
 <body> 
 
-<section class="orders bg-info">
+<section class="orders">
     <h1 class="heading">Items to Rate</h1>
-    <div class="orders-box-container">
+    <div class="orders-box-container bg-info">
         <?php
         if ($result->num_rows > 0) {
             while ($fetch_orders = $result->fetch_assoc()) {
@@ -206,7 +77,7 @@ $result = $select_orders->get_result();
             <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
 
             <!-- Display Product Rating Form -->
-            <h2 class="subheading">Rate This Order</h2>
+            <h2 class="subheading">Rate Product/s</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -214,53 +85,62 @@ $result = $select_orders->get_result();
                         <th>Product Name</th>
                         <th>Product Price</th>
                         <th>Rating</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($product_names as $product_name) {
-                        $product_name = trim($product_name);
+    <?php
+    foreach ($product_names as $product_name) {
+        $product_name = trim($product_name);
 
-                        // Query the product details by name
-                        $product_query = $conn->prepare("SELECT id, product_name, price, img_01 FROM products WHERE product_name = ?");
-                        $product_query->bind_param("s", $product_name);
-                        $product_query->execute();
-                        $product_result = $product_query->get_result();
-                        
-                        if ($product_result->num_rows > 0) {
-                            $product = $product_result->fetch_assoc();
-                            $imgPath = 'uploads/' . basename($product['img_01']); // Path to the product image
-                    ?>
-                    <tr>
-                        <td><img src="<?= htmlspecialchars($imgPath); ?>" alt="Product Image" style="width: 100px; height: auto;"></td>
-                        <td><?= htmlspecialchars($product['product_name']); ?></td>
-                        <td>₱<?= htmlspecialchars($product['price']); ?></td>
-                        <td>
-                            <form action="rate_product.php" method="post" style="display:inline;">
-                                <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
-                                <input type="hidden" name="product_id" value="<?= htmlspecialchars($product['id']); ?>">
-                                <select name="rating" required>
-                                    <option value="">Select Rating</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                        </td>
-                        <td>
-                                <button type="submit" class="btn btn-primary">Submit Rating</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <?php
-                        }
-                        $product_query->close();
-                    }
-                    ?>
-                </tbody>
+        // Query the product details by name
+        $product_query = $conn->prepare("SELECT id, product_name, price, img_01 FROM products WHERE product_name = ?");
+        $product_query->bind_param("s", $product_name);
+        $product_query->execute();
+        $product_result = $product_query->get_result();
+        
+        if ($product_result->num_rows > 0) {
+            $product = $product_result->fetch_assoc();
+            $imgPath = 'uploads/' . basename($product['img_01']); // Path to the product image
+    ?>
+    <tr>
+        <td><img src="<?= htmlspecialchars($imgPath); ?>" alt="Product Image"></td>
+        <td><?= htmlspecialchars($product['product_name']); ?></td>
+        <td>₱<?= htmlspecialchars($product['price']); ?></td>
+        <td>
+            <!-- Button to open the modal -->
+            <button type="button" class="btn btn-primary open-modal-btn" data-product-id="<?= htmlspecialchars($product['id']); ?>" data-order-id="<?= htmlspecialchars($fetch_orders['id']); ?>">Rate</button>
+        </td>
+       
+           
+        </td>
+    </tr>
+    <?php
+        }
+        $product_query->close();
+    }
+    ?>
+</tbody>
             </table>
+        </div>
+
+        <div id="ratingModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Rate the Product</h2>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" title="1 star">&#9733;</label>
+                </div>
+                <button type="button" class="btn btn-primary" id="submitRatingBtn">Submit Rating</button>
+            </div>
         </div>
         <?php
             }
@@ -274,18 +154,79 @@ $result = $select_orders->get_result();
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
 </body>
+
+<script>
+// Get modal elements
+const modal = document.getElementById("ratingModal");
+const openModalBtns = document.querySelectorAll(".open-modal-btn");
+const closeModalBtn = document.querySelector(".close-btn");
+const submitRatingBtn = document.getElementById("submitRatingBtn");
+
+// Open modal and set product ID
+openModalBtns.forEach(button => {
+    button.onclick = function() {
+        const productId = this.getAttribute("data-product-id");
+        const orderId = this.getAttribute("data-order-id");
+        modal.setAttribute("data-product-id", productId);
+        modal.setAttribute("data-order-id", orderId);
+        modal.classList.add("show"); // Show with fade-in effect
+    }
+});
+
+// Close modal
+closeModalBtn.onclick = function() {
+    modal.classList.remove("show"); // Hide with fade-out effect
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.classList.remove("show"); // Hide with fade-out effect
+    }
+}
+
+// Handle star rating selection
+const stars = document.querySelectorAll(".star-rating input");
+stars.forEach(star => {
+    star.addEventListener("change", function() {
+        const rating = this.value;
+        console.log("Selected rating:", rating); // For debugging
+    });
+});
+
+// Handle submit rating button
+submitRatingBtn.onclick = function() {
+    const selectedStar = document.querySelector(".star-rating input:checked");
+    if (selectedStar) {
+        const rating = selectedStar.value;
+        const productId = modal.getAttribute("data-product-id");
+        const orderId = modal.getAttribute("data-order-id");
+        
+        fetch('rate_product.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'order_id': orderId,
+                'product_id': productId,
+                'rating': rating
+            })
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result);
+            modal.classList.remove("show"); // Hide with fade-out effect after submission
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } else {
+        alert("Please select a rating before submitting.");
+    }
+}
+</script>
 <?php include ('footer.php'); ?>
 
 
