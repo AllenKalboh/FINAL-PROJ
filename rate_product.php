@@ -19,18 +19,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Invalid input.");
     }
 
-    // Prepare and execute SQL query to insert rating into user_ratings
-    $stmt = $conn->prepare("INSERT INTO user_ratings (user_id, product_id, rating) VALUES (?, ?, ?)");
-    $stmt->bind_param("iii", $user_id, $product_id, $rating);
+    // Start transaction
+    $conn->begin_transaction();
 
-    if ($stmt->execute()) {
-        // Optionally, update the rating in the products table or perform other actions
-        echo "Rating submitted successfully.";
-    } else {
-        echo "Error: " . $stmt->error;
+    try {
+        // Insert rating into user_ratings table
+        $stmt = $conn->prepare("INSERT INTO user_ratings (user_id, product_id, rating) VALUES (?, ?, ?)");
+        $stmt->bind_param("iii", $user_id, $product_id, $rating);
+        if (!$stmt->execute()) {
+            throw new Exception("Error inserting rating into user_ratings: " . $stmt->error);
+        }
+        $stmt->close();
+
+        // Calculate new average rating for the product
+        $stmt = $conn->prepare("SELECT AVG(rating) AS avg_rating FROM user_ratings WHERE product_id = ?");
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $average_rating = $row['avg_rating'];
+        $stmt->close();
+
+        // Update product rating in the products table
+        $stmt = $conn->prepare("UPDATE products SET rating = ? WHERE id = ?");
+        $stmt->bind_param("di", $average_rating, $product_id);
+        if (!$stmt->execute()) {
+            throw new Exception("Error updating product rating in products table: " . $stmt->error);
+        }
+        $stmt->close();
+
+        // Commit transaction
+        $conn->commit();
+        echo "Rating submitted and updated successfully.";
+    } catch (Exception $e) {
+        // Rollback transaction in case of error
+        $conn->rollback();
+        echo "Error: " . $e->getMessage();
     }
-
-    $stmt->close();
 }
 
 $conn->close();
