@@ -256,7 +256,6 @@ include ('session.php');
             margin-top: 5px;
         }
 
-		/* Media Queries for responsiveness */
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .step-container {
