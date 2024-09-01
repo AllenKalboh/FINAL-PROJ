@@ -1,0 +1,295 @@
+  
+    /* Include your existing CSS here */
+    .bc{
+        margin-left: 10%;
+     }
+     .heading {
+        border: solid black 1px;
+        display: flex;
+        justify-content: center; /* Center align the whole section */
+        padding: 20px;
+        background-color: #fff; /* Optional: Background color for better visibility */
+        border-radius: 8px; /* Optional: Rounded corners */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: Shadow for depth */
+    }
+    
+    /* Container for Content and Images */
+    .content-container {
+        display: flex;
+        justify-content: space-between; /* Space between image and content */
+        width: 100%;
+        max-width: 1200px; /* Adjust as needed */
+        margin: 0 auto; /* Center align horizontally */
+    }
+    
+    /* Image Container Styling */
+    .image-container {
+        position: relative;
+        width: 50%; /* Adjust width as needed */
+    }
+    
+    /* Navigation Buttons */
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+    
+    .left {
+        left: 10px;
+    }
+    
+    .right {
+        right: 10px;
+    }
+    
+    /* Image Wrapper and Main Image */
+    .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-image {
+        width: 100%;
+        max-width: 500px; /* Adjust based on design */
+        margin-bottom: 15px;
+    }
+    
+    .main-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        border: solid black 1px;
+    }
+    
+    /* Thumbnails Styling */
+    .sub-image {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: center; /* Center align thumbnails */
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border 0.3s ease;
+        border-radius: 4px;
+        border: solid black 1px;
+    }
+    
+    .thumbnail.selected {
+        border: 2px solid #333;
+    }
+    
+    /* Details Container Styling */
+    .details-container {
+        width: 50%; /* Adjust width as needed */
+        padding: 0 20px;
+        color: black;
+    }
+    
+    /* Heading Title Styling */
+    .heading-title {
+        display: flex;
+        justify-content: space-between; /* Space between title and product name */
+        margin-bottom: 20px;
+    }
+    
+    .heading-title h1 {
+        margin: 0;
+    }
+    
+    .product-name {
+        font-size: 18px;
+        color: #333;
+        align-self: flex-start; /* Align product name to the top */
+    }
+    
+    /* Content Styling */
+    .content {
+        text-align: left; /* Align text to the left */
+    }
+    
+    .name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .price {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .details {
+        font-size: 16px;
+        color: black;
+        margin-bottom: 20px;
+    }
+    
+    /* Add to Cart and Place Order Styling */
+    .add-to-cart, .place-order {
+        margin-top: 5px;
+    }
+    
+    .add-to-cart form, .place-order form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align form elements to the left */
+    }
+    
+    .add-to-cart button, .place-order button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #000;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .add-to-cart button:hover, .place-order button:hover {
+        background-color: gray;
+    }
+    .comments-section {
+        margin-top: 30px;
+        border: solid black 1px;
+        padding: 20px;
+        border-radius: 20px;
+        color: black;
+        margin-bottom: 20px;
+    }
+    
+    .comments-list {
+        margin-bottom: 20px;
+    }
+    
+    .comment {
+        position: relative; /* Position relative for absolute positioning of delete button */
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+    
+    .comment-header {
+        display: flex;
+        align-items: flex-start; /* Align items at the top */
+        gap: 10px;
+        width: 100%; /* Full width to handle positioning */
+    }
+    
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+    }
+    
+    .comment-body {
+        max-width: 600px;
+        position: relative; /* For positioning the delete button */
+        padding-right: 50px; /* Space for the delete button */
+    }
+    
+    .comment p {
+        margin: 0;
+        color: black;
+    }
+    
+    .comment small {
+        display: block;
+        color: #888;
+        margin-top: 5px;
+    }
+    
+    /* Delete Button */
+    .delete-button {
+        display: none; /* Hide by default */
+        position: absolute;
+        right: 0; /* Align to the right */
+        top: 0; /* Align to the top */
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #ff0000; /* Red color for the trash icon */
+    }
+    
+    /* Show Delete Button on Hover */
+    .comment:hover .delete-button {
+        display: inline;
+    }
+    
+    /* Comment Form */
+    .comment-form {
+        margin-top: 20px;
+    }
+    
+    .comment-form form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .comment-form label {
+        margin-bottom: 5px;
+    }
+    
+    .comment-form textarea {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        resize: vertical;
+        border: 1px solid black;
+    }
+    
+    .comment-form button {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #000;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .comment-form button:hover {
+        background-color: gray;
+    }
+    
+    .qty-inp {
+        width: 50px;
+    }
+    
+    #quantity {
+        border: solid black 2px;
+        font-size: 32px;
+    }
+    
+    #rating {
+        border: solid black 2px;
+        font-size: 32px;
+    }
+    

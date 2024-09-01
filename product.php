@@ -638,17 +638,35 @@ if (isset($_SESSION['status'])) {
                 $img01Path = 'uploads/' . basename($fetch_product['img_01']);
                 ?>
                 <div class="swiper-slide">
-                    <form action="cart_action.php" method="post">
-                        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-                        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
-                        <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
-                        <a href="comment-sec.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
-                        <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
-                        <input type="number" name="quantity" value="1" min="1" class="quantity">
-                        <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
-                    </form>
+				<form id="addToCartForm" action="cart_action.php" method="post">
+        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+        <input type="hidden" name="image" value="<?= htmlspecialchars($fetch_product['img_01']); ?>">
+        <a href="comment-sec.php?pid=<?= htmlspecialchars($fetch_product['id']); ?>" class="fas fa-eye" style="color: black; font-size: 32px; margin-bottom: 10px;"></a>
+        <img src="<?= $img01Path; ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+        <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+        <input type="number" name="quantity" value="1" min="1" class="quantity">
+        <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
+    </form>
+
+    <script>
+        document.getElementById('addToCartForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            var form = event.target;
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('1 item added to cart');
+                    // Optionally redirect or update the UI
+                    // window.location.href = 'product.php'; // Redirect if needed
+                }
+            };
+            xhr.send(new FormData(form));
+        });
+    </script>
 
                     <div class="place-order">
                         <form action="solo_checkout.php" method="POST">

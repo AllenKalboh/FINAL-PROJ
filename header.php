@@ -1,25 +1,34 @@
 
 	<!-- Header -->
 	<header class="header-v4">
-		<!-- Header desktop -->
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱500
+						Free shipping for standard order over ₱1,000
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
+						<?php
+							if (isset($_SESSION['username'])) {
+							
+						?>
 						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
 							My Account
 						</a>
-
-						
+						<?php
+						} else {
+						?>
+						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>

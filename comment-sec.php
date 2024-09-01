@@ -1,3 +1,28 @@
+<?php
+    include('db.php');
+    session_start(); // Ensure the session is started
+
+    // Check if the 'pid' parameter is present in the URL
+    if (isset($_GET['pid'])) {
+        $pid = $_GET['pid'];
+        
+        // Prepare the query using MySQLi
+        $stmt = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
+        $stmt->bind_param("i", $pid);
+        $stmt->execute();
+        
+        // Get the result
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            while ($fetch_product = $result->fetch_assoc()) {
+                // Construct image paths using correct column names
+                $img01Path = 'uploads/' . basename($fetch_product["img_01"]);
+                $img02Path = 'uploads/' . basename($fetch_product["img_02"]);
+                $img03Path = 'uploads/' . basename($fetch_product["img_03"]);
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,303 +51,10 @@
         </div>
     </div>
     <?php include('head.php'); ?>
-<style>
-    
-    /* Include your existing CSS here */
- .bc{
-    margin-left: 10%;
- }
- .heading {
-    border: solid black 1px;
-    display: flex;
-    justify-content: center; /* Center align the whole section */
-    padding: 20px;
-    background-color: #fff; /* Optional: Background color for better visibility */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: Shadow for depth */
-}
+<link rel="stylesheet" href="comment-sec.css">
+<body>
 
-/* Container for Content and Images */
-.content-container {
-    display: flex;
-    justify-content: space-between; /* Space between image and content */
-    width: 100%;
-    max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto; /* Center align horizontally */
-}
-
-/* Image Container Styling */
-.image-container {
-    position: relative;
-    width: 50%; /* Adjust width as needed */
-}
-
-/* Navigation Buttons */
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 4px;
-    font-size: 20px;
-}
-
-.left {
-    left: 10px;
-}
-
-.right {
-    right: 10px;
-}
-
-/* Image Wrapper and Main Image */
-.image-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.main-image {
-    width: 100%;
-    max-width: 500px; /* Adjust based on design */
-    margin-bottom: 15px;
-}
-
-.main-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    border: solid black 1px;
-}
-
-/* Thumbnails Styling */
-.sub-image {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center; /* Center align thumbnails */
-}
-
-.thumbnail {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s ease;
-    border-radius: 4px;
-    border: solid black 1px;
-}
-
-.thumbnail.selected {
-    border: 2px solid #333;
-}
-
-/* Details Container Styling */
-.details-container {
-    width: 50%; /* Adjust width as needed */
-    padding: 0 20px;
-    color: black;
-}
-
-/* Heading Title Styling */
-.heading-title {
-    display: flex;
-    justify-content: space-between; /* Space between title and product name */
-    margin-bottom: 20px;
-}
-
-.heading-title h1 {
-    margin: 0;
-}
-
-.product-name {
-    font-size: 18px;
-    color: #333;
-    align-self: flex-start; /* Align product name to the top */
-}
-
-/* Content Styling */
-.content {
-    text-align: left; /* Align text to the left */
-}
-
-.name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.price {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.details {
-    font-size: 16px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-/* Add to Cart and Place Order Styling */
-.add-to-cart, .place-order {
-    margin-top: 5px;
-}
-
-.add-to-cart form, .place-order form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align form elements to the left */
-}
-
-.add-to-cart button, .place-order button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #000;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-to-cart button:hover, .place-order button:hover {
-    background-color: gray;
-}
-.comments-section {
-    margin-top: 30px;
-    border: solid black 1px;
-    padding:20px;
-    border-radius: 20px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.comments-list {
-    margin-bottom: 20px;
-}
-
-.comment {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.comment-header {
-    display: flex;
-    gap: 10px;
-    
-}
-
-.profile-pic {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-}
-
-.comment-body {
-    max-width: 600px;
-    
-}
-
-.comment p {
-    margin: 0;
-    color: black;
-}
-
-.comment small {
-    display: block;
-    color: #888;
-    margin-top: 5px;
-}
-
-.comment-form {
-    margin-top: 20px;
-}
-
-.comment-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.comment-form label {
-    margin-bottom: 5px;
-}
-
-.comment-form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    resize: vertical;
-    border: 1px solid black;
-}
-
-.comment-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #000;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.comment-form button:hover {
-    background-color: gray;
-}
-.qty-inp{
-    width: 50px;
-
-}
-#quantity{
-    border: solid black 2px;
-    font-size: 32px;
-}
-#rating {
-    border: solid black 2px;
-    font-size: 32px;
-}
-    </style>
-    
-    <body>
     <div class="container">
-    <?php
-    include('db.php');
-
-    // Check if the 'pid' parameter is present in the URL
-    if (isset($_GET['pid'])) {
-        $pid = $_GET['pid'];
-        
-        // Prepare the query using MySQLi
-        $stmt = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
-        $stmt->bind_param("i", $pid);
-        $stmt->execute();
-        
-        // Get the result
-        $result = $stmt->get_result();
-        
-        if ($result->num_rows > 0) {
-            while ($fetch_product = $result->fetch_assoc()) {
-                // Construct image paths using correct column names
-                $img01Path = 'uploads/' . basename($fetch_product["img_01"]);
-                $img02Path = 'uploads/' . basename($fetch_product["img_02"]);
-                $img03Path = 'uploads/' . basename($fetch_product["img_03"]);
-    ?>
     <section class="heading">
         <div class="content-container">
             <!-- Image Container -->
@@ -404,52 +136,56 @@
     <section class="comments-section">
     <h2>Comments</h2>
     <div class="comments-list">
-        <?php
-        // Fetch comments, user names, and profile pictures
-        $comment_stmt = $conn->prepare("
-            SELECT comments.comment, comments.created_at, users.username, users.profile_picture 
-            FROM comments
-            JOIN users ON comments.user_id = users.user_id
-            WHERE comments.pid = ? 
-            ORDER BY comments.created_at DESC
-        ");
-        $comment_stmt->bind_param("i", $pid);
-        $comment_stmt->execute();
-        $comment_result = $comment_stmt->get_result();
-        
-        if ($comment_result->num_rows > 0) {
-            while ($comment = $comment_result->fetch_assoc()) {
-                $profilePic = !empty($comment['profile_picture']) ? htmlspecialchars($comment['profile_picture']) : 'images/default-profile.png';
-                echo '<div class="comment">';
-                echo '<div class="comment-header">';
-                echo '<img src="' . $profilePic . '" alt="Profile Picture" class="profile-pic">';
-                echo '<div class="comment-body">';
-                echo '<p><strong>' . htmlspecialchars($comment['username']) . ':</strong></p>';
-                echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
-                echo '<small>Posted on ' . htmlspecialchars($comment['created_at']) . '</small>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-            }
-        } else {
-            echo '<p>No comments yet.</p>';
-        }
+    <?php
+    // Fetch comments, user names, and profile pictures
+    $comment_stmt = $conn->prepare("
+        SELECT comments.id, comments.comment, comments.created_at, users.username, users.profile_picture, comments.user_id
+        FROM comments
+        JOIN users ON comments.user_id = users.user_id
+        WHERE comments.pid = ? 
+        ORDER BY comments.created_at DESC
+    ");
+    $comment_stmt->bind_param("i", $pid);
+    $comment_stmt->execute();
+    $comment_result = $comment_stmt->get_result();
+    
+    $currentUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 
-        $comment_stmt->close();
-        ?>
+    if ($comment_result->num_rows > 0) {
+        while ($comment = $comment_result->fetch_assoc()) {
+            $profilePic = !empty($comment['profile_picture']) ? htmlspecialchars($comment['profile_picture']) : 'images/default-profile.png';
+            $isOwner = $currentUserId == $comment['user_id'];
+            echo '<div class="comment">';
+            echo '<div class="comment-header">';
+            echo '<img src="' . $profilePic . '" alt="Profile Picture" class="profile-pic">';
+            echo '<div class="comment-body">';
+            echo '<p><strong>' . htmlspecialchars($comment['username']) . ':</strong></p>';
+            echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
+            echo '<small class="comment-time">Posted on ' . htmlspecialchars($comment['created_at']) . '</small>';
+            if ($isOwner) {
+                echo '<button type="button" class="delete-button" data-comment-id="' . htmlspecialchars($comment['id']) . '">&#128465;</button>';
+            }
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+    } else {
+        echo '<p>No comments yet.</p>';
+    }
+
+    $comment_stmt->close();
+    ?>
     </div>
     <div class="comment-form">
         <h3>Leave a Comment:</h3>
         <form action="submit_comment.php" method="POST">
             <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-            <!-- User info is pulled from the session, so no need to input name -->
             <label for="comment">Comment:</label>
             <textarea id="comment" name="comment" rows="4" required></textarea>
             <button type="submit">Submit Comment</button>
         </form>
     </div>
 </section>
-
 
 <script>
     let currentIndex = 0;
@@ -526,4 +262,48 @@ $conn->close();
     }
     </script>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const commentSection = document.querySelector('.comments-list');
+
+    commentSection.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains('delete-button')) {
+            const commentId = event.target.dataset.commentId;
+
+            fetch('delete_comment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    comment_id: commentId
+                    // Optionally, you can pass additional parameters if needed
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    // Remove the comment from the DOM
+                    event.target.closest('.comment').remove();
+                    alert(data.message); // Notify user of success
+                } else {
+                    alert(data.message); // Display error message
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the comment.');
+            });
+        }
+    });
+});
+</script>
+
+
 <?php include ('footer.php');
