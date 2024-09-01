@@ -8,6 +8,8 @@ include ('session.php');
 	<title>SkinLine Help & Faqs</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
 <!--===============================================================================================-->	
 <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 <!--===============================================================================================-->
@@ -32,6 +34,7 @@ include ('session.php');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
 <!--===============================================================================================-->
 
 </head>
