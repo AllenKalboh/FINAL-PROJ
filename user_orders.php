@@ -100,7 +100,7 @@ $conn->close();
     <title>Checkout Form</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/inverted.png"/>
+    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
@@ -113,9 +113,12 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="user_orderss.css">
+	<link rel="stylesheet" href="user_orders.css">
 </head>
 <style>
+
+
+
 /* General styling for the button */
 .place-order-btn {
     background-color: black; /* Default background color */
@@ -160,16 +163,24 @@ $conn->close();
                     </div>
                 </div>
             </div>
+
+            
             <div class="wrap-menu-desktop how-shadow1">
                 <nav class="limiter-menu-desktop container">
-                    <a href="index.php" class="logo">
-                        <img src="images/logoshet.png" alt="Logo">
-                    </a>
+<!-- Logo desktop -->		
+<a href="index.php" class="logo">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
+					</a>
                     <div class="menu-desktop">
                         <ul class="main-menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="product.php">Shop</a></li>
                             <li><a href="about.php">About</a></li>
+                            <li><a href="tutorial.php">SkinHub</a></li>
+							<li><a href="contact.php">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -406,10 +417,12 @@ $conn->close();
 							</a>
 						</li>
 
-						</ul>
-					<p class="stext-107 cl7 size-201 p-b-10">
-						Follow us
-					</p>
+						
+                        <li class="p-b-10">
+							<a class="stext-107 cl7 hov-cl1 trans-04" style="color: #ababab">
+							Follow Us 
+							</a>
+                            </ul>
 
 					<div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61564942100112" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
@@ -454,15 +467,20 @@ $conn->close();
 							</a>
 						</li>
 
-						<li class="p-b-16">
+						<li class="p-b-44">
 							<a href="termsofservice.php" class="stext-107 cl7 hov-cl1 trans-04">
 								Terms of Service
 							</a>
 
-							<a href="https://maps.app.goo.gl/D8WoExssGoSUVhs29" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8">
-							<p class="stext-112 m-t-40 cl7 size-201 p-b-10"> <i class="fa-solid fa-location-pin"> </i> Trece Martires, Cavite </p> 
-        </a>
+						
+                            <li class="p-b-10">
+                            <a href="https://maps.app.goo.gl/D8WoExssGoSUVhs29" class="fs-24 cl3 hov-cl0 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 stext-112 m-t-40 cl7 size-201 p-b-20" style="color: #ababab;">
+                            <i class="fa-solid fa-location-pin"> </i>
+                            Trece Martires, Cavite 
+                            </a>    
+							 
 							
+					
 						</li>
 						</ul>
 					</div>

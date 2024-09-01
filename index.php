@@ -517,9 +517,8 @@ document.addEventListener('DOMContentLoaded', function() {
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="index.php">Home</a>
-								
 							</li>
-
+							
 							<li>
 								<a href="product.php">Shop</a>
 							</li>
