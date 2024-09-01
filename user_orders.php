@@ -16,6 +16,7 @@ $grand_total = 0;
 
 // Fetch cart items
 $cart_items = [];
+$product_ids = []; // Array to store product IDs
 $sql = "SELECT * FROM `cart` WHERE user_id = ?";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param("i", $user_id);
@@ -27,8 +28,12 @@ if ($stmt = $conn->prepare($sql)) {
             $cart_items[] = $row;
             $total_products += $row['quantity'];
             $total_price += $row['price'] * $row['quantity'];
+            $product_ids[] = $row['product_id']; // Collect product IDs
         }
         $grand_total = $total_price;
+
+        // Limit to the first 2 product IDs
+        $product_ids = array_slice($product_ids, 0, 2);
     } else {
         $message[] = 'Your cart is empty.';
     }
@@ -36,6 +41,9 @@ if ($stmt = $conn->prepare($sql)) {
 } else {
     $message[] = 'Failed to check cart.';
 }
+
+// Convert product_ids array to a comma-separated string
+$product_ids_string = implode(',', $product_ids);
 
 // Handle order placement
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
@@ -51,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 
     if ($total_products > 0) {
         // Insert order into the database
-        $insert_order = $conn->prepare("INSERT INTO `orders` (user_id, name, number, email, method, address, product_names, total_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $insert_order = $conn->prepare("INSERT INTO `orders` (user_id, name, number, email, method, address, product_names, product_ids, total_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($insert_order) {
-            $insert_order->bind_param("issssssi", $user_id, $name, $number, $email, $method, $address, $product_names, $total_price);
+            $insert_order->bind_param("issssssis", $user_id, $name, $number, $email, $method, $address, $product_names, $product_ids_string, $total_price);
             $insert_order->execute();
 
             // Check if the order was inserted successfully
@@ -85,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
