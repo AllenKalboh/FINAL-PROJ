@@ -52,9 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->commit();
         echo "Rating submitted and updated successfully.";
     } catch (Exception $e) {
-        // Rollback transaction in case of error
-        $conn->rollback();
-        echo "Error: " . $e->getMessage();
+        echo "User can only rate once per product";
     }
 }
 
