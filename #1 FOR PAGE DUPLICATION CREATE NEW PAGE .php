@@ -1,11 +1,21 @@
 <?php
-include ('db.php');
-include ('session.php');
+
+include('db.php'); // Ensure this file contains the MySQLi connection setup
+
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+   $user_id = $_SESSION['user_id'];
+} else {
+   $user_id = '';
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SkinLine About</title>
+	<title>SkinLine duplicate</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -368,438 +378,22 @@ include ('session.php');
 
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        About
+        Orders
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Get to know more about us.
+        Know more your orders here!
     </p>
 </section>	
 
 
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120 text-justify">
-		<div class="container">
-			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-						About Skinline
-						</h3>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs. At Skinline, we are dedicated to more than just selling products; we aim to be your trusted source of information and inspiration in the world of skincare.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						What sets Skinline apart is our commitment to going beyond the traditional e-commerce experience. We not only offer a wide range of skincare products that cater to different skin types and conditions, but we also provide valuable insights, tutorials, guides, and instructions to help you make informed decisions.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						At Skinline, we believe that skincare is a journey, and we're here to support you at every stage. Our community of skincare enthusiasts and experts is here to share knowledge, explore new techniques, and stay updated with the latest in skincare innovation.
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Explore. Discover. Transform. Join Skinline today and let us help you achieve the healthy, radiant skin you deserve.
-						</p>
-					</div>
-				</div>
-
-				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
-					<div class="how-bor1 ">
-						<div class="hov-img0">
-							<img src="images/Banners/loginbanner.png" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
-					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
-						<h3 class="mtext-111 cl2 p-b-16 text-effect" data-effect="zoom-in">
-							Our Mission
-						</h3>
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						Our mission is to empower users with the wisdom and tools needed to nurture your skin’s natural beauty. We recognize that skincare is a deep personal journey, deserving thoughtful guidance and which is why we are committed to providing more than just products. Whether addressing specific concerns or refining your daily routine, our curated product lines and expert insights are designed to accompany, guide and support you at every step
-						</p>
-
-						<p class="stext-113 cl6 p-b-26 text-effect" data-effect="fade-down">
-						We are more than a skincare brand; we are a community where knowledge and beauty intertwine. Our aspiration is to be your trusted companion on the path to radiant, healthy skin, inspiring you to explore, discover, and evolve with every step.
-						</p>
-
-						<div class="bor16 p-l-29 p-b-9 m-t-22 text-effect" data-effect="fade-down">
-							<p class="stext-114 cl6 p-r-40 p-b-11 text-effect" data-effect="fade-down">
-							“Great skin doesn't happen by chance; it happens by making informed choices.”
-							</p>
-
-							<span class="stext-111 cl8 text-effect" data-effect="zoom-in">
-								- SkinLine
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
-					<div class="how-bor2">
-						<div class="hov-img0">
-							<img src="images/Banners/aboutskin.jpg" alt="IMG">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>	
 	
 	<style>
-/* sa ano to vegan free emerut*/
-.servicon {
-	filter: invert(0) grayscale(100%) brightness(0) contrast(100%);
-    /* Adjust the filter values to get the desired color effect */
-}
-.value-card {
-    padding: 20px;
-	margin-bottom: 25px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
 
-.value-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.value-card img {
-    width: 60px;
-    margin-bottom: 20px;
-}
-
-.value-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    }
-
-.value-description {
-    font-size: 1rem;
-    color: #6c757d;
-	text-align: justify;
-}
-.sc-btn {
-    font-size: 32px;
-    color: black; /* Initial color */
-    text-decoration: none; /* Remove underline from links */
-    padding: 10px 20px; /* Optional padding for better click area */
-    display: inline-block; /* Ensure the button aligns properly */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
-
-.sc-btn:hover {
-    color: rgb(107, 107, 107); /* Color on hover */
-}
-
-.sc-btn i {
-    color: inherit; /* Make sure the icon inherits the color from .sc-btn */
-}
-/* Developer Profiles Section */
-.developer-profile {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.developer-img {
-    width: 100%;
-    overflow: hidden;
-}
-
-.developer-img img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-}
-
-.developer-info {
-    padding: 20px;
-}
-
-.mtext-112 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.stext-114 {
-    font-size: 1rem;
-    color: #333;
-}
-
-.txt-center {
-    text-align: center;
-}
-
-.bg0 {
-    background-color: #fff;
-}
-
-.p-t-75 {
-    padding-top: 75px;
-}
-
-.p-b-120 {
-    padding-bottom: 120px;
-}
-
-.p-b-30 {
-    padding-bottom: 30px;
-}
-
-.p-t-18 {
-    padding-top: 18px;
-}
-
-.mtext-111 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.cl2 {
-    color: #333;
-}
-
-.cl6 {
-    color: #666;
-}
 
 	</style>
 
-	<div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="value-card">
-				<img src="images/icons/bunny.svg" class="servicon" alt="PETA Vegan & Cruelty-Free">
-                    <div class="value-title">PETA Vegan & Cruelty-Free</div>
-                    <div class="value-description">
-                        At SkinLine, we believe in beauty with a conscience. Our skincare products are crafted with the utmost care, using only natural, cruelty-free ingredients. We are proud to be certified by PETA, ensuring that our products are both vegan and cruelty-free.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/plant.svg" class="servicon" alt="EWG Verified">
-                    <div class="value-title">EWG Verified</div>
-                    <div class="value-description">
-                        SkinLine's commitment to safety is paramount. Our products are EWG Verified, meaning they meet the Environmental Working Group’s strict criteria for transparency and health. We use only the cleanest ingredients, ensuring that each product is gentle and safe for all skin types.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="value-card">
-                    <img src="images/icons/fragrance.svg" class="servicon" alt="Artificial Fragrance-Free">
-                    <div class="value-title">Artificial Fragrance-Free</div>
-                    <div class="value-description">
-                        We embrace the essence of nature. SkinLine products are free from artificial fragrances, allowing the natural ingredients to shine through. Enjoy the subtle, authentic scents derived from pure botanicals and essential oils, providing a luxurious and natural skincare experience.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-	<!-- Developer Profiles -->
-
-	<style>
-.team-member {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centering content horizontally */
-    justify-content: space-between; /* Distributes space between content */
-    margin-bottom: 30px;
-    width: 100%; /* Ensures the container fits the column width */
-    max-width: 350px; /* Fixed width for uniform size */
-    height: 450px; /* Fixed height for uniform size */
-    box-sizing: border-box; /* Ensures padding and border are included in the size */
-}
-
-.team-member img {
-    width: 150px; /* Fixed image size */
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    object-fit: cover; /* Ensures the image covers the circle */
-    transition: transform 0.3s ease; /* Smooth zoom-in effect */
-    border: 3px solid #dcdcdc; /* Grey border for images */
-}
-
-.team-member img:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-}
-
-.team-member h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.team-member p.role {
-    font-size: 0.9rem; /* Smaller font size for the role */
-    color: #666; /* Greyish color for the role */
-    margin-bottom: 15px;
-}
-
-.team-member p.description {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
-    text-align: justify; /* Justify the text */
-}
-
-.team-member .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.team-member .social-icons a {
-    color: #fff;
-    background-color: #333;
-    border-radius: 50%;
-    width: 30px; /* Social icons size */
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.team-member .social-icons a:hover {
-    background-color: #555;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.container {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.team-row {
-    row-gap: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center all columns in the row */
-}
-
-.centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-	</style>
-	<div id="section2">
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
-    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        Skinlin DEV Team
-    </h2>
-    <br>
-    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Meet our developers!
-    </p>
-</section>	
-<br>
-    <!-- Content for section 2 -->
-	<div class="container">
-    <div class="row team-row">
-        <!-- Team Member 1 -->
-        <div class="col-md-4">
-            <div class="team-member">
-                <img src="images/01 devs/allen.jpg" alt="Patrick Allen" class="text-effect" data-effect="zoom-in">
-                <h4 class="name text-effect" data-effect="fade-down">Patrick Allen</h4>
-                <p class="role text-effect" data-effect="zoom-in">Back-End Developer</p>
-                <p class="description text-effect" data-effect="fade-down"> A skilled back-end developer adept at handling complex technical challenges. Ensure Skinline’s smooth operation by managing server-side logic, databases, and application functionality. Focuses on precision & efficiency which are crucial for a reliable user experience.</p>
-                <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:patrick@skinline.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Team Member 2 -->
-        <div class="col-md-4">
-            <div class="team-member">
-                <img src="images/01 devs/ced.jpg" alt="Cedrique Alvarez" class="text-effect" data-effect="zoom-in">
-				<h4 class="name text-effect" data-effect="fade-down">Cedrique Alvarez</h4>
-                <p class="role text-effect" data-effect="zoom-in">Website Designer</p>
-                <p class="description text-effect" data-effect="fade-down">A creative designer responsible for crafting Skinline’s visuals and user interface. Excels in converting innovative ideas into functional, engaging designs that balance aesthetics with usability. Ensures a cohesive user experience, enhancing overall look & feel of the website.</p>
-                <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:cedrique@skinline.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Team Member 3 -->
-        <div class="col-md-4">
-            <div class="team-member">
-                <img src="images/01 devs/jezreel.jpg" alt="Jezreel Peralta" class="text-effect" data-effect="zoom-in">
-				<h4 class="name text-effect" data-effect="fade-down">Jezreel Peralta</h4>
-                <p class="role text-effect" data-effect="zoom-in">Back-End Developer</p>
-                <p class="description text-effect" data-effect="fade-down">Proficient in building and optimizing back-end systems, this developer maintains Skinline’s performance and security. Create scalable solutions and ensure the website operates efficiently, meeting high reliability standards.</p>
-                <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:jezreel@skinline.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Team Member 4 -->
-        <div class="col-md-4 centered">
-            <div class="team-member">
-                <img src="images/01 devs/aaron.jpg" alt="Aaron de Raya" class="text-effect" data-effect="zoom-in">
-				<h4 class="name text-effect" data-effect="fade-down">Aaron de Raya</h4>
-                <p class="role text-effect" data-effect="zoom-in">Interface Designer</p>
-                <p class="description text-effect" data-effect="fade-down">An interface designer focused on creating user-friendly and visually engaging layouts. works on intuitive design elements that enhance navigation and user interaction, contributing to an enjoyable website experience.</p>
-                <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:aaron@skinline.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Team Member 5 -->
-        <div class="col-md-4 centered">
-            <div class="team-member">
-                <img src="images/01 devs/sairon.jpg" alt="Sairon Manalad" class="text-effect" data-effect="zoom-in">
-				<h4 class="name text-effect" data-effect="fade-down">Sairon Manalad</h4>
-                <p class="role text-effect" data-effect="zoom-in">Graphic Designer</p>
-                <p class="description text-effect" data-effect="fade-down">A creative graphic designer responsible for producing visually compelling content that supports Skinline’s brand. Designs graphics for various platforms, ensuring a cohesive and attractive visual identity.</p>
-                <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:sairon@skinline.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<!-- Footer -->
 	<!-- Footer -->
@@ -815,7 +409,7 @@ include ('session.php');
 						<li class="p-b-10">
 							<a class="stext-107  text-secondary cl7 hov-cl1 trans-04 ">
 							Nurturing Your Skin, One Line at a Time, Discover Endless Possibilities with Skinline
-							</s>
+							</>
 						</li>
 
 						<li class="p-b-10">
