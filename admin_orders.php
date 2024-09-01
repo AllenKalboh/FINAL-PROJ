@@ -11,7 +11,8 @@ if (isset($_POST['update_payment'])) {
 
     // Use prepared statements to prevent SQL injection
     $update_payment = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
-    if ($update_payment->execute([$status, $order_id])) {
+    $update_payment->bind_param("si", $status, $order_id); // Bind parameters properly
+    if ($update_payment->execute()) {
         $_SESSION['message'] = 'Payment Status Updated!'; // Set session message
         // Redirect to completed_orders.php with order_id
         header('Location: completed_orders.php?id=' . $order_id);
@@ -27,7 +28,8 @@ if (isset($_GET['delete'])) {
     // Validate and sanitize the delete_id
     if (filter_var($delete_id, FILTER_VALIDATE_INT)) {
         $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
-        $delete_order->execute([$delete_id]);
+        $delete_order->bind_param("i", $delete_id); // Bind parameters properly
+        $delete_order->execute();
         header('Location: admin_orders.php');
         exit();
     }
@@ -78,8 +80,10 @@ if (isset($_GET['delete'])) {
        while ($fetch_orders = $result->fetch_assoc()) {
    ?>
    <div class="box">
+     <p>Product IDs: <span><?= htmlspecialchars($fetch_orders['product_ids']); ?></span></p> <!-- Added Product IDs Field -->
       <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
       <p>Products: <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p> <!-- Added Product Names Field -->
+     
       <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
       <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
       <p>Date Created: <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
