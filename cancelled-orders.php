@@ -38,8 +38,7 @@ if (isset($_SESSION['user_id'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <link rel="stylesheet" type="text/css" href="css/util.css">
    <link rel="stylesheet" type="text/css" href="css/main.css">
-   <link rel="stylesheet" href="bootstrap.min.css">
-	<link rel="stylesheet" href="orderss.css">
+	<link rel="stylesheet" href="orders.css">
 
 
 </head>
@@ -101,13 +100,11 @@ if (isset($_SESSION['user_id'])) {
                   <li><a href="index.php">Home</a></li>
                   <li><a href="product.php">Shop</a></li>
                   <li><a href="about.php">About</a></li>
+                  <li >
+					         <a href="cancelled-orders.php" style="margin-left: 30vw;">Cancelled Orders</a>
+						</li>
                </ul>
-            </div>
-            <div class="cancel-box" style="margin-left: 700px; margin-top: 10px;">
-               <ul>
-                  <li class="cancelled"><a href="cancelled-orders.php" style="color: #333;">Cancelled Orders</a></li>
-               </ul>
-            </div>
+            
          </nav>
       </div>
    </div>
@@ -170,24 +167,38 @@ if (isset($_SESSION['user_id'])) {
                   while ($fetch_orders = $result->fetch_assoc()) {
       ?>
       <div class="container">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="box border">
-                  <p class="fw-bold">Cancelled on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-                  <p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
-                  <p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
-                  <p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
-                  <p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
-                  <p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
-                  <p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
-                  <p class="fw-bold">Total price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
-                  <p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="box border">
+					<p class="fw-bold">Placed on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+					<p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+					<p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
+					<p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
+					<p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
+					<p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
+					<p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
+					<p class="fw-bold">Your Shipping Fee: <span class="fw-normal">₱50.00</span></p>
+               <p class="fw-bold">Raw price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+					<p style="color: red;">- - - - - - - - - - - - - - - - </p>
 
-                  <p>---------------------------------</p>
-               </div>
-            </div>
-         </div>
-      </div>
+					<?php 
+					// Assuming the shipping fee is a fixed value of 50.00
+					$shipping_fee = 50.00; 
+					$total_with_shipping = $fetch_orders['total_price'] + $shipping_fee;
+					?>
+
+					<p class="fw-bold">Total price (with shipping): <span class="fw-normal">₱<?= htmlspecialchars(number_format($total_with_shipping, 2)); ?></span></p>
+					<p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+					<br>
+					<form class="cancel-button" method="post" action="cancel_process.php">
+						<input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
+						<button type="submit" class="btn btn-outline-danger btn-sm ms-5 fw-bolder">Cancel Order</button>
+					</form>
+					<hr class="responsive-hr">
+				</div>
+			</div>
+		</div>
+	</div>
       
       <?php
             }
@@ -361,9 +372,81 @@ if (isset($_SESSION['user_id'])) {
    <script src="vendor/sweetalert/sweetalert.min.js"></script>
    <script src="js/main.js"></script>
 
-
-
-
-
 </body>
+
+<style>
+   .container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+.box {
+   border: 1px solid #ddd;
+   padding: 20px;
+   border-radius: 8px;
+   background-color: #f9f9f9;
+   margin-bottom: 20px;
+}
+
+.fw-bold {
+   font-weight: bold;
+}
+
+.fw-normal {
+   font-weight: normal;
+}
+
+.cancel-button {
+   text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+   .box {
+      padding: 15px;
+   }
+
+   .fw-bold, .fw-normal {
+      display: block;
+      width: 100%;
+   }
+
+   .cancel-button {
+      text-align: center;
+      margin-top: 20px;
+   }
+
+   .cancel-button button {
+      width: 100%;
+   }
+
+   p {
+      font-size: 16px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .container {
+      padding: 10px;
+   }
+
+   .box {
+      padding: 10px;
+   }
+
+   p {
+      font-size: 14px;
+   }
+
+   .cancel-button button {
+      font-size: 14px;
+   }
+}
+.responsive-hr {
+   border: none;
+   border-top: 1px solid #ccc; /* Adjust color as needed */
+   margin: 20px 0; /* Adjust spacing above and below */
+   width: 100%; /* Ensures it takes up the full width of the container */
+}
+</style>
 </html>
