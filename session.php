@@ -21,9 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             echo "<script>alert('Password does not match');</script>";
+            header('Location: login.php');
         }
     } else {
         echo "<script>alert('No username found in server');</script>";
+        header('Location: login.php');
     }
     $conn->close();
 }
