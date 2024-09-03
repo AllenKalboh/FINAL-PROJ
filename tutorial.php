@@ -126,6 +126,39 @@ include ('session.php');
     }
 }
 
+
+/* Events */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Adjust height as needed */
+}
+
+.banner-slide {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-image {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.banner-wrapper:hover .banner-image {
+    transform: scale(1);
+}
+
+.banner-wrapper:hover .banner-slide {
+    animation: slideShow 10s infinite;
+}
+
+@keyframes slideShow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
 /* video banners*/
 .video-banner {
     background-color: #686D76;
@@ -688,6 +721,11 @@ include ('session.php');
 
 
 
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 	<!-- Content page -->
 	 
 	<section class="bg0 p-t-75 p-b-6 text-justify">
@@ -1094,6 +1132,60 @@ Tune in for a quick tutorial and learn the perfect amount for sun protection.   
 
 
 	</section>	
+
+
+	<div class="container" style="padding-top:100px;">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto text-effect" data-effect="zoom-in">
+                    <h3 class="b1 text-center mb-0">Skincare Process Guide</h3>
+					<p class=" text-secondary">You can refer to these guides or not its up to you, unleash your creativity!</p>
+					
+                </div>
+				
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
+	</div>
+	<br>
+<!-- Events n promotions -->
+<div class="container" style="padding-top:20px;">
+<!--<p class="text-secondary text-effect" data-effect="zoom-in" style="text-align: center;">You can refer to these guides or not its up to you, unleash your creativity!</p>-->
+        <div class="row">
+            <div class="col-md-4 text-effect" data-effect="zoom-in">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724143353821.jpg" class="img-fluid banner-image" alt="Banner 1">
+                        <img src="01Product Lines Imgs/01Process Recos/1724142005824.jpg" class="img-fluid banner-image" alt="Banner 2">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-effect" data-effect="zoom-in">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724128966237.jpg" class="img-fluid banner-image" alt="Banner 4">
+                        <img src="01Product Lines Imgs/01Process Recos/IMG_20240820_170353_922.jpg" class="img-fluid banner-image" alt="Banner 5">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner-wrapper text-effect" data-effect="zoom-in">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724140733093.jpg" class="img-fluid banner-image" alt="Banner 7">
+                        <img src="01Product Lines Imgs/01Process Recos/1723810362204.jpg" class="img-fluid banner-image" alt="Banner 8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<div class="container-fluid video-banner text-effect" data-effect="fade-down">
     <div class="container">

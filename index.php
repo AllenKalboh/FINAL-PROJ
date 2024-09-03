@@ -56,11 +56,11 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 	
 <style>
 
-/*events */
+/* Events */
 .banner-wrapper {
     position: relative;
     overflow: hidden;
-    height: 400px;
+    height: 400px; /* Adjust height as needed */
 }
 
 .banner-slide {
@@ -79,13 +79,12 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 }
 
 .banner-wrapper:hover .banner-slide {
-    animation: slideShow 5s infinite
+    animation: slideShow 6s infinite;
 }
 
 @keyframes slideShow {
     0% { transform: translateX(0); }
-    33.33% { transform: translateX(-100%); }
-    66.66% { transform: translateX(-200%); }
+    50% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
 }
 /*
@@ -930,27 +929,27 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb1.jpg" class="img-fluid banner-image" alt="Banner 1">
-                        <img src="image2.jpg" class="img-fluid banner-image" alt="Banner 2">
-                        <img src="image3.jpg" class="img-fluid banner-image" alt="Banner 3">
+                        <img src="images/Banners/be1.jpg" class="img-fluid banner-image" alt="Banner 1">
+                        <img src="images/Banners/be2.jpg" class="img-fluid banner-image" alt="Banner 2">
+                       
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb2.jpg" class="img-fluid banner-image" alt="Banner 4">
-                        <img src="image5.jpg" class="img-fluid banner-image" alt="Banner 5">
-                        <img src="image6.jpg" class="img-fluid banner-image" alt="Banner 6">
+                        <img src="images/Banners/be3.jpg" class="img-fluid banner-image" alt="Banner 4">
+                        <img src="images/Banners/be4.jpg" class="img-fluid banner-image" alt="Banner 5">
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb3.jpg" class="img-fluid banner-image" alt="Banner 7">
-                        <img src="image8.jpg" class="img-fluid banner-image" alt="Banner 8">
-                        <img src="image9.jpg" class="img-fluid banner-image" alt="Banner 9">
+                        <img src="images/Banners/be5.jpg" class="img-fluid banner-image" alt="Banner 7">
+                        <img src="images/Banners/be6.jpg" class="img-fluid banner-image" alt="Banner 8">
+                        
                     </div>
                 </div>
             </div>
