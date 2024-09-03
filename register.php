@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <option value="Silang">Silang</option>
         <option value="Tanza">Tanza</option>
         <option value="Ternate">Ternate</option>
-        <option value="Ternate">Trece</option>
+        <option value="Trece">Trece</option>
     </select>
 
     <label for="phone-number">Phone Number:</label>
