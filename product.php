@@ -701,24 +701,7 @@ if (isset($_SESSION['status'])) {
         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
     </form>
 
-    <script>
-        document.getElementById('addToCartForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting immediately
-            var form = event.target;
-            
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', form.action, true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    alert('1 item added to cart');
-                    // Optionally redirect or update the UI
-                    // window.location.href = 'product.php'; // Redirect if needed
-                }
-            };
-            xhr.send(new FormData(form));
-        });
-    </script>
-
+    
                     <div class="place-order">
                         <form action="solo_checkout.php" method="POST">
                             <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
