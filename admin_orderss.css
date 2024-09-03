@@ -24,9 +24,7 @@ body {
     font-size: 18px;
 }
 
-.sidebar a:hover {
-    background-color: #495057;
-}
+
 .sidebar img {
 display: block; /* Make the image a block element */
 margin: 0 auto 20px; /* Center the image and add bottom margin */
