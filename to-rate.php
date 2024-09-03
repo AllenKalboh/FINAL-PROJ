@@ -28,6 +28,11 @@ $result = $select_orders->get_result();
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -49,12 +54,45 @@ $result = $select_orders->get_result();
   
 </style> 
 <!-- Header -->
+
+
 <?php include ('header.php');?>
 <body> 
+<script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const textEffects = document.querySelectorAll('.text-effect');
 
-<section class="orders">
-    <h1 class="heading">Items to Rate</h1>
-    <div class="orders-box-container bg-info">
+    textEffects.forEach(function(el) {
+        setTimeout(function() {
+            el.classList.add('active');
+        }, 200); // Adjust the delay as needed
+    });
+});
+
+function showContainer() {
+    const container = document.querySelector('.orders-box-container');
+    container.classList.add('visible');
+}
+
+// Example usage: call this function when you want to trigger the effect
+window.onload = function() {
+    showContainer(); // Show container when the page loads
+};
+
+	 </script>
+<div class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+    <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
+        Orders Rating
+    </h2>
+    <br>
+    <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
+        Rate your received products here!
+    </p>
+	</div>
+
+    <section class="orders">
+    <h1 class="heading"></h1>
+    <div class="orders-box-container">
         <?php
         if ($result->num_rows > 0) {
             while ($fetch_orders = $result->fetch_assoc()) {
@@ -65,7 +103,7 @@ $result = $select_orders->get_result();
                     continue;
                 }
         ?>
-        <div class="box">
+        <div class="box ">
             <p>Order Id: <span><?= htmlspecialchars($fetch_orders['id']); ?></span></p>
             <p>Total Price: <span>₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
             <p>Name: <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
@@ -74,7 +112,6 @@ $result = $select_orders->get_result();
             <p>Address: <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
             <p>Phone Number: <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
 
-            <!-- Display Product Rating Form -->
             <h2 class="subheading">Rate Product/s</h2>
             <table class="table table-bordered">
                 <thead>
@@ -86,38 +123,34 @@ $result = $select_orders->get_result();
                     </tr>
                 </thead>
                 <tbody>
-    <?php
-    foreach ($product_names as $product_name) {
-        $product_name = trim($product_name);
+                    <?php
+                    foreach ($product_names as $product_name) {
+                        $product_name = trim($product_name);
 
-        // Query the product details by name
-        $product_query = $conn->prepare("SELECT id, product_name, price, img_01 FROM products WHERE product_name = ?");
-        $product_query->bind_param("s", $product_name);
-        $product_query->execute();
-        $product_result = $product_query->get_result();
-        
-        if ($product_result->num_rows > 0) {
-            $product = $product_result->fetch_assoc();
-            $imgPath = 'uploads/' . basename($product['img_01']); // Path to the product image
-    ?>
-    <tr>
-        <td><img src="<?= htmlspecialchars($imgPath); ?>" alt="Product Image"></td>
-        <td><?= htmlspecialchars($product['product_name']); ?></td>
-        <td>₱<?= htmlspecialchars($product['price']); ?></td>
-        <td>
-            <!-- Button to open the modal -->
-            <button type="button" class="btn btn-primary open-modal-btn" data-product-id="<?= htmlspecialchars($product['id']); ?>" data-order-id="<?= htmlspecialchars($fetch_orders['id']); ?>">Rate</button>
-        </td>
-       
-           
-        </td>
-    </tr>
-    <?php
-        }
-        $product_query->close();
-    }
-    ?>
-</tbody>
+                        // Query the product details by name
+                        $product_query = $conn->prepare("SELECT id, product_name, price, img_01 FROM products WHERE product_name = ?");
+                        $product_query->bind_param("s", $product_name);
+                        $product_query->execute();
+                        $product_result = $product_query->get_result();
+                        
+                        if ($product_result->num_rows > 0) {
+                            $product = $product_result->fetch_assoc();
+                            $imgPath = 'uploads/' . basename($product['img_01']); // Path to the product image
+                    ?>
+                    <tr>
+                        <td><img src="<?= htmlspecialchars($imgPath); ?>" alt="Product Image" onclick="viewImage('<?= htmlspecialchars($imgPath); ?>')"></td>
+                        <td><?= htmlspecialchars($product['product_name']); ?></td>
+                        <td>₱<?= htmlspecialchars($product['price']); ?></td>
+                        <td>
+                            <button type="button" class="btn btn-primary open-modal-btn" data-product-id="<?= htmlspecialchars($product['id']); ?>" data-order-id="<?= htmlspecialchars($fetch_orders['id']); ?>">Rate</button>
+                        </td>
+                    </tr>
+                    <?php
+                        }
+                        $product_query->close();
+                    }
+                    ?>
+                </tbody>
             </table>
         </div>
 
@@ -140,6 +173,11 @@ $result = $select_orders->get_result();
                 <button type="button" class="btn btn-primary" id="submitRatingBtn">Submit Rating</button>
             </div>
         </div>
+
+        <div id="fullscreenImage" class="fullscreen-img" onclick="closeFullscreen()">
+            <img id="fullscreenImg" src="" alt="Fullscreen Image">
+        </div>
+
         <?php
             }
         } else {
@@ -152,79 +190,98 @@ $result = $select_orders->get_result();
 </section>
 
 
-</body>
-
 <script>
-// Get modal elements
-const modal = document.getElementById("ratingModal");
-const openModalBtns = document.querySelectorAll(".open-modal-btn");
-const closeModalBtn = document.querySelector(".close-btn");
-const submitRatingBtn = document.getElementById("submitRatingBtn");
+    // Get modal elements
+    const modal = document.getElementById("ratingModal");
+    const openModalBtns = document.querySelectorAll(".open-modal-btn");
+    const closeModalBtn = document.querySelector(".close-btn");
+    const submitRatingBtn = document.getElementById("submitRatingBtn");
 
-// Open modal and set product ID
-openModalBtns.forEach(button => {
-    button.onclick = function() {
-        const productId = this.getAttribute("data-product-id");
-        const orderId = this.getAttribute("data-order-id");
-        modal.setAttribute("data-product-id", productId);
-        modal.setAttribute("data-order-id", orderId);
-        modal.classList.add("show"); // Show with fade-in effect
-    }
-});
+    // Open modal and set product ID
+    openModalBtns.forEach(button => {
+        button.onclick = function() {
+            const productId = this.getAttribute("data-product-id");
+            const orderId = this.getAttribute("data-order-id");
+            modal.setAttribute("data-product-id", productId);
+            modal.setAttribute("data-order-id", orderId);
+            modal.classList.add("show"); // Show with fade-in effect
+        }
+    });
 
-// Close modal
-closeModalBtn.onclick = function() {
-    modal.classList.remove("show"); // Hide with fade-out effect
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-    if (event.target == modal) {
+    // Close modal
+    closeModalBtn.onclick = function() {
         modal.classList.remove("show"); // Hide with fade-out effect
     }
-}
 
-// Handle star rating selection
-const stars = document.querySelectorAll(".star-rating input");
-stars.forEach(star => {
-    star.addEventListener("change", function() {
-        const rating = this.value;
-        console.log("Selected rating:", rating); // For debugging
-    });
-});
-
-// Handle submit rating button
-submitRatingBtn.onclick = function() {
-    const selectedStar = document.querySelector(".star-rating input:checked");
-    if (selectedStar) {
-        const rating = selectedStar.value;
-        const productId = modal.getAttribute("data-product-id");
-        const orderId = modal.getAttribute("data-order-id");
-        
-        fetch('rate_product.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'order_id': orderId,
-                'product_id': productId,
-                'rating': rating
-            })
-        })
-        .then(response => response.text())
-        .then(result => {
-            alert(result);
-            modal.classList.remove("show"); // Hide with fade-out effect after submission
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    } else {
-        alert("Please select a rating before submitting.");
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.classList.remove("show"); // Hide with fade-out effect
+        }
     }
+
+    // Handle star rating selection
+    const stars = document.querySelectorAll(".star-rating input");
+    stars.forEach(star => {
+        star.addEventListener("change", function() {
+            const rating = this.value;
+            console.log("Selected rating:", rating); // For debugging
+        });
+    });
+
+    // Handle submit rating button
+    submitRatingBtn.onclick = function() {
+        const selectedStar = document.querySelector(".star-rating input:checked");
+        if (selectedStar) {
+            const rating = selectedStar.value;
+            const productId = modal.getAttribute("data-product-id");
+            const orderId = modal.getAttribute("data-order-id");
+            
+            fetch('rate_product.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'order_id': orderId,
+                    'product_id': productId,
+                    'rating': rating
+                })
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                modal.classList.remove("show"); // Hide with fade-out effect after submission
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } else {
+            alert("Please select a rating before submitting.");
+        }
+    }
+
+ // Function to view image in larger mode (Picture-in-Picture effect)
+/*function viewImage(src) {
+    const fullscreenImg = document.getElementById("fullscreenImage");
+    const fullscreenImgElement = document.getElementById("fullscreenImg");
+    fullscreenImgElement.src = src;
+    fullscreenImg.style.display = "flex";
 }
+
+// Function to close the fullscreen image
+function closeFullscreen() {
+    document.getElementById("fullscreenImage").style.display = "none";
+}*/
+
 </script>
+
+<!--div id="fullscreenImage" class="fullscreen-image">
+    <span class="close-fullscreen" onclick="closeFullscreen()">&times;</span>
+    <img id="fullscreenImg" src="" alt="Fullscreen Image">
+</div>-->
+
+
 
 
     <!-- Footer -->
