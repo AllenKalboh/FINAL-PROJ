@@ -109,10 +109,13 @@ $conn->close();
 
         <div class="wrap-menu-desktop how-shadow1">
             <nav class="limiter-menu-desktop container">
-                <!-- Logo desktop -->
-                <a href="index.php" class="logo">
-                    <img src="images/logoshet.png" alt="IMG-LOGO">
-                </a>
+              					<!-- Logo desktop -->		
+					<a href="index.php" class="logo">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
+					</a>
 
                 <!-- Menu desktop -->
                 <div class="menu-desktop">

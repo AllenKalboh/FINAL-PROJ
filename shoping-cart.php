@@ -196,7 +196,10 @@ footer {
 					
 					<!-- Logo desktop -->		
 					<a href="index.php" class="logo">
-						<img src="images/logoshet.png" alt="IMG-LOGO">
+						<img src="images/icons/logoo.png" alt="IMG-LOGO">
+					</a>
+					<a href="index.php" class="logo">
+						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -444,7 +447,32 @@ footer {
             </tr>
         </tfoot>
     </table>
+<style>
+	/* Button Styling */
+.btn {
+    background-color: #333; /* Light black background */
+    color: #fff; /* White text color */
+    padding: 12px 24px; /* Padding for a comfortable click area */
+    font-size: 1rem; /* Font size */
+    border-radius: 30px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    display: inline-block; /* Ensures the button behaves as a block element without affecting its position */
+}
 
+/* Hover Effect */
+.btn:hover {
+    background-color: #555; /* Hover to grey */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Disabled State */
+.disabled {
+    pointer-events: none; /* Disable click */
+    opacity: 0.6; /* Slightly faded */
+}
+</style>
     <div class="checkout-button-container">
         <a href="user_orders.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">Proceed to Checkout</a>
     </div>
