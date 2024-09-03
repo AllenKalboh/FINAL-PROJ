@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 		 Header desktop
 		<div class="container-menu-desktop">
-			<!-- Topbar 
+			 Topbar 
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<div class="wrap-menu-desktop how-shadow1">
 				< class="limiter-menu-desktop container">
 					
-					<!-- Logo desktop 		
+					Logo desktop 		
 					<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 					</div>
-					<!-- Menu desktop 
+				 Menu desktop 
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
@@ -241,12 +241,12 @@ document.addEventListener('DOMContentLoaded', function() {
 					
 					</div>
 				</nav>-->
-			</div>	
-		</div>
+			<!--</div>	
+		</div> -->
 
 		<!-- Header Mobile 
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie 		
+			 Logo moblie 		
 			<a href="index.php" class="logo">
 						<img src="images/icons/logoo.png" alt="IMG-LOGO">
 					</a>
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
 
-			<!-- Icon header 
+			 Icon header 
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		</div>
 
 
-		<!-- Menu Mobile 
+		 Menu Mobile 
 		<div class="menu-mobile">
 			<ul class="topbar-mobile">
 				<li>
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			</ul>
 		</div>
 
- <!--Modal Search 
+ Modal Search 
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
