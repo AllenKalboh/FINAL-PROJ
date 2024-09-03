@@ -50,12 +50,18 @@ if (isset($_SESSION['username'])) {
     <div class="content">
         <div class="container">
             <div class="profile-header">
-                <img src="<?php echo isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']) ? htmlspecialchars($_SESSION['profile_picture']) : 'images/icons/icon-user.png'; ?>" alt="Profile Picture">
-                <div class="ml-3">
+            <?php
+                $profilePicPath = isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']) 
+                    ? htmlspecialchars($_SESSION['profile_picture']) 
+                    : 'images/icons/icon-user.png';
+            ?>
+            <img src="<?php echo $profilePicPath; ?>" alt="Profile Picture">
+            <div class="ml-3">
                 <h1 style="font-weight: bolder;">
                 <?php
                     echo isset($_SESSION['username']) 
-                    ? htmlspecialchars($_SESSION['username']) : "Guest";
+                    ? htmlspecialchars($_SESSION['username']) 
+                    : "Guest";
                 ?>
         </h1>
         <p>User</p>
