@@ -181,7 +181,7 @@ window.onload = function() {
         <?php
             }
         } else {
-            echo '<p class="empty">No Completed Orders Found!</p>';
+            echo '<p class="empty text-center">No Completed Orders Found!</p>';
         }
         $select_orders->close();
         $conn->close();

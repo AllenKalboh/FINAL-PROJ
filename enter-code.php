@@ -63,7 +63,7 @@
 <body>
     <div class="container">
         <h2>Enter Code from your Email</h2>
-        <form action="verify-code.php" method="post">
+        <form action="" method="post">
             <div class="form-group">
                 <label for="reset_code">Reset Code:</label>
                 <input type="number" id="reset_code" name="reset_code" required placeholder=" * * * * * * "

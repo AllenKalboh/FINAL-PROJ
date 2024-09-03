@@ -1055,23 +1055,24 @@ Tune in for a quick tutorial and learn the perfect amount for sun protection.   
 
 
 	<div class="container" style="padding-top:100px;">
-        <div class="depota">
-            <div class="row align-items-center mb-4">
-                <div class="col text-effect" data-effect="fade-down">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
-                <div class="col-auto text-effect" data-effect="zoom-in">
-                    <h3 class="b1 text-center mb-0">Skincare Process Guide</h3>
-					<p class=" text-secondary">You can refer to these guides or not its up to you, unleash your creativity!</p>
-					
-                </div>
-				
-                <div class="col text-effect" data-effect="fade-down">
-                    <hr class="border-dark" style="border-width: 4px;">
-                </div>
+    <div class="depota">
+        <div class="row align-items-center mb-4">
+            <!-- Left horizontal line -->
+            <div class="col-12 col-md text-effect" data-effect="fade-down">
+                <hr class="border-dark" style="border-width: 4px;">
+            </div>
+            <!-- Center text -->
+            <div class="col-12 col-md-auto text-effect text-center" data-effect="zoom-in">
+                <h3 class="b1 mb-0">Skincare Process Guide</h3>
+                <p class="text-secondary">You can refer to these guides or not, it's up to you, unleash your creativity!</p>
+            </div>
+            <!-- Right horizontal line -->
+            <div class="col-12 col-md text-effect" data-effect="fade-down">
+                <hr class="border-dark" style="border-width: 4px;">
             </div>
         </div>
-	</div>
+    </div>
+</div>
 	<br>
 <!-- Events n promotions -->
 <div class="container" style="padding-top:20px;">
