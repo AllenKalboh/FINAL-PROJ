@@ -11,20 +11,7 @@ include ('db.php');
 
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<<<<<<< Updated upstream
    <link rel="stylesheet" href="user_lists.css">
-   
-
-</head>
-<style>
-
-    
-</style>
-    <body>
-    <div class="sidebar">
-    <img src="images/inverted.png" alt="">
-=======
-   <link rel="stylesheet" href="user_list.css">
    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 </head>
 <body>
@@ -38,7 +25,6 @@ include ('db.php');
 </style>
 <div class="sidebar">
 <img src="images/icons/logoinvert.png" alt="logosidebar" style="width:140px;">
->>>>>>> Stashed changes
         <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>

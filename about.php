@@ -15,7 +15,7 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>SkinLine duplicate</title>
+	<title>SkinLine About</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -696,9 +696,9 @@ if (isset($_SESSION['user_id'])) {
                 <p class="role text-effect" data-effect="zoom-in">Back-End Developer</p>
                 <p class="description text-effect" data-effect="fade-down">Proficient in building and optimizing back-end systems, this developer maintains Skinline’s performance and security. Create scalable solutions and ensure the website operates efficiently, meeting high reliability standards.</p>
                 <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:jezreel@skinline.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/seigen.sora" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/s3igen05/?next=%2F" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:peralta0sora@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -710,9 +710,9 @@ if (isset($_SESSION['user_id'])) {
                 <p class="role text-effect" data-effect="zoom-in">Interface Designer</p>
                 <p class="description text-effect" data-effect="fade-down">An interface designer focused on creating user-friendly and visually engaging layouts. works on intuitive design elements that enhance navigation and user interaction, contributing to an enjoyable website experience.</p>
                 <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:aaron@skinline.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/aaronpega.deraya?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/sqtr_aaron14/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:ronpegaderaya14@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
