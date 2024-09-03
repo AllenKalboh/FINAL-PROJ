@@ -1,6 +1,13 @@
-
 <?php
-include ('db.php'); // Include your database connection
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
+    header('Location: admin_login.php'); // Redirect to login page if not logged in
+    exit();
+}
+
+include('db.php'); // Include your database connection
 
 // Count the number of users
 $select_users = $conn->prepare("SELECT COUNT(*) as total_users FROM `users`");
@@ -23,17 +30,12 @@ $select_admins->bind_result($total_admins);
 $select_admins->fetch();
 $select_admins->close();
 
+// Count the number of orders
 $select_orders = $conn->prepare("SELECT COUNT(*) as total_orders FROM `orders`");
 $select_orders->execute();
 $select_orders->bind_result($total_orders);
 $select_orders->fetch();
 $select_orders->close();
-
-// $select_orders = $conn->prepare("SELECT COUNT(*) as total_orders FROM `orders`");            MESSAGES
-// $select_orders->execute();
-// $select_orders->bind_result($total_orders);
-// $select_orders->fetch();
-// $select_orders->close();
 
 // Get the first and last day of the current month
 $firstDayOfMonth = date('Y-m-01');
@@ -54,7 +56,6 @@ while ($row = $result->fetch_assoc()) {
 $conn->close();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,15 +68,14 @@ $conn->close();
 </head>
 <body>
     <div class="sidebar">
-    <img src="images/inverted.png" alt="">
-    <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+        <img src="images/inverted.png" alt="">
+        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
         <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Placed Orders</span></a>
         <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
         <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
-</div>
     </div>
 
     <section class="dashboard">
