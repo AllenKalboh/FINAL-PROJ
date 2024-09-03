@@ -325,7 +325,7 @@ $conn->close();
                                     <label for="method">Payment Method</label>
                                     <select id="method" name="method" required>
                                         <option value="cash">Cash on Delivery</option>
-                                        <option value="credit">Credit Card</option>
+                                        <option value="credit">G-Cash</option>
                                         <!-- Add more payment methods as needed -->
                                     </select>
                                 </div>

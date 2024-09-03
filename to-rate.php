@@ -142,7 +142,7 @@ window.onload = function() {
                         <td><?= htmlspecialchars($product['product_name']); ?></td>
                         <td>₱<?= htmlspecialchars($product['price']); ?></td>
                         <td>
-                            <button type="button" class="btn btn-primary open-modal-btn" data-product-id="<?= htmlspecialchars($product['id']); ?>" data-order-id="<?= htmlspecialchars($fetch_orders['id']); ?>">Rate</button>
+                            <button type="button" class="btn btn-secondary open-modal-btn" data-product-id="<?= htmlspecialchars($product['id']); ?>" data-order-id="<?= htmlspecialchars($fetch_orders['id']); ?>">Rate</button>
                         </td>
                     </tr>
                     <?php
