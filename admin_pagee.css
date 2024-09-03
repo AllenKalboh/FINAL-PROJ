@@ -7,10 +7,12 @@ body {
     padding: 0;
 }
 
+
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #343a40;
+    background-color: #232323;
+    border: #495057;
     padding-top: 20px;
     position: fixed;
 }
