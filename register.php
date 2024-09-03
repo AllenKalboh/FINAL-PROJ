@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             echo "<script>alert('Registration Successful. Please log in.');</script>";
+            header("Location: login.php");
+            exit();
         } else {
             echo "<script>alert('Error: " . $stmt->error . "');</script>";
         }
@@ -35,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
