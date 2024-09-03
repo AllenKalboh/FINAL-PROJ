@@ -1,6 +1,11 @@
 <?php
 include ('db.php');
 include ('session.php');
+
+// SQL query to fetch products with rating greater than 4.4
+$sql = "SELECT id, product_name, img_01 FROM products WHERE rating > 4.4";
+$result = $conn->query($sql);  // Use the $conn object from db.php
+
 ?>
 
 
@@ -1311,8 +1316,17 @@ One of the perfect duos for hydration and protction, My secret to a radiant comp
 	<style>
 	
 	</style>
-	 <!-- bestseller eme -->
-	 <div class="container mt-5">
+	<?php
+include('db.php');  // Ensure this file establishes the database connection
+
+
+// SQL query to fetch products with rating greater than 4.4
+$sql = "SELECT id, product_name, img_01, rating FROM products WHERE rating > 4.2";
+$result = $conn->query($sql);  // Use the $conn object from db.php
+?>
+
+<!-- bestseller eme -->
+<div class="container mt-5">
     <div class="best-seller-banner" style="border-bottom: 4px solid #000; margin-bottom: 20px;">
         <div class="depota">
             <div class="row align-items-center mb-4">
@@ -1329,67 +1343,58 @@ One of the perfect duos for hydration and protction, My secret to a radiant comp
         </div>
         <br>
         <div class="row">
-            <!-- Product 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center">
-                    <div class="card-img-container">
-						<a href="product.php" target> 
-                        <img src="01Product Lines Imgs/Centella Line/Oilcleanse/1723806918425.jpg" class="card-img" alt="SkinLine Centella Light Cleansing Oil">
-						</a>
-					</div>
-                    <div class="card-body">
-                        <h4 class="card-title">SkinLine Centella Light Cleansing Oil</h4>
-                        <div class="rating d-flex justify-content-center align-items-center">
-                            <span class="text-warning mr-2">
-                                &#9733; &#9733; &#9733; &#9733; &#9733;
-                            </span>
-                            <span class="text-muted">(120 ratings)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center">
-                    <div class="card-img-container">
-					<a href="product.php" target> 
-                        <img src="01Product Lines Imgs/HyaCica Line/Hyalu Cica Water Fit Sun Serum 50ml 429/Picsart_24-08-20_17-19-23-347.jpg" class="card-img" alt="SkinLine Hyalu Cica Water Fit Sunscreen">
-					</a>
-					</div>
-                    <div class="card-body">
-                        <h4 class="card-title">SkinLine Hyalu Cica Water Fit Sunscreen</h4>
-                        <div class="rating d-flex justify-content-center align-items-center">
-                            <span class="text-warning mr-2">
-                                &#9733; &#9733; &#9733; &#9733; &#9733;
-                            </span>
-                            <span class="text-muted">(98 ratings)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center">
-                    <div class="card-img-container">
-					<a href="product.php" target> 
-                        <img src="01Product Lines Imgs/Centella Line/Ampule cleanser/1723807243305.jpg" class="card-img" alt="SkinLine Centella Ampule Foam Gel Cleanser">
-                   </a>
-					</div>
-                    <div class="card-body">
-                        <h4 class="card-title">SkinLine Centella Ampule Foam Gel Cleanser</h4>
-                        <div class="rating d-flex justify-content-center align-items-center">
-                            <span class="text-warning mr-2">
-                                &#9733; &#9733; &#9733; &#9733; &#9733;
-                            </span>
-                            <span class="text-muted">(87 ratings)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            // Check if there are results
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $id = htmlspecialchars($row["id"]);
+                    $productName = htmlspecialchars($row["product_name"]);
+                    $img01Path = 'uploads/' . basename($row["img_01"]);
+                    $rating = (float) $row["rating"];
+                    
+                    // Calculate star ratings
+                    $fullStars = floor($rating);
+                    $halfStars = ($rating - $fullStars) >= 0.5 ? 1 : 0;
+                    $emptyStars = 5 - $fullStars - $halfStars;
+
+                    // Generate star icons
+                    $starHtml = str_repeat('&#9733;', $fullStars);  // Full stars
+                    if ($halfStars) {
+                        $starHtml .= '&#9733;';  // Half star
+                    }
+                    $starHtml .= str_repeat('&#9734;', $emptyStars);  // Empty stars
+
+                    // Display product information
+                    echo '<div class="col-md-4 mb-4">';
+                    echo '    <div class="card text-center">';
+                    echo '        <div class="card-img-container">';
+                    echo '            <a href="product.php?id=' . $id . '" target>'; 
+                    echo '                <img src="' . $img01Path . '" class="card-img" alt="' . $productName . '">';
+                    echo '            </a>';
+                    echo '        </div>';
+                    echo '        <div class="card-body">';
+                    echo '            <h4 class="card-title">' . $productName . '</h4>';
+                    echo '            <div class="rating d-flex justify-content-center align-items-center">';
+                    echo '                <span class="text-warning mr-2">' . $starHtml . '</span>';
+                    echo '                <span class="text-muted">(' . htmlspecialchars($row["rating"]) . ')</span>';  // Display rating value
+                    echo '            </div>';
+                    echo '        </div>';
+                    echo '    </div>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<div class="col-12 text-center">No products found with rating greater than 4.4.</div>';
+            }
+            ?>
         </div>
-		<br>
+        <br>
     </div>
 </div>
+
+<?php
+// Close the connection if needed (depends on db.php implementation)
+?>
 
 <br>
 <br>
