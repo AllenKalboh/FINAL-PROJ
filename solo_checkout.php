@@ -164,7 +164,7 @@ $conn->close();
         <ul class="topbar-mobile">
             <li>
                 <div class="left-top-bar">
-                    Free shipping for standard order over ₱1,000
+                    Free shipping for standard order over ₱50.00
                 </div>
             </li>
 
