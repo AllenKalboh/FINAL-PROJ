@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 <?php
 // Database connection setup
 $servername = "localhost"; // Replace with your server name
@@ -10,6 +8,9 @@ $dbname = "skincare_db"; // Replace with your database name
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Set header to JSON
+header('Content-Type: application/json');
+
 // Check connection
 if ($conn->connect_error) {
     // Return JSON response with error
@@ -19,7 +20,7 @@ if ($conn->connect_error) {
 
 // Check if order_id is set
 if (isset($_POST['order_id'])) {
-    $order_id = intval($_POST['order_id']);
+    $order_id = intval($_POST['order_id']); // Ensure order_id is an integer
 
     // Prepare an update statement
     $stmt = $conn->prepare("UPDATE orders SET payment_status = ? WHERE id = ?");
@@ -44,4 +45,3 @@ if (isset($_POST['order_id'])) {
 // Close the connection
 $conn->close();
 ?>
->>>>>>> Stashed changes
