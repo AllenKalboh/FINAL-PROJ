@@ -258,11 +258,6 @@ if ($user_id) {
 			</ul>
 		</div>
 
-		<div class="cancel-box" style="margin-left: 700px; margin-top: 10px;">
-               <ul>
-                  <li class="cancelled"><a href="cancelled-orders.php" style="color: #333;">Cancelled Orders</a></li>
-               </ul>
-            </div>
 
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -411,6 +406,13 @@ if ($user_id) {
                      <p><strong>Payment Method:</strong> <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
                      <p><strong>Your orders:</strong> <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
                      <p><strong>Total price:</strong> <span class="total-price">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+					 <p class="fw-bold">Your Shipping Fee: <span class="fw-normal">₱50.00</span></p>
+					 <?php 
+                     // Assuming the shipping fee is a fixed value of 50.00
+                     $shipping_fee = 50.00; 
+                     $total_with_shipping = $fetch_orders['total_price'] + $shipping_fee;
+                     ?>
+					<p class="fw-bold">Total price (with shipping): <span class="fw-normal">₱<?= htmlspecialchars(number_format($total_with_shipping, 2)); ?></span></p>
                      <p><strong>Order status:</strong> <span class="payment-status" style="color:<?= ($fetch_orders['payment_status'] == 'Cancelled') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
                      
                      <!-- Display Product Images -->

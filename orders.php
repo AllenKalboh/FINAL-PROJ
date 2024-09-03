@@ -239,12 +239,6 @@ if (isset($_SESSION['user_id'])) {
 			</ul>
 		</div>
 
-		<div class="cancel-box" style="margin-left: 700px; margin-top: 10px;">
-               <ul>
-                  <li class="cancelled"><a href="cancelled-orders.php" style="color: #333;">Cancelled Orders</a></li>
-               </ul>
-            </div>
-
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
