@@ -172,7 +172,7 @@ if (isset($_SESSION['user_id'])) {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						Free shipping for standard order over ₱1,000
 					</div>
 				</li>
 
