@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
     <div class="content">
         <div class="container">
             <div class="profile-header">
-                <img src="<?php echo isset($_SESSION['profile_picture']) ? htmlspecialchars($_SESSION['profile_picture']) : 'images/default-profile.png'; ?>" alt="Profile Picture">
+            <img src="<?php echo isset($_SESSION['profile_picture']) ? htmlspecialchars($_SESSION['profile_picture']) : 'images/icons/icon-user.png'; ?>" alt="Profile Picture">
                 <div class="ml-3">
                     <h1 style="font-weight: bolder;">
                         <?php
