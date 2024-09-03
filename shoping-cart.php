@@ -275,7 +275,7 @@ footer {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 				</li>
 
