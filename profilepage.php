@@ -50,22 +50,20 @@ if (isset($_SESSION['username'])) {
     <div class="content">
         <div class="container">
             <div class="profile-header">
-            <img src="<?php echo isset($_SESSION['profile_picture']) ? htmlspecialchars($_SESSION['profile_picture']) : 'images/icons/icon-user.png'; ?>" alt="Profile Picture">
+                <img src="<?php echo isset($_SESSION['profile_picture']) && !empty($_SESSION['profile_picture']) ? htmlspecialchars($_SESSION['profile_picture']) : 'images/icons/icon-user.png'; ?>" alt="Profile Picture">
                 <div class="ml-3">
-                    <h1 style="font-weight: bolder;">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            echo htmlspecialchars($_SESSION['username']);
-                        } else {
-                            echo "Guest";
-                        }
-                        ?>
-                    </h1>
-                    <p>User</p>
-                </div>
-            </div>
+                <h1 style="font-weight: bolder;">
+                <?php
+                    echo isset($_SESSION['username']) 
+                    ? htmlspecialchars($_SESSION['username']) : "Guest";
+                ?>
+        </h1>
+        <p>User</p>
+    </div>
+</div>
             <div class="profile-info">
-                <h5>Your Details:</h5>
+                <h3 style="font-weight: bolder; color: #333; margin-bottom: 25px;">Your Details:</h3>
+                <h5>Username</h5>
                 <h4><?php echo htmlspecialchars($_SESSION['username']); ?></h4>
 
                 <h5>First Name</h5>
