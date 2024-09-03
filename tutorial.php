@@ -1353,8 +1353,8 @@ Banish your breakout with our Tea Trica Line, for a clear, calm & balanced skin.
 
 					<ul>
 					<li class="p-b-10">
-							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Refund Policy
+							<a href="productuse.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Product Use Policy
 							</a>
 						</li>
 					<li class="p-b-10">
