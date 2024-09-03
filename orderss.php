@@ -45,36 +45,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
 <style>
-   *{
-      text-decoration: none;
-   }
-   .place-order-btn {
-    background-color: black; /* Default background color */
-    color: white;            /* Default text color */
-    border: none;            /* Remove default border */
-    padding: 10px 20px;      /* Add padding */
-    font-size: 16px;         /* Set font size */
-    text-transform: uppercase; /* Uppercase text */
-    cursor: pointer;         /* Pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-    border-radius: 5px;      /* Rounded corners */
-   width: 50%;
-}
-
-/* Hover state */
-.place-order-btn:hover {
-    background-color: #333; /* Slightly lighter color on hover */
-    transform: scale(1.05); /* Slightly scale up the button */
-}
-
-/* Disabled state */
-.place-order-btn.disabled {
-    background-color: #ccc; /* Gray background for disabled */
-    color: #666;            /* Gray text for disabled */
-    cursor: not-allowed;    /* Change cursor to indicate disabled state */
-    opacity: 0.6;           /* Make button look less active */
-}
-
+   
 </style>
 <!-- Header -->
 <header class="header-v4">
@@ -169,32 +140,30 @@ if (isset($_SESSION['user_id'])) {
                if ($result->num_rows > 0) {
                   while ($fetch_orders = $result->fetch_assoc()) {
       ?>
-      <div class="container">
-         <div class="row">
+      <div class="container bg-info">
+        <div class="row">
             <div class="col-md-12">
-               <div class="box border">
-                  <p class="fw-bold">Placed on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-                  <p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
-                  <p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
-                  <p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
-                  <p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
-                  <p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
-                  <p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
-                  <p class="fw-bold">Total price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
-                  <p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
-                  
-                  <form method="post" action="cancel_process.php">
-                     <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
-                     <button type="submit" class="btn btn-outline-danger btn-sm ms-5 fw-bolder">Cancel Order</button>
-                  </form>
+                <div class="box">
+                    <p class="fw-bold">Placed on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+                    <p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+                    <p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
+                    <p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
+                    <p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
+                    <p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
+                    <p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
+                    <p class="fw-bold">Total price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+                    <p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+                    
+                    <form method="post" action="cancel_process.php">
+                        <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
+                        <button type="submit" class="btn btn-outline-danger btn-sm fw-bolder">Cancel Order</button>
+                    </form>
 
-
-
-                  <p>---------------------------------</p>
-               </div>
+                    <p class="separator"></p>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
       
       <?php
             }

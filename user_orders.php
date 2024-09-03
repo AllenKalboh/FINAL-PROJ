@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 $conn->close();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +117,19 @@ $conn->close();
 	<link rel="stylesheet" href="user_orders.css">
 </head>
 <style>
-
+.notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensure it is above other content */
+}
 
 
 /* General styling for the button */
@@ -148,6 +161,25 @@ $conn->close();
 }
 </style>
 <body class="animsition">
+<?php if (!empty($message)): ?>
+        <div id="notification" class="notification"><?php echo implode('<br>', $message); ?></div>
+    <?php endif; ?>
+
+    <script>
+        // Show notification and hide after 2 seconds
+        document.addEventListener("DOMContentLoaded", function() {
+            var notification = document.getElementById('notification');
+            if (notification) {
+                notification.style.display = 'block'; // Show the notification
+                setTimeout(function() {
+                    notification.style.opacity = 0; // Fade out
+                    setTimeout(function() {
+                        notification.style.display = 'none'; // Hide the notification
+                    }, 500); // Allow time for fade out effect
+                }, 2000); // Display for 2 seconds
+            }
+        });
+    </script>
     <!-- Header -->
     <header class="header-v4">
         <!-- Header desktop -->

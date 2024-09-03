@@ -5,9 +5,28 @@ include('db.php'); // Ensure this file contains the MySQLi connection setup
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-   $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user_id'];
 } else {
-   $user_id = '';
+    $user_id = '';
+}
+
+// Fetch cancelled orders for the logged-in user
+$orders = [];
+if ($user_id) {
+    if ($stmt = $conn->prepare("SELECT * FROM orders WHERE user_id = ? AND payment_status = 'Cancelled'")) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($row = $result->fetch_assoc()) {
+            $orders[] = $row;
+        }
+
+        $stmt->close();
+    } else {
+        // Handle error preparing statement
+        echo "Error preparing statement: " . $conn->error;
+    }
 }
 
 ?>
@@ -347,154 +366,84 @@ if (isset($_SESSION['user_id'])) {
 		</div>
 	</div>
 
-
-	<!-- Title page -->
-	<style>
-		/* Common styles for the text effects */
-.text-effect {
-    display: inline-block;
-    opacity: 0; /* Hidden initially */
-    transition: all 1s ease; /* Smooth transition */
-}
-
-/* Fade Down Effect */
-.text-effect[data-effect="fade-down"] {
-    transform: translateY(-20px); /* Move up initially */
-}
-
-.text-effect[data-effect="fade-down"].active {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Move to original position */
-}
-
-/* Zoom In Effect */
-.text-effect[data-effect="zoom-in"] {
-    transform: scale(0.5); /* Shrink initially */
-}
-
-.text-effect[data-effect="zoom-in"].active {
-    opacity: 1; /* Fade in */
-    transform: scale(1); /* Zoom to original size */
-}
-
-	 </style>
-
-	 <script>
-		document.addEventListener('DOMContentLoaded', function() {
-    const textEffects = document.querySelectorAll('.text-effect');
-
-    textEffects.forEach(function(el) {
-        setTimeout(function() {
-            el.classList.add('active');
-        }, 500); // Adjust the delay as needed
-    });
-});
-	 </script>
-
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        Orders
+        Cancelled Orders
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Know more your orders here!
+        See Your Cancelled Orders.
     </p>
 </section>	
 
 
 	<!-- Content page -->
-	<?php
-if ($user_id == '') {
-    echo '<p class="empty">Please login to see your orders</p>';
-} else {
-    // Prepare and execute the query to get all orders for the user
-    $sql = "SELECT * FROM `orders` WHERE user_id = ?";
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("i", $user_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    <section class="order mt-3">
+   <div class="box-container">
 
-        if ($result->num_rows > 0) {
-            while ($fetch_orders = $result->fetch_assoc()) {
-?>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="order-box">
-                                <div class="order-header">
-                                    <h3>Order Details</h3>
-                                </div>
-                                <div class="order-info">
-                                    <p><strong>Placed on:</strong> <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-                                    <p><strong>Name:</strong> <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
-                                    <p><strong>Email:</strong> <span><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
-                                    <p><strong>Phone Number:</strong> <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
-                                    <p><strong>Address:</strong> <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
-                                    <p><strong>Payment Method:</strong> <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
-                                    <p><strong>Your orders:</strong> <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
-                                    <p><strong>Total price:</strong> <span class="total-price">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
-                                    <p><strong>Payment status:</strong> <span class="payment-status" style="color:<?= ($fetch_orders['payment_status'] == 'Cancelled') ? 'red' : ($fetch_orders['payment_status'] == 'Shipping' ? 'orange' : 'green'); ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
-                                    
-                                    <!-- Display Product Images -->
-                                    <?php if (!empty($fetch_orders['product_img_path'])): ?>
-                                        <p><strong>Product Image:</strong></p>
-                                        <img src="<?= htmlspecialchars($fetch_orders['product_img_path']); ?>" alt="Product Image" style="max-width: 300px; height: auto;">
-                                    <?php endif; ?>
-                                </div>
-                                <div class="order-actions">
-								<button class="btn btn-outline-danger btn-sm fw-bolder" 
-        id="cancelBtn_<?= htmlspecialchars($fetch_orders['id']); ?>" 
-        <?= ($fetch_orders['payment_status'] == 'Shipping') ? 'disabled' : '' ?>>
-    <?= ($fetch_orders['payment_status'] == 'Shipping') ? 'Order Shipping - Cancel Not Available' : 'Cancel Order' ?>
-</button>
+      <?php
+         if ($user_id == '') {
+            echo '<p class="empty">Please login to see your orders</p>';
+         } else {
+            // Prepare and execute the query
+            $sql = "SELECT * FROM `orders` WHERE user_id = ? AND payment_status = 'Cancelled'";
+            if ($stmt = $conn->prepare($sql)) {
+               $stmt->bind_param("i", $user_id);
+               $stmt->execute();
+               $result = $stmt->get_result();
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add JavaScript to handle form submission -->
-                <script>
-                document.getElementById('cancelBtn_<?= htmlspecialchars($fetch_orders['id']); ?>').addEventListener('click', function() {
-                    var orderId = <?= htmlspecialchars($fetch_orders['id']); ?>;
-                    var button = this;
-
-                    if (!button.disabled) {
-                        if (confirm('Are you sure you want to cancel this order?')) {
-                            fetch('cancel_process.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/x-www-form-urlencoded'
-                                },
-                                body: 'order_id=' + orderId
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    window.location.href = 'cancelled_orders.php';
-                                } else {
-                                    alert(data.message);
-                                }
-                            })
-                            .catch(error => alert('An error occurred: ' + error));
-                        }
-                    }
-                });
-                </script>
-
-<?php
+               if ($result->num_rows > 0) {
+                  while ($fetch_orders = $result->fetch_assoc()) {
+      ?>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="order-box">
+                  <div class="order-header">
+                     <h3>Order Details</h3>
+                  </div>
+                  <div class="order-info">
+                     <p><strong>Placed on:</strong> <span><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+                     <p><strong>Name:</strong> <span><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+                     <p><strong>Email:</strong> <span><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
+                     <p><strong>Phone Number:</strong> <span><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
+                     <p><strong>Address:</strong> <span><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
+                     <p><strong>Payment Method:</strong> <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
+                     <p><strong>Your orders:</strong> <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
+                     <p><strong>Total price:</strong> <span class="total-price">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+                     <p><strong>Order status:</strong> <span class="payment-status" style="color:<?= ($fetch_orders['payment_status'] == 'Cancelled') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+                     
+                     <!-- Display Product Images -->
+                     <?php if (!empty($fetch_orders['product_img_path'])): ?>
+                        <p><strong>Product Image:</strong></p>
+                        <img src="<?= htmlspecialchars($fetch_orders['product_img_path']); ?>" alt="Product Image" style="max-width: 300px; height: auto;">
+                     <?php endif; ?>
+                  </div>
+                  <div class="order-actions">
+                     <form method="post" action="cancel_process.php">
+                        <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
+                        <button type="submit" class="btn btn-outline-danger btn-sm fw-bolder">Cancel Order</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      <?php
             }
-        } else {
-            echo '<p class="empty">No orders found!</p>';
-        }
-        $stmt->close();
-    } else {
-        echo '<p class="error">Error preparing statement</p>';
-    }
-}
-?>
-</div>
+         } else {
+            echo '<p class="empty">No cancelled orders!</p>';
+         }
+               $stmt->close();
+         } else {
+            echo '<p class="error">Error preparing statement</p>';
+         }
+      }
+      ?>
+
+   </div>
+
 </section>
 
 
