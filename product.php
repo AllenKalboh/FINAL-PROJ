@@ -521,9 +521,9 @@ include ('session.php');
                                 <h3>Toner</h3>
                             </a>
 
-                            <a href="category.php?category=moisturizer" class="category-slide">
+                            <a href="category.php?category=cream" class="category-slide">
                                 <i class="fas fa-pump-soap"></i>
-                                <h3>Moisturizer</h3>
+                                <h3>Cream</h3>
                             </a>
 
                             <a href="category.php?category=sunscreen" class="category-slide">
@@ -531,7 +531,7 @@ include ('session.php');
                                 <h3>Sunscreen</h3>
                             </a>
 
-                            <a href="category.php?category=cleanser" class="category-slide">
+                            <a href="category.php?category=cleansing" class="category-slide">
                                 <i class="fas fa-soap"></i>
                                 <h3>Cleanser</h3>
                             </a>
