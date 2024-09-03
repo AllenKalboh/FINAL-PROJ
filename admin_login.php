@@ -1,5 +1,5 @@
 <?php
-
+session_start(); // Start the session
 
 // Hardcoded password
 define('ADMIN_PASSWORD', 'admin1234');
@@ -31,19 +31,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="admin_login.css">
+    <link rel="stylesheet" href="admin_loginss.css">
 </head>
 <body>
     <div class="login-form">
-        <h2>Admin Login</h2>
+    <div style="text-align: center;">
+  <img src="images/icons/logoo.png" alt="" style="width: 200px;">
+</div>
+        <h2>Admin</h2>
         <?php if (isset($error)): ?>
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
         <form method="post">
-
             <label for="username">Username:</label>
             <input type="text" name="username" placeholder="Enter Username" required>
-
             <label for="password">Password:</label>
             <input type="password" name="password" placeholder="Enter Password" required>
             <button type="submit" name="submit">Login</button>

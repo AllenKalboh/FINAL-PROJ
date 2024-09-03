@@ -89,7 +89,7 @@ $conn->close();
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
-        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Placed Orders</span></a>
         <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
         <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
     </div>
