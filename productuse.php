@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		 <br>
 		 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        Refund Policy
+        Product Use Policy
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Your guide to all things skincare.
+	"Guidelines for proper use and safety of our skincare products."
     </p>
 </section>
 	<!-- Header 
@@ -642,67 +642,54 @@ h1 {
 </style>
 
 <div class="container my-5 policy-content">
-	<div class=" text-effect" data-effect="fade-down">
-        <h1>Refund Policy</h1>
+    <div class="text-effect" data-effect="fade-down">
         <p>
-            At Skinline, our mission is to empower you with the best skincare products and knowledge. We stand by the
-            quality of our products and want you to feel confident in your purchase. However, we understand that there
-            may be times when a product doesn’t meet your expectations. This refund policy outlines how we handle
-            returns and refunds to ensure a seamless experience for you.
+            At Skinline, we are committed to providing high-quality skincare products that enhance and support your skin's health. This Product Use Policy outlines important guidelines to ensure that our products are used safely and effectively. By using our products, you agree to adhere to the recommendations and guidelines provided in this policy.
         </p>
 
-        <h2>Eligibility for Refunds</h2>
+        <h2>General Guidelines</h2>
         <ul>
-            <li><strong>• Time Frame:</strong> To be eligible for a refund, you must request it within 30 days of receiving your product.</li>
-            <li><strong>• Condition:</strong> The product must be unused, in its original packaging, and in the same condition that you received it. Opened or used products are not eligible for a refund due to hygiene and safety concerns.</li>
-            <li><strong>• Proof of Purchase:</strong> A receipt or proof of purchase is required to process your refund request.</li>
+            <li><strong>• Patch Testing:</strong> Before using any new product, we strongly recommend conducting a patch test. Apply a small amount of the product to a discreet area of skin, such as the inside of your wrist or behind your ear, and wait 24 hours. If no adverse reactions occur, the product is likely safe for regular use.</li>
+            <li><strong>• Usage Instructions:</strong> Always follow the usage instructions provided on the product label. Using a product in a manner inconsistent with its instructions may reduce its effectiveness and could lead to irritation or other adverse effects.</li>
+            <li><strong>• Consultation with a Dermatologist:</strong> If you have a pre-existing skin condition, are pregnant, nursing, or are using prescription skincare treatments, consult your dermatologist or healthcare provider before incorporating new products into your routine.</li>
         </ul>
 
-        <h2>Non-Refundable Items</h2>
+        <h2>Understanding Your Skin Type</h2>
         <ul>
-            <li>• Gift cards</li>
-            <li>• Downloadable products (e.g., eBooks, tutorials)</li>
-            <li>• Products purchased during promotional sales or with discount codes, unless the product is defective or damaged.</li>
+            <li><strong>• Product Selection:</strong> Select products that are appropriate for your skin type (e.g., oily, dry, combination, sensitive). Our website provides guidance on how to determine your skin type and select products that meet your specific needs.</li>
+            <li><strong>• Skin Reactions:</strong> Be aware that certain ingredients may cause reactions depending on your skin type. For example, those with sensitive skin may need to avoid products containing strong acids or fragrances.</li>
         </ul>
 
-        <h2>How to Request a Refund</h2>
+        <h2>Frequency of Use</h2>
         <ul>
-            <li><strong>• Contact Us:</strong> Begin by reaching out to our customer support team at <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a> with your order number and reason for the refund.</li>
-            <li><strong>• Return Authorization:</strong> If your refund request is approved, we will provide you with a Return Authorization (RA) number and instructions on how to return your product.</li>
-            <li><strong>• Shipping:</strong> You will be responsible for paying your own shipping costs for returning your item. Shipping costs are non-refundable.</li>
+            <li><strong>• Daily Use:</strong> Some products are designed for daily use, while others should only be used a few times per week. Overuse of certain products, especially those containing active ingredients like retinoids or exfoliating acids, can lead to irritation, redness, or peeling.</li>
+            <li><strong>• Layering Products:</strong> When using multiple products in your routine, apply them in the correct order—typically from lightest to heaviest consistency (e.g., toner, serum, moisturizer). Be cautious when layering products containing active ingredients to avoid potential irritation.</li>
         </ul>
 
-        <h2>Processing Your Refund</h2>
+        <h2>Product Storage</h2>
         <ul>
-            <li>• Once we receive your returned product, we will inspect it and notify you of the approval or rejection of your refund.</li>
-            <li>• If approved, your refund will be processed, and a credit will automatically be applied to your original method of payment within 7-10 business days.</li>
-            <li>• Please note that depending on your financial institution, it may take additional time for the refund to be reflected in your account.</li>
+            <li><strong>• Storage Conditions:</strong> Store products in a cool, dry place away from direct sunlight. Heat and light can degrade certain ingredients, reducing their effectiveness and potentially causing spoilage.</li>
+            <li><strong>• Shelf Life:</strong> Pay attention to the expiration date on your products. Using products beyond their shelf life may decrease their effectiveness and increase the risk of irritation or infection.</li>
         </ul>
 
-        <h2>Exchanges</h2>
-        <p>
-		We only replace items if they are defective or damaged. If you need to exchange a product for the same item,
-            please contact us at <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a>.
-        </p>
-
-        <h2>Late or Missing Refunds</h2>
+        <h2>Allergic Reactions and Discontinuation</h2>
         <ul>
-            <li>• If you haven’t received a refund yet, first check your bank account or credit card statement again.</li>
-            <li>• Then contact your bank or credit card company, as it may take some time before your refund is officially posted.</li>
-            <li>• If you’ve done all of this and still have not received your refund, please contact us at <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a>.</li>
+            <li><strong>• Signs of Allergic Reaction:</strong> If you experience signs of an allergic reaction—such as redness, swelling, itching, or hives—discontinue use immediately and consult a healthcare provider if symptoms persist.</li>
+            <li><strong>• Discontinuation of Use:</strong> If you decide to discontinue the use of a product, do so gradually, especially with products containing active ingredients like retinoids or acids, to avoid shocking your skin.</li>
+        </ul>
+
+        <h2>Responsibility and Disclaimer</h2>
+        <ul>
+            <li><strong>• Consumer Responsibility:</strong> Users are responsible for reading and understanding the product information, including ingredients and usage guidelines, before applying them to their skin.</li>
+            <li><strong>• Disclaimer:</strong> Skinline provides detailed product descriptions and usage recommendations, but individual results may vary. We are not liable for any adverse reactions or outcomes resulting from improper use of our products. Always consult with a healthcare professional for personalized advice.</li>
         </ul>
 
         <h2>Contact Information</h2>
         <p>
-		• For further assistance or any questions regarding your refund, feel free to contact our support team at:
+            If you have any questions or concerns about the use of our products, please contact our customer support team at <a href="mailto:skinlineest2024@gmail.com">skinlineest2024@gmail.com</a>. We are here to assist you and ensure that you have a positive experience with our skincare range.
         </p>
-        <ul>
-            <li><strong>• Email:</strong> <a href="mailto:•">skinlineest2024@gmail.com</a></li>
-            <li><strong>• Phone:</strong> 09925424712</li>
-            <li><strong>• Address:</strong>Trece Martires, Cavite</li>
-        </ul>
-		</div>
     </div>
+</div>
 	<!-- Content page -->
 
 
@@ -833,8 +820,8 @@ h1 {
 
 					<ul>
 					<li class="p-b-10">
-							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Refund Policy
+							<a href="productuse.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Product Use Policy
 							</a>
 						</li>
 					<li class="p-b-10">
