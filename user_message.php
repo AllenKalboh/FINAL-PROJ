@@ -92,7 +92,7 @@ $result = mysqli_query($conn, $query);
 </body>
 
 <style>
-    .user-message-item {
+.user-message-item {
     display: flex;
     align-items: center;
     padding: 10px;
