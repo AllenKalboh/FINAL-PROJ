@@ -52,139 +52,210 @@
     </div>
     <?php include('head.php'); ?>
 <link rel="stylesheet" href="comment-sec.css">
+<style>
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.comment-body {
+    flex: 1;
+}
+
+.rating {
+    margin-bottom: 5px; /* Space between stars and comment text */
+}
+
+.rating {
+    margin-top: 5px; /* Space between product name and rating */
+    text-align: left; /* Align stars to the left */
+}
+
+.star {
+    font-size: 20px; /* Adjust size as needed */
+    color: #d3d3d3; /* Gray color for empty stars */
+    margin: 0 1px; /* Spacing between stars */
+}
+
+.star.filled {
+    color: #ffcc00; /* Yellow color for filled stars */
+}
+
+
+</style>
 <body>
 
     <div class="container">
-    <section class="heading">
-        <div class="content-container">
-            <!-- Image Container -->
-            <div class="image-container">
-                <button class="nav-button left" onclick="prevImage()">&#10094;</button>
-                <div class="image-wrapper">
-                    <div class="main-image">
-                        <img id="mainImage" src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                    </div>
-                    <div class="sub-image">
-                        <?php if (!empty($fetch_product['img_01'])): ?>
-                            <img class="thumbnail" id="thumb1" src="<?= htmlspecialchars($img01Path); ?>" onclick="changeImage('<?= htmlspecialchars($img01Path); ?>', 'thumb1')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <?php endif; ?>
-                        <?php if (!empty($fetch_product['img_02'])): ?>
-                            <img class="thumbnail" id="thumb2" src="<?= htmlspecialchars($img02Path); ?>" onclick="changeImage('<?= htmlspecialchars($img02Path); ?>', 'thumb2')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <?php endif; ?>
-                        <?php if (!empty($fetch_product['img_03'])): ?>
-                            <img class="thumbnail" id="thumb3" src="<?= htmlspecialchars($img03Path); ?>" onclick="changeImage('<?= htmlspecialchars($img03Path); ?>', 'thumb3')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                        <?php endif; ?>
-                    </div>
+    <?php
+// Fetch product details and rating
+$product_stmt = $conn->prepare("
+    SELECT id, product_name, price, description, img_01, img_02, img_03, rating
+    FROM products
+    WHERE id = ?
+");
+$product_stmt->bind_param("i", $pid);
+$product_stmt->execute();
+$product_result = $product_stmt->get_result();
+$fetch_product = $product_result->fetch_assoc();
+$product_stmt->close();
+
+// Generate star rating HTML for product rating
+$rating = isset($fetch_product['rating']) ? (int) $fetch_product['rating'] : 0; // Convert rating to integer
+$stars = '';
+if ($rating > 0) {
+    for ($i = 1; $i <= 5; $i++) {
+        if ($i <= $rating) {
+            $stars .= '<span class="star filled">&#9733;</span>'; // Filled star
+        } else {
+            $stars .= '<span class="star">&#9733;</span>'; // Empty star
+        }
+    }
+}
+?>
+<section class="heading">
+    <div class="content-container">
+        <!-- Image Container -->
+        <div class="image-container">
+            <button class="nav-button left" onclick="prevImage()">&#10094;</button>
+            <div class="image-wrapper">
+                <div class="main-image">
+                    <img id="mainImage" src="<?= htmlspecialchars($img01Path); ?>" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
                 </div>
-                <button class="nav-button right" onclick="nextImage()">&#10095;</button>
+                <div class="sub-image">
+                    <?php if (!empty($fetch_product['img_01'])): ?>
+                        <img class="thumbnail" id="thumb1" src="<?= htmlspecialchars($img01Path); ?>" onclick="changeImage('<?= htmlspecialchars($img01Path); ?>', 'thumb1')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                    <?php endif; ?>
+                    <?php if (!empty($fetch_product['img_02'])): ?>
+                        <img class="thumbnail" id="thumb2" src="<?= htmlspecialchars($img02Path); ?>" onclick="changeImage('<?= htmlspecialchars($img02Path); ?>', 'thumb2')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                    <?php endif; ?>
+                    <?php if (!empty($fetch_product['img_03'])): ?>
+                        <img class="thumbnail" id="thumb3" src="<?= htmlspecialchars($img03Path); ?>" onclick="changeImage('<?= htmlspecialchars($img03Path); ?>', 'thumb3')" alt="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                    <?php endif; ?>
+                </div>
             </div>
-            
-            <!-- Content Container -->
-            <div class="details-container">
-                <div class="heading-title">
-                    <h1>Product View</h1>
+            <button class="nav-button right" onclick="nextImage()">&#10095;</button>
+        </div>
+
+        <!-- Content Container -->
+        <div class="details-container">
+            <div class="heading-title">
+                <h1>Product View</h1>
+            </div>
+            <div class="content">
+                <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
+                <div class="rating">
+                    <?php if ($rating > 0): ?>
+                        <?= $stars; ?>
+                    <?php else: ?>
+                        <p>No ratings yet.</p>
+                    <?php endif; ?>
                 </div>
-                <div class="content">
-                    <div class="name"><?= htmlspecialchars($fetch_product['product_name']); ?></div>
-                    <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?></div>
-                    <div class="details"><?= htmlspecialchars($fetch_product['description']); ?></div>
-                    
-                    <div class="add-to-cart">
-                        <form action="cart_action.php" method="POST">
-                            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-                            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" min="1" value="1" class="qty-inp">
-                            <button type="submit" name="add_to_cart">Add to Cart</button>
-                        </form>
-                    </div>
+                <div class="price"><span>₱</span><?= htmlspecialchars($fetch_product['price']); ?></div>
+                <div class="details"><?= htmlspecialchars($fetch_product['description']); ?></div>
+                
+                <div class="add-to-cart">
+                    <form action="cart_action.php" method="POST">
+                        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+                        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" class="qty-inp">
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </div>
 
-                    <div class="place-order">
-                        <form action="solo_checkout.php" method="POST">
-                            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-                            <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
-                            <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
-                            <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
-                            <button type="submit" name="place_order">Buy Now</button>
-                          
-
-
-                        </form>
-                        <div class="rating">
-        <form action="rate_product.php" method="POST">
-            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-            <input type="hidden" name="user_id" value="<?= htmlspecialchars($userId); ?>">
-            <label for="rating">Rate this product:</label>
-            <select name="rating" id="rating">
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="5">5 Stars</option>
-            </select>
-            <button type="submit">Submit Rating</button>
-        </form>
-    </div>
-                    </div>
+                <div class="place-order">
+                    <form action="solo_checkout.php" method="POST">
+                        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+                        <input type="hidden" name="name" value="<?= htmlspecialchars($fetch_product['product_name']); ?>">
+                        <input type="hidden" name="price" value="<?= htmlspecialchars($fetch_product['price']); ?>">
+                        <input type="hidden" name="quantity" value="1"> <!-- Single purchase quantity -->
+                        <button type="submit" name="place_order">Buy Now</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Comments Section -->
     <section class="comments-section">
-    <h2>Comments</h2>
+    <h2 class = "mb-3">Comments</h2>
     <div class="comments-list">
     <?php
-    // Fetch comments, user names, and profile pictures
-    $comment_stmt = $conn->prepare("
-        SELECT comments.id, comments.comment, comments.created_at, users.username, users.profile_picture, comments.user_id
-        FROM comments
-        JOIN users ON comments.user_id = users.user_id
-        WHERE comments.pid = ? 
-        ORDER BY comments.created_at DESC
-    ");
-    $comment_stmt->bind_param("i", $pid);
-    $comment_stmt->execute();
-    $comment_result = $comment_stmt->get_result();
-    
-    $currentUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+// Fetch comments, user names, profile pictures, and ratings
+$comment_stmt = $conn->prepare("
+    SELECT comments.id, comments.comment, comments.created_at, users.username, users.profile_picture, comments.user_id, user_ratings.rating
+    FROM comments
+    JOIN users ON comments.user_id = users.user_id
+    LEFT JOIN user_ratings ON comments.user_id = user_ratings.user_id
+    WHERE comments.pid = ? 
+    ORDER BY comments.created_at DESC
+");
+$comment_stmt->bind_param("i", $pid);
+$comment_stmt->execute();
+$comment_result = $comment_stmt->get_result();
 
-    if ($comment_result->num_rows > 0) {
-        while ($comment = $comment_result->fetch_assoc()) {
-            $profilePic = !empty($comment['profile_picture']) ? htmlspecialchars($comment['profile_picture']) : 'images/default-profile.png';
-            $isOwner = $currentUserId == $comment['user_id'];
-            echo '<div class="comment">';
-            echo '<div class="comment-header">';
-            echo '<img src="' . $profilePic . '" alt="Profile Picture" class="profile-pic">';
-            echo '<div class="comment-body">';
-            echo '<p><strong>' . htmlspecialchars($comment['username']) . ':</strong></p>';
-            echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
-            echo '<small class="comment-time">Posted on ' . htmlspecialchars($comment['created_at']) . '</small>';
-            if ($isOwner) {
-                echo '<button type="button" class="delete-button" data-comment-id="' . htmlspecialchars($comment['id']) . '">&#128465;</button>';
+$currentUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+
+if ($comment_result->num_rows > 0) {
+    while ($comment = $comment_result->fetch_assoc()) {
+        $profilePic = !empty($comment['profile_picture']) ? htmlspecialchars($comment['profile_picture']) : 'images/default-profile.png';
+        $rating = isset($comment['rating']) ? (int) $comment['rating'] : 0; // Convert rating to integer
+        $isOwner = $currentUserId == $comment['user_id'];
+
+        // Generate star rating HTML only if rating is available
+        $stars = '';
+        if ($rating > 0) {
+            for ($i = 1; $i <= 5; $i++) {
+                if ($i <= $rating) {
+                    $stars .= '<span class="star filled">&#9733;</span>'; // Filled star
+                } else {
+                    $stars .= '<span class="star">&#9733;</span>'; // Empty star
+                }
             }
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
         }
-    } else {
-        echo '<p>No comments yet.</p>';
-    }
 
-    $comment_stmt->close();
-    ?>
-    </div>
-    <div class="comment-form">
-        <h3>Leave a Comment:</h3>
-        <form action="submit_comment.php" method="POST">
-            <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea>
-            <button type="submit">Submit Comment</button>
-        </form>
-    </div>
+        echo '<div class="comment">';
+        echo '<div class="comment-header">';
+        echo '<img src="' . $profilePic . '" alt="Profile Picture" class="profile-pic">';
+        echo '<div class="comment-body">';
+        echo '<p><strong>' . htmlspecialchars($comment['username']) . '</strong></p>';
+        if ($rating > 0) { // Display stars only if rating exists
+            echo '<div class="rating">' . $stars . '</div>';
+        }
+        echo '<p>' . htmlspecialchars($comment['comment']) . '</p>';
+        echo '<small class="comment-time">Posted on ' . htmlspecialchars($comment['created_at']) . '</small>';
+        if ($isOwner) {
+            echo '<button type="button" class="delete-button" data-comment-id="' . htmlspecialchars($comment['id']) . '">&#128465;</button>';
+        }
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
+} else {
+    echo '<p>No comments yet.</p>';
+}
+
+$comment_stmt->close();
+?>
+</div>
+<div class="comment-form">
+    <h3>Leave a Comment:</h3>
+    <form action="submit_comment.php" method="POST">
+        <input type="hidden" name="pid" value="<?= htmlspecialchars($fetch_product['id']); ?>">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+</div>
 </section>
 
 <script>

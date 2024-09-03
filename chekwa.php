@@ -60,8 +60,11 @@ try {
     // Commit transaction
     $pdo->commit();
 
-    echo "<p>Order placed successfully! Thank you for your purchase.</p>";
-
+    // Output JavaScript for alert and redirection
+    echo '<script>
+        alert("Order placed successfully! Thank you for your purchase.");
+        window.location.href = "product.php";
+    </script>';
 } catch (PDOException $e) {
     if ($pdo->inTransaction()) {
         $pdo->rollBack();

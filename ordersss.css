@@ -1,0 +1,50 @@
+.order-box {
+    border: 1px solid #ddd; /* Light gray border for separation */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin-bottom: 20px; /* Space below each order box */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.order-header {
+    border-bottom: 2px solid #333; /* Dark bottom border for header */
+    margin-bottom: 10px; /* Space below the header */
+    padding-bottom: 10px; /* Padding at the bottom of the header */
+}
+
+.order-header h3 {
+    margin: 0; /* Remove default margin */
+    color: #333; /* Dark color for the header text */
+}
+
+.order-info p {
+    margin: 8px 0; /* Space between each information line */
+    font-size: 16px; /* Increase font size for readability */
+}
+
+.order-info strong {
+    color: #333; /* Dark color for labels */
+}
+
+.order-info span {
+    color: #555; /* Slightly lighter color for values */
+}
+
+.total-price {
+    font-weight: bold; /* Bold text for total price */
+}
+
+.payment-status {
+    font-weight: bold; /* Bold text for payment status */
+}
+
+.order-actions {
+    margin-top: 20px; /* Space above the actions section */
+}
+
+.btn {
+    border-radius: 5px; /* Rounded corners for the button */
+    padding: 10px 15px; /* Padding inside the button */
+    font-size: 14px; /* Adjust font size for button text */
+}
