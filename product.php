@@ -282,7 +282,7 @@ include ('session.php');
 		<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -414,7 +414,7 @@ include ('session.php');
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 				</li>
 
@@ -559,7 +559,7 @@ include ('session.php');
 			</div>
 		</div>
 	</div>
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
         Shop
     </h2>
@@ -876,8 +876,8 @@ if (isset($_SESSION['status'])) {
 
 					<ul>
 					<li class="p-b-10">
-							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Refund Policy
+							<a href="productuse.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Product Use Policy
 							</a>
 						</li>
 					<li class="p-b-10">

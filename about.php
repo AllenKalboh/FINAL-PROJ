@@ -54,7 +54,7 @@ if (isset($_SESSION['user_id'])) {
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-					Free shipping for standard order over ₱50.00
+					Standard shipping for standard order over ₱50.00
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -172,7 +172,7 @@ if (isset($_SESSION['user_id'])) {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 				</li>
 
@@ -682,9 +682,9 @@ if (isset($_SESSION['user_id'])) {
                 <p class="role text-effect" data-effect="zoom-in">Website Designer</p>
                 <p class="description text-effect" data-effect="fade-down">A creative designer responsible for crafting Skinline’s visuals and user interface. Excels in converting innovative ideas into functional, engaging designs that balance aesthetics with usability. Ensures a cohesive user experience, enhancing overall look & feel of the website.</p>
                 <div class="social-icons text-effect" data-effect="zoom-in">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:cedrique@skinline.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/cedrique.alvarez?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/zy_zeno?igsh=bnZvMDY3b2p2em85" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:czfranxz@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -864,8 +864,8 @@ if (isset($_SESSION['user_id'])) {
 
 					<ul>
 					<li class="p-b-10">
-							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Refund Policy
+							<a href="productuse.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Product Use Policy
 							</a>
 						</li>
 					<li class="p-b-10">

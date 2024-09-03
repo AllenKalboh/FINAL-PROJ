@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		 <br>
 		 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
-        Refund Policy
+        Privacy Policy
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Your guide to all things skincare.
+	"Your privacy, our priority."
     </p>
 </section>
 	<!-- Header 
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over ₱50.00
+						Standard shipping for standard order over ₱50.00
 					</div>
 				</li>
 
@@ -643,7 +643,6 @@ h1 {
 
 <div class="container my-5 policy-content">
 <div class=" text-effect" data-effect="fade-down">
-    <h1>Privacy Policy</h1>
     <p>
         At Skinline, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our website and services.
     </p>
@@ -829,8 +828,8 @@ h1 {
 
 					<ul>
 					<li class="p-b-10">
-							<a href="refund.php" class="stext-107 cl7 hov-cl1 trans-04">
-								Refund Policy
+							<a href="productuse.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Product Use Policy
 							</a>
 						</li>
 					<li class="p-b-10">
