@@ -46,89 +46,78 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h2>Register</h2>
-        <form method="post" action="">
-            <label for="username">Username:</label>
-            <input type="text" id="username" placeholder="Enter Username" name="username" required>
+        <form id="registrationForm" method="post" action="">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter Username" name="username" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter Email" name="email" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter Email" name="email" required>
 
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" placeholder="Enter First Name" name="first-name" required>
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" placeholder="Enter First Name" name="first-name" required>
 
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" placeholder="Enter Last Name" name="last-name" required>
 
-            <label for="password">Password:</label>
-            <div class="password-toggle">
-                <input type="password" id="password" placeholder="Enter Password" name="password" required
-                minlength="8" 
-                pattern="(?=.*[A-Z,a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
-                title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
-                <input type="checkbox" id="togglePassword" style="margin-bottom: 15px;"> Show Password
-            </div>
-
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender" required style="margin-bottom: 15px;">
-                <option value="" disabled selected>Select Your Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-            </select>
-
-            <label for="address">Address:</label>
-            <select id="address" name="address" required style="margin-bottom: 15px;">
-                <option value="" disabled selected>Select Your Location</option>
-                <option value="Metro Manila">Metro Manila</option>
-                <option value="Abra">Abra</option>
-                <option value="Apayao">Apayao</option>
-                <option value="Benguet">Benguet</option>
-                <option value="Ifugao">Ifugao</option>
-                <option value="Kalinga">Kalinga</option>
-                <option value="Mountain Province">Mountain Province</option>
-                <option value="Ilocos Norte">Ilocos Norte</option>
-                <option value="Ilocos Sur">Ilocos Sur</option>
-                <option value="La Union">La Union</option>
-                <option value="Pangasinan">Pangasinan</option>
-                <option value="Batanes">Batanes</option>
-                <option value="Cagayan">Cagayan</option>
-                <option value="Isabela">Isabela</option>
-                <option value="Nueva Vizcaya">Nueva Vizcaya</option>
-                <option value="Quirino">Quirino</option>
-                <option value="Aurora">Aurora</option>
-                <option value="Bataan">Bataan</option>
-                <option value="Bulacan">Bulacan</option>
-                <option value="Nueva Ecija">Nueva Ecija</option>
-                <option value="Pampanga">Pampanga</option>
-                <option value="Tarlac">Tarlac</option>
-                <option value="Zambales">Zambales</option>
-                <option value="Batangas">Batangas</option>
-                <option value="Cavite">Cavite</option>
-                <option value="Laguna">Laguna</option>
-                <option value="Quezon">Quezon</option>
-                <option value="Rizal">Rizal</option>
-                <option value="Marinduque">Marinduque</option>
-                <option value="Occidental Mindoro">Occidental Mindoro</option>
-                <option value="Oriental Mindoro">Oriental Mindoro</option>
-                <option value="Palawan">Palawan</option>
-                <option value="Romblon">Romblon</option>
-                <option value="Albay">Albay</option>
-                <option value="Camarines Norte">Camarines Norte</option>
-                <option value="Camarines Sur">Camarines Sur</option>
-                <option value="Catanduanes">Catanduanes</option>
-                <option value="Masbate">Masbate</option>
-                <option value="Sorsogon">Sorsogon</option>
-                <!-- Add more options as needed -->
-            </select>
-
-            <label for="phone-number">Phone Number:</label>
-            <input type="text" id="phonenumber" placeholder="Enter Phone Number" name="phoneNumber" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" required>
-
-            <button type="submit" class="reg-btn">Create Account</button>
-        </form>
-        <p class="login-here">Already have an account?</p>
-        <a href="login.php"><button type="button" class="login-btn">Login</button></a>
+    <label for="password">Password:</label>
+    <div class="password-toggle">
+        <input type="password" id="password" placeholder="Enter Password" name="password" required
+        minlength="8" 
+        pattern="(?=.*[A-Z,a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?'{}|<>]).{8,}"
+        title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character.">
+        <input type="checkbox" id="togglePassword" style="margin-bottom: 15px;"> Show Password
     </div>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required style="margin-bottom: 15px;">
+        <option value="" disabled selected>Select Your Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+    </select>
+
+    <label for="address">Address:</label>
+    <select id="address" name="address" required style="margin-bottom: 15px;">
+        <option value="" disabled selected>Select Your Location</option>
+        <option value="Cavite City">Cavite City</option>
+        <option value="Bacoor">Bacoor</option>
+        <option value="Dasmariñas">Dasmariñas</option>
+        <option value="Imus">Imus</option>
+        <option value="Tagaytay">Tagaytay</option>
+        <option value="Trece Martires">Trece Martires</option>
+        <option value="Amadeo">Amadeo</option>
+        <option value="Gen. Trias">Gen. Trias</option>
+        <option value="Kawit">Kawit</option>
+        <option value="Magallanes">Magallanes</option>
+        <option value="Maragondon">Maragondon</option>
+        <option value="Mendez">Mendez</option>
+        <option value="Naic">Naic</option>
+        <option value="Noveleta">Noveleta</option>
+        <option value="Rosario">Rosario</option>
+        <option value="Silang">Silang</option>
+        <option value="Tanza">Tanza</option>
+        <option value="Ternate">Ternate</option>
+        <option value="Ternate">Trece</option>
+    </select>
+
+    <label for="phone-number">Phone Number:</label>
+    <input type="text" id="phone-number" placeholder="Enter Phone Number" name="phoneNumber" required
+           pattern="\d{11}" title="Phone number must be exactly 11 digits."
+           oninput="validatePhoneNumber(this)">
+    
+    <button type="submit" class="reg-btn">Create Account</button>
+</form>
+<p class="login-here">Already have an account?</p>
+<a href="login.php"><button type="button" class="login-btn">Login</button></a>
+
+<script>
+function validatePhoneNumber(input) {
+    if (input.value.length > 11) {
+        input.value = input.value.slice(0, 11);
+    }
+}
+</script>
+
 </body>
 
 <script>
