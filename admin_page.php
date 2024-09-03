@@ -74,13 +74,8 @@ $conn->close();
 }
     </style>
     <div class="sidebar">
-<<<<<<< Updated upstream
-        <img src="images/inverted.png" alt="">
-        <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
-=======
     <img src="images/icons/logoinvert.png" alt="logosidebar" style="width:140px;">
     <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
->>>>>>> Stashed changes
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
