@@ -55,14 +55,14 @@ $result = mysqli_query($conn, $query);
             <div class="user-msg-box">
                 <div class="user-messages">
                 <?php while($row = mysqli_fetch_assoc($result)): ?>
-                        <div class="user-message-item">
-                            <img src="<?php echo $row['profile_picture']; ?>" alt="Profile Picture" class="profile-picture">
-                            <div class="user-info">
-                                <h5><?php echo $row['username']; ?></h5>
-                                <p>Email: <?php echo $row['email']; ?></p>
-                                <p>Message: <?php echo $row['userMessage']; ?></p>
-                            </div>
-                        </div>
+                    <div class="user-message-item">
+                        <img src="<?php echo empty($row['profile_picture']) ? 'images/icons/icon-user.png' : $row['profile_picture']; ?>" alt="Profile Picture" class="profile-picture">
+                        <div class="user-info">
+                        <h5><?php echo $row['username']; ?></h5>
+                        <p>Email: <?php echo $row['email']; ?></p>
+                        <p>Message: <?php echo $row['userMessage']; ?></p>
+                    </div>
+                </div>
                     <?php endwhile; ?>
                 </div>
             </div>
