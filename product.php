@@ -511,9 +511,9 @@ include ('session.php');
                   
                     <div class="category-slider">
                         <div class="category-wrapper">
-                            <a href="category.php?category=Serum" class="category-slide">
+                            <a href="category.php?category=Ampoule" class="category-slide">
                                 <i class="fas fa-vial"></i>
-                                <h3>Serum</h3>
+                                <h3>Ampoule</h3>
                             </a>
 
                             <a href="category.php?category=toner" class="category-slide">

@@ -55,22 +55,19 @@ if (isset($_SESSION['user_id'])) {
 </style>
 <body class="animsition">
 	
-	<!-- Header -->
-	<header class="header-v4">
+		<!-- Header -->
+		<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
+		<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+					Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs.
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
-						</a>
-
 						<?php
 							if (isset($_SESSION['username'])) {
 							
@@ -101,20 +98,22 @@ if (isset($_SESSION['user_id'])) {
 					<a href="index.php" class="logo">
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
+
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
+							<li >
 								<a href="index.php">Home</a>
+								
 							</li>
 
-							<li>
+							<li >
 								<a href="product.php">Shop</a>
 							</li>
 
 							
 
-							<li class="active-menu">
+							<li>
 								<a href="about.php">About</a>
 							</li>
 
@@ -126,20 +125,34 @@ if (isset($_SESSION['user_id'])) {
 								<a href="contact.php">Contact</a>
 							</li>
 
+
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
+					<div class="wrap-icon-header flex-w flex-r-m" style="padding-right: 20px">
 						
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
+  					   onmouseover="this.querySelector('a').style.color='grey'"
+     				   onmouseout="this.querySelector('a').style.color='black'">
+                     <a href="shoping-cart.php" style="color: black; transition: color 0.3s ease;">
+      				  <i class="zmdi zmdi-shopping-cart"></i>
+  					  </a>
+</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11js-show-cart">
-						<a href="shoping-cart.php" style="color:black;">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</a>
+						
 						</div>
 
-					
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-user"></i>
+						</a>
+
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px; padding-right: 20px; color: black; text-decoration: none;"
+						   onmouseover="this.firstElementChild.style.color='grey';" 
+   							onmouseout="this.firstElementChild.style.color='black';">
+    					<i class="fas fa-search"></i> 
+						</a>
 					</div>
 				</nav>
 			</div>	
@@ -148,25 +161,28 @@ if (isset($_SESSION['user_id'])) {
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
-			<a href="index.php" class="logo">
-						<img src="images/icons/logoo.png" alt="IMG-LOGO">
-					</a>
-					<a href="index.php" class="logo">
-						<img src="images/icons/log.png" alt="IMG-LOGO">
-					</a>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/logoo.png" alt="IMG-LOGO"></a>
+			</div>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO" style="width: 50px; height: 50px;"></a>
+			</div>
 
-					
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15" style="">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+					
 				</div>
+				
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
+				
+				<a href="shoping-cart.php" style="color: black; font-size: 28px" ">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
+						<a href="search_page.php" class="sc-btn" style="font-size: 25px; padding-left: 15px; color: black;">
+   								 <i class="fas fa-search"></i> 
+							</a> 	
 			</div>
 
 			<!-- Button show menu -->
@@ -183,7 +199,7 @@ if (isset($_SESSION['user_id'])) {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+						
 					</div>
 				</li>
 
@@ -193,27 +209,15 @@ if (isset($_SESSION['user_id'])) {
 							Help & FAQs
 						</a>
 
-						<?php
-							if (isset($_SESSION['username'])) {
-							
-						?>
-						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
+						<a href="profilepage.php" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
-						<?php
-						} else {
-						?>
-						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
-							Login
-						</a>
-						<?php
-						}
-						?>
+
 					</div>
 				</li>
 			</ul>
 
-			<ul class="main-menu-m">
+			<ul class="main-menu-m" style="background-color: #1c1c1c;">
 				<li>
 					<a href="index.php">Home</a>
 					<span class="arrow-main-menu-m">
@@ -225,6 +229,7 @@ if (isset($_SESSION['user_id'])) {
 					<a href="product.php">Shop</a>
 				</li>
 
+				
 				<li>
 					<a href="about.php">About</a>
 				</li>
@@ -232,12 +237,15 @@ if (isset($_SESSION['user_id'])) {
 				<li>
 					<a href="tutorial.php">SkinHub</a>
 				</li>
+				
 
 				<li>
-								<a href="contact.php">Contact</a>
-							</li>
+					<a href="contact.php">Contact</a>
+				</li>
 
 
+
+				
 			</ul>
 		</div>
 
@@ -248,12 +256,6 @@ if (isset($_SESSION['user_id'])) {
 					<img src="images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
 			</div>
 		</div>
 	</header>

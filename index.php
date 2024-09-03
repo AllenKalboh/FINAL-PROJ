@@ -60,7 +60,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 .banner-wrapper {
     position: relative;
     overflow: hidden;
-    height: 400px; /* Adjust height as needed */
+    height: 450px; /* Adjust height as needed */
 }
 
 .banner-slide {
@@ -444,8 +444,9 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
     opacity: 1; /* Fade in */
     transform: scale(1); /* Zoom to original size */
 }
-
-
+.card-body{
+	height: 120px;
+}
 
 </style>
 
@@ -712,7 +713,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg5 bor1 hov-btn1 p-lr-15 trans-04">
+								<a href="product.php" class="flex-c-m stext-101 cl0 size-101 bg5 bor1 hov-btn1 p-lr-15 trans-04 text-white">
 								Shop Now
 								</a>
 							</div>
@@ -1272,7 +1273,7 @@ include('db.php');  // Ensure this file establishes the database connection
 
 
 // SQL query to fetch products with rating greater than 4.4
-$sql = "SELECT id, product_name, img_01, rating FROM products WHERE rating > 4.2";
+$sql = "SELECT id, product_name, img_01, rating FROM products WHERE rating > 4.5";
 $result = $conn->query($sql);  // Use the $conn object from db.php
 ?>
 
@@ -1410,7 +1411,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=29" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									SKINLINE Light Cleansing Oil 200ml
 								</a>
 
@@ -1422,8 +1423,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								
 								</a>
 							</div>
 						</div>
@@ -1442,8 +1442,8 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								SKINLINE Centella Ampule Foam Gel Cleanser
+								<a href="http://localhost/final-proj/comment-sec.php?pid=27" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								SKINLINE Centella Ampoule Foam Gel Cleanser
 								</a>
 
 								<span class="stext-105 cl3">
@@ -1454,8 +1454,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1476,7 +1475,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=31" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								SKINLINE Tone Brightening Capsule Ampule 100ml	
 								</a>
 							
@@ -1487,8 +1486,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1505,7 +1503,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=40" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								SKINLINE Probio Cica Intensive Ampoule 50ml 
 								</a>
 
@@ -1516,8 +1514,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1538,7 +1535,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=45" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								SKINLINE Hyalu Cica Water Fit Sun Serum 50ml
 								</a>
 
@@ -1549,8 +1546,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1568,7 +1564,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=38" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								SKINLINE Tea Trica Soothing Sun Milk Sunscreen
 								</a>
 
@@ -1579,8 +1575,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1600,8 +1595,8 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								SKINLINE Hyalu Cica Hydrating Brightening Toner
+								<a href="http://localhost/final-proj/comment-sec.php?pid=17" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								SKINLINE Hyalu Cica Hydrating Toner 210ml
 																</a>
 
 								<span class="stext-105 cl3">
@@ -1611,8 +1606,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1630,7 +1624,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product.php" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="http://localhost/final-proj/comment-sec.php?pid=24" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 								SKINLINE Poremizing Clear Toner 210 ml
 								</a>
 
@@ -1641,8 +1635,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 							<div class="block2-txt-child2 flex-r p-t-3">
 								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									
 								</a>
 							</div>
 						</div>
@@ -1652,7 +1645,7 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="product.php" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+				<a href="product.php" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 text-secondary">
 					Load More
 				</a>
 			</div>
