@@ -61,19 +61,30 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>SL Admin Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="admin_page.css">
+    <link rel="stylesheet" href="admin_pagee.css">
+    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 </head>
 <body>
+    <style>
+        .sidebar a:hover {
+    background-color: #575757;
+}
+    </style>
     <div class="sidebar">
+<<<<<<< Updated upstream
         <img src="images/inverted.png" alt="">
         <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+=======
+    <img src="images/icons/logoinvert.png" alt="logosidebar" style="width:140px;">
+    <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
+>>>>>>> Stashed changes
         <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
         <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
         <a href="add_product.php"><i class="fas fa-plus"></i><span> Add Products</span></a>
-        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Placed Orders</span></a>
+        <a href="admin_orders.php"><i class="fas fa-receipt"></i><span> Orders Status</span></a>
         <a href="user_list.php"><i class="fas fa-users"></i><span> User List</span></a>
         <a href="admin_logout.php"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
     </div>

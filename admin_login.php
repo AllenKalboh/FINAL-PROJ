@@ -30,6 +30,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
     <title>Admin Login</title>
     <link rel="stylesheet" href="admin_loginss.css">
 </head>
@@ -39,6 +40,16 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
   <img src="images/icons/logoo.png" alt="" style="width: 200px;">
 </div>
         <h2>Admin</h2>
+=======
+    <title>SL Admin Login</title>
+    <link rel="stylesheet" href="admin_login.css">
+    <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
+</head>
+<body>
+    <div class="login-form">
+        
+        <h2>Admin Login</h2>
+>>>>>>> Stashed changes
         <?php if (isset($error)): ?>
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
