@@ -421,12 +421,6 @@ if ($user_id) {
                         <img src="<?= htmlspecialchars($fetch_orders['product_img_path']); ?>" alt="Product Image" style="max-width: 300px; height: auto;">
                      <?php endif; ?>
                   </div>
-                  <div class="order-actions">
-                     <form method="post" action="cancel_process.php">
-                        <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
-                        <button type="submit" class="btn btn-outline-danger btn-sm fw-bolder">Cancel Order</button>
-                     </form>
-                  </div>
                </div>
             </div>
          </div>
