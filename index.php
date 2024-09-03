@@ -56,11 +56,11 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 	
 <style>
 
-/*events */
+/* Events */
 .banner-wrapper {
     position: relative;
     overflow: hidden;
-    height: 400px;
+    height: 400px; /* Adjust height as needed */
 }
 
 .banner-slide {
@@ -79,13 +79,12 @@ $result = $conn->query($sql);  // Use the $conn object from db.php
 }
 
 .banner-wrapper:hover .banner-slide {
-    animation: slideShow 5s infinite
+    animation: slideShow 6s infinite;
 }
 
 @keyframes slideShow {
     0% { transform: translateX(0); }
-    33.33% { transform: translateX(-100%); }
-    66.66% { transform: translateX(-200%); }
+    50% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
 }
 /*
@@ -473,17 +472,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
-			<div class="top-bar">
+		<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+					Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs.
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
-						</a>
-
 						<?php
 							if (isset($_SESSION['username'])) {
 							
@@ -504,8 +501,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				</div>
 			</div>
 
-					
-
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
 					
@@ -522,11 +517,14 @@ document.addEventListener('DOMContentLoaded', function() {
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="index.php">Home</a>
+								
 							</li>
-							
-							<li>
+
+							<li >
 								<a href="product.php">Shop</a>
 							</li>
+
+							
 
 							<li>
 								<a href="about.php">About</a>
@@ -535,46 +533,69 @@ document.addEventListener('DOMContentLoaded', function() {
 							<li>
 								<a href="tutorial.php">SkinHub</a>
 							</li>
-				
+
 							<li>
 								<a href="contact.php">Contact</a>
 							</li>
 
-							
 
 							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
-				<div class="wrap-icon-header flex-w flex-r-m">
-					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php" style="color:black;">
-							<i class="zmdi zmdi-shopping-cart"></i>
+					<div class="wrap-icon-header flex-w flex-r-m">
+						
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
+  					   onmouseover="this.querySelector('a').style.color='grey'"
+     				   onmouseout="this.querySelector('a').style.color='black'">
+                     <a href="shoping-cart.php" style="color: black; transition: color 0.3s ease;">
+        <i class="zmdi zmdi-shopping-cart"></i>
+    </a>
+</div>
+
+						
+						</div>
+
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-user"></i>
 						</a>
-					</div>	
+
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px;">
+   								 <i class="fas fa-search"></i> 
+							</a> 
 					</div>
-		<!-- helpfaq.html -->
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/logupp.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="images/icons/logoo.png" alt="IMG-LOGO"></a>
 			</div>
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO" style="width: 50px; height: 50px;"></a>
 			</div>
+
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+					
 				</div>
+				
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10  js-show-cart">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
+				
+				<a href="shoping-cart.php" style="color: black; font-size: 28px">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px;">
+   								 <i class="fas fa-search"></i> 
+							</a> 
 
-				</a>
+				
 			</div>
 
 			<!-- Button show menu -->
@@ -591,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+						
 					</div>
 				</li>
 
@@ -604,14 +625,14 @@ document.addEventListener('DOMContentLoaded', function() {
 						<a href="profilepage.php" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
+
 					</div>
 				</li>
 			</ul>
 
-			<ul class="main-menu-m">
+			<ul class="main-menu-m" style="background-color: #1c1c1c;">
 				<li>
 					<a href="index.php">Home</a>
-					
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
@@ -621,6 +642,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<a href="product.php">Shop</a>
 				</li>
 
+				
 				<li>
 					<a href="about.php">About</a>
 				</li>
@@ -628,12 +650,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				<li>
 					<a href="tutorial.php">SkinHub</a>
 				</li>
+				
 
 				<li>
 					<a href="contact.php">Contact</a>
 				</li>
 
 
+
+				
 			</ul>
 		</div>
 
@@ -644,12 +669,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					<img src="images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
 			</div>
 		</div>
 	</header>
@@ -666,74 +685,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
 					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -930,27 +881,27 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb1.jpg" class="img-fluid banner-image" alt="Banner 1">
-                        <img src="image2.jpg" class="img-fluid banner-image" alt="Banner 2">
-                        <img src="image3.jpg" class="img-fluid banner-image" alt="Banner 3">
+                        <img src="images/Banners/be1.jpg" class="img-fluid banner-image" alt="Banner 1">
+                        <img src="images/Banners/be2.jpg" class="img-fluid banner-image" alt="Banner 2">
+                       
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb2.jpg" class="img-fluid banner-image" alt="Banner 4">
-                        <img src="image5.jpg" class="img-fluid banner-image" alt="Banner 5">
-                        <img src="image6.jpg" class="img-fluid banner-image" alt="Banner 6">
+                        <img src="images/Banners/be3.jpg" class="img-fluid banner-image" alt="Banner 4">
+                        <img src="images/Banners/be4.jpg" class="img-fluid banner-image" alt="Banner 5">
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="banner-wrapper">
                     <div class="banner-slide">
-                        <img src="images/Banners/eventsb3.jpg" class="img-fluid banner-image" alt="Banner 7">
-                        <img src="image8.jpg" class="img-fluid banner-image" alt="Banner 8">
-                        <img src="image9.jpg" class="img-fluid banner-image" alt="Banner 9">
+                        <img src="images/Banners/be5.jpg" class="img-fluid banner-image" alt="Banner 7">
+                        <img src="images/Banners/be6.jpg" class="img-fluid banner-image" alt="Banner 8">
+                        
                     </div>
                 </div>
             </div>

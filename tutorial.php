@@ -126,6 +126,39 @@ include ('session.php');
     }
 }
 
+
+/* Events */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Adjust height as needed */
+}
+
+.banner-slide {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-image {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.banner-wrapper:hover .banner-image {
+    transform: scale(1);
+}
+
+.banner-wrapper:hover .banner-slide {
+    animation: slideShow 10s infinite;
+}
+
+@keyframes slideShow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
 /* video banners*/
 .video-banner {
     background-color: #686D76;
@@ -296,22 +329,19 @@ include ('session.php');
 
 </style>
 	
-	<!-- Header -->
-	<header class="header-v4">
+		<!-- Header -->
+		<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
+		<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-					Standard shipping for standard order over ₱50.00
+					Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs.
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
-						</a>
-
 						<?php
 							if (isset($_SESSION['username'])) {
 							
@@ -342,70 +372,91 @@ include ('session.php');
 					<a href="index.php" class="logo">
 						<img src="images/icons/log.png" alt="IMG-LOGO">
 					</a>
+
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
+							<li >
 								<a href="index.php">Home</a>
-							</li>
-
-							<li>
-								<a href="product.php">Shop</a>
+								
 							</li>
 
 							<li >
+								<a href="product.php">Shop</a>
+							</li>
+
+							
+
+							<li>
 								<a href="about.php">About</a>
 							</li>
 
 							<li class="active-menu">
-								<a href="tutorial.php"> SkinHub</a>
+								<a href="tutorial.php">SkinHub</a>
 							</li>
 
 							<li>
 								<a href="contact.php">Contact</a>
 							</li>
 
+
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
+					<div class="wrap-icon-header flex-w flex-r-m" style="padding-right: 20px">
 						
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
+  					   onmouseover="this.querySelector('a').style.color='grey'"
+     				   onmouseout="this.querySelector('a').style.color='black'">
+                     <a href="shoping-cart.php" style="color: black; transition: color 0.3s ease;">
+      				  <i class="zmdi zmdi-shopping-cart"></i>
+  					  </a>
+</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11js-show-cart">
-						<a href="shoping-cart.php" style="color:black;">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</a>
+						
 						</div>
 
-					
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-user"></i>
+						</a>
+
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px; padding-right: 20px; color: black; text-decoration: none;"
+						   onmouseover="this.firstElementChild.style.color='grey';" 
+   							onmouseout="this.firstElementChild.style.color='black';">
+    					<i class="fas fa-search"></i> 
+						</a>
 					</div>
 				</nav>
 			</div>	
 		</div>
 
-
-		
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
-			<a href="index.php" class="logo">
-						<img src="images/icons/logoo.png" alt="IMG-LOGO">
-					</a>
-					<a href="index.php" class="logo">
-						<img src="images/icons/log.png" alt="IMG-LOGO">
-					</a>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/logoo.png" alt="IMG-LOGO"></a>
+			</div>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO" style="width: 50px; height: 50px;"></a>
+			</div>
+
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15" style="">
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+					
 				</div>
+				
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
+				
+				<a href="shoping-cart.php" style="color: black; font-size: 28px">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
+						<a href="search_page.php" class="sc-btn" style="font-size: 25px; padding-left: 15px; color: black;">
+   								 <i class="fas fa-search"></i> 
+							</a> 	
 			</div>
 
 			<!-- Button show menu -->
@@ -422,7 +473,7 @@ include ('session.php');
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+						
 					</div>
 				</li>
 
@@ -431,27 +482,16 @@ include ('session.php');
 						<a href="Helpfaqs.php" class="flex-c-m p-lr-10 trans-04">
 							Help & FAQs
 						</a>
-						<?php
-							if (isset($_SESSION['username'])) {
-							
-						?>
-						<a href="profilepage.php" class="flex-c-m trans-04 p-lr-25">
+
+						<a href="profilepage.php" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
-						<?php
-						} else {
-						?>
-						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
-							Login
-						</a>
-						<?php
-						}
-						?>
+
 					</div>
 				</li>
 			</ul>
 
-			<ul class="main-menu-m">
+			<ul class="main-menu-m" style="background-color: #1c1c1c;">
 				<li>
 					<a href="index.php">Home</a>
 					<span class="arrow-main-menu-m">
@@ -463,6 +503,7 @@ include ('session.php');
 					<a href="product.php">Shop</a>
 				</li>
 
+				
 				<li>
 					<a href="about.php">About</a>
 				</li>
@@ -470,12 +511,15 @@ include ('session.php');
 				<li>
 					<a href="tutorial.php">SkinHub</a>
 				</li>
+				
 
 				<li>
-								<a href="contact.php">Contact</a>
-							</li>
+					<a href="contact.php">Contact</a>
+				</li>
 
 
+
+				
 			</ul>
 		</div>
 
@@ -486,100 +530,9 @@ include ('session.php');
 					<img src="images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
 			</div>
 		</div>
 	</header>
-
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 	<!-- Title page -->
@@ -688,6 +641,11 @@ include ('session.php');
 
 
 
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 	<!-- Content page -->
 	 
 	<section class="bg0 p-t-75 p-b-6 text-justify">
@@ -1094,6 +1052,60 @@ Tune in for a quick tutorial and learn the perfect amount for sun protection.   
 
 
 	</section>	
+
+
+	<div class="container" style="padding-top:100px;">
+        <div class="depota">
+            <div class="row align-items-center mb-4">
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+                <div class="col-auto text-effect" data-effect="zoom-in">
+                    <h3 class="b1 text-center mb-0">Skincare Process Guide</h3>
+					<p class=" text-secondary">You can refer to these guides or not its up to you, unleash your creativity!</p>
+					
+                </div>
+				
+                <div class="col text-effect" data-effect="fade-down">
+                    <hr class="border-dark" style="border-width: 4px;">
+                </div>
+            </div>
+        </div>
+	</div>
+	<br>
+<!-- Events n promotions -->
+<div class="container" style="padding-top:20px;">
+<!--<p class="text-secondary text-effect" data-effect="zoom-in" style="text-align: center;">You can refer to these guides or not its up to you, unleash your creativity!</p>-->
+        <div class="row">
+            <div class="col-md-4 text-effect" data-effect="zoom-in">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724143353821.jpg" class="img-fluid banner-image" alt="Banner 1">
+                        <img src="01Product Lines Imgs/01Process Recos/1724142005824.jpg" class="img-fluid banner-image" alt="Banner 2">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-effect" data-effect="zoom-in">
+                <div class="banner-wrapper">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724128966237.jpg" class="img-fluid banner-image" alt="Banner 4">
+                        <img src="01Product Lines Imgs/01Process Recos/IMG_20240820_170353_922.jpg" class="img-fluid banner-image" alt="Banner 5">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner-wrapper text-effect" data-effect="zoom-in">
+                    <div class="banner-slide">
+                        <img src="01Product Lines Imgs/01Process Recos/1724140733093.jpg" class="img-fluid banner-image" alt="Banner 7">
+                        <img src="01Product Lines Imgs/01Process Recos/1723810362204.jpg" class="img-fluid banner-image" alt="Banner 8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<div class="container-fluid video-banner text-effect" data-effect="fade-down">
     <div class="container">
