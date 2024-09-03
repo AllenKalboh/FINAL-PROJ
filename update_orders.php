@@ -7,15 +7,23 @@ include('db.php');
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Order Status</title>
+   <title>SL Admin - Order Status</title>
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
    <link rel="stylesheet" href="update_orders.css">
+   <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
 </head>
 <body>
-
+<style>
+    .sidebar {
+    background-color: #232323;
+}
+.sidebar a:hover {
+    background-color: #575757;
+}
+</style>
 <div class="sidebar">
-    <img src="images/inverted.png" alt="">
+<img src="images/icons/logoinvert.png" alt="logosidebar" style="width:140px;">
     <a href="admin_page.php"><i class="fas fa-home"></i><span> Home</span></a>
     <a href="user_message.php"><i class="fas fa-envelope"></i><span> Messages</span></a>
     <a href="product_list.php"><i class="fas fa-list-ul"></i><span> Products List</span></a>
@@ -96,7 +104,6 @@ include('db.php');
          <select name="status" required>
             <option value="Pending" <?= $fetch_orders['payment_status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
             <option value="Shipping" <?= $fetch_orders['payment_status'] == 'Shipping' ? 'selected' : ''; ?>>Shipping</option>
-            <option value="Processing" <?= $fetch_orders['payment_status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
             <option value="Completed" <?= $fetch_orders['payment_status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
             <option value="Cancelled" <?= $fetch_orders['payment_status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
          </select>

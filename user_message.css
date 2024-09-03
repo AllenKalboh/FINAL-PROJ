@@ -18,7 +18,7 @@ body {
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #343a40;
+    background-color: #232323;
     padding-top: 20px;
     position: fixed;
     top: 0;
@@ -34,9 +34,7 @@ body {
     transition: 0.3s;
 }
 
-.sidebar a:hover {
-    background-color: #495057;
-}
+
 
 .sidebar img {
     display: block; /* Make the image a block element */

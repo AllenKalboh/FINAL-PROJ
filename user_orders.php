@@ -77,6 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                 }
 
                 $message[] = 'Order placed successfully!';
+
+// Output JavaScript for message display and redirection
+echo "<script>
+        alert('Order placed successfully!');
+        setTimeout(function() {
+            window.location.href = 'orders.php';
+        }, 500); // Redirect after 1 second
+      </script>";
                 $_SESSION['grand_total'] = 0; // Reset grand total after placing the order
                 unset($_SESSION['product_names']); // Clear product names from session
             } else {
