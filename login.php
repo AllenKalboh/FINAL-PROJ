@@ -11,9 +11,14 @@ include('session.php');
     <title>SkinLine Login</title>
     <link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="loginsss.css">
+    <link rel="stylesheet" href="loginss.css">
     
 </head>
+<style> 
+
+
+
+</style>
 <body>
 
 <!--  Login Form  -->
@@ -31,11 +36,15 @@ include('session.php');
             <form action="session.php" method="post">
                 <input type="text" id="username" name="username" placeholder="Enter Username" required>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
+    
                 <button type="submit" class="log-in-btn">Login</button>
+                
                 <p> Don't have an account? </p>
+              
                 
             </form>
             <a href="register.php"> <button type="submit" class="reg-btn">Register</button> </a>
+            <a href="request-reset.php" class="reset">  Forgot Password </a>
         </div>
     </div>
 </body>
