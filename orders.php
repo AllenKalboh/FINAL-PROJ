@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="orders.css">
+	<link rel="stylesheet" href="orderss.css">
 <!--===============================================================================================-->
 </head>
 
@@ -152,10 +152,6 @@ if (isset($_SESSION['user_id'])) {
 
 							<li>
 								<a href="contact.php">Contact</a>
-							</li>
-							<li >
-								<a href="cancelled-orders.php" style="margin-left: 28vw;">
-									Cancelled Orders</a>
 							</li>
 
 						</ul>
@@ -266,13 +262,18 @@ if (isset($_SESSION['user_id'])) {
 				</li>
 
 				<li>
-					<a href="contact.php">Contact</a>
-				</li>
-				
+								<a href="contact.php">Contact</a>
+							</li>
 
 
 			</ul>
 		</div>
+
+		<div class="cancel-box" style="margin-left: 700px; margin-top: 10px;">
+               <ul>
+                  <li class="cancelled"><a href="cancelled-orders.php" style="color: #333;">Cancelled Orders</a></li>
+               </ul>
+            </div>
 
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -418,7 +419,7 @@ if (isset($_SESSION['user_id'])) {
         }, 500); // Adjust the delay as needed
     });
 });
-	</script>
+	 </script>
 
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/Banners/bannerbg1.png');">
     <h2 class="ltext-105 cl0 txt-center text-effect" data-effect="fade-down">
@@ -432,59 +433,51 @@ if (isset($_SESSION['user_id'])) {
 
 
 	<!-- Content page -->
-<section class="order">
-<h1 class="heading text-center my-2">Placed Orders</h1>
-<div class="box-container">
+	<section class="order">
+   <h1 class="heading text-center my-2">Placed Orders</h1>
+   <div class="box-container">
 
-    <?php
-        if ($user_id == '') {
+      <?php
+         if ($user_id == '') {
             echo '<p class="empty">Please login to see your orders</p>';
-        } else {
+         } else {
             // Prepare and execute the query
             $sql = "SELECT * FROM `orders` WHERE user_id = ?";
-        	if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("i", $user_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            if ($stmt = $conn->prepare($sql)) {
+               $stmt->bind_param("i", $user_id);
+               $stmt->execute();
+               $result = $stmt->get_result();
 
-            if ($result->num_rows > 0) {
-                while ($fetch_orders = $result->fetch_assoc()) {
-    ?>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="box border">
-					<p class="fw-bold">Placed on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
-					<p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
-					<p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
-					<p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
-					<p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
-					<p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
-					<p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
-					<p class="fw-bold">Your Shipping Fee: <span class="fw-normal">₱50.00</span></p>
-                    <p class="fw-bold">Raw price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
-					<p style="color: red;">- - - - - - - - - - - - - - - - </p>
+               if ($result->num_rows > 0) {
+                  while ($fetch_orders = $result->fetch_assoc()) {
+      ?>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="box border">
+                  <p class="fw-bold">Placed on: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['placed_on']); ?></span></p>
+                  <p class="fw-bold">Name: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['name']); ?></span></p>
+                  <p class="fw-bold">Email: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['email']); ?></span></p>
+                  <p class="fw-bold">Phone Number: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['number']); ?></span></p>
+                  <p class="fw-bold">Address: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['address']); ?></span></p>
+                  <p class="fw-bold">Payment Method: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
+                  <p class="fw-bold">Your orders: <span class="fw-normal"><?= htmlspecialchars($fetch_orders['product_names']); ?>,</span></p>
+                  <p class="fw-bold">Total price: <span class="fw-normal">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
+                  <p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+                  
+                  <form method="post" action="cancel_process.php">
+                     <input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
+                     <button type="submit" class="btn btn-outline-danger btn-sm ms-5 fw-bolder">Cancel Order</button>
+                  </form>
 
-					<?php 
-					// Assuming the shipping fee is a fixed value of 50.00
-					$shipping_fee = 50.00; 
-					$total_with_shipping = $fetch_orders['total_price'] + $shipping_fee;
-					?>
 
-					<p class="fw-bold">Total price (with shipping): <span class="fw-normal">₱<?= htmlspecialchars(number_format($total_with_shipping, 2)); ?></span></p>
-					<p class="fw-bold">Payment status: <span class="fw-normal" style="color:<?= ($fetch_orders['payment_status'] == 'pending') ? 'red' : 'green'; ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
-					<br>
-					<form method="post" action="cancel_process.php">
-						<input type="hidden" name="order_id" value="<?= htmlspecialchars($fetch_orders['id']); ?>">
-						<button type="submit" class="btn btn-outline-danger btn-sm ms-5 fw-bolder">Cancel Order</button>
-					</form>
 
-					<p>---------------------------------</p>
-				</div>
-			</div>
-		</div>
-	</div>
-    
+                  <p>---------------------------------</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      
       <?php
             }
          } else {
