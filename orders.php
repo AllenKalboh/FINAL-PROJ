@@ -49,7 +49,9 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <style>
-
+.hidden {
+    display: none;
+}
 </style>
 <body class="animsition">
 	
@@ -256,90 +258,7 @@ if (isset($_SESSION['user_id'])) {
 		</div>
 	</header>
 
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 
 	<!-- Title page -->
@@ -397,7 +316,7 @@ if (isset($_SESSION['user_id'])) {
 
 
 	<!-- Content page -->
-	<?php
+<?php
 if ($user_id == '') {
     echo '<p class="empty">Please login to see your orders</p>';
 } else {
@@ -410,11 +329,14 @@ if ($user_id == '') {
 
         if ($result->num_rows > 0) {
             while ($fetch_orders = $result->fetch_assoc()) {
+                // Get the payment status
+                $payment_status = $fetch_orders['payment_status'];
+                $order_id = $fetch_orders['id']; // Assuming the order ID is stored in 'id'
 ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="order-box">
+                            <div class="order-box mt-4">
                                 <div class="order-header">
                                     <h3>Order Details</h3>
                                 </div>
@@ -427,7 +349,7 @@ if ($user_id == '') {
                                     <p><strong>Payment Method:</strong> <span><?= htmlspecialchars($fetch_orders['method']); ?></span></p>
                                     <p><strong>Your orders:</strong> <span><?= htmlspecialchars($fetch_orders['product_names']); ?></span></p>
                                     <p><strong>Total price:</strong> <span class="total-price">₱<?= htmlspecialchars($fetch_orders['total_price']); ?></span></p>
-                                    <p><strong>Payment status:</strong> <span class="payment-status" style="color:<?= ($fetch_orders['payment_status'] == 'Cancelled') ? 'red' : ($fetch_orders['payment_status'] == 'Shipping' ? 'orange' : 'green'); ?>"><?= htmlspecialchars($fetch_orders['payment_status']); ?></span></p>
+                                    <p><strong>Payment status:</strong> <span class="payment-status" style="color:<?= ($payment_status == 'Cancelled') ? 'red' : ($payment_status == 'Shipping' ? 'orange' : 'green'); ?>"><?= htmlspecialchars($payment_status); ?></span></p>
                                     
                                     <!-- Display Product Images -->
                                     <?php if (!empty($fetch_orders['product_img_path'])): ?>
@@ -436,12 +358,13 @@ if ($user_id == '') {
                                     <?php endif; ?>
                                 </div>
                                 <div class="order-actions">
-								<button class="btn btn-outline-danger btn-sm fw-bolder" 
-        id="cancelBtn_<?= htmlspecialchars($fetch_orders['id']); ?>" 
-        <?= ($fetch_orders['payment_status'] == 'Shipping') ? 'disabled' : '' ?>>
-    <?= ($fetch_orders['payment_status'] == 'Shipping') ? 'Order Shipping - Cancel Not Available' : 'Cancel Order' ?>
-</button>
-
+                                    <!-- Conditionally hide or disable the button based on payment status -->
+                                    <button class="btn btn-outline-danger btn-sm fw-bolder 
+                                    <?php echo ($payment_status === 'Completed' || $payment_status === 'Cancelled') ? 'hidden' : ''; ?>" 
+                                    id="cancelBtn_<?= htmlspecialchars($order_id); ?>" 
+                                    <?= ($payment_status === 'Shipping') ? 'disabled' : '' ?>>
+                                        <?= ($payment_status === 'Shipping') ? 'Order Shipping - Cancel Not Available' : 'Cancel Order' ?>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -450,8 +373,8 @@ if ($user_id == '') {
 
                 <!-- Add JavaScript to handle form submission -->
                 <script>
-                document.getElementById('cancelBtn_<?= htmlspecialchars($fetch_orders['id']); ?>').addEventListener('click', function() {
-                    var orderId = <?= htmlspecialchars($fetch_orders['id']); ?>;
+                document.getElementById('cancelBtn_<?= htmlspecialchars($order_id); ?>').addEventListener('click', function() {
+                    var orderId = <?= htmlspecialchars($order_id); ?>;
                     var button = this;
 
                     if (!button.disabled) {
@@ -489,9 +412,6 @@ if ($user_id == '') {
 }
 ?>
 </div>
-</section>
-
-
 
    <!-- Back to top -->
    <div class="btn-back-to-top" id="myBtn">

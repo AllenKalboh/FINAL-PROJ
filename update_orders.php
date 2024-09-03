@@ -96,7 +96,6 @@ include('db.php');
          <select name="status" required>
             <option value="Pending" <?= $fetch_orders['payment_status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
             <option value="Shipping" <?= $fetch_orders['payment_status'] == 'Shipping' ? 'selected' : ''; ?>>Shipping</option>
-            <option value="Processing" <?= $fetch_orders['payment_status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
             <option value="Completed" <?= $fetch_orders['payment_status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
             <option value="Cancelled" <?= $fetch_orders['payment_status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
          </select>
