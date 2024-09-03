@@ -168,21 +168,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</style>
 <body class="animsition">
 	
-	<!-- Header -->
-	<header class="header-v4">
+		<!-- Header -->
+		<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
+		<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-					Standard shipping for standard order over ₱50.00
+					Welcome to Skinline, your ultimate destination for skincare solutions tailored to meet diverse needs.
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="Helpfaqs.php" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
-						</a>
 						<?php
 							if (isset($_SESSION['username'])) {
 							
@@ -217,40 +215,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
+							<li >
 								<a href="index.php">Home</a>
 								
 							</li>
 
-							<li>
+							<li >
 								<a href="product.php">Shop</a>
 							</li>
+
+							
 
 							<li>
 								<a href="about.php">About</a>
 							</li>
 
-							<li>
+							<li class="active-menu">
 								<a href="tutorial.php">SkinHub</a>
 							</li>
 
-							<li class="active-menu">
+							<li>
 								<a href="contact.php">Contact</a>
 							</li>
 
+
+							
 						</ul>
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
+					<div class="wrap-icon-header flex-w flex-r-m" style="padding-right: 20px">
 						
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
+  					   onmouseover="this.querySelector('a').style.color='grey'"
+     				   onmouseout="this.querySelector('a').style.color='black'">
+                     <a href="shoping-cart.php" style="color: black; transition: color 0.3s ease;">
+      				  <i class="zmdi zmdi-shopping-cart"></i>
+  					  </a>
+</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-						<a href="shoping-cart.php" style="color:black;">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</a>
+						
 						</div>
 
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+							<i class="zmdi zmdi-user"></i>
+						</a>
+
+						<a href="search_page.php" class="sc-btn" style="font-size: 28px; padding-right: 20px; color: black; text-decoration: none;"
+						   onmouseover="this.firstElementChild.style.color='grey';" 
+   							onmouseout="this.firstElementChild.style.color='black';">
+    					<i class="fas fa-search"></i> 
+						</a>
 					</div>
 				</nav>
 			</div>	
@@ -259,22 +274,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
-			<a href="index.php" class="logo">
-						<img src="images/icons/logoo.png" alt="IMG-LOGO">
-					</a>
-					<a href="index.php" class="logo">
-						<img src="images/icons/log.png" alt="IMG-LOGO">
-					</a>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/logoo.png" alt="IMG-LOGO"></a>
+			</div>
+			<div class="logo-mobile">
+				<a href="index.php"><img src="images/icons/log.png" alt="IMG-LOGO" style="width: 50px; height: 50px;"></a>
+			</div>
+
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				
-
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
-					<i class="zmdi zmdi-shopping-cart"></i>
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15" style="">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+					
 				</div>
+				
 
 				
+				<a href="shoping-cart.php" style="color: black; font-size: 28px" ">
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</a>
+						<a href="search_page.php" class="sc-btn" style="font-size: 25px; padding-left: 15px; color: black;">
+   								 <i class="fas fa-search"></i> 
+							</a> 	
 			</div>
 
 			<!-- Button show menu -->
@@ -291,7 +312,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Standard shipping for standard order over ₱50.00
+						
 					</div>
 				</li>
 
@@ -301,14 +322,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="profilepage.php" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
+
 					</div>
 				</li>
 			</ul>
 
-			<ul class="main-menu-m">
+			<ul class="main-menu-m" style="background-color: #1c1c1c;">
 				<li>
 					<a href="index.php">Home</a>
 					<span class="arrow-main-menu-m">
@@ -320,105 +342,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					<a href="product.php">Shop</a>
 				</li>
 
+				
 				<li>
 					<a href="about.php">About</a>
 				</li>
 
 				<li>
-								<a href="tutorial.php">SkinHub</a>
-							</li>
+					<a href="tutorial.php">SkinHub</a>
+				</li>
+				
 
 				<li>
 					<a href="contact.php">Contact</a>
 				</li>
+
+
+
+				
 			</ul>
 		</div>
-	</header>
 
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="images/icons/icon-close2.png" alt="CLOSE">
+				</button>
 
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-					1</a>
-
-						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 
 
 	<!-- Title page -->
