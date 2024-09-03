@@ -11,7 +11,8 @@ include ('session.php');
 	
 	
 <!--===============================================================================================-->	
-<link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>
+<link rel="icon" type="image/png" href="images/icons/logoinvert.png"/>\
+]
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->

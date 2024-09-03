@@ -202,7 +202,7 @@ include ('session.php');
 .pagination a.active {
     font-weight: bold;
     color: white;
-    background-color: pink;
+    background-color: gray;
 }
 
 .pagination a.disabled {

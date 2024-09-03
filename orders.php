@@ -391,7 +391,7 @@ if (isset($_SESSION['user_id'])) {
     </h2>
     <br>
     <p class="txt-white cl0 txt-center text-effect" data-effect="zoom-in">
-        Know more your orders here!
+        Know more about your orders here!
     </p>
 </section>	
 
